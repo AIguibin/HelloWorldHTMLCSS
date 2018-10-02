@@ -1,0 +1,88 @@
+body {
+    margin: 0 0;
+}
+
+#father {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.head {
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    background: aqua;
+}
+
+.left {
+    width: 200px;
+    height: 600px;
+    position: absolute;
+    left: 0;
+    top: 30px;
+    text-align: center;
+    background: #ccc;
+}
+
+.center {
+    height: 600px;
+    margin: 0 400px 0 200px;
+    background: #ffff00;
+}
+
+.right {
+    width: 400px;
+    height: 600px;
+    /*float: right;*/
+    position: absolute;
+    right: 0;
+    top: 30px;
+    text-align: center;
+    background: aquamarine;
+}
+
+.footer {
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    background: aqua;
+}
+.sunHeadLeft {
+    width: 30%;
+    height: 30px;
+    float: left;
+    text-align: center;
+    background: crimson;
+}
+
+.sunHeadRight {
+    width: 70%;
+    height: 30px;
+    float: right;
+    text-align: center;
+    background: cornflowerblue;
+}
+
+.sunLeft {
+    width: 40%;
+    height: 530px;
+    float: left;
+    text-align: center;
+    background: darkgreen;
+}
+
+.sunRight {
+    width: 50%;
+    height: 530px;
+    float: right;
+    text-align: center;
+    background: chocolate;
+}
+
+.sunFoot {
+    width: 100%;
+    height: 40px;
+    float: left;
+    text-align: center;
+    background-color: darkblue;
+}

@@ -1,0 +1,28 @@
+*{
+    margin: 0 ;
+    padding: 0 ;
+}
+.menu{
+    width: 10%;
+    height: 650px;
+    background: cadetblue;
+}
+ul{
+    list-style: none;/*去掉list列表默认佛号*/
+    width: 100%;
+}
+a{
+    text-decoration: none;/*去掉下划线*/
+    display: block;/*修改行标签为块级元素*/
+    height: 30px;
+    line-height: 30px;/*设置与高度一样使其文字垂直居中*/
+    width: 100%;
+    background: #cccccc;
+    margin-bottom: 2px;/*元素的下外边距*/
+    text-indent: 10px;/*文字缩进10像素*/
+}
+a:hover{
+    background-color: cyan;
+    color: #ffffff;
+
+}
