@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基本标签</title>
+</head>
+<body>
+<div class="div">
+    <h3>我是h123456标题标签，独占一行</h3>
+    <p>我是p标签，独占一行</p>
+    <strong>1、我是加粗标签strong，不占一行</strong>
+    <em>2、我是em斜体标签，不占一行</em>
+    <strong><em>3、我是先加粗在斜体的加粗斜体</em></strong>
+    <del>&nbsp;&nbsp;4、我是删除标签，不占一行</del>
+    <address>河南信阳市浉河区市委招待办公室，
+        地址address标签，独占一行</address>
+    <span>我是span标签，不占一行，尤其重要跟div权重一样</span>
+    <p>有序列表ol，与无序列表ul，他们一般不会独立使用，都会与li一起使用，也就是里边都会套列表项li，否则就没有意义了</p>
+    <p>有序列表如下</p>
+    <ol>
+        <li>我是ol有序列表，默认type="1"，type表示li前边的序号</li>
+        <li>type的取值只能是"1","a","A"....可以看出无论什么类型都必须是第一个</li>
+        <li>还有一个属性是reversed，表示正序逆序</li>
+    </ol>
+    <p>无序列表如下</p>
+    <ul>
+        <li>我是ul无序列表，默认type="circle",type表示li前边的标识符，可以去掉</li>
+        <li>type的取值基本上都是标识，因为是无序所以去掉也无所谓，但是如果是有序的去掉就很没有意义了</li>
+        <li>
+            <ol>
+                <li>嵌套有序列表</li>
+                <li>形成二级列表</li>
+            </ol></li>
+        <li>父子结构嵌套了解一下</li>
+    </ul>
+    <p>图片标签img，src属性1、网上url||本地相对路径</p>
+    <p>alt属性是图片占位符，当图片加载失败时候的显示类容</p>
+    <p>title图片提示符，当鼠标移动到图片上显示图片信息</p>
+    <div>
+        <img src="3.jpg" alt="当图片加载失败时候的显示类容" title="">
+    </div>
+    <div>
+        <p>a标签有href属性：链接地址https://www.baidu.com或者是 锚点位置，例如点击目录，滚动到相应的位置</p>
+        <p>target属性“_blank”,在新的标签打开</p>
+        <a href="https://www.baidu.com">这里显示链接内容，点击跳转至百度首页,这里可以是任何类容，可以是图片，可以是按钮，可以是列表</a>
+            <br>a标签不占一行，可用换行符br换行<br>
+        <a href="tel:13623820228">如果是在手机端href="tel:13623820228"的格式，就会调用手机功能拨打电话</a>
+        <br><a href="mailto:邮箱地址">如果href="mailto:邮箱地址"的格式，就会调用发邮件</a>
+        <br><a href="javascript:js代码">如果href="javascript:js代码"的格式，就会执行js代码</a>
+    </div>
+    <p>form表单</p>
+    <form action="" method="" >form表单标签如同列表标签一样必须嵌套其他标签，否则就如现在一样只能当做p标签使用，显示文字独占一行在form表单里最多的是input标签</form>
+    <form action="">form标签本身最主要的两个属性是action：请求地址，另一个就是method：请求方式也就是HTTP请求方式</form>
+
+
+</div>
+</body>
+</html>
