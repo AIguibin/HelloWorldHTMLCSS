@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>基本标签</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 <div class="div">
@@ -13,7 +20,8 @@
     <strong><em>3、我是先加粗在斜体的加粗斜体</em></strong>
     <del>&nbsp;&nbsp;4、我是删除标签，不占一行</del>
     <address>河南信阳市浉河区市委招待办公室，
-        地址address标签，独占一行</address>
+        地址address标签，独占一行
+    </address>
     <span>我是span标签，不占一行，尤其重要跟div权重一样</span>
     <p>有序列表ol，与无序列表ul，他们一般不会独立使用，都会与li一起使用，也就是里边都会套列表项li，否则就没有意义了</p>
     <p>有序列表如下</p>
@@ -30,7 +38,8 @@
             <ol>
                 <li>嵌套有序列表</li>
                 <li>形成二级列表</li>
-            </ol></li>
+            </ol>
+        </li>
         <li>父子结构嵌套了解一下</li>
     </ul>
     <p>图片标签img，src属性1、网上url||本地相对路径</p>
@@ -43,16 +52,111 @@
         <p>a标签有href属性：链接地址https://www.baidu.com或者是 锚点位置，例如点击目录，滚动到相应的位置</p>
         <p>target属性“_blank”,在新的标签打开</p>
         <a href="https://www.baidu.com">这里显示链接内容，点击跳转至百度首页,这里可以是任何类容，可以是图片，可以是按钮，可以是列表</a>
-            <br>a标签不占一行，可用换行符br换行<br>
+        <br>a标签不占一行，可用换行符br换行<br>
         <a href="tel:13623820228">如果是在手机端href="tel:13623820228"的格式，就会调用手机功能拨打电话</a>
         <br><a href="mailto:邮箱地址">如果href="mailto:邮箱地址"的格式，就会调用发邮件</a>
         <br><a href="javascript:js代码">如果href="javascript:js代码"的格式，就会执行js代码</a>
     </div>
     <p>form表单</p>
-    <form action="" method="" >form表单标签如同列表标签一样必须嵌套其他标签，否则就如现在一样只能当做p标签使用，显示文字独占一行在form表单里最多的是input标签</form>
+    <form action="" method="">form表单标签如同列表标签一样必须嵌套其他标签，否则就如现在一样只能当做p标签使用，显示文字独占一行在form表单里最多的是input标签</form>
     <form action="">form标签本身最主要的两个属性是action：请求地址，另一个就是method：请求方式也就是HTTP请求方式</form>
-
-
+    <form action="" method="get">
+        <p>用P标签分块，里边嵌套span，input如下</p>
+        <p>input，标签有两个重要的属性，type取值text，password都是输入框，<br>
+            取值button为按钮等同于button标签，取值为submit为提交按钮,name<br>
+            属性的取值是输入框内容value的名字key的值，也就是input属性的key，<br>
+            通过name属性值可以取到input输入框的输入内容
+        </p>
+        <p>
+            <span>用户名：</span>
+            <input type="text" name="username" value="请输入用户名"
+                   style="color: #999;"
+                   onfocus="if (this.value=='请输入用户名') {
+                       this.value='';
+                       this.style.color='#424242';
+                   }" onblur="if (this.value==''){
+                       this.value='请输入用户名';
+                       this.style.color='#999';
+                   } ">
+        </p>
+        <p>
+            <span>密 码：</span>
+            <input type="password>" name="password" value="请输入密码">
+        </p>
+        <p>
+            其他type单选框 <br>
+        <p>type=radio单选框时候注意属性name的值hah必须是一样的才能是真的单选框，
+            <br>属性value的值才是真的单选框的值1，2，3其中一个，因为是单选框嘛</p>
+        <input type="radio" name="hah" value="1">单选一
+        <input type="radio" name="hah" value="2">单选二
+        <input type="radio" name="hah" value="3">单选三
+        <br>提交按钮 <input type="submit">
+        </p>
+        <p>
+            其他type多选框 <br>
+        <hr>
+        分隔符hr
+        <p>type=""多选框基本上跟单选框是一样的性质只不过是多选，name属性值都相同，提交的时候同一个name的value值有多个</p>
+        <input type="checkbox" name="duo" value="7">多选一
+        <input type="checkbox" name="duo" value="8">多选二
+        <input type="checkbox" name="duo" value="9">多选三
+        </p>
+        <br> type=button <input type="button" value="按钮登录">
+        <br>
+        <hr>
+        <br>
+        <p>form表单的另一种表单下拉框</p>
+        <p>下拉框的特点属性名是name的值，属性值就是下拉框显示的值，但是如果你在option中添加value属性，那么下拉框的属性值就是value属性的值</p>
+        <h4>请选择省份</h4>
+        <select name="xialakuang" id="">
+            <option value="">河南</option>
+            <option value="湖北">湖北</option>
+            <option>江西</option>
+        </select>
+        <p>该下拉框第一个是空值，第二个是湖北，第三个也有值江西</p>
+    </form>
+    <p>请看该form表单提交的数据</p>
+    <p>?username=请输入用户名&password=请输入密码&hah=3&duo=8&duo=9&xialakuang=</p>
 </div>
+<div>
+    <p>最后一个常用标签就是table，只有一个table是没有用的也是必须嵌套，默认会有tbody标签，可以不用写</p>
+    <p>然后就是必须有tr表示行，有几对tr就有几行，然后就是在tr中嵌套td，每一对tr也就是每一行中有多少对td，就表示该一行有多少列</p>
+    <table style="margin: 0 auto" border="2">
+        <tbody>
+        <tr>
+            <th>主流浏览器</th>
+            <th>外壳shell</th>
+            <th>内核名称</th>
+            <td>我是这一行中的第四列，th标签就是带有样式的td标签</td>
+        <tr>
+            <td>IE</td>
+            <td>外观</td>
+            <td>trident</td>
+        </tr>
+        <tr>
+            <td>Firefox</td>
+            <td>外观</td>
+            <td>gecko</td>
+        </tr>
+        <tr>
+            <td>Chrome</td>
+            <td>外观</td>
+            <td>webkit/blink</td>
+        </tr>
+        <tr>
+            <td>Safari</td>
+            <td>外观</td>
+            <td>webkit</td>
+        </tr>
+        <tr>
+            <td>Opera</td>
+            <td>外观</td>
+            <td>presto</td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+<br><br><br>
 </body>
 </html>

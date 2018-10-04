@@ -1,0 +1,164 @@
+#resultsShowDivId .resultsShowSpanClass {
+    font-size: 20px; /*设置的是字体高度*/
+    font-weight: bold; /*字体粗细*/
+    font-style: italic; /*斜体*/
+    font-family: cursive; /*字体*/
+    color: #f00; /*颜色，开发中都要使用16进制的颜色代码*/
+}
+
+#resultsShowDivId #showBorderDivId-a {
+    width: 100px; /*这里的宽高指的是该div的宽高*/
+    height: 100px; /**/
+    border: 2px solid black; /*边框的粗细，样式，颜色*/
+    margin-top: 5px; /*该div的上外边距*/
+    margin-bottom: 10px; /*该div的下外边距*/
+}
+
+#resultsShowDivId #showBorderDivId-b {
+    width: 0px; /**/
+    height: 0px; /**/
+    border: 60px solid black; /*边框样式取值自行百度，有实线，虚线，点线*/
+    margin-top: 5px; /**/
+    margin-bottom: 10px; /**/
+}
+
+#resultsShowDivId #showBorderDivId-c {
+    width: 180px; /**/
+    height: 80px; /**/
+    border-width: 10px; /*把上边的拆解写法边框宽度*/
+    border-style: solid; /*边框样式*/
+    border-color: black; /*边框颜色*/
+    border-top-color: red; /*上边框颜色*/
+    border-right-color: darkblue; /*右*/
+    border-bottom-color: green; /*下*/
+    border-left-color: coral; /*左*/
+    border-right-width: 40px; /*右边框加框*/
+    border-bottom-width: 30px; /*下边框加框*/
+    margin-top: 5px; /**/
+    margin-bottom: 10px; /**/
+}
+
+#resultsShowDivId #showBorderDivId-d {
+    width: 50px; /**/
+    height: 50px; /**/
+    border: 50px solid black; /**/
+    border-top-color: red; /**/
+    border-right-color: darkblue; /**/
+    border-bottom-color: green; /**/
+    border-left-color: coral; /**/
+    margin-top: 5px; /**/
+    margin-bottom: 10px; /**/
+}
+
+#resultsShowDivId #showBorderDivId-e {
+    width: 0px;
+    height: 0px;
+    border: 60px solid black;
+    border-top-color: red;
+    border-right-color: darkblue;
+    border-bottom-color: green;
+    border-left-color: coral;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#resultsShowDivId #showBorderDivId-f {
+    width: 0px;
+    height: 0px;
+    border: 60px solid black;
+    border-top-color: transparent; /*透明色，背景是什么色就是什么色*/
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: darkred;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#textId {
+    border: 1px solid black;
+    text-align: left; /*文字对齐方式*/
+    height: 60px; /*div的高度*/
+    line-height: 20px; /*行高，国际惯例：如果想要单行文本垂直居中，就把此属性设置为该元素的高度一样*/
+    text-indent: 2em; /*文本缩进 1em=1 乘以font-size 所以无论font-size多大就相对缩进2个em*/
+}
+
+#textLine .span-a {
+    text-decoration: overline; /*给文字加上划线*/
+}
+
+#textLine .span-b {
+    text-decoration: line-through; /*给文字加上删除线*/
+}
+
+#textLine .del-b {
+    text-decoration: none; /*给文字去掉删除线*/
+}
+
+#textLine .span-c {
+    color: rgb(0, 0, 238); /*模拟a>标签的颜色*/
+    text-decoration: underline; /*给文字加下划线*/
+    cursor: pointer;
+    /*模拟a>标签的鼠标一上去的图标，
+    改变鼠标一上去的样式,样式大概几十种
+    用的时候再查*/
+}
+
+.weiLeiDiv a {
+    /*
+      由于像span a标签这样的行元素无法设置宽高
+      要想设置宽高必须把行元素改为块元素
+      就用display: inline-block;
+      单行文字垂直居中需要设置两个属性值相同
+      height: 30px;标签高度
+      line-height: 30px;单行文本高度
+      文本左右居中： text-align: center;
+      */
+    display: inline-block;
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    text-decoration: none; /*去掉原始的下划线*/
+}
+
+.weiLeiDiv [href]:hover {
+    /*
+    首先是类选择器选择到这个div，
+    然后通过[属性名]格式一样的属性选择器，
+    选择到该div子级中的href属性，
+    再然后通过（冒号）:hover(伪类名)形成鼠标hover
+    的时候选择到该元素,进而设置其属性
+    */
+    border-radius: 20px; /*边框border的另一个属性，边框圆角写法*/
+    background-color: #f40; /*淘宝红*/
+    text-decoration: underline; /*再次加上下划线*/
+    color: cornsilk; /*设置字体颜色*/
+    font-size: 18px; /*设置字体大小*/
+    font-weight: bold; /*设置字体权重*/
+    font-family: cursive; /*设置字体样式*/
+}
+
+.image {
+    border: 0;
+    width: 300px;
+    /*margin-left: -6px;*/
+}
+#heMoXing {
+    width: 400px;
+    height: 400px;
+    position:relative;
+    display: none;
+    background-color: coral;
+}
+
+#heMoXing .hezi {
+    position: absolute;
+    margin: auto;
+    padding: 50px;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    border: 20px solid red;
+    background-color: green;
+}
