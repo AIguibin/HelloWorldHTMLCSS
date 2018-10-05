@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>position</title>
+    <link rel="stylesheet" href="positionElement.css">
+</head>
+<body>
+<div>
+    <p>初始化文档</p>
+    <xmp>
+        *{
+        margin: 0;
+        padding: 0;
+        }
+        xmp{
+        margin: 5px;
+        border: 1px solid red;
+        background-color: darkgray;
+        }
+        body{
+        border: 10px solid red;
+        /*
+        body默认的margin有8像素
+        所以初始化是很有作用的
+        初始化还有一个作用就是
+        自定义标签，例如
+        em{}
+        给其设定一些属性
+        就把原来的em改成另一个我们想要的标签了
+        */
+        }
+        .demo1,.demo2,.demo3{
+        text-align: center;
+        line-height: 100px;
+        }
+    </xmp>
+</div>
+<div>
+    <p>未定位的div</p>
+    <xmp>
+        .demo1{
+        width: 100px;
+        height: 100px;
+        background-color: crimson;
+        }
+    </xmp>
+    <div class="demo1">demo1</div>
+</div>
+<div>
+    <p>如果想要定位一个元素，无论是什么样子的定位必须加上属性position定位
+    加上以后然并卵，因为要定位必须需要left，top或right，bottom
+    代码如下：</p>
+    <xmp>
+        .demo2{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: crimson;
+        }
+    </xmp>
+    <div class="demo2">demo2</div>
+    <p>再次看看demo3如下代码加上left，top的定位</p>
+    <p>重点：left是左边框距左，right是右边框距右，上下同理</p>
+    <xmp>
+        .demo3{
+        position: absolute;
+        left: 50px;
+        top: 30px;
+        width: 100px;
+        height: 100px;
+        background-color: crimson;
+        }
+    </xmp>
+    <div class="demo3">demo3</div>
+    <p>到目前为止，我们可以看见demo1正常排版显示</p>
+    <p>demo2却盖住了demo3的p标签内容，其实这主要是因为demo2的position：absolute，
+        让其具有绝对定位的属性，使其脱离了原来的层，跑去上一层了，
+        就无法把demo3的剩余内容向下撑开，也就是脱离了原来位置进行定位让出了原来的位置
+        所以demo3的东西就去了原来的位置，所以划重点，因为demo2只有position属性，只是脱离了原来的层
+        然而由于没有设定left，top等属性并没有位置移动，还在原来的位置只是脱离了原来的层
+    </p>
+    <p>更加离奇的是demo3的div直接跑到了demo1的更上边去了，
+        其实也是同样的道理就是因为position：absolute属性使其元素脱离了盒模型原来的层，
+        也是实说定位就是层模型 盒模型是在同一层，层模型就像立交桥，同一个坐标点却又不在同一层，
+        所有就没有问题了，然而demo3又有left350px，top100px，那它就会去找最近的具有定位属性的父级进行定位
+        如果没有那么久相对于文档进行定位，而dom的内容是body标签，也就相对于图上最外层带有红色的body进行定位
+        距离body，左边350px，上边100PX,也就是现在demo3所在的位置
+    </p>
+</div>
+<br>
+<p>为了体现层模型请看下边两个demo5，demo6,我们为了绝对定位absolute，把这两个div嵌套到demo4的div中
+    让demo4作为他们最近的有定位的父级元素,所以我们要给demo4的div加上position的属性，
+    但是我们不能设置成absolute了，因为那样的话，demo4就会脱离原来的位置原来的层，
+    去找demo4的最近的有定位的父级，那就是body了，所以引出position的另一个值relative相对定位，
+    就是保留原来的位置相对自己原来的位置定位，所以我们只要设置器有这个定位的属性，但是不要设置left，top属性值
+    就跟demo2类似，就会停留在原来的位置，惟一的区别就是，demo2脱离的了原来的位置，原来的层，空出了原来的位置，
+    而demo4虽然脱离了原来的层但是原来的位置还在，就像人灵魂出窍，肉身还在那里还占着位置，所以所谓的相对定位，就是相对
+    自己原来的位置定位，就是灵魂是相对肉身去定位的。所以请看如下css样式，设置demo4的position：relative，
+    并且为了看的清楚我们给demo4加上边框,设置其宽高
+</p>
+<xmp>
+    .demo4{
+    border: 2px solid black;
+    position: relative;
+    width: 100%;
+    height: 300px;
+    }
+</xmp>
+<p>万事准备就绪，我们就开始定位demo5，demo6，设置其属性为position：absolute，给其width，height，left，top的属性值
+    为了看的更明白层模型我们给demo6设置透明度opacity: 0.7;，然后让其与demo6 部分重叠，来看层级结构
+</p>
+<xmp>
+    .demo5{
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    background-color: green;
+    position: absolute;
+    left: 50px;
+    top: 20px;
+
+    }
+    .demo6{
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    line-height: 200px;
+    background-color: #f40;
+    position: absolute;
+    left: 100px;
+    top: 50px;
+    opacity: 0.7;
+    }
+</xmp>
+<div class="demo4">
+    <div class="demo5">demo5</div>
+    <div class="demo6">demo6</div>
+</div>
+<br>
+<p>上边简单的用了一下position的相对定位relative,下边初始化一个</p>
+<xmp>
+    .demo7{
+    margin-left: 200px;
+    margin-top: 50px;
+    width: 200px;
+    height: 200px;
+    background-color: orangered;
+    }
+    .demo8{
+    width: 100px;
+    height: 100px;
+    background-color: greenyellow;
+    }
+    .demo9{
+    width: 50px;
+    height: 50px;
+    background-color: #00ffff;
+    }
+</xmp>
+<div class="demo4">
+    <div class="demo7">
+        <div class="demo8">
+            <div class="demo9"></div>
+        </div>
+    </div>
+</div>
+<p>在原来的基础上我们给最小的demo-c加上相对定位属性
+并且设置left，top属性值，然后我们发现demo-c真的不是去找
+最近的有定位的父级去定位的，他的父级demo-b没有position属性
+他的爷爷也没有position属性，最近的就是祖爷爷demo4有定位属性
+然而demo-c的位置只是相对于demo9原来的位置也就是demo-c初始的位置定位
+</p>
+<xmp>
+    .demo-relativeLeft{
+    width: 50px;
+    height: 50px;
+    background-color: #00ffff;
+    position: relative;
+    left: 100px;
+    top: 100px;
+    }
+</xmp>
+<div class="demo4">
+    <div class="demo7">
+        <div class="demo8">
+            <div class="demo-relativeLeft"></div>
+        </div>
+    </div>
+</div>
+<p>这里我们来验证demo9的属性为absolute时demo9的位置在哪里</p>
+<xmp>
+    .demo-absolute{
+    width: 50px;
+    height: 50px;
+    background-color: #00ffff;
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    }
+</xmp>
+<div class="demo4">
+    <div class="demo7">
+        <div class="demo8">
+            <div class="demo-absolute"></div>
+        </div>
+    </div>
+</div>
+<p>这里我们来验证demo9的属性为relative时demo9的right,bottom位置在哪里</p>
+<xmp>
+    .demo-relativeRight{
+    width: 50px;
+    height: 50px;
+    background-color: #00ffff;
+    position: relative;
+    right: 50px;
+    bottom: -150px;
+    }
+</xmp>
+<div class="demo4">
+    <div class="demo7">
+        <div class="demo8">
+            <div class="demo-relativeRight"></div>
+        </div>
+    </div>
+</div>
+<p>
+    <strong>
+    总结定位经验：我们到底什么时候用absolute，什么时候relative，这就要从我们定位的基本常识中找
+    那就是定位就是要找参照物然后才能根据参照物去定位自己，absolute是根据最近有定位属性的父级
+    来当参照物，relative是根据自己初始化的位置来当参照物，且保留原来的位置进行定位所以我们常
+    常在工作中去先使用relative 来定义一个参照物，然后用absolute来配合使用定位。这样能减少对
+    后续的定位耦合性。
+    </strong>
+</p>
+<br>
+<p>其实position还有个属性fixed，相对窗口视窗定位</p>
+<p>我们直接做一个在窗口中央做一个奥运五环放在视窗中央且无论你怎么下拉改变窗口大小</p>
+<xmp>
+    .olympic{
+    position: fixed;/*相对视窗定位*/
+    left: 50%;/*自适应距左位置*/
+    top: 50%;/*自适应距右位置*/
+    /*
+    由于定位中是按照左顶点定位
+    所以必须回归到该块元素的中心点
+    其实上两句与下两句共同组成国际惯用
+    垂直与水平位置同事居中的写法
+    */
+    margin-left: -191px;/*向左回归该元素宽度一半*/
+    margin-top: -95px;/*向上回归该元素的高度一半*/
+    width: 382px;
+    height: 190px;
+    /*border: 2px solid red;*/
+    }
+    .circle1,
+    .circle2,
+    .circle3,
+    .circle4,
+    .circle5{
+    width: 100px;
+    height: 100px;
+    /*
+    给一个块元素加上边框
+    然后给内容加上50%的圆角
+    就会把边框变成正圆
+    */
+    border: 10px solid black;
+    border-radius: 50%;
+    position: absolute;
+    }
+    .circle1{
+    border-color: red;
+    left: 0;
+    top: 0;
+    }
+    .circle2{
+    border-color: green;
+    left: 130px;
+    top: 0;
+    /*
+    层模型中的层级，
+    也是坐标系的三维坐标中的Z轴
+    默认0，数值越大越在上层
+    */
+    z-index: 2;
+    }
+    .circle3{
+    border-color: yellow;
+    left: 260px;
+    top: 0;
+    }
+    .circle4{
+    border-color: blue;
+    left: 65px;
+    top: 70px;
+    }
+    .circle5{
+    border-color: purple;
+    left: 195px;
+    top: 70px;
+    z-index: 3;
+    }
+</xmp>
+<div class="olympic">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+    <div class="circle5"></div>
+</div>
+<br><br><br><br><br><br><br><br><br>
+</body>
+</html>
