@@ -1,0 +1,162 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+xmp{
+    margin: 5px;
+    border: 1px solid red;
+    background-color: darkgray;
+}
+body{
+    border: 1px solid red;
+    /*
+    body默认的margin有8像素
+    所以初始化是很有作用的
+    初始化还有一个作用就是
+    自定义标签，例如
+    em{}
+    给其设定一些属性
+    就把原来的em改成另一个我们想要的标签了
+    */
+}
+h3{
+    padding: 5px;
+}
+p{
+    text-indent: 2em;
+}
+ul{
+    list-style: none;
+}
+ol{
+    margin-left: 20px;
+}
+.formatText{
+    width: 95%;
+    margin:0 auto;
+    border: 1px solid black;
+    background-color: darkseagreen;
+}
+.plat{
+    width: 99.7%;
+    height: 200px;
+    border: 2px solid black;
+    margin: 5px 0;
+}
+.left-a{
+    width: 70%;
+    height: 100px;
+    background: crimson;
+}
+.right-a{
+    width: 30%;
+    height: 100px;
+    background: greenyellow;
+}
+.left-b{
+    width: 70%;
+    height: 100px;
+    background: crimson;
+}
+.right-b{
+    width: 30%;
+    height: 100px;
+    background: greenyellow;
+    position: absolute;
+    right: 0;
+}
+.left-c{
+    width: 70%;
+    height: 100px;
+    background: crimson;
+}
+.right-c{
+    width: 30%;
+    height: 100px;
+    background: greenyellow;
+    position: absolute;
+    right: 0;
+    margin-top: -100px;
+}
+.wrapper{
+    margin-left: 100px;
+    margin-top: 50px;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+.content{
+    margin-left: 50px;
+    margin-top: 100px;
+    width: 50px;
+    height: 50px;
+    background-color: green;
+}
+.leftRedSpan{
+    background-color: red;
+    margin-right: 100px;
+}
+.rightGreenSpan{
+    background-color: green;
+    margin-left: 100px;
+}
+.up{
+    background-color: red;
+    margin-bottom: 100px;
+}
+.down{
+    background-color: green;
+    margin-top: 80px;
+}
+.kua{
+    margin-left: 100px;
+    margin-top: 50px;
+    width: 326px;
+    height: 306px;
+    border: 1px solid darkgreen;
+}
+.content-0{
+    float: left;
+    color: #fff;
+    background-color: darkgreen;
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+}
+.content-a{
+    float: right;
+    color: #fff;
+    background-color: #ff6600;
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+}
+.content-b{
+    float: right;
+    color: #fff;
+    background-color: #ff6600;
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.chang{
+    margin-left: 100px;
+    margin-top: 50px;
+    width: 912px;
+    height: 150px;
+    border: 1px solid darkgreen;
+}
+.box1{
+    float: left;
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    opacity: 50%;
+}
+.box2{
+    width: 150px;
+    height: 150px;
+    background-color: green;
+}

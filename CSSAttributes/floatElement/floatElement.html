@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>float浮动</title>
+    <link rel="stylesheet" href="floatElement.css">
+</head>
+<body>
+<div>
+    <h3>简单的两栏布局：如何把两个div并排显示</h3>
+    <xmp>
+        .plat{
+        width: 100%;
+        height: 200px;
+        border: 2px solid black;
+        margin: 5px 0;
+        }
+        .left-a{
+        width: 70%;
+        height: 100px;
+        background: crimson;
+        }
+        .right-a{
+        width: 30%;
+        height: 100px;
+        background: greenyellow;
+        }
+    </xmp>
+    <div class="plat">
+        <div class="left-a"></div>
+        <div class="right-a"></div>
+    </div>
+    <p>上边这里可以看出如果我们不设置定位的时候div这样的块级元素就会占满整行，而下边虽然设置了定位，
+        也让right-b据右边为0了但是还是无法上去，不是说设置绝对定位以后就会脱离原来的位置层么，然后找到最近
+        有定位属性的父级定位么，那这个right-b不应该去找body定位了，不该飞出到左上角么，为什么没有是因为这里
+        有个默认的东西，那就是虽然设置了position：absolute属性，他只是脱离了原来的层，但是并不会移动，只有你设置了
+        left，top，right，bottom的值才会根据这些值去相对移动，但是我们设置了right的值啊，为什么没有去body的右上角呢
+        原理是一样的，你只设置了right，那就相对向右移动，并没有明确指出上下移动，就会平移，如果你设置了top属性值，那么
+        它才会相对body移动，假如你设置top为0，那么这个right-b就会直接移动到body的右下角</p>
+    <xmp>
+        .left-b{
+        width: 70%;
+        height: 100px;
+        background: crimson;
+        }
+        .right-b{
+        width: 30%;
+        height: 100px;
+        background: greenyellow;
+        position: absolute;
+        right: 0;
+        }
+    </xmp>
+    <div class="plat">
+        <div class="left-b"></div>
+        <div class="right-b"></div>
+    </div>
+    <p>针对以上情况，我们也不好计算这个到底距离body的top是多少，
+        这里一直在说body是因为他最近的有定位属性的父级元素不存在，就会相对文档定位
+        那么我们的解决方案就是让他的外边距负运动height个高度就会直接上去了
+    </p>
+    <xmp>
+        .left-c{
+        width: 70%;
+        height: 100px;
+        background: crimson;
+        }
+        .right-c{
+        width: 30%;
+        height: 100px;
+        background: greenyellow;
+        position: absolute;
+        right: 0;
+        margin-top: -100px;
+        }
+    </xmp>
+    <div class="plat">
+        <div class="left-c"></div>
+        <div class="right-c"></div>
+    </div>
+    <h4 style="text-indent: 1rem">以上便是用绝对定位实现的简单的两栏布局，是最基本的布局方式，也是过度的引出另一个属性float属性</h4>
+</div>
+<hr>
+<div>
+    <h3></h3>
+    <p>父子结构的垂直方向的margin塌陷问题：就是父级wrapper设置margin-top
+        然后子级content也去设置margin-top的时候如果值小于父级的margin-top
+        的时候，父子都不会移动的，如果子级content设置的margin-top大于父级
+        的margin-top的时候，就会带着父级一起向下移动子级减去父级的margin-top个
+        单位的位置
+    </p>
+    <xmp>
+        .wrapper{
+        margin-left: 100px;
+        margin-top: 50px;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        }
+        .content{
+        margin-left: 50px;
+        margin-top: 100px;
+        width: 50px;
+        height: 50px;
+        background-color: green;
+        }
+    </xmp>
+    <div class="plat">
+        <div class="wrapper">
+            <div class="content"></div>
+        </div>
+    </div>
+    <p>所以这是CSS的一个bug既然是bug那么我们就来尝试解决</p>
+    <p>第一种解决方式就是给父级触发bfc：block format content</p>
+    <p>通俗的讲bfc就是改变原来盒子的默认规则</p>
+    <div class="formatText">
+        <p>如何触发bfc呢？给这个盒子设置以下属性</p>
+        <ol>
+            <li>position:absolute</li>
+            <li>display：inline-block</li>
+            <li>float：left/right</li>
+            <li>overflow</li>
+            <li></li>
+        </ol>
+        <p>以上可以看出这并不是彻底解决，只是弥补了这个margin塌陷的问题，因为你设置这些属性以后就会出现新的问题</p>
+    </div>
+</div>
+<div>
+    <h3>margin左右区域不能共用，累加相距200px</h3>
+    <xmp>
+        .leftRedSpan{
+        background-color: red;
+        margin-right: 100px;
+        }
+        .rightGreenSpan{
+        background-color: green;
+        margin-left: 100px;
+        }
+    </xmp>
+    <div class="plat">
+        <span class="leftRedSpan">左边</span>
+        <span class="rightGreenSpan">右边</span>
+    </div>
+    <h3>margin上下区域共用取较大值，重叠相距100px</h3>
+    <xmp>
+        .up{
+        background-color: red;
+        margin-bottom: 100px;
+        }
+        .down{
+        background-color: green;
+        margin-top: 80px;
+        }
+    </xmp>
+    <div class="formatText">
+        <p>这种问题一般都是代码习惯不好，如果在一边设置margin，虽然上下结构的可以通过bfc解决
+            不能因为改bug而去改变代码结构，HTML结构很重要
+        </p>
+    </div>
+    <div class="plat">
+        <div class="up">上边</div>
+        <div class="down">下边</div>
+    </div>
+</div>
+<h3>CSS三大模型之-----Float 浮动模型</h3>
+<div class="formatText">
+    <p>CSS三大模型分别是：</p>
+    <ol>
+        <li>盒模型</li>
+        <li>层模型</li>
+        <li>浮动模型</li>
+    </ol>
+</div>
+<div>
+    <div class="kua">
+        <div class="content-0">1</div>
+        <div class="content-0">2</div>
+        <div class="content-0">3</div>
+        <div class="content-a">4</div>
+        <div class="content-a">5</div>
+        <div class="content-a">6</div>
+        <div class="content-a">7</div>
+        <div class="content-a">8</div>
+        <div class="content-a">9</div>
+    </div>
+</div>
+<div>
+    <div class="chang">
+        <div class="content-b">1</div>
+        <div class="content-b">2</div>
+        <div class="content-b">3</div>
+        <div class="content-b">4</div>
+        <div class="content-b">5</div>
+        <div class="content-b">6</div>
+    </div>
+</div>
+<br>
+<h5 style="text-indent: 1em">以上图形便是设置了Float属性，
+    float属性比较简单就只有两个值，
+    分别是left/right，
+    但是却有很多特点与问题如下：</h5>
+<div class="formatText">
+    <ol>
+        <li>如果设置float属性的时候，无论你是块级，行级元素都会浮动按照自己的宽高排序占位</li>
+        <li>并且是如果不足自己的大小就自动换行</li>
+        <li>如果是设置的left值就会从左开始依次占位，反之；</li>
+        <li>如果设置的是right属性就会从右向左开始，但是并不是从987654的顺序，而是跟中国
+            书法一样，单行自右向左占位，不足自己大小，一样换行还是自右向左
+        </li>
+        <li>最后浮动的元素依然都可以设置margin属性，例如橘黄色的654321</li>
+    </ol>
+</div>
+<xmp>
+    .kua{
+    margin-left: 100px;
+    margin-top: 50px;
+    width: 306px;
+    height: 306px;
+    border: 1px solid darkgreen;
+    }
+    .content-0{
+    float: left;
+    color: #fff;
+    background-color: darkgreen;
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    }
+    .content-a{
+    float: right;
+    color: #fff;
+    background-color: #ff6600;
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    }
+    .chang{
+    margin-left: 100px;
+    margin-top: 50px;
+    width: 612px;
+    height: 102px;
+    border: 1px solid darkgreen;
+    }
+</xmp>
+<div>
+    <h3>浮动流了解一下：Float浮动元素产生浮动流</h3>
+    <xmp>
+
+    </xmp>
+    <div class="plat">
+        <div class="box1"></div>123
+        <span>我看得见你</span>
+        <div class="box2"></div>
+    </div>
+</div>
+<div class="formatText">
+    <p>浮动流的特点：</p>
+    <ol>
+        <li>浮动元素并不是纯粹的分层，只是产生了浮动流</li>
+        <li>块级元素是看不到所有产生浮动流的元素</li>
+        <li>触发了bfc的元素和文本类属性的元素以及文本都能看到所有产生浮动流的元素</li>
+        <li>所有浮动元素都能看到其他浮动元素，这也是因为float触发了bfc</li>
+    </ol>
+</div>
+<br><br><br><br><br><br><br><br><br>
+</body>
+</html>
