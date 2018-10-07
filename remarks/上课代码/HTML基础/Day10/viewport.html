@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=2.0,minimum-scale=0.5,user-scalable=1.0"/>
+		<title>viewport</title>
+		<!--viewport   为了使我们的网页兼容移动端
+			因为移动端设备的尺寸类型太多了,所以我们如果直接将网页版放置到移动端设备上,会导致所有的内容被压缩,用户体验差.
+			viewport,是一个布局用的虚拟窗口,我们只在需要适配移动端的网页上才加,纯PC端不需要.
+			添加上viewport之后,网页正常显示,不会被压缩,但是需要用户滑动查看超出设备区域外的内容.
+			viewport是一个属性,需要写在meta标签里
+			viewport里的几个重要属性
+			1.width:viewport(虚拟区域的宽度) device-width(设备宽度)
+			2.initial-scale:(原始缩放比例,一般写成1.)
+			3.minimum-scale:(允许缩放的最小比例,不能小于0.01)
+			4.maximum-scale:(允许缩放的最大比例,不超过10)
+			5.user-scalable:(是否允许用户进行缩放,yes或者1代表允许;no或者0代表不允许)
+		-->
+		<style type="text/css">
+			#div1{
+				height: 200px;
+				width: 200px;
+				background: beige;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			这是一个div标签
+		</div>
+	</body>
+</html>

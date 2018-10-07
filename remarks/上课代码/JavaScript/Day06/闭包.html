@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>闭包</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			var a = 10;
+//			function n1(){
+//				//如果在函数里面声明的变量不加var修饰,那么该变量会变成全局变量.
+//				b = 5
+// 			}
+
+			
+			function n1(){
+				var a = 10;
+				//声明在一个函数里的函数就叫闭包.
+				//在闭包的内部可以访问其外部函数里定义的局部变量.
+				
+				
+				//闭包的两个作用
+				//1.可以通过闭包获取函数内的局部变量
+				//2.通过闭包可以保证局部变量的生命周期与整个网页的生命周期一样
+				function n2(){
+					return a;
+				}
+				return n2;
+			}
+			var a = n1();
+			var res = a()
+			console.log(res);
+		</script>
+	</body>
+</html>

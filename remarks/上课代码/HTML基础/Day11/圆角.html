@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>圆角</title>
+		<style type="text/css">
+			/*圆角		border-radius
+			 圆角分四个位置
+			 top-left  左上
+			 top-right
+			 bottom-left
+			 bottom-right
+			 border-radius:0 0 0 0 
+			 左上   右上  右下  左下*/
+			
+			/*如果要用圆角画出标准的圆形
+			 1.元素尺寸宽高相等
+			 2.每个远郊的水平和竖直半径同时为宽或高的一半*/
+			#div1{
+				width: 250px;
+				height: 500px;
+				border-radius:  0  250px 250px 0;
+				background: orange;
+				/*border-top-left-radius: 100px;*/
+			}
+			/*当统一写全部的角时,水平方向写在一起,竖直方向写在一起,中间用/隔开;当单独写某一个角的水平竖直值时,只需要用空格隔开即可*/
+			/*如果给三个值分别对应:左上 右上+左下  右下*/
+			/*如果给两个值分别对应 左上+右下  右上+左下*/
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>图片轮播Tween.js版</title>
+        <style type="text/css">
+            #screen {
+                width: 600px;
+                height: 300px;
+                margin: 100px auto;
+                border: 2px solid red;
+                overflow: hidden;
+                position: relative;
+            }
+            
+            #content {
+                height: 300px;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            
+            #content>img {
+                width: 200px;
+                height: 300px;
+                float: left;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!--展示用户可视的区域-->
+        <div id="screen">
+            <!--内容-->
+            <div id="content">
+                <img src="img/1.png" alt="meizi1" />
+                <img src="img/2.jpeg" alt="meizi2" />
+                <img src="img/3.jpeg" alt="meizi3" />
+                <img src="img/4.png" alt="meizi4" />
+                <img src="img/5.jpeg" alt="meizi5" />
+                <img src="img/6.png" alt="meizi6" />
+            </div>
+        </div>
+        <script src="js/tween.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+            //声明一个变量,记录当前是第几张图片
+            var x = 0;
+            //获取到要移动的元素
+            var contentDiv = document.getElementById("content");
+            //复制当前元素里的内容拼接到当前内容后面
+            contentDiv.innerHTML += contentDiv.innerHTML;
+            //获取到所有的图片
+            var imgs = contentDiv.getElementsByTagName("img");
+            contentDiv.style.width = imgs[0].offsetWidth * imgs.length + "px";
+            var t = 0;  //开始步数
+            //运动函数
+            function move(){
+                if(x == 6) {
+                    x = 0;
+                    contentDiv.style.left = "0px";
+                }
+                var b = -200 * x;
+                var c = -200;
+                var d = 50;
+                t++;
+                contentDiv.style.left = Tween.Linear(t, b, c, d) + "px";
+                if (t == d) {
+                	   //步数从新开始
+                	   t = 0;
+                	   x++;
+                }
+            }
+            setInterval("move()", 20);
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" content="text/html">
+	<title>时间</title>
+</head>
+<body>
+    <input type="text" class="time" name="">
+	<button class="now" onclick="$.myTime.DateToUnix()">点击获取当前时间</button>
+	<button class="c">将输入框中的时间转换为时间戳</button>
+</body>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+		(function($) {
+		    $.extend({
+		        myTime: {
+		            /**
+		             * 当前时间戳
+		             * @return <int>        unix时间戳(秒)  
+		             */
+		            CurTime: function(){
+		                return Date.parse(new Date())/1000;
+		            },
+		            // 获取某个时间格式的时间戳
+					var stringTime = "2014-07-10 10:21:12";
+					var timestamp2 = Date.parse(new Date(stringTime));
+					timestamp2 = timestamp2 / 1000;
+					//2014-07-10 10:21:12的时间戳为：1404958872 
+					console.log(stringTime + "的时间戳为：" + timestamp2);
+
+		                          
+		             /* 时间戳转换日期              
+		             * @param <int> unixTime    待时间戳(秒)              
+		             * @param <bool> isFull    返回完整时间(Y-m-d 或者 Y-m-d H:i:s)              
+		             * @param <int>  timeZone   时区              
+		             */
+		            UnixToDate: function(unixTime, isFull, timeZone) {
+		                if (typeof (timeZone) == 'number')
+		                {
+		                    unixTime = parseInt(unixTime) + parseInt(timeZone) * 60 * 60;
+		                }
+		                var time = new Date(unixTime);
+		                var ymdhis = "";
+		                ymdhis += time.getUTCFullYear() + "-";
+		                ymdhis += (time.getUTCMonth()+1) + "-";
+		                ymdhis += time.getUTCDate();
+		                if (isFull === true)
+		                {
+		                    ymdhis += " " + time.getUTCHours() + ":";
+		                    ymdhis += time.getUTCMinutes() + ":";
+		                    ymdhis += time.getUTCSeconds();
+		                }
+		                return ymdhis;
+		            }
+		        }
+		    });
+		})(jQuery);
+		console.log($.myTime.DateToUnix('2017-10-02'));
+		console.log($.myTime.UnixToDate(1504713600));
+		console.log($.myTime.CurTime())
+</script>
+</html>

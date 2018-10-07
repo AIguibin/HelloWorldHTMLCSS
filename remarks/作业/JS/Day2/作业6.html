@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>作业6</title>
+	</head>
+	<body>
+		请输入第一个数字:<input type="text" id="n1"/><br /><br />
+		请输入运算符号:<input type="text" id="n2"/><br /><br />
+		请输入第二个数字<input type="text" id="n3"/><br /><br />
+		<input type="button" id="btn1" value="输出" onclick="btn()"/>
+		<script type="text/javascript">
+			var num;
+			function btn(){
+				var a = document.getElementById("n1").value-0;
+				var b = document.getElementById("n2").value;
+				var c = document.getElementById("n3").value-0;
+				switch (b){
+					case "+":{
+						alert((a + c).toFixed(2))
+						break;}
+					case "-":{
+						alert((a - c).toFixed(2))
+						break;}
+					case "*":{
+						alert((a * c).toFixed(2))
+						break;}
+					case "/":{
+							alert((a / c).toFixed(2))
+							
+						
+						break;}
+					default:{
+						alert("请重新输入")
+						break;}
+				}
+			}
+		</script>
+	</body>
+</html>

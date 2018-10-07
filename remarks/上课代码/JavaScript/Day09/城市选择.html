@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>城市选择</title>
+	</head>
+	<body>
+		<select id="sec1">
+			<option value="0">选择</option>
+			<option value="1">河南省</option>
+			<option value="2">北京市</option>
+		</select>
+		<select id="sec2">
+			<option value="">选择</option>
+		</select>
+		<script type="text/javascript">
+			var hn = ["郑州市","开封市","濮阳市","洛阳市","信阳市"]
+			var bj = ["海淀区","朝阳区","昌平区","丰台区"]
+			//分别获取两个选择框
+			var select1 = document.getElementById("sec1");
+			var select2 = document.getElementById("sec2");
+			//当第一个选择框被选中时清空第二个选择框里的选项,并通过第一个选择框的选项给第二个选择框创建对应个数的option选择卡.
+			select1.onchange = function(){
+				//将第二个下拉框里的所有选项清除
+				//element.children 对应节点里的所有子节点
+				for(var i = 0; i < select2.children.length; i++){
+					select2.removeChild(select2.children[i]);
+					i--;
+				}
+				//如果选择河南省,赋值对应的城市
+				if(select1.value == 1){
+					//创建对应个数的option
+					for (var i = 0; i < hn.length; i++){
+						var op = document.createElement("option");
+						op.innerHTML = hn[i]
+						//插入节点
+						select2.appendChild(op);
+					}
+				}
+				if(select1.value == 2){
+					//创建对应个数的option
+					for (var i = 0; i < bj.length; i++){
+						var op = document.createElement("option");
+						op.innerHTML = bj[i]
+						//插入节点
+						select2.appendChild(op);
+					}
+				}
+			}
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

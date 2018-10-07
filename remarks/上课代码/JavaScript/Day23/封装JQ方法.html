@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>封装JQ方法</title>
+		<style type="text/css">
+			#div1{
+				width: 200px;
+				height: 200px;
+				background: darkblue;
+			}
+			#div2{
+				width: 200px;
+				height: 200px;
+				background: teal;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1" class="d1">
+			
+		</div>
+		<div id="div2"class="d1">
+			
+		</div>
+		<script src="myJQ.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			console.log($("#div1"));
+			console.log($(".d1"));
+			console.log($("div").get(1));
+			$("div").on("click",function(){
+				alert(1111)
+			})
+		</script>
+	</body>
+</html>

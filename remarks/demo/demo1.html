@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title> 
+		<style>
+			.div1{
+				width: 300px;
+				height: 300px;
+				border: 1px solid;
+				margin: 200px;
+			}
+			.div2{
+				width: 300px;
+				height: auto;
+			}
+			.div3{
+				width: 290px;
+				min-height: 100px;
+				border: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<button>点击添加世界和平</button>
+		<div class="div1">
+			<div class="div2">
+				
+			</div>
+			<textarea class="div3"  >世界和平</textarea>
+		</div>
+	</body>
+	<script src="js/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var num1 = 1;
+		for (var i = 0; i < 60; i++){
+		   	num1 *= 2
+		}
+        console.log(num1);
+
+        var num3 = 2;
+        for (var i = 0; i < 59; i++){
+            num3 *= 2
+        }
+        console.log(num3);
+
+
+		var a = 42;
+		var b = 23;
+		b = b - a;
+		a = b + a;
+		b = a - b;
+		console.log(a,b)
+
+
+        var num;
+		for(var i = 0; i < 99; i++){
+            num += 1500+1500*0.2;
+        }
+        console.log(num)
+
+
+        var date = "20170809";
+        console.log(date.slice(0,4));
+	</script>
+</html>

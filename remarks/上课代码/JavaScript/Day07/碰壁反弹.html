@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>碰壁反弹</title>
+		<style type="text/css">
+			#big{
+				width: 500px;
+				height: 300px;
+				border: 2px solid burlywood;
+				position: relative;
+			}
+			#small{
+				width: 30px;
+				height: 30px;
+				background: brown;
+				position: absolute;
+				top: 0;
+				left: 0;
+				
+				
+			}
+		</style>
+	</head>
+	<body>
+		<!--碰壁效果
+			1.空间布局
+			2.移动
+			 a.水平移动
+			 b.竖直移动
+			3.控制边界
+			4.反弹
+		-->
+		<div id="big">
+			<div id="small">
+				
+			</div>
+		</div>
+		<script type="text/javascript">
+			//获取要移动的元素
+			var smallDiv = document.getElementById("small");
+			var x = 0; //记录元素在x轴方向的位置
+			//x轴方向移动的函数
+			//表示当前元素是否已经到达边界 true表示没有到达,false代表已经到达.
+			var flagX = true;
+			function moveX(){
+				if(flagX){
+					//没有到达边界时需要做的操作
+					//从左往右走
+					x++;
+					if(x == 470){
+						flagX = false;
+					}
+				}else{
+					//到达边界之后需要做的操作
+					//从右往左走
+					x--;
+					if (x == 0){
+						flagX = true;
+					}
+				}
+				smallDiv.style.left = x + "px";
+			}
+			var flagY = true;
+			var y = 0;
+			function moveY(){
+				if(flagY){
+					//没有到达边界时需要做的操作
+					//从左往右走
+					y++;
+					if(y == 270){
+						flagY = false;
+					}
+				}else{
+					//到达边界之后需要做的操作
+					//从右往左走
+					y--;
+					if (y == 0){
+						flagY = true;
+					}
+				}
+				smallDiv.style.top = y + "px";
+			}
+			setInterval("moveX()",1);
+			setInterval("moveY()",1)
+			
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

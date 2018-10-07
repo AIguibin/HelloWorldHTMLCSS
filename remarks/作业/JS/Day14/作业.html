@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>作业</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			input {
+				margin: 5px 10px;
+			}
+			
+			div {
+				text-align: center;
+			}
+			
+			#numDiv {
+				width: 100px;
+				height: 100px;
+				border: 1px solid #00008B;
+				margin-left: 10px;
+				line-height: 100px;
+				text-align: center;
+				font-size: 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<input type="number" id="num" value="0" />
+		<input type="button" id="btn" value="创建" />
+		<br />
+		<input type="color" id="pallet" />
+		<br />
+		<input type="number" id="redNum" value="0" onkeyup="change()"/>
+		<br />
+		<input type="number" id="greenNum" value="0" onkeyup="change()"/>
+		<br />
+		<input type="number" id="blueNum" value="0" onkeyup="change()"/>
+		<p id="numDiv"></p>
+
+		<script type="text/javascript">
+			//获取创建按钮
+			var btn = document.getElementById("btn");
+			//定义一个数组
+			var divs = [];
+			//创建按钮点击函数
+			btn.onclick = function() {
+				//获取num框
+				var num = document.getElementById("num");
+				//清除之前所有的div
+//				for(var i = 0; i < divs.length; i++){
+//					document.body.removeChild(document.body.divs[i]);
+//				}
+				for(var i = 0; i < num.value; i++) {
+					//创建div
+					div = document.createElement("div");
+					//设置div的属性
+					div.style.width = randomNumber(20, 60) + "px";
+					div.style.height = div.style.width;
+					div.style.position = "absolute";
+					div.style.left = randomNumber(20, 1000) + "px";
+					div.style.top = randomNumber(30, 1000) + "px";
+					div.style.borderRadius = div.style.width;
+					div.style.backgroundColor = randomColor()
+					div.style.lineHeight = div.style.width;
+					div.className = "div2";
+					div.innerHTML = randomNumber(10, 80)
+					//将div加入网页内
+					document.body.appendChild(div);
+					//将新创建好的div放入数组中
+					divs.push(div);
+					//div的点击函数 
+					div.onclick = function() {
+						numDiv.innerHTML = this.innerHTML;
+						this.style.backgroundColor = pallet.value;
+					}
+				}
+			}
+//			var color = document.getElementById("pallet")
+//			pallet.onchange = function(){
+//				div.style.backgroundColor = this.value;
+//			}
+			//将三个输入框中的数字输出改变div的颜色
+			
+			function change(){
+				for(var i = 0; i < divs.length;i++){
+					if(divs[i].innerHTML == numDiv.innerHTML){
+						divs[i].style.backgroundColor = "rgb(" + redNum.value + "," + greenNum.value + "," + blueNum.value + ")";
+					}
+				}
+			}
+
+
+
+
+
+
+			//随机数函数
+			function randomNumber(x, y) {
+				return Math.floor(Math.random() * (y - x + 1) + x)
+			}
+			//随机颜色函数
+			function randomColor() {
+				var red = randomNumber(0, 255);
+				var green = randomNumber(0, 255);
+				var blue = randomNumber(0, 255);
+				return "rgb(" + red + "," + green + "," + blue + ")"
+			}
+		</script>
+	</body>
+
+</html>

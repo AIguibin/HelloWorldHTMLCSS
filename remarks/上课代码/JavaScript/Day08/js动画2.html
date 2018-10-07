@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#wrap {
+				width: 500px;
+				margin: 100px auto;
+				position: relative;
+			}
+			
+			ul {
+				overflow: hidden;
+			}
+			
+			ul li {
+				width: 100px;
+				list-style: none;
+				float: left;
+				text-align: center;
+				font-size: 30px;
+			}
+			
+			a {
+				display: block;
+				text-decoration: none;
+				color: green;
+			}
+			
+			#line {
+				width: 100px;
+				height: 5px;
+				background: teal;
+				clear: both;
+				/*margin-top: 10px;*/
+				position: absolute;
+				top: 40px;
+				left: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap">
+			<ul>
+				<li>
+					<a href="###">热点</a>
+				</li>
+				<li>
+					<a href="###">视频</a>
+				</li>
+				<li>
+					<a href="###">娱乐</a>
+				</li>
+				<li>
+					<a href="###">游戏</a>
+				</li>
+				<li>
+					<a href="###">军事</a>
+				</li>
+			</ul>
+			<div id="line"></div>
+		</div>
+		<script src="js/tween.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//获取到滑动条
+			var line = document.getElementById("line");
+			//获取到所有的a标签
+			var aArray = document.getElementsByTagName("a");
+			//记录当前的下标
+			var index = 0;
+			//开始的步数
+			var t = 0;
+			//开始的属性值
+			var b = 0;
+			//结束的属性值
+			var end;
+			//改变量
+			var c = end - b;
+			//结束的步数
+			var d;
+			//记录上一次的下标
+			var last = 0;
+			//存储定时器的变量
+			var timer;
+
+			//给每一个a标签添加鼠标移入事件
+			for(var i = 0; i < aArray.length; i++) {
+				aArray[i].onmouseenter = function() {
+					//1.记录当前的位置
+					for(var i = 0; i < aArray.length; i++) {
+						if(this == aArray[i]) {
+							index = i;
+						}
+					}
+					//2.移动移动条
+					t = 0;
+					b = last * 100;
+					end = index * 100;
+					c = end - b;
+					d = 10;
+					timer = setInterval("move()", 10)
+						//3.移动过后将当前的位置记录成上一次的位置
+					last = index
+				}
+				aArray[i].onmouseleave = function() {
+					clearInterval(timer);
+				}
+			}
+
+			function move() {
+				t++;
+				line.style.left = Tween.Linear(t, b, c, d) + "px";
+				if(t == d) {
+					clearInterval(timer);
+				}
+			}
+		</script>
+	</body>
+
+</html>

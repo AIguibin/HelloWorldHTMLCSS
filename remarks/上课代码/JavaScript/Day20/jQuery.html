@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery</title>
+		<style type="text/css">
+			#div1 {
+				width: 200px;
+				height: 300px;
+				background: fuchsia;
+			}
+			
+			.div2 {
+				width: 100px;
+				height: 100px;
+				background: yellowgreen;
+			}
+			
+			p {
+				background: saddlebrown;
+				color: white;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="div1">
+			<p>这是一个p</p>
+		</div>
+		<div class="div2"></div>
+		<p>这是一段文字</p>
+		<ul>
+			<li>0</li>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<h1>1</h1>
+		<h2>2</h2>
+		<h3 style="display: none;">3</h3>
+		<a href="###">这是一个a链接</a>
+		<a href="#">这是一个a链接</a>
+		<script src="js/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/*
+			 * jQuery是对原生javascript的封装,语法更简洁,使用更方便.
+			 * jQuery 1.x支持ie678
+			 * jQuery 2.x不支持ie678
+			 * 
+			 * 1.jq选择器
+			 * 2.jq操作元素
+			 * 3.jq动画
+			 * 
+			 * jq的使用:
+			 * 1.引入在线的jq库
+			 * 2.下载jq并引入本地的jq文件
+			 */
+			//jq的选择器
+			/*
+			 * jq选择元素的语法
+			 * $("选择器")
+			 */
+			var d1 = $("#div1");
+			//如果要给一个对象设置一个css样式,在css方法里传入两个字符串参数,第一个是样式名,第二个是样式值
+			d1.css("background", "#008080");
+			var d2 = $(".div2");
+			//如果要给一个对象设置多个css样式,在css方法里传入一个对象,对象里包含想要设置的所有属性名和值.
+			d2.css({
+				width: "200px",
+				height: "200px",
+				borderRadius: "100px"
+			})
+			var p = $("p");
+			p.css("font-size", "40px");
+			var p1 = $("#div1 p");
+			p1.css("font-size", "40px");
+
+			//伪类选择器
+			// :first
+			var firstP = $("p:first");
+			firstP.css("border", "5px solid black")
+
+//			$("div").hover((function() {
+//				$("div").css("background-color", "yellow");
+//			}, function() {
+//				$("div").css("background-color", "pink");
+//			}))
+
+			//:last  找到对应元素的最后一个
+//			var firstP = $("p:last");
+//			firstP.css("border", "5px solid black")
+			
+			//:even 找到所有对应的偶数位置元素,从零开始
+//			$("li:even").css("background","#0000FF");
+			//:odd  找到所有对应的奇数位置元素,从零开始
+//			$("li:odd").css("background","#A94442");
+			//:eq(index)  找到若干个相同类型元素里的下标为index的元素(index从零开始)
+//			$("li:eq(3)").css("color","#00FFFF");
+			//:gt(index)  找到下标大于index的元素
+//			$("li:gt(4)").css("color","#269ABC");
+			//:lt(index)  找到下标小于index的元素 index给负值就从后往前数
+//			$("li:lt(2)").css("color","red");
+			// :header  获取所有的标题标签
+//			$(":header").css("background","red");
+			//:hidden 所有隐藏的标签(包括注释)
+//			$("h3:hidden").css("display","block");
+			//:visible 所有可见的标签 
+//			$(":visible").css("border","5px solid");
+			
+			//jq群组选择器
+//			$("#div1,p,li").css("background","gold")
+			//属性选择器
+//			$("[href]").css("color","red");
+//			$("[href = '###']").css("color","red");
+			
+			//跟表单元素有关的jq选择器
+			//:input 所有的input标签
+			//:text 所有type=text的input元素
+			//:password 所有type=password的input元素
+			//:radio 所有type=radio的input元素
+			//:checkbox 所有type=checkbox的input元素
+			//:submit 所有type=submit的input元素
+			//:reset 所有type=reset的input元素
+			//:button 所有type=button的input元素
+			//:image 所有type=image的input元素
+			//:file 所有type=file的input元素
+			
+			//:enabled 所有可用的input标签
+			
+			//:disabled 所有禁用的input标签
+			
+			//checked 所有被选中的input
+		</script>
+	</body>
+
+</html>

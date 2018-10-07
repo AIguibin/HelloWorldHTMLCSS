@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>购物车</title>
+	</head>
+	<body>
+		<p>购物清单:</p>
+		<ul></ul>
+		<input type="text" id="" value="" placeholder="请输入要购买的商品"/>
+		<input type="button" name="" id="" value="添加到购物车" />
+		<script type="text/javascript">
+			//获取元素
+			var ul =document.querySelector("ul");
+			var text1 = document.querySelector("[type=text]");
+			var btn =document.querySelector("[type=button]");
+			btn.onclick = function(){
+				//判断输入框里是否有内容,如果没有弹出框警告
+				if(text1.value == ""){
+					alert("请输入内容")
+					//就算一个函数没有返回值,我们依然可以使用return结束一个函数的执行,跳出函数
+					return
+				}
+				//添加内容
+				var li = document.createElement("li");
+				//插入内容
+				li.innerHTML = text1.value;
+				//插入到ul
+				ul.appendChild(li);
+				//清空输入框
+				text1.value = "";
+			}
+		</script>
+	</body>
+</html>

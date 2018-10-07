@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Cookie</title>
+	</head>
+	<body>
+		<input type="button" value="查询" id="query"/>
+		<input type="button" value="添加" id="add"/>
+		<input type="button" value="修改" id="update"/>
+		<input type="button" value="删除" id="delete"/>
+		<input type="button" id="judge" value="判断" />
+		<input type="button" id="take" value="取出" />
+		<input type="button" id="add1" value="创建" />
+		<script type="text/javascript">
+			/*
+			 * Cookie出现原因:HTTP无状态协议,一旦数据传输完成(打开网页),客户端与服务器端的链接立即断开.如果需要再次通讯,需要重新链接.
+			 * Cookie的使用原理:Cookie是一段文本信息,当客户端请求服务器,如果服务器需要记录用户的状态信息,就可以为服务端发送一个Cookie.客户端就会把Cookie存储起来,当再次请求时,服务端检查Cookie以确认客户端的信息
+			 * Cookie的使用场景
+			 * 1.保存用户的登录状态(自动登录).
+			 * 2.跟踪用户行为(记录信息).
+			 * 3.网站定制
+			 * 4.购物车(浏览过的商品).
+			 * 
+			 */
+			
+			
+			/*
+			 * Cookie的弊端:
+			 * 1.容量小 4KB
+			 * 2.条数限制,最多二十条
+			 * 3.Cookie可以被删除
+			 * 4.Cookie的安全性
+			 * 5.Cookie是有存储期限的
+			 */
+			   	var query = document.getElementById("query");
+			   	var add = document.getElementById("add");
+			   	var update = document.getElementById("update");
+			   	var deleteBtn = document.getElementById("delete");
+			   		//Cookie的使用
+					//Cookie查询
+					query.onclick = function(){
+						//获取当前域名下的Cookie
+						//同一个网站的多个页面,共用一个Cookie
+						console.log(document.cookie);
+						
+					}
+					//添加一条Cookie
+					add.onclick = function(){
+						//Cookie添加的格式
+						//以键值对的形式:key=value
+						document.cookie = "name = xiaoxuan;max-age = 60000";	
+						//如果之前没出现过,相当于添加
+						document.cookie = "age = 20;max-age = 60000";
+						//如果出现过,相当于修改
+//						document.cookie = "age = 50";
+						//多条Cookie之间用分号隔开
+						//如果没有设置Cookie的期限,那么完全退出浏览器之后,Cookie会被删除;真正保存Cookie,需要设置期限
+						//方式一:设置Cookie的失效日期,默认是当前时刻.
+//						var date1 = new Date();
+//						var newDay = date1.getDate() + 1;
+//						date1.setDate(newDay)
+//						document.cookie = "name = xiaoxuan;expires=" + date1.toString();
+
+						//方法二:存活的秒数
+//						var date1 = new Date();
+//						var newDay = date1.getSeconds() + 30;
+//						date1.setDate(newDay)
+//						document.cookie = "name = xiaoxuan;expires=" + date1.toString();
+//						document.cookie = "sex = woman;max-age = 60";
+						//如果同时设置了expires和max-age时以max-age为准.
+					}
+					//删除一条Cookie
+//					deleteBtn.onclick = function(){
+//						//设置时间期限让对应的键值对失效
+//						document.cookie = "name=;max-age = -1";
+//					}
+				//练习1:写一个函数判断是否有对应的name的Cookie.
+				function hasKey(key){
+					var cookie = document.cookie.split(";");
+					var result = false;
+					for(i = 0; i < cookie.length;i++){
+						var str = cookie[i];
+						var arr2 = str.split("=");
+						var name = arr2[0];
+						if(name.trim() == key){
+							result = true ;
+						}
+						return result
+					}
+				}
+				var judge = document.getElementById("judge");
+				judge.onclick = function(){
+					if(hasKey("name")){
+						alert("有对应的键值对");
+					}else{
+						alert("找不到对应的键值对");
+					}
+				}
+				
+				//取出key对应的value
+				function hasValue(key){
+					var cookie = document.cookie.split(";");
+					for(i = 0; i < cookie.length;i++){
+						var str1 = cookie[i];
+						var arr3 = str1.split("=");
+						var name = arr3[0];
+						if(name.trim() == key){
+							return arr3[1];
+						}
+					}
+				}
+				var take = document.getElementById("take");
+				take.onclick = function(){
+					console.log(hasValue("music"))
+				}
+				
+				//写一个添加Cookie的函数
+				function addCookie(key,value,maxAge){
+					document.cookie = key + ' = ' + value + ';' + 'max-age =' + maxAge;
+				}
+				var add1 = document.getElementById("add1");
+				add1.onclick = function(){
+					addCookie("music","my love","40")
+				}
+				
+				//删除Cookie的函数
+				function deleteCookie(key){
+//					addCookie("age","","-1")
+					document.cookie = key + '=;max-age = -1';
+				}
+				deleteBtn.onclick = function(){
+					deleteCookie("music")
+				}
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

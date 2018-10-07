@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>数组</title>
+		<style type="text/css">
+			div {
+				width: 200px;
+				height: 200px;
+				border: 1px solid royalblue;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--<div class="d1"></div>
+		<div class="d1"></div>
+		<div class="d1"></div>
+		<div class="d1"></div>
+		<input type="button" id="" value="变色" onclick="btn()" />-->
+		<ul>
+			<li>🍎 <input type="checkbox" class="box"/></li>
+			<li>🍌 <input type="checkbox" class="box"/></li>
+			<li>🍉 <input type="checkbox" class="box"/></li>
+			<li>🌰 <input type="checkbox" class="box"/></li>
+		</ul>
+		<input type="button" id="" value="全选" onclick="selectAll()" />
+		<script type="text/javascript">
+			/* 
+			数组:用于存放大量数据的有序集合.
+		    语法:
+			var 数组名 = [值1, 值2...] 
+						*/
+			var array1 = [1, 2, 3, 4, 5];
+			var array2 = ["北京", "上海", "广州", "深圳"];
+			//var arrar3 = [1, true, "呵呵", "3.56s"];
+			//注:数组中可以存放不同的类型
+			//var a = 10;
+			//var array4 = [a + 1];
+			//数组也可以存放表达式
+			//var array5 = [1, , 2];
+			//var array6 = [, , , , ];
+			//如果全部书写逗号,系统会忽略最后一个逗号.
+			//如果某些元素不赋值,系统会将其判定为undefined类型
+			//var array7 = []; //空数组
+
+			//如何使用数组,(如何获取数组中的元素)
+			/*
+			 访问数组中的元素格式
+			 数组名[下标]
+			 下标从0开始的
+			 如果要遍历数组中的元素,通常会和循环结合使用
+			 */
+			//			for(var i = 0; i < 5; i++) {
+			//				console.log("array[" + i + "] = " + array1[i]);
+			//			}
+
+			//给array2里的每个字符串后面+"🐂X"
+			//			for(var i = 0; i < 4; i++) {
+			//				document.write(array2[i] + "🐂 X" + "<br />")
+			//			}
+			//获取数组的长度,(元素的个数)
+			//			document.write(array6.length)
+			//一...定义一个数组,数组中有是个元素,随机为每一个元素赋值,取值范围[30,70].
+			//			var array8 = [];
+			//			for(var i = 0; i < 10; i++){
+			//				array8[i] = Math.floor(Math.random()*41+30);
+			//				document.write(array8[i] + "<br />")
+			//			}
+
+			//在第一题的基础上求最大值,最小值,和,平均值
+			//			var x = 72;
+			//			var y = 0;
+			//			var num = 0;
+			//			for(var i = 0; i < 10; i++){
+			//				array8[i] = Math.floor(Math.random()*41+30);
+			//				if(y < array8[i]){
+			//					y = array8[i]
+			//				}
+			//				if(x > array8[i]){
+			//					x = array8[i]
+			//				}
+			//				num += array8[i]
+			//				document.write(array8[i] + "<br />")
+			//			}document.write("最小值:" + x)
+			//			document.write("最大值:" + y)
+			//			document.write("和是:" + num)
+			//			document.write("平均数是" + num / 10 + "<br />")
+			//两个数组arr1和arr2,分别给两个数组里的元素赋随机值,然后将两个数组中对应位置上的元素相加赋给arr3,三个数组都有10个元素
+			//			var arr1 = [];
+			//			var arr2 = [];
+			//			var arr3 = [];
+			//			for(var i = 0; i < 10; i++){
+			//				arr1[i] = Math.floor(Math.random()*41+30);
+			//				arr2[i] = Math.floor(Math.random()*41+30);
+			//				arr3[i] = arr1[i] + arr2[i]
+			//				document.write("数组一" + arr1[i] + "&nbsp;")
+			//				document.write("数组二" + arr2[i] + "&nbsp;")
+			//				document.write("数组三" + arr3[i] + "<br />")
+			//			}
+//			var divs = document.getElementsByClassName("d1");
+
+			//getElementsByClassName该方法可以获取所有被添加了对应类名的元素,将获取到的所有元素放进一个数组里.
+//			function btn() {
+//				for(var i = 0; i < divs.length; i++) {
+//					var red = Math.floor(Math.random() * 256);
+//					var green = Math.floor(Math.random() * 256);
+//					var blue = Math.floor(Math.random() * 256);
+//					divs[i].style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
+//				}
+//			}
+
+			//全选效果
+			function selectAll(){
+				//获取到所有的多选框
+				var boxs = document.getElementsByClassName("box");
+				for (var i =0; i < boxs.length; i++){
+					//设置每个输入框的checked属性
+					boxs[i].checked = true;
+				}
+			}
+		</script>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</body>
+
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>星空</title>
+		<style type="text/css">
+			#myCanvas {
+				background: url(img/3.jpg);
+				background-size: 1200px 850px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<canvas id="myCanvas" width="1200" height="800"></canvas>
+	</body>
+	<script src="js/jquery3.1.0.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+			var myCanvas = document.getElementById("myCanvas");
+		var ctx = myCanvas.getContext("2d");
+		//定义函数完成小球的绘制
+		var count = 1000,
+			max = 2,
+			min = 1,
+			centerBX = 600,
+			centerBY = 350,
+			rY = 250;
+		var width = 1200,
+			height = 700;
+		//生成球对象
+		function Ball() {
+			this.centerX = getRandom(max, width - max);
+			this.centerY = getRandom(max, height - max);
+			this.radius = getRandom(min, max);
+			this.color = getRandomColor();
+			var speed1 = getRandom(1, 5);
+			this.speedX = getRandom(1, 2) == 1 ? -speed1 : speed1;
+			var speed2 = getRandom(1, 5);
+			this.speedY = getRandom(1, 2) == 1 ? -speed2 : speed2;
+		}
+		Ball.prototype.drawRect = function() {
+			ctx.beginPath();
+			ctx.arc(this.centerX, this.centerY, this.radius, 0, Math.PI * 2, false);
+			ctx.closePath();
+			ctx.fillStyle = this.color;
+			ctx.fill();
+		}
+		Ball.prototype.move = function() {
+			this.centerX += this.speedX;
+			this.centerY += this.speedY;
+			if(this.centerX <= this.radius || this.centerX >= width - this.radius) {
+				this.speedX *= -1;
+			}
+			if(this.centerY <= this.radius || this.centerY >= height - this.radius) {
+				this.speedY *= -1;
+			}
+		}
+		$(window).on("load", function() {
+			var objs = [];
+			var areas = []; //存储在某一个范围内容小球
+			for(var i = 0; i < count; i++) {
+				var ball = new Ball();
+				ball.drawRect();
+				objs.push(ball);
+			}
+			var timer = setInterval(function() {
+				areas = [];
+				ctx.clearRect(0, 0, width, height);
+				for(var i = 0; i < count; i++) {
+					objs[i].move();
+					objs[i].drawRect();
+					//判断是否在对应区域
+					if(adjustTwoCircle(objs[i])) {
+						areas.push(objs[i]);
+					}
+				}
+				//开始连线
+				for(var i = 0; i < areas.length; i++) {
+					for(var j = 0; j < areas.length; j++) {
+						if(adjustDisOfTwoCircle(areas[i], areas[j]) < 55) {
+							ctx.beginPath();
+							ctx.moveTo(areas[i].centerX, areas[i].centerY);
+							ctx.lineTo(areas[j].centerX, areas[j].centerY);
+							ctx.strokeStyle = getRandomColor();
+							ctx.stroke();
+						}
+					}
+				}
+			}, 100);
+		});
+		$(document).on("mousemove", function(e) {
+			centerBX = e.pageX - $("#myCanvas").offset().left;
+			centerBY = e.pageY - $("#myCanvas").offset().top;
+			if(centerBX <= rY) {
+				centerBX = rY;
+			}else if(centerBX >= width - rY) {
+				centerBX = width - rY;
+			}
+			if(centerBY <= rY) {
+				centerBY = rY;
+			}else if(centerBY >= height - rY) {
+				centerBY = height - rY;
+			}
+		});
+		$(document).on("mouseleave", function() {
+			centerBX = width/2;
+			centerBY = height/2;
+		});
+
+		//定义函数完成碰撞检测
+		function adjustTwoCircle(obj) {
+			var disx = Math.abs(centerBX - obj.centerX);
+			var disy = Math.abs(centerBY - obj.centerY);
+			if(Math.sqrt(disx * disx + disy * disy) <= rY - obj.radius) {
+				return true;
+			}
+			return false;
+		}
+		//计算两个小球之间的距离
+		function adjustDisOfTwoCircle(obj1, obj2) {
+			var disx = Math.abs(obj1.centerX - obj2.centerX);
+			var disy = Math.abs(obj1.centerY - obj2.centerY);
+			return Math.sqrt(disx * disx + disy * disy);
+		}
+
+		//定义函数产生随机数
+		function getRandom(min, max) {
+			return Math.floor(Math.random() * (max - min + 1) + min);
+		}
+		//定义函数产生随机颜色
+		function getRandomColor() {
+			var red = Math.floor(Math.random() * 256);
+			var green = Math.floor(Math.random() * 256);
+			var blue = Math.floor(Math.random() * 256);
+			return "rgba(" + red + "," + green + "," + blue + ",1)";
+		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//		var myCanvas = document.getElementById("myCanvas");
+//		var ctx = myCanvas.getContext("2d");
+//		//记录小球的数量
+//		var count = 500;
+//		//定义小球半径范围
+//		var min = 1,
+//			max = 3;
+//			
+//			var centerX2 = myCanvas.width/2;
+//		var centerY2 = myCanvas.height/2;
+//		//定义构造方法创建小球对象
+//		function Ball() {
+//			//小球的位置坐标
+//			this.centerX1 = random(max, myCanvas.width - max);
+//			this.centerY1 = random(max, myCanvas.height - max);
+//			//小球的半径
+//			this.radius = random(min, max);
+//			//小球的颜色
+//			this.color = randomColor();
+//			//小球随机速度,正负号代表运动方向
+//			var speed1 = random(1, 2);
+//			this.speedX = random(0, 1) == 0 ? -speed1 : speed1;
+//			this.speedY = random(0, 1) == 0 ? -speed1 : speed1;
+//		}
+//		//为小球对象添加绘制的功能
+//		Ball.prototype.draw = function() {
+//			ctx.beginPath();
+//			ctx.arc(this.centerX1, this.centerY1, this.radius, 0, Math.PI * 2, false);
+//			ctx.closePath();
+//			ctx.fillStyle = this.color;
+//			ctx.fill();
+//		}
+//		Ball.prototype.move = function() {
+//				this.centerX1 += this.speedX;
+//				this.centerY1 += this.speedY;
+//				if(this.centerX1 <= this.radius || this.centerX1 >= myCanvas.width - this.radius) {
+//					//说明和左右两个边界中的某一个边界碰撞
+//					this.speedX *= -1;
+//				}
+//				if(this.centerY1 <= this.radius || this.centerY1 >= myCanvas.height - this.radius) {
+//					//说明小球和上下两个边界中的某一个边界碰撞
+//					this.speedY *= (-1);
+//				}
+//
+//		}
+//		$(window).on("load", function() {
+//			var objs = [];
+//			var areas = []; //存储在某一个范围内容小球
+//			for(var i = 0; i < count; i++) {
+//				var ball = new Ball();
+//				ball.draw();
+//				objs.push(ball);
+//			}
+//			var timer = setInterval(function() {
+//				areas = [];
+//				ctx.clearRect(0, 0, 1200, 800);
+//				for(var i = 0; i < count; i++) {
+//					objs[i].move();
+//					objs[i].draw();
+//					//判断是否在对应区域
+//					if(adjustTwoCircle(objs[i])) {
+//						areas.push(objs[i]);
+//					}
+//				}
+//				//开始连线
+//				for(var i = 0; i < areas.length; i++) {
+//					for(var j = 0; j < areas.length; j++) {
+//						if(adjustDisOfTwoCircle(areas[i], areas[j]) < 55) {
+//							ctx.beginPath();
+//							ctx.moveTo(areas[i].centerX, areas[i].centerY);
+//							ctx.lineTo(areas[j].centerX, areas[j].centerY);
+//							ctx.strokeStyle = randomColor();
+//							ctx.stroke();
+//						}
+//					}
+//				}
+//			}, 100);
+//		});
+//		
+//			//鼠标移动事件
+//			$(document).on("mousemove", function(e) {
+//				
+//				 	centerX2 = e.pageX - $(myCanvas).offset().left;
+//					centerY2 = e.pageY - $(myCanvas).offset().top;
+//					if(centerX2 <= 250) {
+//						centerX2 = 250;
+//						}else if(centerX2 >= myCanvas.width - 250){
+//							centerX2 = myCanvas.width - 250
+//						}
+//				if(centerY2 <= 250) {
+//						centerY2 = 250;
+//						}else if(centerY2 >= myCanvas.height - 250){
+//							centerY2 = myCanvas.height - 250
+//						}
+//
+//			})
+//			$(document).on("mouseleave", function() {
+//			centerX2 = myCanvas.width/2;
+//			centerY2 = myCanvas.height/2;
+//		});
+//		//定义函数完成碰撞检测
+//		function adjustTwoCircle(obj) {
+//			var disx = Math.abs(centerX2 - obj.centerX);
+//			var disy = Math.abs(centerY2 - obj.centerY);
+//			if(Math.sqrt(disx * disx + disy * disy) <= 250 - obj.radius) {
+//				return true;
+//			}
+//			return false;
+//		}
+//		//计算两个小球之间的距离
+//		function adjustDisOfTwoCircle(obj1, obj2) {
+//			var disx = Math.abs(obj1.centerX - obj2.centerX);
+//			var disy = Math.abs(obj1.centerY - obj2.centerY);
+//			return Math.sqrt(disx * disx + disy * disy);
+//		}
+//		
+//		
+//			//随机数函数
+//		function random(x, y) {
+//			return Math.floor(Math.random() * (y - x + 1) + x);
+//		}
+//		//随机颜色函数
+//		function randomColor() {
+//			var r = random(0, 255),
+//				g = random(0, 255),
+//				b = random(0, 255);
+//			return "rgb(" + r + "," + g + "," + b + ")";
+//		}
+	</script>
+
+</html>

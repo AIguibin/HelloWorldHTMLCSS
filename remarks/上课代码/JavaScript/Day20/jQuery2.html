@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery02</title>
+		<style type="text/css">
+			.one{
+				color: teal;
+			}
+			.p0{
+				background: red;
+			}
+			.p1{
+				background: saddlebrown;
+			}
+			.bg{
+				background: saddlebrown;
+			}
+			#div1{
+				width: 200px;
+				height: 200px;
+				/*background: fuchsia;*/
+			}
+		</style>
+	</head>
+	<body>
+		<p>hello</p>
+		<p>world!</p>
+		<div id="div1"></div>
+		<script src="js/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//对元素的类名进行操作
+			  //1.addClass("类名")
+			  
+			$("p").addClass("one");
+			  //2.addClass(函数)
+			$("p").addClass(function(i){
+				return"p" + i
+			})
+			//一个元素可以添加多个类,所以针对同一个元素可以写多个addClass方法.
+			
+			//删除一个类
+			//1.removeClass(类名)
+//			$("p").removeClass("p0")
+			//2.removeClass(函数)
+			$("p").removeClass(function(){
+				return"p" + 1
+			})
+			
+			//特殊情况
+			//toggleClass(类名(不加点)) 如果类名存在,就删除,如果不存在,就添加.
+			$("#div1").click(function(){
+				$("#div1").toggleClass("bg");
+			})
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

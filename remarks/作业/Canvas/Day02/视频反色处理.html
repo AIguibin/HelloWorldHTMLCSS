@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>视频灰色处理</title>
+		<style type="text/css">
+			#myCanvas {
+				box-shadow: ;
+			}
+			
+			video {
+				width: 0;
+				height: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="600" height="400"></canvas>
+		<video src="oxford-10秒.mp4" id="video"></video>
+	</body>
+	<script type="text/javascript">
+		var myCanvas = document.getElementById("myCanvas");
+		var ctx = myCanvas.getContext("2d");
+		var video = document.getElementById("video");
+		video.oncanplay = function() {
+			video.play();
+			function startDraw() {
+				ctx.drawImage(video, 0, 0, 600, 400);
+				var imagePoints = ctx.getImageData(0, 0, 600, 400);
+
+				var datas = imagePoints.data;
+				console.log(datas)
+				for(var i = 0; i < datas.length; i += 4) {
+					var sum = 255 - ((datas[i] + datas[i + 1] + datas[i + 2]) / 3);
+					datas[i] = sum;
+					datas[i + 1] = sum;
+					datas[i + 2] = sum;
+				};
+				ctx.putImageData(imagePoints, 0, 0, 0, 0, 600, 400);
+				window.requestAnimationFrame(startDraw);
+			}
+			startDraw();
+		}
+	</script>
+
+</html>

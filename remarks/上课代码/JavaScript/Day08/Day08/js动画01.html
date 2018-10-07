@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>tween.js</title>
+		<style type="text/css">
+			#div1 {
+			    width: 50px;
+			    height: 50px;
+			    background: blue;
+			    position: absolute;
+			    top: 0;
+			    left: 0;
+			}
+		</style>
+	</head>
+	<body>
+	    <div id="div1"></div>
+	    <!--缓动函数(补间动画) ---- 过渡动画
+	        1.第三方的动画 tween.js
+	        2.实现:缓动公式 (效果:控制物体在某个时间段内的运动速度)
+	        缓动函数:
+	        1.Linear 匀速
+	        2.Quad 二次方缓动效果
+	        3.Cubic 三次方缓动效果
+	        4.Quart 四次方缓动效果
+	        5.Quint 五次方缓动效果
+	        6.Sine 正弦缓动效果
+	        7.Expo 指数缓动效果
+	        8.Circ 圆形缓动效果
+	        9.Elastic 指数衰减正弦曲线缓动效果
+	        10.Back 超过范围的三次方的缓动效果
+	        11.Bounce 指数衰减的反弹曲线缓动效果
+	        每种缓动函数都有三种效果
+	                  1.easeOut 减速
+	                  2.easeIn 加速
+	                  3.easeInOut 先加速后减速
+	                注:Linear没有上述三种效果.
+	          每个函数都有四个参数:
+	          1.t ------ 开始的步数(从0开始)
+	          2.b ------ 开始量 (开始的属性值)
+	          3.c ------ 改变量 (属性值的改变量): 结束位置的属性值 - 开始位置的属性值
+	          4.d ------ 结束的步数(总时间)
+	          注:当开始步数增加到与结束步数相等时,整个运动过程结束.
+	          注注意:只有当t与d相等时才会结束运动,如果不等,运动不会停止.
+	          
+	          tween.js使用:
+	          1.下载
+	          2.引入tween.js文件
+	          3.使用tween.js语法:
+	          Tween.缓动函数名.缓动效果名(t,b,c,d);
+	    -->
+	    <script src="js/tween.js" type="text/javascript" charset="utf-8"></script>
+	    <script type="text/javascript">
+	    	      //找到需要运动的元素
+	    	      var div1 = document.getElementById("div1");
+	    	      var t = 0; //开始的步数
+	    	      var b = 0; //开始的属性值
+	    	      var end = 500; //结束的属性值
+	    	      var c = end - b; //改变量 = 结束值 - 开始值
+	    	      var d = 500 //结束的步数
+	    	      var timer;
+	    	      function move(){
+	    	          t+=5;
+	    	          if(t == d) {
+	    	              clearInterval(timer);
+	    	          }
+	    	          div1.style.left = Tween.Linear(t, b, c, d) + "px";
+	    	      }
+	    	      timer = setInterval("move()", 20);
+	    </script>
+	</body>
+</html>

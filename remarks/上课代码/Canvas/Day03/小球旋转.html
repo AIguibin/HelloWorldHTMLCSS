@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#myCanvas{
+				box-shadow: 4px 4px 4px hotpink;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+	</body>
+	<script type="text/javascript">
+		var myCanvas = document.getElementById("myCanvas");
+		var ctx = myCanvas.getContext("2d");
+		ctx.translate(250,250);
+		var angle = 0;
+		var timer = setInterval(function(){
+			ctx.clearRect(-250,-250,500,500);
+			ctx.save();
+			ctx.rotate(angle);
+			ctx.beginPath();
+			ctx.arc(200,0,10,0,Math.PI*2,false);
+			ctx.closePath();
+			ctx.fillStyle = "#006400";
+			ctx.fill();
+			angle += Math.PI/90;
+			ctx.restore()
+		},10)
+	</script>
+</html>

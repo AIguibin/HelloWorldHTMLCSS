@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title>移动端基础</title>
+		<style type="text/css">
+			#div1 {
+				width: 400px;
+				height: 500px;
+				background: darkgreen;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="div1">
+
+		</div>
+		<script type="text/javascript">
+			/*
+			 * 移动端的常用事件
+			 * 1.touchstart:开始触摸
+			 * 2.touchmove:移动
+			 * 3.touchend:触摸结束
+			 * 4.touchcancle:触摸取消
+			 */
+			//绑定一个事件
+			var div1 = document.getElementById("div1");
+			//1.
+			//			div1.ontouchstart = function(){
+			//				alert("开始触摸了");
+			//			}
+			//2.
+			div1.addEventListener("touchstart", touchStart, false);
+
+			function touchStart(e) {
+				var even = e || event;
+				//常用触摸事件的属性
+				/*
+				 * 以下这些属性都是一个集合
+				 * 1.touches:屏幕上有多少个触摸点的集合
+				 * 2.targetTouches:事件源对象上的触摸点个数的集合(当前被触摸的对象上的触摸点个数的集合)
+				 * 3.changedTouches:距离最近一次触摸变化的点的集合
+				 */
+				//				document.body.innerHTML += "touches" + even.touches.length + "targetTouches" + even.targetTouches.length + "changedTouches" + even.changedTouches.length + "<br>";
+				//				
+				//			}
+//				document.body.innerHTML += "touches" + even.touches.length + "targetTouches" + even.targetTouches.length + "changeTouches" + even.changedTouches.length + "<br>"
+				document.body.innerHTML += even.srcElement.toString();
+			}
+			document.addEventListener("touchmove", touchmove, false);
+
+			function touchmove(e) {
+				var even = e || event;
+				even.stopPropagation();
+				even.cancelBubble = true;
+				document.body.innerHTML += "移动了" + "<br>";
+			}
+
+			document.addEventListener("touchend", touchend, false);
+			//			function touchend(){
+			//				alert("触摸结束")
+			//			}
+			document.addEventListener("touchcancel", touchCancel, false);
+
+			function touchVancel() {
+				/*
+				 * 当触摸被取消时触发,标准里并没有明确说明它的触发时机,当我们可以这么认为,当我们正在运行程序时,有电话打进,本地闹钟等时机,系统就会丢弃该触摸事件,同时,系统会自动对当前数据进行保存,或者游戏正在运行时,将游戏暂停.
+				 */
+			}
+		</script>
+	</body>
+
+</html>

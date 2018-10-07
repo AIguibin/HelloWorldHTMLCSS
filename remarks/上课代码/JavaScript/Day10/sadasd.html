@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#d1{
+				/*width: 300px;*/
+				height: 20000px;
+				/*background: darkgray;*/
+				/*position: relative;
+				overflow: scroll;*/
+				/*border: 2px solid saddlebrown;*/
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1">
+		</div>
+		<script type="text/javascript">
+			var body = document.body
+//			var div1 = document.getElementById("d1");
+//			var div2 = document.getElementById("d2");
+			body.onscroll = function(){
+				if (body.scrollTop < 300 ){
+					body.style.backgroundColor = ""
+				}else if (body.scrollTop > 300 && body.scrollTop <= 600){
+					body.style.backgroundColor = "red"
+				}else if (body.scrollTop > 600 && body.scrollTop <= 900 ){
+					body.style.backgroundColor = "orange"
+				}else if (body.scrollTop > 900 && body.scrollTop <= 1200 ){
+					body.style.backgroundColor = "yellow"
+				}else if (body.scrollTop > 1200 && body.scrollTop <= 1500 ){
+					body.style.backgroundColor = "green"
+				}else if (body.scrollTop > 1500 && body.scrollTop <= 1800 ){
+					body.style.backgroundColor = "blueness"
+				}else{
+					body.style.backgroundColor = "indigo"
+				}
+				console.log(body.scrollTop)
+			}
+		</script>
+	</body>
+</html>

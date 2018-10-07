@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>年龄大小</title>
+	</head>
+	<body>
+		小张:<input type="text" id="age1" value="" /><br /><br />
+		小王:<input type="text" id="age2" value="" /><br /><br />
+		小李:<input type="text" id="age3" value="" /><br /><br />
+		<input type="button" id="btn1" value="判断" onclick="btn()" />
+		<script type="text/javascript">
+			function btn(){
+				var a = document.getElementById("age1").value-0;
+				var b = document.getElementById("age2").value-0;
+				var c = document.getElementById("age3").value-0;
+				a > b ? (a > c ? alert("年龄最大的是小张,年龄是" + a + "岁!") : alert("年龄最大的是小李,年龄是" + c + "岁!")):(b > c ? alert("年龄最大的是小王,年龄是" + b + "岁!"):alert("年龄最大的是小李,年龄是" + c + "岁!"));
+			}
+		</script>
+		
+	</body>
+</html>

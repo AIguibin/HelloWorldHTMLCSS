@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>自定义字体</title>
+		<style type="text/css">
+			@font-face {
+				font-family:轩;
+				src: url(自定义字体.ttf);
+				/*兼容IE高版本的方法*/
+				url(自定义字体.ttf);
+			}
+			p{
+				font-family: 轩;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			自定义字体:
+			给下载的或者我们自定义的字体声明的一个名字,方便我们以后的引用,引用是需要告诉系统字体的路径.
+			font-face:
+			文字的字体包(字体文件)格式
+			1.ttf 最常用的(chrome,Safari,Opera,Firefox,iOS系统,Android系统都支持该类型的字体包)
+			2.eot 仅支持IE浏览器可使用
+			3.svg 应用于iOS
+			4.woff chrome和Firefox
+			
+			语法:
+			@font-face{
+				font-family:我们自己起的名字;
+				src:自定义文字包的路径
+			}
+		-->
+		<p>死啊懂啊那是多还哦能打开啦那会死U盾换电脑开机</p>
+		
+	</body>
+</html>

@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style: none;
+}
+.navbar {
+    background: #101010;
+}
+.navbar .navbar-nav li {
+    line-height: 40px;
+    padding-bottom: 20px;
+}
+.navbar .navbar-nav li a {
+    margin-top: 20px;
+    padding-top: 5px;
+    padding-bottom: 25px;
+    height: 10px;
+    font-size: 16px;
+    color: darkgray;
+}
+.navbar .navbar-nav li a:hover {
+    color: white;
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+}
+#content {
+    width: 100%;
+    margin-top: -25px;
+    color: grey;
+    #video {
+        position: relative;
+        img{
+            width: 100%;
+        }
+        img:nth-child(2) {
+            width: 5%;
+            position: absolute;
+            top: 48%;
+            left: 48%;
+        }
+    }
+    #center{
+        width: 100%;
+        height: 60px;
+        background: gray;
+        margin: 5px 0 20px;
+    }
+    #videos{
+        width: 90%;
+        margin: 0 auto;
+        overflow: hidden;
+        .itemMiddle{
+            margin: 0 1%;
+        }
+        .item{
+            display: inline-block;
+            width: 32%;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            ul{
+                width: 100%;
+               li:nth-child(1){
+                width: 100%;
+                img{
+                    width: 100%;
+                }
+            }
+            li:nth-child(2){
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                position: absolute;
+                background: url(../img/img4/play_small_h.png) no-repeat;
+                background-size: 8%;
+                background-position: center center;
+            }
+            li:nth-child(2):hover{
+                background: url(../img/img4/play_small_b.png) no-repeat;
+                background-position: center center;
+            } 
+            }
+            
+        }
+    }
+}
+
+
+
+#footer {
+    text-align: center;
+    margin-top: 10%;
+}
+#footer #footerimg {
+    margin-bottom: 10px;
+}
+#footer #footerpics img {
+    margin: 0 5px 10px;
+}
+#footer p {
+    color: gray;
+}

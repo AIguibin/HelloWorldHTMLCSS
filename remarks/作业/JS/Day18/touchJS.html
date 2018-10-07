@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+		<title>touchJS</title>
+		<style type="text/css">
+			#div1 {
+				width: 300px;
+				height: 300px;
+				background: yellowgreen;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="div1">
+
+		</div>
+
+		<script src="js/touch-0.2.14.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			touch.on('#target', 'touchstart', function(e) {
+				var even = e || event;
+				even.preventDefault();
+			});
+
+			//pinch 缩放
+			//定义初始缩放比例
+			var initialScale = 1;
+			var currentScale;
+			touch.on("#div1", "pinchend", function(e) {
+				var even = e || event;
+				currentScale = even.scale - 1;
+				currentScale = initialScale + currentScale;
+				if(currentScale > 2) {
+					currentScale = 2;
+				}
+				if(currentScale < 0) {
+					currentScale = 0;
+				}
+				div1.innerHTML = "当前缩放比例为:" + currentScale;
+				div1.style.width = div1.offsetWidth * currentScale + "px";
+				div1.style.height = div1.offsetHeight * currentScale + "px";
+			});
+			//			touch.on("#div1","pinch",function(e){
+			//				initialScale = currentScale;
+			//			})
+			//drag
+			//抓取并移动目标
+			var dx, dy;
+			touch.on("#div1", "drag", function(e) {
+					var even = e || event;
+					dx = dx || 0;
+					dy = dy || 0;
+					var offx = dx + e.x + "px";
+					var offy = dy + e.y + "px";
+					this.style.webkitTransform = "translate3d(" + offx + "," + offy + ",0)";
+				})
+				//			touch.on('#target', 'dragend', function(e) {
+				//				var even = e || event;
+				//				dx += e.x;
+				//				dy += e.y;
+				//			});
+				
+				
+				
+				//tap
+				//单击
+			touch.on('#div1', "tap", function(e) {
+				var even = e || event;
+				alert("tap(单击)");
+			});
+			
+			//hold
+			//长按
+			touch.on('#div1', "hold", function(e) {
+				var even = e || event;
+				alert("hold(长按)");
+			});
+		</script>
+	</body>
+
+</html>

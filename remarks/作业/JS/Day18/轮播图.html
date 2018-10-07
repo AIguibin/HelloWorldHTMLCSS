@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>轮播图</title>
+		<link rel="stylesheet" type="text/css" href="css/swiper-3.3.1.min.css" />
+		<style type="text/css">
+			.swiper-container {
+				width: 400px;
+				height: 600px;
+			}
+			
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<img src="img/1.jpg" />
+				</div>
+				<div class="swiper-slide">
+					<img src="img/2.jpg" />
+				</div>
+				<div class="swiper-slide">
+					<img src="img/3.jpg" />
+				</div>
+				<div class="swiper-slide">
+					<img src="img/4.jpg" />
+				</div>
+				<div class="swiper-slide">
+					<img src="img/5.jpg" />
+				</div>
+			</div>
+			<!--分页器-->
+			<div class="swiper-pagination"></div>
+			<!--前进后退按钮-->
+			<div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+			<!--滚动条-->
+			<div class="swiper-scrollbar"></div>
+		</div>
+
+		<script src="js/swiper-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var mySwiper = new Swiper(".swiper-container", {
+				direction: "horizontal",
+				loop: true,
+				//分页器
+				pagination: ".swiper-pagination",
+				//前进后退
+				nextButton: '.swiper-button-next',
+				prevButton: '.swiper-button-prev',
+				//滚动条
+				scrollbar: '.swiper-scrollbar',
+				//开启自动播放
+				autoplay: 2000,
+				//切换效果
+				effect: 'cube',
+				cube: {
+					slideShadows: true,
+					shadow: true,
+					shadowOffset: 100,
+					shadowScale: 0.6
+				}
+
+			})
+		</script>
+	</body>
+
+</html>

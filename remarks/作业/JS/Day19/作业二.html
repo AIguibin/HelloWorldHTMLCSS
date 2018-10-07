@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>身份证</title>
+	</head>
+	<body>
+		<input type="text" id="num" placeholder="请输入身份证号" />
+		<input type="button" id="btn" value="判断" />
+		<script type="text/javascript">
+			var num = document.getElementById("num");
+			var btn = document.getElementById("btn");
+			btn.onclick = function(){
+				var re = /(^[1-9]\d{17}$|^[1-9]\d{16}([0-9]|X)$)|(^[1-9]\d{14}$|^[1-9]\d{13}([0-9]|X)$)/
+				if(re.test(num.value)){
+					alert("输入正确")
+				}else{
+					alert("输入的不合法")
+				}
+			}
+		</script>
+	</body>
+</html>

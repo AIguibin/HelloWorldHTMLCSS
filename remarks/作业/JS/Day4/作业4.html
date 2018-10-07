@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>灯</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function img1() {			
+				element = document.getElementById("img")
+				if(element.src.match("img/2")) {
+					element.src = "img/1.gif";
+				} else {
+					element.src = "img/2.gif";
+				}
+			}
+		</script>
+		<img src="img/1.gif" id="img" onclick="img1()" />
+	</body>
+</html>

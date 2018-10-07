@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>QQ号判断</title>
+	</head>
+	<body>
+		<input type="text" id="qq" placeholder="请输入QQ号" />
+		<input type="button" id="btn" value="判断" />
+		<script type="text/javascript">
+			var qq = document.getElementById("qq");
+			var btn = document.getElementById("btn");
+			btn.onclick = function(){
+				var re = /^[1-9]\d{4,10}/
+				if(re.test(qq.value)){
+					alert("正确的QQ号")
+				}else{
+					alert("QQ号不正确,请重新输入")
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>寻找元素</title>
+	</head>
+	<body>
+		<div class="div1">
+			
+		</div>
+		<script type="text/javascript">
+			var div = document.getElement(findElement(".div1"))
+			console.log(div)
+			function findElement(name){
+				if(name.substr(0,1) == "."){
+					name = name;
+					return
+				}
+				else if(name.substr(0,1) == "#"){
+					name = name;
+					return
+				}else{
+					name = name;
+				}
+			}
+		</script>
+	</body>
+</html>

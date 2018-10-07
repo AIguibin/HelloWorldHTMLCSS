@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#myCanvas {
+				box-shadow: 4px 4px 4px firebrick;
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+		<script type="text/javascript">
+			var myCanvas = document.getElementById("myCanvas");
+			var ctx = myCanvas.getContext("2d");
+			ctx.translate(250, 250);
+			ctx.beginPath();
+			ctx.arc(0, 0, 20, 0, Math.PI * 2, false);
+			ctx.closePath();
+			ctx.fillStyle = "#006400";
+			ctx.fill();
+			
+			var starAngle = 0;
+			/*
+			 ctx.save()保存坐标系当前所处的状态
+			 ctx.restore() 恢复save()保存的坐标系状态
+			 */
+			for(var i = 0; i < 12; i++) {
+				ctx.save();
+//				ctx.rotate(Math.PI/12);
+				ctx.rotate(starAngle);
+				ctx.beginPath();
+				ctx.moveTo(0, -100);
+				ctx.quadraticCurveTo(40, 0, 0, 100)
+				ctx.fillStyle= "yellowgreen";
+				ctx.fill();
+
+				ctx.beginPath();
+				ctx.moveTo(0, -100);
+				ctx.quadraticCurveTo(-40, 0, 0, 100)
+				ctx.fillStyle = "yellowgreen";
+				ctx.fill();
+				starAngle += Math.PI/12;
+				ctx.restore();
+			}
+			
+			for(var i = 0; i < 12; i++) {
+				ctx.save();
+//				ctx.rotate(Math.PI/12);
+				ctx.rotate(starAngle);
+				ctx.beginPath();
+				ctx.moveTo(0, -100);
+				ctx.quadraticCurveTo(40, 0, 0, 100)
+				ctx.strokeStyle = "#000000";
+				ctx.stroke();
+
+				ctx.beginPath();
+				ctx.moveTo(0, -100);
+				ctx.quadraticCurveTo(-40, 0, 0, 100)
+				ctx.strokeStyle = "#000000";
+				ctx.stroke();
+				starAngle += Math.PI/12;
+				ctx.restore();
+			}
+		</script>
+	</body>
+
+</html>

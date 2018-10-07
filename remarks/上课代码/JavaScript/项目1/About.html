@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>About</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/AboutStyle.css"/>
+	</head>
+	<body>
+		<!--导航栏-->
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+					<a class="navbar-brand" href="#"><img src="img/img1/shininglogo.png" /></a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="Home.html">Home</a>
+						</li>
+						<li>
+							<a href="About.html">About</a>
+						</li>
+						<li>
+							<a href="Rendering.html">Rendering</a>
+						</li>
+						<li>
+							<a href="Animation.html">3D Animation</a>
+						</li>
+						<li>
+							<a href="Bin.html">Bin</a>
+						</li>
+						<li>
+							<a href="Contact.html">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div id="content">
+			<div id="text">
+				<h3>About Us</h3>
+				<p>Shanghai Shining is a creative corporation which focuses on helping architects and owners turn their construction which is still in design stage into visual images or videos, perfectly showing the essence of construction.</p>
+				<p>Since the year of 1998, we have finished more than 20000 3D visualization creativities of all Kinds of architecture for nearly 2000 architect firms both at home and abroad. We have used 3D technology, shooting, drawing and architectonic to provide the clients with the services of CG images, CG animations, BIM and 3D products finally</p>
+			</div>
+			<div id="img">
+				<img src="img/img2/aedas.png" alt="" />
+				<img src="img/img2/bdp.png" alt="" />
+				<img src="img/img2/ch2mhill.png" alt="" />
+				<img src="img/img2/edsa.png" alt="" />
+				<img src="img/img2/kpf.png" alt="" />
+				<img src="img/img2/sasaki.png" alt="" />
+				<img src="img/img2/gensler.png" alt="" />
+			</div>
+		</div>
+		
+		
+		<!--底部-->
+		<div id="footer">
+			<div id="footerimg">
+				<img src="img/img1/footer0.jpg" />
+			</div>
+			<div id="footerpics">
+				<img src="img/img1/footer1.jpg" />
+				<img src="img/img1/footer2.jpg" />
+				<img src="img/img1/footer3.jpg" />
+				<img src="img/img1/footer4.jpg" />
+			</div>
+			<p>Copyright © 1998-2015 shining Group</p>
+		</div>
+		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//获取底部所有图片
+			var footerimgs = document.querySelectorAll("#footer img");
+			//给所有的图片加鼠标移入事件
+			for(i = 0; i < footerimgs.length; i++) {
+				footerimgs[i].onmouseenter = (function(index) {
+					return function() {
+						this.src = "img/img1/footer" + index + "_h.jpg"
+					}
+				})(i)
+				footerimgs[i].onmouseleave = (function(index) {
+					return function() {
+						this.src = "img/img1/footer" + index + ".jpg"
+					}
+				})(i)
+			}
+		</script>
+	</body>
+</html>

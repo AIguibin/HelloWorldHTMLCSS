@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>html5新标签</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- HTML5
+		1.新增了很多标签
+		2.支持本地持久化
+		3.摒弃了一些之前的css样式
+		4.增加了音频,视频标签
+		5.增加了canvas画布标签
+
+		*h5新增的一些标签或者功能目前只能在标准浏览器下支持* 
+
+		语义化
+		-->
+
+		<!-- 标记标签 mark 双标签 -->
+		<p>今天是个<mark>阴雨天</mark></p>
+		<br>
+		<hr>
+		<!-- 用电量显示  meter 
+		 	一般用来显示电量或者内存的使用情况
+		 	min最小值
+		 	max最大值 
+		 	value当前值
+		 	low最低预警值
+		 	high最高预警值
+		 	*默认的最小值是0,最大值是1
+		 	*如果当前浏览器不支持该标签,会显示标签里的内容.
+		 -->
+		<meter min="0" max="100" value="50">html5</meter>
+		<br>
+		<hr>
+		<!-- 单词内换行标签
+			wbr 双标签
+		 -->
+		<p>Hello,World!Hello,World!Hello,World!Hello,World!Hello,World!Hello,World!Hello,World!Hello,World!Hello,World!Hello,World!Hello,World!Hello,World!Hello, World!Hello,World!Hello,World!Hello</p>
+		<br>
+		<hr>
+		<!-- 拼音标注标签  ruby 双标签 
+			需要和rt,rp标签配合使用
+			rt:在rt标签里写上需要标注的信息
+			rp:当浏览器不支持时,会显示该标签里的内容
+			-->
+		<ruby style="font-size:30px;">
+				习近平
+				<rt>中华人民共和国主席</rt>
+				<rp>这是不支持显示的信息</rp>
+			</ruby>
+		<br><br>
+		<hr>
+
+		<!-- datalist  双标签  一般结合input标签使用
+			1.在不同的浏览器下显示的效果有差异
+			2.input标签和datalist是靠input标签里的list标签属性联系在一起的. -->
+
+		<form action="">
+			<input type="text" list="city">
+			<datalist id="city">
+					<option value="2">
+						北京
+					</option>
+					<option value="1">
+						上海
+					</option>
+					<option value="3">
+						郑州
+					</option>
+				</datalist>
+		</form>
+		<br /><br /><hr />
+		<!--details自带有折叠功能
+			1.summary与details是不可分割的,summary是details的标题.
+			2.折叠的内容可自定义,可以为任何标签
+			3.仅有标准浏览器支持
+		-->
+		<details style="width: 200px;height:200px;background: red;">
+			<summary>拆开有惊喜</summary>
+			<p>金钱</p>
+			<div>万恶的金钱</div>
+			<p>砸死我吧~</p>
+		</details>
+		
+	<br /><br /><hr />
+		<!--audio标签  播放视频的标签
+			支持mp3 ogg wav类型的文件
+			autoplay 自动播放
+			controls控制是否出现控制条
+			loop是否循环播放
+			muted 是否静音
+			preload 预加载 ,默认值为auto,metadata:只加载音乐源文件,非整个音频文件;none:不进行加载,减少服务器压力
+			*如果写过autoplay属性,则preload设置失效
+		-->
+		<!--既可以播放本地视频也可以播放网络资源-->
+		<!--<audio src="http://c203.duotin.com/M03/30/BD/wKgB5VcaAf-ATU8hAN9j44dsv1k914.mp3" autoplay="autoplay" controls="controls">-->
+			
+		</audio>
+		
+		<br /><br /><hr />
+		<!--视频标签 video
+			播放视频的标签  支持MP4,ogg,webm格式的文件
+			还可以设置宽高
+		-->
+		<video src="resource/movie.mp4" width="400px" height="400px"controls="controls">
+			<!--source标签
+				用来解决浏览器不同版本所支持的视频播放格式不一样的问题
+			-->
+			<source src="resource/movie.mp4"></source>
+			<source src="resource/movie.ogg"></source>
+			<source src="resource/movie.wedm"></source>
+		</video>
+		
+		
+		<!--figure 注释标签
+			一般用于图片的注释
+			注释的内容需要写在figcaption标签里
+		-->
+		<figure>
+			<img src="resource/04.jpg"/>
+			<figcaption>圣诞老人</figcaption>
+		</figure>
+		<br /><br /><hr /><hr />
+		<!--html5里新增的:input空间类型-->
+		<form action="###">
+			<!--E-mail类型-->
+			<!--<input type="email" placeholder="请输入邮箱" />-->
+			
+			<!--url类型-->
+			<input type="url" placeholder="请输入网址" />
+			<br /><br />
+			<!--调色板-->
+			<input type="color" name="color" id="" value="" />
+			
+			<!--数值选择
+				step 每一次点击増或减的值
+			-->
+			<input type="number" value="18" step="10"/>
+			<br /><br />
+			
+			<!--滑竿
+				range
+			-->
+			
+			<input type="range" name="range" id="" value="" max="50" min="10"/>
+			
+			<!--日期  支持年月日-->
+			<input type="date" name="date" id="" value="" />
+			
+			<!--日期 支持年月-->
+			<input type="month" name="month" id="" value="" />
+			
+			<!--支持年周-->
+			<input type="week" name="week" id="week" value="" />
+			<br /><br />
+			<!--具体时间-->
+			<input type="time" name="time" id="" value="" />
+			<!--本地时间-->
+			<input type="datetime-local" name="datetime" id="datetime" value="" />
+			
+			<!--input标签内重要的两个属性-->
+			<!--required 要求被该属性修饰的输入框不能为空-->
+			<!--autofocus 被该属性修饰的输入框自动获得焦点
+				如果有多个输入框设置了该属性,识别最先被设置的.
+			-->
+			<input type="text" name="" id="" value="" autofocus/>
+			
+			
+			
+			<input type="submit" />
+		</form>
+		
+		<!--h5里一些新增语义化标签-->
+		<!--header,section,footer-->
+		<!--section  表示一块区域,一般用在项目分块的中间部分-->
+		<!--header  一般用于网页的头部部分-->
+		<!--footer  一般用于网页的尾部部分-->
+		<header></header>
+		<section></section>
+		<footer></footer>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</body>
+
+</html>

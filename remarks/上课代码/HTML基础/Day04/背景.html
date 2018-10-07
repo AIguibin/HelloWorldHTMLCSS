@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>背景色</title>
+	<style type="text/css">
+	div{
+		height: 800px;
+		/*1.背景色
+		
+		*/
+		/*background-color:red;*/
+		/*2.背景图片*/
+		/*background-image: url(2.jpg);*/
+		/*背景图片的平铺方式
+		no-repeat 不平铺
+		repeat-x水平平铺
+		repeat-y竖直平铺*/
+		/*background-repeat:no-repeat;*/
+		/*4.背景图片是否跟随屏幕滚动
+		fixed 固定  不随着屏幕滚动
+		scroll  跟随屏幕滚动*/
+		/*background-attachment: scroll;*/
+		/*5.背景图位置
+			需要填写两个值
+			1.x轴位置   2.y轴位置
+			如果一个样式里需要填多个值,值与值之间用空格隔开
+		*/
+		/*1.用单词表示位置
+		x轴:left center right
+		y轴:top center bottom*/
+		/*background-position: center;*/
+		/*
+		2.使用具体的的数值
+		*/
+		/*background-position: 100px 200px;*/
+		/*3.使用百分比
+		使用百分比实际还是在使用具体的数值
+		计算公式:  x:(容器的宽度-元素的宽度)*百分比值;
+		 		  y:(容器的高度-元素的高度)*百分比值*/
+		/*background-position:50% 50%	; */
+		/*背景设置的简写:
+		1.颜色
+		2.图片路径
+		3.是否平铺
+		4.是否跟随滚动
+		5.图片位置*/
+		background: red url(2.jpg) fixed center;
+		/*在书写background复合属性时,如果一个属性的值有多个,那么这多个属性值必须相连书写,不可分开*/
+	}
+	 </style>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>正则表达式</title>
+	</head>
+	<body>
+		<input type="text" id="phone" placeholder="请输入电话号码" />
+		<input type="button" id="btn" value="判断" />
+		<script type="text/javascript">
+			/*
+			 * 正则表达式
+			 * 1.任何前端,后台,移动端,ios,Android,java都可以使用正则表达式.学好正则,可以对任意的信息进行检测,匹配,提取,判断
+			 * 2.是一门新的语法格式
+			 * 3.可以搜索
+			 */
+			/*
+			 * 正则表达式
+			 * regular expression
+			 * 在一个正则表达式中,描述匹配字符串的规则,我们可以通过该规则,进行字符串的检测.
+			 */
+//			var str = "asdfafwefsf4dfsafd8dsafdfd5asdf2";
+//			for(i = 0; i < str.length; i++){
+//				if(str[i] => "0" && str[i] <= "9"){
+//					console.log("字符串里有数字");
+//					break;
+//				}
+//			}
+			//
+//			var reg1 = /\d/;
+//			console.log(reg1.test(str));
+			
+			/*
+			 * 正则表达式的基本知识
+			 * 1.正则表达式中有两种字符
+			 *    a.普通字符 a-z,A-Z,0-9,汉字,_
+			 * 	  b.元字符 具有特殊意义的字符, \d \s \w,* + ? . 等
+			 */
+			
+			/*
+			 * JS如何创建一个正则表达式对象
+			 * 1.复杂的方法
+			 * var reg = new RegExp(参数一,参数二);
+			 * 这两个参数都是字符串类型
+			 * 参数一:所规定的规则
+			 * 参数二:设置的属性(attribute),可选的,可以省略.
+			 * 
+			 * i:忽略大小写
+			 * m:它是结合定位符(^,$)使用的
+			 * g:全局匹配,如果我们不写g,当匹配到对应规则的字符串后,直接返回,不会继续往后匹配,写了g,通篇匹配.
+			 */
+//			var str1 = "today is sunday";
+			
+//			//创建一个正则表达式对象
+//			var regExp1 = new RegExp("is");
+//			//text()方法
+
+			
+////			正则表达式的test()方法,该函数的作用:用来验证字符串中有没有符合规则的字符串,如果有返回突然true,没有返回fales,text(参数):参数就是我们要验证的字符串
+//			var res = regExp2.test(str1)
+//			console.log(res);
+
+			//判断字符串里是否有!
+			
+//			var str2 	= "today is sunday !";
+//			var regExp2 = new RegExp("!");
+//			var res2 = regExp2.test(str2);
+//			console.log(res2);
+			//2.创建正则表达式对象的简单方法
+			//var 对象名 = /参数1/参数2   参数不能是字符串
+			//参数一:匹配规则
+			//参数二:设置的属性(i,m,g)
+			
+//			var str3 = "hehehe.avi"
+//			var regExp3 = /AVI/i;
+//			var res3 = regExp3.test(str3);
+//			console.log(res3);
+			
+			//判断以下字符串有没有空格
+//			var str4 = "ni hao ma";
+//			var regExp4 = / /;
+//			var res4 = regExp4.test(str4);
+//			console.log(res4);
+//			alert("有空格")
+//			
+			/*
+			 * 元字符:
+			 * \n: 换行符
+			 * \t: 制表符(tab)
+			 * \r: 回车符
+			 * ******
+			 * \d:代表数字0-9
+			 * \D:代表非数字
+			 * \s:空白符(空格,回车,制表符)
+			 * \S非空白符
+			 * \w:字符(字母a-z,A-Z,"0"-"9",_)
+			 * \W:非字符(对上面取反)
+			 * . :代指除了\n之外的所有字符
+			 * ***********************
+			 * 代表个数
+			 * *:个数大于等于0
+			 * +:个数大于等于1
+			 * ?:个数 0 或 1
+			 * *********
+			 * []:匹配括号中出现的字符 eg.  只要括号里有一个能匹配上字符串里的字符,就返回true,都匹配不上返回false
+			 * [^]:不能出现口号中的内容  匹配任意不在指定范围内的字符,如果有人以一个不在此范围内,返回true,否则返回false
+			 */
+			
+			//检测一个字符串有没有换行
+//			var str5 = "hello \n word";
+//			var regExp5 = /\n/;
+//			var res5 = regExp5.test(str5);
+//			console.log(res5);
+			
+			//字符串的match方法,跟正则表达式有关
+			
+			//match(参数)
+			//参数:正则表达式对象
+			//返回值:如果一个字符串按照正则表达式对象的规则可以匹配到内容,就把内容写进数组,进行返回,如果匹配不到,返回null
+//			var str6 = "hello, world, hello, world";
+//			var re = /world/g;
+//			strArr = str6.match(re);
+//			console.log(strArr)
+			// -  连字符,结合[]一起使用,表达一个范围
+//			var str7 = "adsfd123asd45";
+//			var re1 =/[0-9-f]/g;
+//			var resArr = str7.match(re1);
+//			console.log(resArr)
+			
+			//得到一个字符串里相邻出现两次的数字的所有组合
+//			var str8 = "ad12a5asd48aa65da8da4da6a54a54d74";
+//			var re2 = /\d\d/g;
+//			var resArr1 = str8.match(re2);
+//			console.log(resArr1)
+			
+			//获取一个字符串里面的第一个数字
+//			var str9 = "ad12a5asd48aa65da8da4da6a54a54d74";
+//			var re3 = /\d/;
+//			var resArr2 = str9.match(re3);
+//			console.log(resArr2)
+			
+			
+			//字符串函数
+			//replace(参数一,参数二)
+			//参数一:正则表达式对象
+			//参数二:要替换的内容
+			//返回值:返回经过替换后的字符串
+			//注意:只是函数的返回值被替换后的字符串,原字符串不被修改.
+//			var str01 = "你大爷的,你说谁呢?就说你呢,你大爷的.";
+//			var re4 = /你大爷的/g;
+//			console.log(str01.replace(re4,"***的"));
+			
+			/*
+			 * 字符串方法
+			 * search(参数)
+			 * 参数:正则表达式
+			 * 返回值:如果匹配到正则中的字符串,就返回对应的下标,如果匹配不到返回-1.
+			 */
+//			var str02 = "ILOVEBABY";
+//			var re02 = /O/;
+//			console.log(str02.search(re02))
+			
+			
+			/*
+			 * 量词:
+			 * {n}:个数为n的
+			 * {n,}:个数为大于等于n的
+			 * {n,m}个数大于等于n,小于等于m的
+			 * 
+			 * 
+			 * ? ==> {0,1}
+			 * * ==> {0,}
+			 * + ==> {1,}
+			 * 
+			 */
+			
+			//求一个字符串中连续出现5次的数字
+//			var str03 = "adas546789asdasd13254sad84652aasdad12345";
+//			var re03 = /\d{5}/g;
+//			console.log(str03.match(re03));
+			//求一个字符串中连续出现2-4的数字
+//			var str04 = "adas546789asdasd13254sad84652aasdad12345";
+//			var re04 = /\d{2,4}/g;
+//			console.log(str04.match(re04));
+			
+			/*
+			 * 连字符表达的字符范围
+			 * [0-9]:所有的数字
+			 * [a-z]:所有的小写字母
+			 * [A-Z]:所有的大写字母
+			 * \u:Unicode
+			 * 中文的范围:\u4e00--\u9fa5
+			 */
+//			var book = ["狼图腾.txt","西游记.txt","The Shawshank.txt","les miserables.txt","遮天.txt"];
+			//输出所有的中文书名
+			
+			for(i = 0; i < book.length; i++){
+				var re05 = /[\u4e00-\u9fa5]+\./g;
+				if(re05.test(book[i])){
+					//每一个正则对象都有一个lastIndex属性,当进行全局匹配时,如果上一次匹配规则成立,那么正则对象会记录下上一次匹配到的下标,用到下一次的匹配中去,这么会造成下一次匹配时不是从字符串的最开始位置开始匹配.
+					//解决方法:每次匹配成功之后将正则对象的lastIndex属性置成0.
+					re.lastIndex = 0;
+					console.log(book[i].split(".")[0]);
+				}
+				
+			}
+			//输出所有的英文书名
+//			var re06 = /[a-zA-Z]+\./;
+//			for(i = 0; i < book.length; i++){
+//				if(re06.test(book[i])){
+//					console.log(book[i].split(".")[0]);
+//				}
+//				
+//			}
+
+			/*
+			 * 正则表达式里的定位符
+			 * ^:用来表示字符串的开头
+			 * $:用来表示字符串的结尾
+			 * \b:用来表示字符串中单词的边界
+			 */
+			
+			//判断一个字符串是不是以http开头
+//			var str07 = "http://www.sougou.com";
+//			var re07 = /^http/;
+//			console.log(re07.test(str07));
+			
+			
+			//判断一个字符串是不是以com结尾
+//			var str08 = "http://www.sougou.com";
+//			var re08 = /com$/;
+//			console.log(re08.test(str08));
+			
+			//判断一个字符串只能是"abc";
+//			var str09 = "abc";
+//			var re09 = /^abc$/;
+//			console.log(re09.test(str09));
+			
+			//m的作用:影响对行头和行尾的解释,影响^ $,当不加时,^ $指的就是整个字符串的头和尾,如果加了m而且字符串中有换行,那么^ $指的就是每一行的头和尾.
+//			var str10 = "123\n456\n789";
+//			var re10 = /^123$/;
+//			console.log(re10.test(str10))
+			
+			//选择符和分组符
+//			var str11 = "aabbabab123";
+			//选择符 字符串1|字符串2  :匹配字符串里的字符串一或者字符串二
+			//匹配字符串里的所有的a或者b
+//			var re11 = /a|b/g;
+//			console.log(str11.match(re11))
+			
+			//分组符 () :把同一分组的字符用()括起来
+			
+			//获取两个ab子字符串
+//			var str12 = "aabbabab123";
+//			var re12 = /(ab){2}/g;
+//			console.log(str12.match(re12));
+			
+			
+			//定义一个正则判断以131,158,177开头的手机号是否合法
+			var phone = document.getElementById("phone");
+			var btn = document.getElementById("btn");
+//			btn.onclick = function(){
+//				var re13 = /(^131|^158|^177)[0-9]{0,8}$/;
+//				var phoneNum = phone.value;
+//				if(phone.value.length == 11){
+//					if(re13.test(phoneNum)){
+//						alert("输入正确")
+//					}else{
+//						alert("请输入正确的前缀")
+//					}
+//				}else{
+//						alert("号码不足十一位")
+//					}
+//			}
+			
+			//检测网址是否合法
+//			   var re = /^http?:[/]{2}w{3}[.][0-9a-zA-Z]+[.](com|net)$/;
+			//邮箱
+			var re15 = /^[0-9a-zA-Z]+@[0-9a-zA-Z]+[\.](com|cn)$/;
+			
+			</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

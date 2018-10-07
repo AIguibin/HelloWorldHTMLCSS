@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>动画</title>
+		<style type="text/css">
+			#div1{
+				width: 200px;
+				height: 200px;
+				background: red;
+				/*过渡动画*/
+				/*过度属性可以填多个值,值与值之间用逗号隔开*/
+				transition-property: width background;
+				transition-duration: 5s;
+				/*变化曲线的值:
+				*ease 默认值你现块再快再慢
+				*ease-in:淡入(动画放你那个的时候变化慢)*
+				*ease-out:淡出(匀速变化);
+				*ease-in-out:淡入淡出(淡入淡出(开始慢,最后块));
+				*linear:线性(匀速变化)*/
+				
+				
+				/** 贝塞尔曲线
+				* cubic-bzzier(x1,y1,x2,y2)这四个值取值范围0-1.
+				* 所有变化都可以用贝塞尔曲线*/
+				transition-timing-function: ease;
+				
+				/*延迟时间*/
+				transition-delay: 5s;
+				
+				/*合写
+				 如果合写,多个值中间用空格,没有顺序限制,但是需要注意,如果同时写了两个秒数,系统会把第一个当做动画执行时间,第二个当做延迟时间*/
+				transition: all 3s ease-in-out 5s;
+			}
+			#div1:hover{
+				width: 800px;
+				height: 800px;
+				background: blue;
+			}
+			#input1{
+				/*输入框默认是有宽高的(特殊性),如果我们要通过过渡动画改变输入框的宽高,避免浏览器兼容问题,一般人为的设置宽高*/
+				width: 100px;
+				transition: all 3s;
+			}
+			#input1:focus{
+				width: 200px;
+			}
+			#input2{
+				transition: all 3s;
+				
+			}
+			#input2:checked{
+				margin-left:100px ;
+			}
+			#div2{
+				width: 500px;
+				height: 500px;
+				background: green;
+				transition: all 3s;
+			}
+			@media only screen and (min-width:500px ) {
+				#div2{
+					width: 700px;
+				height: 700px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+					<!--动画分为两种:
+			1.css动画
+			  *过渡动画
+			  * 关键帧动画
+			2.js动画
+			3.第三方动画-->
+			
+			
+		<!--过渡动画
+			语法:
+			1.要进行变化的属性(transition-property)
+			2.动画的持续时间(transtion-duration)
+			3.变化曲线
+			4.延迟时间
+			*过渡动画当失去触发时机时会恢复原来的状态
+			* 触发过渡动画的时机:
+			   *hover(最常用)
+			   * focus: 当输入框获得焦点是,
+			   * checked(选框被选中时)
+			   * 媒介查询
+			   * js
+			
+		-->
+		<div id="div1">
+			
+		</div>
+		<input type="text" id="input1"/><br />
+		<input type="radio" name="" id="" value="" id="input2">
+		<div id="div2">
+			
+		</div>
+	</body>
+</html>

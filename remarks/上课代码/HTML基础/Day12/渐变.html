@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>渐变</title>
+		<style type="text/css">
+			#linear1{
+				width: 200px;
+				height: 100px;
+				background: -webkit-linear-gradient(left top,red,green,yellow);
+			}
+			/*to 加到方向的前面,表示到此方向,意味着起始位置与写的方向正好相反*/
+			#linear2{
+				width: 300px;
+				height: 500px;
+				background: -webkit-linear-gradient(top,red 10%,yellow 30%,black 60%,blue);
+			}
+			#rad1{
+				width: 250px;
+				height: 250px;
+				background: radial-gradient(farthest-side circle at center,red,blue,yellow);
+			}
+			#repeat1{
+				width: 400px;
+				height: 100px;
+				background:-webkit-repeating-linear-gradient(left,yellow,red,blue,green,beige 50%);
+			}
+			#repeat2{
+				width: 400px;
+				height: 400px;
+				background: repeating-radial-gradient(closest-side circle at center,yellow,red,green,pink 30%);
+			}
+		</style>
+	</head>
+	<body>
+		<!--渐变
+			1.线性渐变
+			2.径向渐变
+			3.重复渐变
+			* 渐变相当于对一个元素的背景图进行设置
+			* 要实现渐变,至少需要两种颜色.
+		-->
+		
+		<!--线性渐变
+			background:-webkit-linear-gradient(方向,颜色1,颜色2,颜色3...);
+		-->
+		
+		<!--background:-webkit-linear-gradient(方向,颜色1 开始渐变的位置,颜色2 开始渐变的位置....)-->
+		<div id="linear1">
+			
+		</div>
+		<div id="linear2">
+			
+		</div>
+		
+		<!--径向渐变
+			呈圆形的一种渐变方式
+			background:-webkit-radial-gradient(半径 形状(圆形或者椭圆形) at圆心,颜色1 位置1,颜色2 位置2...)
+			1.半径:
+			a.farthest-side:最远边
+			b.farthest-corner:最远角
+			c.closest-side:最近边
+			d.closest-corner:最近角
+			2.形状
+			*circle 圆形
+			* ellipse  椭圆形
+			3.圆心
+			*给具体的px值,第一个x轴反向,第二个Y轴方向,默认在元素的中心点.
+			* 给具体的单词方位:left right top bottom,center
+			* *******如果符合上述对应得组合,那么半径选择时不要选择最近边和最近角(造成半径为0),不会显示渐变/
+		-->
+		<div id="rad1">
+			
+		</div>
+		<div id="d4">
+			
+		</div>
+		<!--重复渐变(重复线性渐变)
+			*语法跟线性渐变一样,唯一区别就是当出现纯色时,重复线性渐变不会显示纯色,而是再出现一组渐变
+			* 重复径向渐变
+			* 语法跟径向渐变一样,唯一区别就是当出现纯色是,重复径向渐变不会显示纯色,而是再出现一组渐变.
+		-->
+		<div id="repeat1">
+			
+		</div>
+		<div id="repeat2">
+			
+		</div>
+	</body>
+</html>

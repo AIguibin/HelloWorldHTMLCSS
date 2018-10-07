@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>浏览器嗅探</title>
+	</head>
+
+	<body>
+		<!--
+			window.navigator.userAgent 获取当前html文件运行在浏览器中的浏览器名称以及版本,我们可以通过"Chrome/Safari/FireFox/IE/Opera"这是关键词判断当前用户打开的是哪一种浏览器,进而进行对应的兼容操作
+			indexOf():作用: 查询是否有对应的字符串,如果有,返回对应字符串的位置,没有,返回-1
+		-->
+		<script type="text/javascript">
+			if(window.navigator.userAgent.indexOf("Opera") != -1) {
+				alert("是Opera浏览器");
+			} else if(window.navigator.userAgent.indexOf("Chrome") != -1) {
+				alert("是谷歌浏览器");
+			} else if(window.navigator.userAgent.indexOf("Safari") != -1) {
+				alert("是Safari浏览器");
+			} else if(window.navigator.userAgent.indexOf("Firefox") != -1) {
+				alert("是Firefox浏览器");
+			} else if(window.navigator.userAgent.indexOf("IE") != -1){
+				alert("IE浏览器");
+			}
+			
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>table export</title>
+</head>
+<body>
+<table id="table1">
+    <tbody>
+    <tr>
+        <td>文字</td>
+        <td>咨询</td>
+        <td>测试</td>
+    </tr>
+    <tr>
+        <td>文字</td>
+        <td>咨询</td>
+        <td>测试</td>
+    </tr>
+    <tr>
+        <td>文字</td>
+        <td>咨询</td>
+        <td>测试</td>
+    </tr>
+    <tr>
+        <td>文字</td>
+        <td>咨询</td>
+        <td>测试</td>
+    </tr>
+    <tr>
+        <td>文字</td>
+        <td>咨询</td>
+        <td>测试</td>
+    </tr>
+    <tr>
+        <td>文字</td>
+        <td>咨询</td>
+        <td>测试</td>
+    </tr>
+    </tbody>
+</table>
+<table id="table2">
+    <thead>
+    <tr>
+        <td>标题一</td>
+        <td>标题二</td>
+        <td>标题三</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><a href="#" target="_blank">文字</a></td>
+        <td>咨询</td>
+        <td>测试</td>
+    </tr>
+    <tr>
+        <td><a href="#" target="_blank">文字</a></td>
+        <td>咨询</td>
+        <td>测试</td>
+    </tr>
+    <tr>
+        <td><a href="#" target="_blank">文字</a></td>
+        <td>咨询</td>
+        <td>测试</td>
+    </tr>
+    <tr>
+        <td><a href="#" target="_blank">文字</a></td>
+        <td>咨询</td>
+        <td>测试</td>
+    </tr>
+    <tr>
+        <td><a href="#" target="_blank">文字</a></td>
+        <td>咨询</td>
+        <td>测试</td>
+    </tr>
+    <tr>
+        <td><a href="#" target="_blank">文字</a></td>
+        <td>咨询</td>
+        <td>测试</td>
+    </tr>
+    </tbody>
+</table>
+<div id="export">
+    <a data-type="json" href="javascript:;">导出json</a>
+    <a data-type="txt" href="javascript:;">导出txt</a>
+    <a data-type="csv" href="javascript:;">导出csv</a>
+    <a data-type="xls" href="javascript:;">导出excel</a>
+    <a data-type="doc" href="javascript:;">导出word</a>
+</div>
+<script src="js/Blob.js"></script>
+<script src="js/FileSaver.js"></script>
+<script src="js/tableExport.js"></script>
+<script>
+
+
+
+    var $exportLink = document.getElementById('export');
+    $exportLink.addEventListener('click', function(e){
+        e.preventDefault();
+        var date = new Date();
+        var seperator1 = "-";
+        var seperator2 = ":";
+        var month = date.getMonth() + 1;
+        var strDate = date.getDate();
+        if (month >= 1 && month <= 9) {
+            month = "0" + month;
+        }
+        if (strDate >= 0 && strDate <= 9) {
+            strDate = "0" + strDate;
+        }
+        var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate + " " + date.getHours() + seperator2 + date.getMinutes() + seperator2 + date.getSeconds();
+        if(e.target.nodeName === "A"){
+            tableExport('table2', currentdate+' 校V超校园订单', e.target.getAttribute('data-type'));
+        }
+
+    }, false);
+
+</script>
+</body>
+</html>

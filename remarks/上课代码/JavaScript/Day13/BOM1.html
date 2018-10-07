@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>BOM1</title>
+	</head>
+	<body>
+		<input type="button" id="" value="按钮" />
+		<input type="button" id="" value="打开网页" id="open" />
+		<a href="http://www.sina.com" target="">在新窗口跳转新浪网页</a>
+		<input type="button" id="to" value="moveTo" />
+		<input type="button" id="by" value="moveBy" />
+		<input type="button" id="resizeTo" value="resizeTo" />
+		<input type="button" id="resizeBy" value="resizeBy" />
+		<input type="button" id="scrollTo" value="scrollTo" />
+		<input type="button" id="scrollBy" value="scrollBy" style="position: fixed;top: 200px;"/>
+		<input type="text" id="" placeholder="请输入文字" value="" id="txt"/>
+		<input type="button" value="获得焦点" id="get"/>
+		<input type="button"  value="失去焦点" id="lose"/>
+		<script type="text/javascript">
+		
+			/*
+			 BOM: Browser Object Model 浏览器对象模型
+			 BOM有一系列的对象组成,每个对象都有自己的属性和方法,用来管理浏览器窗口与窗口之间的通讯
+			 window是BOM中的顶层(核心)对象,所有的对象都是通过它延伸出来的.
+			 由window延伸出的子对象:
+			   1.document对象
+			   2.history对象
+			   3.location对象
+			   4.navigator对象
+			   5.screen对象
+			   6.frames对象
+			   
+			 */
+			//window 窗口对象
+//			console.log(window);
+			/*
+			 window的特点:
+			 1.所有的全局变量都是window的属性.
+			 2.在使用window的子对象时可以省略window.
+			 */
+			//3.this
+			  //a.this在元素的关联事件的触发函数里面,代指的是该元素
+			  var btn = document.querySelector("input");
+			  btn.onclick = function(){
+			  	console.log(this)
+			  }
+			  //b.this在对象的方法里代指对象.
+			
+			  var per = {
+			  	name: "宝宝",
+			  	ex_wife:{
+			  		name:"马蓉",
+			  		speak:function(){
+			  			console.log(this);
+			  		}
+			  	},
+			  	speak:function(){
+			  		console.log(this);
+			  	}
+			  }
+//			  per.speak();
+//			  per.ex_wife.speak();
+//			  console.log(per.ex_wife.name)
+			  //c.在其他位置,this值window.
+//			  console.log(this)
+			  
+			//4.self 在任何地方指的都是window.
+			
+			//window的方法
+			//写法:window.open(URL,name,features);
+			//URL:要打开的网页的地址.
+			//name:窗口的名字.可以配合a链接的target属性实现在新打开的窗口打开新的网址,如果name相同,只会打开一个网页.
+			//features:网页的一些特性.
+//			window.open("http://www.baidu.com","百度你就知道","width=300,height=300,left=0,top=50")
+			//window.close()关闭一个窗口
+//			window.close();
+			
+//			var openBtn = document.getElementById("open");
+//			openBtn.onclick = function(){
+//				for (var i = 0; i < 3; i++){
+//					window.open("","","width=200,height=200")
+//				}
+//			}
+			
+			
+			//快速枚举数组得到的是下标
+			
+			
+			
+			//移动窗口
+			  //1.moveTo(x,y);移动到某个位置,相对于整个窗口,无法超出屏幕范围
+			  //2.moveBy(x,y);移动到某个位置,相对于当前自己所在的位置,无法超出屏幕范围
+			  /*
+			   * x > 0 右移, x < 0 左移
+			   * y > 0 下移, y < 0 上移
+			   */
+//			  var move = window.open("","","width=200,height=200");
+			  var to = document.getElementById("to");
+			  var by =document.getElementById("by");
+			  to.onclick = function(){
+			  	move.moveTo(100,100);
+			  }
+			  by.onclick = function(){
+			  	move.moveBy(100,100)
+			  }
+			  
+			  //当创建一个新窗口时,我们现在如果给新窗口一个网络地址,因为域保护的问题,会报错,但是以后在工作过程中我们所有的网页都是放置在同一个服务器下,不会出现域名不同的情况.
+			  /*如何解决报错
+			   * 1.不写新窗口的地址.
+			   * 2.写地址,但是保证与当前的网页域名相同.
+			   */
+			  
+			  
+			  //修改窗口大小
+			   //1.resizeTo(width,height).将对应的窗口设置成width宽,height高,不能超出屏幕大小
+			   //2.resizeBy(width,height).将对应的窗口设置成加上width宽,height高之后的尺寸
+			  var resizeTo = document.getElementById("resizeTo");
+			  var resizeBy = document.getElementById("resizeBy");
+			  resizeTo.onclick = function(){
+			  	move.resizeTo(500,500);
+			  }
+			  resizeBy.onclick = function(){
+			  	move.resizeBy(100,100)
+			  }
+			  
+			  //设置窗口的滚动
+			  //1.scrollTo(x,y) 设置对应窗口的滚动条的位置,x水平滚动条的位置,y竖直滚动条的位置.
+			  //2.scrollBy(x,y) 设置对应窗口的滚动条的位置,水平滚动条在当前基础上加x之后的位置,竖直滚动条在当前基础上加y之后的位置.
+			  document.body.style.height = "3000px";
+			  var sTo = document.getElementById("scrollTo");
+			  var sBy = document.getElementById("scrollBy");
+			  sTo.onclick = function(){
+			  	window.scrollTo(0,300);
+			  }
+			  sBy.onclick = function(){
+			  	window.scrollBy(100,300);
+			  }
+			  
+			  
+//			  var txt = document.getElementById("txt");
+//			  var g = document.getElementById("get");
+//			  var lose = document.getElementById("lose")
+//			  //获取焦点  focus
+//			  g.onclick = function(){
+//			  	txt.focus();
+//			  }
+//			  //失去焦点 blur
+//			  lose.onclick = function(){
+//			  	txt.blur();
+//			  }
+			  
+			  //弹出框
+			  //alert(message)
+//			  move.alert("世界和平")
+			  
+			  //confirm(question)
+//			  var res = confirm("世界和平")
+//			  console.log(res)
+			  
+			  //prompt(question,answer)
+//			  var res = prompt("请输入一个网址")
+//			  if(res.length < 5){
+//			  	alert("输入的网址太短")
+//			  }else{
+//			  	alert("即将跳转")
+//			  }
+			
+			
+			//history 历史对象,用于控制历史记录
+			console.log(history);
+			//history.length 在同一个窗口连续跳转的次数
+			//history.forward() 前进一页
+			//history.back() 后退一页
+			
+			
+			//location 窗口的URL
+//			console.log("协议:" + location.protocol);
+//			console.log("主机:" + location.host);
+//			console.log("主机名:" + location.hostname);
+//			console.log("端口号:" + location.port);
+//			console.log("文件目录:" + location.pathname);
+//			console.log("参数列表:" + location.search);
+//			console.log(history.toString())
+			
+			//navigator, 用于检测浏览器和操作系统的信息
+//			console.log(navigator);
+//			//浏览代码
+//			console.log(navigator.appCodeName);
+//			//浏览器名
+//			console.log(navigator.appName);
+//			//版本
+//			console.log(navigator.appVersion);
+//			//是否开启cookie
+//			console.log(navigator.cookieEnabled);
+//			//是否开启java
+//			console.log(navigator.javaEnabled());
+//			//浏览器所在的计算机平台
+//			console.log(navigator.platform);
+//			//浏览器安装的插件
+//			console.log(navigator.plugins);
+//			//用户代理信息,包括硬件平台,系统软件,应用软件,用户偏好设置
+//			console.log(navigator.userAgent);
+
+
+			//screen获取当前显示器的信息
+			console.log(screen);
+			//width,height  指的是显示器的宽和高
+			//availWidth,availHeight  指的是浏览器可用的宽和高
+			
+			
+			//一个像素点所能呈现的颜色的二进制数的最大位数,位数越大,组成的图片的大小就越大
+			console.log(screen.colorDepth);
+			console.log(screen.pixelDepth);
+			
+			
+			//frames
+			console.log(frames)
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

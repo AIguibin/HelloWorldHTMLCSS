@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>内联式css</title>
+		<!--  -->
+		<style type="text/css">
+			/*
+				内联式引入css
+				缺点:不具有针对性
+				优点:1:符合W3C标准
+				2.代码整洁,清爽
+				当所开发的网站只有一个网页时,建议使用.
+				如果使用内联方式,需要选择器的帮助来找到想要设置属性的元素.
+			*/
+			div{
+				/*样式名写错,不出结果
+				每个样式后必须加分号*/
+				background-color: red;
+				font-size: 50px;
+				}
+		</style>
+	</head>
+	<body>
+		<div>
+			这是一个无意义标签div
+		</div>
+	</body>
+</html>

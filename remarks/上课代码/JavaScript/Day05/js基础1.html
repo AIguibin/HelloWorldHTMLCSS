@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>字符串操作函数</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 函数分两类
+			 * 1.库函数:系统已经写好的函数
+			 * 2.自定义函数
+			 */
+			/*
+			 * 获取子字符串(一个字符串的一部分)
+			 * substr(start,length)
+			 * start:截取的字符串的起始位置,最开始是0,如果给负数,从后往前数.
+			 * length:截取的字符串的长度,如果不写,系统会从起始位置以直截取到最后
+			 * 
+			 */
+//			var str = "abcdefghijklmn"
+//			console.log(str.substr(0,3))
+			/*
+			 * split(string,count)
+			 * 根据对应的字符将字符串分隔成数组.
+			 * string:分隔符,如果用"",会把原有字符串里的每一个字符进行分割.
+			 * count:分割后的数组的元素个数,如果不写,默认分割成几个就是几个
+			 */
+			var str = "a-b-c-d"
+			console.log(str.split(""))
+		</script>
+	</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>bootstrap</title>
+		<!--bootstrap-->
+		<!--该文件提供全局的css样式设置-->
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<style type="text/css">
+			.row {
+				background: beige;
+			}
+			span{
+				font-size: 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--将最外面的布局元素 .container 修改为 .container-fluid，就可以将固定宽度的栅格布局转换为 100% 宽度的布局。-->
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-1">.col-md-1</div>
+				<div class="col-md-1">.col-md-1</div>
+				<div class="col-md-1">.col-md-1</div>
+				<div class="col-md-1">.col-md-1</div>
+				<div class="col-md-1">.col-md-1</div>
+				<div class="col-md-1">.col-md-1</div>
+				<div class="col-md-1">.col-md-1</div>
+				<div class="col-md-1">.col-md-1</div>
+				<div class="col-md-1">.col-md-1</div>
+				<div class="col-md-1">.col-md-1</div>
+				<div class="col-md-1">.col-md-1</div>
+				<div class="col-md-1">.col-md-1</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8">.col-md-8</div>
+				<div class="col-md-4">.col-md-4</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">.col-md-4</div>
+				<div class="col-md-4">.col-md-4</div>
+				<div class="col-md-4">.col-md-4</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">.col-md-6</div>
+				<div class="col-md-6">.col-md-6</div>
+			</div>
+		</div>
+		<br /><br /><br />
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-8">.col-xs-12 .col-sm-6 .col-md-8</div>
+				<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+				<div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+				<!-- Optional: clear the XS cols if their content doesn't match in height -->
+				<div class="clearfix visible-xs-block"></div>
+				<div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+			</div>
+		</div>
+		<br />
+		<div class="col-md-ofset-*">
+			<div class="row">
+				<div class="col-md-4">.col-md-4</div>
+				<div class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
+				<div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">.col-md-6 .col-md-offset-3</div>
+			</div>
+		</div>
+
+		<br />
+		<!--在使用bootstrap时,我么可以简单地通过设置class的形式将部分标签改造成某种样式,但是尽可能遵循语义化.-->
+		<a class="btn btn-default" href="#" role="button">Link</a>
+		<button class="btn btn-danger" type="submit">Button</button>
+		<input class="btn btn-default" type="button" value="Input">
+		<input class="btn btn-default" type="submit" value="Submit">
+		<br /><hr />
+		
+		
+		<!--这是文字类的图像-->
+		<span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+		<br /><hr />
+		<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Dropdown
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div>
+		<!--js部分,这些文件要写在内容的最后,保证内容加载完毕之后再加载js文件-->
+		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	</body>
+
+</html>

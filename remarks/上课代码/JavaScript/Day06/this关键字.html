@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>this关键字</title>
+		<style type="text/css">
+			li {
+				width: 100px;
+				height: 30px;
+				border: 1px solid;
+				background: green;
+				list-style: none;
+				float: left;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<script type="text/javascript">
+			var lis = document.getElementsByTagName("li")
+				//给每一个li添加点击事件
+			for(var i = 0; i < lis.length; i++) {
+				lis[i].onclick = function() {
+					for(var j = 0; j < lis.length; j++) {
+						//一个函数里的this表示的是会触发该函数的元素
+						//1.去找this在哪个函数里面
+						//2.去找谁会触发这个函数
+						if(this == lis[j]) {
+							this.style.backgroundColor = "red";
+						} else {
+							lis[j].style.backgroundColor = "green";
+						}
+					}
+				}
+			}
+		</script>
+	</body>
+
+</html>

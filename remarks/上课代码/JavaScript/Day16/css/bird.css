@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+#game {
+    width: 343px;
+    height: 480px;
+    background: url(../img/bg.jpg) no-repeat;
+    margin: 100px auto;
+    position: relative;
+    overflow: hidden;
+}
+#head {
+    width: 236px;
+    height: 77px;
+    background: url(../img/head.jpg) no-repeat;
+    position: absolute;
+    top:100px;
+    left:50%;
+    margin-left: -118px;
+}
+
+#head>img {
+    position: absolute;
+    right: 0;
+    top:50%;
+    margin-top: -13px;
+    animation: flyUpDown 1.5s linear infinite;
+}
+@keyframes flyUpDown{
+	0% {
+	    top:50%;
+	}
+	25% {
+	    top:25%;
+	}
+	50% {
+	    top:50%;
+	}
+	75% {
+	    top:75%
+	}
+	100% {
+	    top:50%;
+	}
+}
+#menu {
+    width: 100%;
+    position: absolute;
+    top:280px;
+    text-align: center;
+}
+#menu>img {
+    cursor: pointer;
+}
+#end {
+    width: 100%;
+    position: absolute;
+    top:100px;
+    text-align: center;
+    font-size: 25px;
+    display: none;
+}
+#currentScore {
+    position: absolute;
+    left: 250px;
+    top:40px;
+}
+#bestScore {
+    position: absolute;
+    left: 250px;
+    top:90px;
+}
+#pipes {
+    height: 100%;
+    list-style: none;
+}
+/*预先给li写对应的样式*/
+.pipe {
+    width: 62px;
+    height: 423px;
+    position: absolute;
+}
+/*分别给上下的两个桶设置样式*/
+.upPipe {
+   width: 62px;
+   background: url(../img/up_pipe.png) bottom no-repeat, url(../img/up_mod.png) repeat-y;
+   position: absolute;
+   top: 0;
+}
+.downPipe {
+   width: 62px;
+   background: url(../img/down_pipe.png) top no-repeat, url(../img/down_mod.png) repeat-y; 
+   position: absolute;
+   bottom: 0;
+}
+#bird {
+    position: absolute;
+    left:62px;
+    top: 50%;
+    display: none;
+}
+#score {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    text-align: center;
+    display: none;
+}

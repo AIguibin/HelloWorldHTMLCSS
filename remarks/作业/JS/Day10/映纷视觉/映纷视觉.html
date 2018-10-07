@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>映纷视觉</title>
+		<link rel="stylesheet" type="text/css" href="css/header.css" />
+		<link rel="stylesheet" type="text/css" href="css/section.css" />
+		<style type="text/css">
+
+		</style>
+	</head>
+
+	<body>
+		<!--头部-->
+		<header>
+			<!--logo-->
+			<div id="logo">
+				<img src="img/title2.png" />
+			</div>
+			<!--link-->
+			<div id="link">
+				<a href="###">HOME</a>
+				<a href="###">WORK</a>
+				<a href="###">CONTACT</a>
+				<a href="###">JOIN US</a>
+			</div>
+		</header>
+		<!--内容-->
+		<section>
+			<!--轮播图-->
+			<div id="topImg">
+				<div id="visible">
+					<img src="img/CancerBigData.jpg" class="img"/>
+					<img src="img/bytedanceHD.jpg" class="img"/>
+					<img src="img/yicheHD.jpg" class="img"/>
+					<img src="img/toutiaohaoHD.jpg" class="img"/>
+					<img src="img/huawei_redpoint.jpg" class="img"/>
+					<img src="img/CancerBigData.jpg" class="img"/>
+				</div>
+				<div id="left"><</div>
+				<div id="right">></div>	
+			</div>
+			<!--文字介绍-->
+			<div id="info">
+				Infini Studio (映纷创意)是一家创意机构，专注于动画影像的创意与设计。我们使用设计、绘画、动画、特效及多种创新形式(Motion Graphics)，以动态视觉语言对品牌与内容进行创意呈现。并由动画导演、设计师、插画师、三维艺术家共同协作完成。服务的领域包括广告、影视、交互H5、新媒体等。
+			</div>
+			<!--友情链接-->
+			<div id="fLink">
+				<img src="img/1.jpg" alt="" />
+				<img src="img/2.jpg" alt="" />
+				<img src="img/3.jpg" alt="" />
+				<img src="img/4.jpg" alt="" />
+				<img src="img/5.jpg" alt="" />
+				<img src="img/6.jpg" alt="" />
+				<img src="img/7.jpg" alt="" />
+				<img src="img/8.jpg" alt="" />
+				<img src="img/9.jpg" alt="" />
+				<img src="img/10.jpg" alt="" />
+				<img src="img/11.jpg" alt="" />
+				<img src="img/12.jpg" alt="" />
+				<img src="img/13.jpg" alt="" />
+				<img src="img/14.jpg" alt="" />
+			</div>
+			<!--内容-->
+			<div id="content">
+				<div class="item">
+					<a href="###">
+						<img src="img/1-160611202251294.jpg" />
+						<!--遮罩-->
+						<ul class="u1">
+							<li>今日头条</li>
+							<li>2016"春节回家"H5</li>
+						</ul>
+					</a>
+					<a href="">
+						<!--下部文字-->
+						<span>
+							为什么我们要回家过年
+						</span>
+					</a>
+				</div>
+				<div class="item">
+					<a href="###">
+						<img src="img/1-160611202251294.jpg" />
+						<!--遮罩-->
+						<ul class="u1">
+							<li>今日头条</li>
+							<li>2016"春节回家"H5</li>
+						</ul>
+					</a>
+					<a href="">
+						<!--下部文字-->
+						<span>
+							为什么我们要回家过年
+						</span>
+					</a>
+				</div>
+				<div class="item">
+					<a href="###">
+						<img src="img/1-160611202251294.jpg" />
+						<!--遮罩-->
+						<ul class="u1">
+							<li>今日头条</li>
+							<li>2016"春节回家"H5</li>
+						</ul>
+					</a>
+					<a href="">
+						<!--下部文字-->
+						<span>
+							为什么我们要回家过年
+						</span>
+					</a>
+				</div>
+				<div class="item">
+					<a href="###">
+						<img src="img/1-160611202251294.jpg" />
+						<!--遮罩-->
+						<ul class="u1">
+							<li>今日头条</li>
+							<li>2016"春节回家"H5</li>
+						</ul>
+					</a>
+					<a href="">
+						<!--下部文字-->
+						<span>
+							为什么我们要回家过年
+						</span>
+					</a>
+				</div>
+				<div class="item">
+					<a href="###">
+						<img src="img/1-160611202251294.jpg" />
+						<!--遮罩-->
+						<ul class="u1">
+							<li>今日头条</li>
+							<li>2016"春节回家"H5</li>
+						</ul>
+					</a>
+					<a href="">
+						<!--下部文字-->
+						<span>
+							为什么我们要回家过年
+						</span>
+					</a>
+				</div>
+				<div class="item">
+					<a href="###">
+						<img src="img/1-160611202251294.jpg" />
+						<!--遮罩-->
+						<ul class="u1">
+							<li>今日头条</li>
+							<li>2016"春节回家"H5</li>
+						</ul>
+					</a>
+					<a href="">
+						<!--下部文字-->
+						<span>
+							为什么我们要回家过年
+						</span>
+					</a>
+				</div>
+			</div>
+		</section>
+		<!--尾部-->
+		<footer></footer>
+		<script src="js/tween.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//获取图片div
+			var visible = document.getElementById("visible");
+			//获取图片数组
+			var imgs = document.getElementsByClassName("img")
+			//获取左按钮
+			var leftBtn = document.getElementById("left");
+			//获取右按钮
+			var rightBtn = document.getElementById("right");
+			//设置图片div的宽度
+			visible.style.width = imgs[0].offsetWidth * imgs.length + "px";
+			//记录当前是第几张图片
+			var index = 0;
+			//左按钮点击事件
+			leftBtn.onclick = function(){
+				if(index == 0){
+					index = 5;
+					visible.style.left = -imgs[0].offsetWidth * index + "px";
+				}
+				index--;
+				//调用更换图片的函数
+				scrollImg();
+			}
+			//右按钮点击事件
+			rightBtn.onclick = function(){
+				if(index == 5){
+					index = 0;
+					visible.style.left = -imgs[0].offsetWidth * index + "px";
+				}
+				index++;
+				//调用更换图片的函数
+				scrollImg()
+			}
+			//存储定时器
+			var timer;
+			//更换图片的函数
+			function scrollImg(){
+				var t = 0;
+				//offsetWidth 获取对应标签距离父级左边的距离
+				var b = visible.offsetLeft;
+				var c = -imgs[0].offsetWidth * index - b;
+				var d = 20;
+				function move() {
+					t++;
+					visible.style.left = Tween.Linear(t, b, c, d) + "px";
+					if(t == d) {
+						clearInterval(timer);
+					}
+				}
+				//每次添加新的定时器之前清除老的定时器,保证在同一时刻只有一个定时器.
+				clearInterval(timer)
+				timer = setInterval(move, 30)
+			}
+			//自动更换图片与小点的函数
+			function autoScroll(){
+				if(index == 5) {
+					index = 0;
+					visible.style.left = -imgs[0].offsetWidth * index + "px";
+				}
+				index++;
+				//换图片
+				scrollImg();
+			}
+			var timer2 = setInterval("autoScroll()",2000);
+			var topImg = document.getElementById("topImg");
+			//鼠标移入清除定时器
+			topImg.onmouseenter = function(){
+				clearInterval(timer2);
+			}
+			//鼠标移出重启定时器
+			topImg.onmouseleave = function(){
+				timer2 = setInterval("autoScroll()",2000);
+			}
+		</script>
+	</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>判断网页</title>
+	</head>
+	<body>
+		输入网页:<input type="text" id="web" value="" />
+		<input type="button" id="btn1" value="判断" onclick="btn()"/>
+		<script type="text/javascript">
+		
+		
+			function btn(){
+				var url = document.getElementById("web");
+				
+				if (url.value.substring(0,7) =="http://" ){
+					url.value = url.value;
+				}
+				else{
+					url.value = ("http://" + url.value);
+				}
+				
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="charts" style="width: 600px;height: 400px;"></div>
+
+
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="js/echarts.js"></script>
+<script>
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('charts'));
+
+    // 指定图表的配置项和数据
+    var option = {
+        tooltip: {
+            trigger: 'axis'
+        },
+        toolbox: {
+            feature: {
+                dataView: {show: true, readOnly: false},
+                magicType: {show: true, type: ['line', 'bar']},
+                restore: {show: true},
+                saveAsImage: {show: true}
+            }
+        },
+        legend: {
+            data:['订单数','订单金额']
+        },
+        xAxis: [
+            {
+                type: 'category',
+                data: ['20170202','20170203','20170203','20170203','20170203','20170203','20170203','20170203','20170203','20170203','20170203','20170203','20170203','20170203','20170203']
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value',
+                name: '订单数',
+                min: 0,
+                max: 10,
+                interval: 2,
+                axisLabel: {
+                    formatter: '{value} 个'
+                }
+            },
+            {
+                type: 'value',
+                name: '订单金额',
+                min: 0,
+                max: 2500,
+                interval: 500,
+                axisLabel: {
+                    formatter: '{value} °C'
+                }
+            }
+        ],
+        series: [
+            {
+                name:'订单数',
+                type:'bar',
+                data:[2.0, 4.9, 7.0, 3.2, 5.6, 6.7, 5.6, 2.2, 2.6, 2.0, 6.4, 3.3]
+            },
+            {
+                name:'订单金额',
+                type:'line',
+                yAxisIndex: 1,
+                data:[222.0, 200.2, 300.3, 400.5, 600.3, 1000.2, 2000.3, 1200.4, 2030.0, 1060.5, 1200.0, 600.2]
+            }
+        ]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+</body>
+</html>

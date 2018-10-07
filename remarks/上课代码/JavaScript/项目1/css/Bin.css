@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+.navbar {
+  background: #101010;
+}
+.navbar .navbar-nav li {
+  line-height: 40px;
+  padding-bottom: 20px;
+}
+.navbar .navbar-nav li a {
+  margin-top: 20px;
+  padding-top: 5px;
+  padding-bottom: 25px;
+  height: 10px;
+  font-size: 16px;
+  color: darkgray;
+}
+.navbar .navbar-nav li a:hover {
+  color: white;
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
+}
+.panel {
+  width: 100%;
+  height: 650px;
+  position: relative;
+  margin-top: -22px;
+  border: none;
+}
+.panel .left {
+  width: 35%;
+  height: 100%;
+  position: absolute;
+  left: 10%;
+  top: 30%;
+}
+.panel .left .img img {
+  margin-top: 10px;
+  width: 31%;
+  height: 245px;
+}
+.panel .left .img2 img {
+  margin-top: 10px;
+  width: 45%;
+}
+.panel .right img {
+  height: 485px;
+  position: absolute;
+  bottom: 0;
+  right: 50px;
+}
+.panel .right1 img {
+  height: 485px;
+  position: absolute;
+  top: 0;
+  right: 95px;
+}
+#footer {
+  text-align: center;
+  margin-top: 10%;
+}
+#footer #footerimg {
+  margin-bottom: 10px;
+}
+#footer #footerpics img {
+  margin: 0 5px 10px;
+}
+#footer p {
+  color: gray;
+}
+/*# sourceMappingURL=Bin.css.map */

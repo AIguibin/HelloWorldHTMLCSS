@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>作业</title>
+		<style type="text/css">
+			#box{
+				width: 604px;
+				height: 654px;
+				border: 2px solid gold;
+				position: relative;
+			}
+			#top{
+				height: 50px;
+				font-size: 30px;
+				line-height: 50px;
+			}
+			#time{
+				float: left;
+				
+			}
+			#point{
+				float: right;	
+			}
+			#imgDiv img{
+				width: 100%;
+				
+			}
+			#start{
+				width: 200px;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				font-size: 50px;
+				font-weight: bold;
+				position: absolute;
+				top: 300px;
+				left: 200px;
+				color: white;
+			}
+			#again{
+				width: 200px;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				font-size: 50px;
+				font-weight: bold;
+				position: absolute;
+				top: 300px;
+				left: 200px;
+				color: white;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="top">
+				<span id="time">剩余时间:</span>
+				<span id="point">分数:</span>
+			</div>
+			<div id="imgDiv">
+				<img src="img/1.png" id="img"/>
+			</div>
+			<div id="start">
+				开始游戏
+			</div>
+			<div id="again">
+				
+				再来一局
+			</div>
+		</div>
+		<script type="text/javascript">
+			//获取盒子
+			var box = document.getElementById("box");
+			//获取剩余时间
+			var time = document.getElementById("time");
+			//获取分数
+			var point = document.getElementById("point");
+			//获取图片div
+			var imgDiv = document.getElementById("imgDiv");
+			//获取开始按钮
+			var start = document.getElementById("start");
+			//获取重新开始按钮
+			var again = document.getElementById("again");
+			//获取图片
+			var img = document.getElementById("img")
+			
+			//开始按钮点击事件
+			start.onclick = function(){
+				//隐藏开始按钮
+				start.style.display = "none";
+				
+				//开始计时
+				changeTime();
+			}
+			//重新开始按钮点击事件
+			again.onclick = function(){
+				//隐藏掉再来一局标签
+				again.style.display = "none";
+				//分数清零
+				
+				
+				//开始计时
+				changeTime();
+			}
+			//计时器函数
+			function changeTime(){
+				var t = 5;
+				var timer1 = setInterval(function(){
+					t--;
+					time.innerHTML = "剩余时间:" + t;
+					if(t == 0){
+						clearInterval(timer1);
+						//当时间结束时让重新开始按钮显示
+						again.style.display = "block";
+						//停止游戏的继续进行
+						
+					}
+				},1000)
+			}
+			//图片点击事件
+			img.onclick = function(){
+				
+			}
+			
+			function randomNumber(x,y){
+				return Math.floor(Math.random() * (y - x + 1) + x);
+			}
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 200px;
+				height: 500px;
+				background: chartreuse;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script type="text/javascript">
+			var div = document.getElementById("div1");
+			div.onmousewheel = function(e){
+				var even = e || event;
+				if(even.wheelDelta > 0){
+					console.log("滚轮向上")
+				}else if(even.wheelDelta < 0){
+					console.log("滚轮向下")
+				}else{
+					console.log("不动")
+				}
+			}
+			div.addEventListener("DOMMouseScroll",function(e){
+				var even = e || event;
+				if(even.detail > 0){
+					console.log("滚轮向下")
+				}else if(even.detail < 0){
+					console.log("滚轮向上")
+				}else{
+					console.log("不动")
+				}
+			},false)
+			//在火狐浏览器中对于滚轮事件的添加使用DOMmouseScroll,同事,判断滚轮是向上还是向下也不再使用wheelDelta属性,而是使用detail属性,同事detail属性对判别标准与普通的判别标准正好相反,大于零向下,小于零向上
+		</script>
+	</body>
+</html>

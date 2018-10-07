@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>3D转换</title>
+		<style type="text/css">
+			#box{
+				position: relative;
+				transform-style: preserve-3d;
+				transform: rotateY(91deg);
+			}
+			#div1{
+				width: 300px;
+				height: 300px;
+				background: red;
+				transform: translateZ(100px );
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			#div2{
+				width: 300px;
+				height: 300px;
+				background: blue;
+				position: absolute;
+				top: 0;
+				left: 0;
+				/*transform: translateZ(100px );*/
+			}
+			#div3{
+				width: 300px;
+				height: 300px;
+				background: gray;
+				transform: rotateZ(-30deg);
+			}
+			
+		</style>
+	</head>
+	<body>
+		<!--3D多了一个Z轴,可以展示立体效果-->
+		
+		<!--平移
+			translateZ
+		-->
+		<div id="box">
+		<div id="div1"></div>
+		<div id="div2"></div>
+		</div>
+		
+		<!--旋转
+			rotateZ()
+			正值顺时针 负值逆时针
+		-->
+		<div id="div3">
+			12316514654651
+		</div>
+	</body>
+</html>

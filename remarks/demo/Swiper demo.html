@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://www.swiper.com.cn/demo/22-dynamic-slides.html -->
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<title>Swiper demo</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+		<!-- Link Swiper's CSS -->
+		<link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+
+		<!-- demo styles -->
+		<style>
+			.swiper-container {
+				width: 400px;
+				height: 600px;
+				overflow: hidden;
+			}
+			
+			.swiper-wrapper {
+				width: 1200px;
+				height: 600px;
+				background: #ADADAD;
+			}
+			
+			.swiper-slide {
+				display: inline-block;
+				width: 400px;
+				height: 600px;
+				background: #ADADAD;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- Swiper -->
+		<div class="swiper-container swiper-container-horizontal">
+			<div class="swiper-wrapper" style="">
+				<div class="swiper-slide swiper-slide-prev">
+					<button class="btn">前</button>
+					<button class="btn">中</button>
+					<button class="btn">后</button>
+					<button class="btn">后</button>
+					<a href="###" class="append-slide" onclick="addPage()">向后添加一页</a>
+				</div>
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets">
+				<span class="swiper-pagination-bullet"></span>
+				<span class="swiper-pagination-bullet"></span>
+				<span class="swiper-pagination-bullet"></span>
+				<span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+				<span class="swiper-pagination-bullet"></span>
+				<span class="swiper-pagination-bullet"></span>
+			</div>
+		</div>
+		<p class="append-buttons">
+			
+		</p>
+		<!-- Swiper JS -->
+		<script src="js/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper-3.4.2.jquery.min.js"></script>
+
+		<!-- Initialize Swiper -->
+		<script>
+			var appendNumber = `
+					<button class="btn">前</button>
+					<button class="btn">中</button>
+					<button class="btn">后</button>
+					<button class="btn">后</button>
+					<a href="###" class="append-slide" onclick="addPage()">向后添加一页</a>
+			`;
+			var swiper = new Swiper('.swiper-container', {
+				pagination: '.swiper-pagination',
+				centeredSlides: true,
+				paginationClickable: true,
+			});
+			
+//			$('.append-slide').click(function(e) {
+//				e.preventDefault();
+//				console.log(e.preventDefault())
+//				swiper.appendSlide('<div class="swiper-slide">' + appendNumber + '</div>');
+//			});
+//			
+			function addPage() {
+//				e.preventDefault();
+				swiper.appendSlide('<div class="swiper-slide">' + appendNumber + '</div>');
+			}
+		</script>
+
+	</body>
+
+</html>

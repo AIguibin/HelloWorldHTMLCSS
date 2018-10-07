@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Date</title>
+    </head>
+
+    <body>
+        <div id="clock" style="font-size: 50px;"></div>
+        <script type="text/javascript">//在JS里,Date用来表示时间和日期
+//1.获取当前时间.(**)
+//var now = new Date();
+//	    	  console.log(now);
+//获取年份
+//       var nowYear = now.getFullYear();
+//       console.log(nowYear);
+//获取月份  月份值 0-11
+//       var nowMonth = now.getMonth();
+//获取当天
+//       var today = now.getDate();
+//       console.log(today);
+
+//获取周几
+//       var day = now.getDay();
+
+//获取小时 24小时制
+//       var hour = now.getHours()
+//       console.log(hour);
+
+//获取分钟 
+//       var minute = now.getMinutes();
+//       console.log(minute);
+
+//获取秒
+//       var seconds = now.getSeconds();
+//       console.log(seconds);
+
+//获取时间戳 以毫秒做单位 
+//1970.1.1 距离现在的时间.
+//       var times = now.getTime();
+//       console.log(times);
+//       alert(times / 1000 / 60 / 60 / 24 / 365);
+//function getDate() {
+//  var div = document.getElementById("clock");
+//  var now = new Date();
+//  var month = now.getMonth() + 1;
+//  div.innerHTML = now.getFullYear() + "-" + month + "-" + now.getDate() + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+//}
+//	    	setInterval("getDate()", 500);
+
+function Countdown() {
+    var div = document.getElementById("clock");
+    var t = new Date(2016, 7, 8, 11, 15, 0);
+    var now = new Date();
+    var nowTime = now.getTime();
+    var futureTime = t.getTime();
+    var times = futureTime - nowTime;
+    var h = Math.floor(times / 1000 / 3600);
+    var m = Math.floor((times / 1000) % 3600 / 60);
+    var s = Math.floor((times / 1000) % 3600 % 60);
+    div.innerHTML = "距离上课还剩" + h + "小时" + m + "分钟" + s + "秒";
+}
+setInterval("Countdown()", 500);
+        </script>
+    </body>
+
+</html>

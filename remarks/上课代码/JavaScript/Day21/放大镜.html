@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>放大镜</title>
+		<style type="text/css">
+			#zoom{
+				width: 400px;
+				height: 400px;
+				border: 1px solid royalblue;
+			}
+			#zoom>img{
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="zoom">
+			<img src="img/1.jpg"/>
+		</div>
+		
+		<script src="js/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jzoom.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/*
+			 * JQ插件的使用
+			 * 1.因为插件是在jq的基础上开发的,所以必须实现导入jq框架
+			 * 2.调用插件里的方法,参考对应插件提供商的API(application programing interface)
+			 */
+			$("#zoom").jzoom({
+				width:300,
+				height:400,
+				position:"right",
+				offsetX:100,
+				offsetY:100,
+				suffixName:'big'
+			})
+		</script>
+	</body>
+</html>

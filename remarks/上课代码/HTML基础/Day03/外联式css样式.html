@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>外联式css</title>
+	<!-- 外联式引入的两种方式
+	1.link标签引入  推荐使用
+	2.@import引入 -->
+
+	<!-- link标签  该标签写在head标签里 -->
+	<link rel="stylesheet" href="style.css">
+	
+	<!-- @import方式引入,需要写在style标签里 -->
+	<style type="text/css">
+		@import url(style.css);
+	</style>
+
+
+	<!-- link与import的区别
+		1.link是html语法,import是css语法
+		2.link是在html文档加载同时开始开始加载对应的外接css文件
+		  import是在html文档加载完毕之后才开始加载外接车上文件的
+		3.link可以外接任意类型的文件,import只能外接内容为css类型的文件
+		4.link方式引入的css样式我们在以后可以通过js的方式进行修改,import方式不支持js操作.
+		当网站由多个html文档时,建议使用外联式 -->
+
+
+</head>
+<body>
+	<div>
+		这是一个div
+	</div>
+	<p>这是一个P</p>
+	<span>这是一个span</span>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#myCanvas{
+				box-shadow: 4px 4px 4px chartreuse;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+		
+		
+		<script type="text/javascript">
+			var myCanvas = document.getElementById("myCanvas");
+			var ctx = myCanvas.getContext("2d");
+			ctx.beginPath();
+			ctx.arc(200,200,100,0,Math.PI*2,false);
+			ctx.fillStyle = "red";
+			ctx.fill();
+			/*
+			 source-in:绘制新图中和原图重叠的区域
+			 source-out:绘制新图中和原图为重叠的区域
+			 destination-in:绘制原图中和信徒的重叠区域
+			 destination-out:绘制原图中和新图的未重叠区域
+			 destination-atop:绘制原图中和新图的重叠区域以及新图中未重叠区域
+			 lighter:绘制新图和原图,但是重叠部分做加色处理
+			 copy:只绘制新图内容
+			 */
+			
+			ctx.globalCompositeOperation ="destination-atop";
+			
+			ctx.beginPath();
+			ctx.arc(250,200,100,0,Math.PI*2,false);
+			ctx.fillStyle = "blue";
+			ctx.fill();
+			
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>随机数</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var x = 0;
+			var y = 101;
+			for (var i = 0;i < 20;i++){
+				var num = Math.floor(Math.random()*90+10);
+				if (num > x){
+					x = num
+				}
+				if (num < y){
+					y = num
+				}
+				document.write(num+"<br />")
+			}document.write("最大值是"+x+"<br />"+"最小值是"+y)
+		</script>
+	</body>
+</html>

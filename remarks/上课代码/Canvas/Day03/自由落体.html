@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#myCanvas{
+				box-shadow: 4px 4px 4px hotpink;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="500" height="3000"></canvas>
+	</body>
+	<script type="text/javascript">
+		var myCanvas = document.getElementById("myCanvas");
+		var ctx = myCanvas.getContext("2d");
+//		var s = 0;
+//		function freeFall(){
+//			s++;
+//			var y = ((10 * (s * s)) / 2) / 100;
+//			ctx.clearRect(-250,-250,myCanvas.width,myCanvas.height);
+//			ctx.save();
+//			ctx.beginPath();
+//			ctx.arc(0,y,10,0,Math.PI*2,false);
+//			ctx.closePath();
+//			ctx.fillStyle = "#006400";
+//			ctx.fill();
+//			ctx.restore()
+//		}
+//		setInterval(freeFall,10)
+
+		
+		
+		var startPosition = 10,t = 0,g = 9.8;
+		var centerX = 100,centerY = 10;
+		function freeFall(){
+			var s = g*t*t/2;
+			centerY = startPosition + s;
+			ctx.clearRect(0,0,3000,3000);
+			ctx.beginPath();
+			ctx.arc(centerX,centerY,10,0,Math.PI*2,false);
+			ctx.closePath();
+			ctx.fillStyle = "#008000";
+			ctx.fill();
+			t += 1/52;
+			window.requestAnimationFrame(freeFall);
+		}
+		freeFall();
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

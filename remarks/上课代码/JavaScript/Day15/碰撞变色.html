@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>碰撞变色</title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				background: gray;
+				text-align: center;
+				font-size:40px ;
+				line-height: 200px;
+				position: absolute;
+				color: whitesmoke;
+			}
+			#div2{
+				left: 300px;
+				top: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">1</div>
+		<div id="div2">2</div>
+		<script type="text/javascript">
+			//获取到两个div
+			var div1 = document.getElementById("div1");
+			var div2 = document.getElementById("div2");
+			//鼠标按下div1跟随鼠标移动
+			div1.onmousedown = function(e){
+				var even = e || event;
+				var x = even.clientX - div1.offsetLeft;
+				var y = even.clientY - div1.offsetTop;
+				document.onmousemove = function(){
+					div1.style.left = event.clientX - x + "px"
+					div1.style.top = event.clientY - y + "px"
+					//判断元素是否碰撞
+					if(judgeCrash()){
+						div2.style.backgroundColor = "red";
+					}else{
+						div2.style.backgroundColor = "gray";
+					}
+					
+				}
+			}
+			div1.onmouseup = function(){
+				document.onmousemove = null
+			}
+			
+			function judgeCrash(){
+				//获取div1距上与左的距离
+				var div1T = div1.offsetTop + div1.clientTop / 2;
+				var div1L = div1.offsetLeft + div1.clientLeft / 2;
+				//获取div2距上与左的距离
+				var div2T = div2.offsetTop + div2.clientTop / 2;
+				var div2L = div2.offsetLeft + div2.clientLeft / 2;
+				if (Math.abs(div2T - div1T) <= (div1.clientHeight + div2.clientHeight) / 2 && Math.abs(div2L - div1L) <= (div1.clientWidth + div2.clientWidth) / 2){
+					return true;
+				}else{
+					return false;
+				}
+				}
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

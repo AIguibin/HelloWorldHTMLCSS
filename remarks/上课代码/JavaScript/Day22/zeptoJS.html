@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>zeptoJS</title>
+
+	</head>
+
+	<body>
+		<!--什么是zeptoJS?
+			zeptoJS最初的目标是在移动端提供一个精简的极其类似于JQ的js库,
+		-->
+
+		<script src="zepto.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//常用方法
+			//$("div") 获取所有的div元素
+			//$("#div1")获取id值为div1的元素
+			//$("div","#wrap")找到id为wrap的元素里的所有的div元素
+
+			//创建元素
+			var p = "<p>这是一个p元素</p>";
+			$("body").append(p);
+
+			var p1 = document.createElement("p");
+			p1.innerHTML = "这是p1";
+			var p2 = document.createElement("p");
+			p2.innerHTML = "这是p2";
+			var p3 = document.createElement("p");
+			p3.innerHTML = "这是p3";
+			$("body").append([p1, p2, p3])
+
+			var div = $("<div>", {
+				//text属性可以设置标签的内容
+				text: "这是div1",
+				id:"div1",
+				css: {
+					width: 200,
+					height: 200,
+					background: "gray"
+				}
+			})
+			$("body"	).append(div)
+			
+			//onload  ready
+			//相当于ready
+			Zepto(function(){
+//				alert("页面加载完成")
+			})
+			
+			//$.camelCase(字符串)将一个字符串变成"驼峰法"命名的字符串,去除"-"
+			//console.log($.camelCase("hello-world"))
+			
+			
+			//遍历
+			//$.each(array, function(i,e) {
+				
+			//});
+			
+			//$.grep()  会形成一个新数组,新数组只包含回调函数中返回值为true的数组项
+			var arr = [2,3,4,5,6];
+			var resArr = $.grep(arr,function(e){
+				return e % 2 == 0;
+			});
+			console.log(resArr)
+			
+			//$.inArray()  从一个数组里查询对应的元素,返回指定元素的下标
+			/*
+			 * 参数一:要查找的元素
+			 * 参数二:被查询的数组
+			 * 参数三:制定开始查找的位置,默认从头开始
+			 */
+			var i = $.inArray("abc",["abc","rfg","hig"]);
+			console.log(i);
+			
+			//$.isArray() 判断出入的对象是否是一个数组
+			console.log($.isArray(["a","b"]));
+			//$.isfunction() 判断输入的对象是否是一个函数
+			console.log($.isFunction(function(){}));
+			//$.isPlainObject() 判断输入的对象是否是一个纯粹的对象
+			
+			//1.
+			var a = {
+				name:"aa"
+			};
+			//2.
+			var b = new Object();
+			//3.
+			var c = function(){
+				alert(111);
+			}
+			console.log($.isPlainObject(a),$.isPlainObject(b),$.isPlainObject(c));
+			
+			//parseJSON(string) 讲一个json串转化为一个字符串
+			//网络开发里面,传输的数据分两种格式:1.json 2.xml
+			//js中如何写一个json串
+			//最外层用单引号括住,里面的属性名使用双引号,属性值为字符串时,也用双引号,为数值类型时,直接写,不用加引号
+			var jsonStr1 = '{"name":"zhansan","age":22,"gander":"man"}';
+			var jsonObj = $.parseJSON(jsonStr1);
+			console.log(jsonObj);
+			
+			//添加点击事件
+			$("#wrap").click(function(){
+				
+			});
+			$("#wrap").on("click",function(){
+				
+			});
+			
+			
+		</script>
+	</body>
+
+</html>

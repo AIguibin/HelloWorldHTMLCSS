@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>猪头</title>
+		<style type="text/css">
+			#myCanvas {
+				box-shadow: 4px 4px 4px darkblue;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+
+	</body>
+	<script type="text/javascript">
+		var myCanvas = document.getElementById("myCanvas");
+		var ctx = myCanvas.getContext("2d");
+		var img1 = new Image();
+		img1.src = "img/1.jpeg";
+		var img2 = new Image();
+		img2.src = "img/2.jpg";
+		window.onload = function() {
+			ctx.drawImage(img1, 0, 0, 300, 400);
+			ctx.drawImage(img2, 60, -10, 200, 200);
+			var URL = myCanvas.toDataURL();
+			location.href = URL;
+		}
+	</script>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>作业三</title>
+		<style type="text/css">
+			#d1{
+				width: 200px;
+				height: 200px;
+				background: black;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1">
+			
+		</div>
+		<input type="text" id="red" placeholder="请输入红色值"/>
+		<input type="text" id="green" placeholder="请输入绿色值" />
+		<input type="text" id="blue" placeholder="请输入蓝色值" />
+		<input type="button" id="chg" value="变色" />
+		<script type="text/javascript">
+			var btn = document.getElementById("chg");
+			var div = document.getElementById("d1");
+			   	btn.onclick = function(){
+			   		var cl1 = document.getElementById("red").value;
+			   		var cl2 = document.getElementById("green").value;
+			   		var cl3 = document.getElementById("blue").value;
+			   		d1.style = "background:rgb("+cl1+","+cl2+","+cl3+")"
+			   	}
+		</script>
+	</body>
+</html>

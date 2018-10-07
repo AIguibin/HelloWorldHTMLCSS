@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>for循环</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*1.for循环 
+			  2.while循环
+			  3.do...while循环
+			 */
+			/*for(1,2,3)P==循环变量初始值 循环条件 循环增量
+			  循环体
+			  
+			  for循环的执行顺序
+			  第一次:1243
+			  以后:243
+			 */
+			//输出5遍Halle,world
+//			for (var i =0; i < 5; i++) {
+//				document.write("hello,world! <br/>	");
+			//输出1-5
+//			for(var i = 1; i < 6; i++){
+//				document.write(i);
+//			}
+//			
+//			for(var i = 5; i > 0; i--){
+//				document.write(i);
+//			}
+//			for (var i = 0; i <= 100; i++ ){
+//				if (i % 2 ==0){
+//					document.write(i+"<br>")
+//					}
+//				
+//			}
+			//输出0-100各位为7的数
+//			for (var i = 7;i < 100; i += 10 ){
+//				document.write(i+"<br />")
+//			}
+//			for (var i = 0;i < 100; i++){
+//				if( Math.floor(i / 10) == 7){
+//					 document.write(i+"<br />")
+//				}
+//			}
+//			for (var i = 0;i < 100; i++){
+//				if(parseInt( i / 10) == 7){
+//					 document.write(i+"<br />")
+//				}
+//			}
+			//1-100的和
+//			var num = 0;
+//			for (var i = 1;i <= 100; i++){
+//				num += i
+//			}
+//			document.write(num+"<br />")
+			
+			
+			//输出0-100里不包含7的数.
+//			for (var i = 0;i <= 100;i++){
+//				if(parseInt(i / 10) != 7 && i % 7 != 0 && i % 10 != 7){
+//					document.write(i+"<br />")
+//				}
+//			}
+			
+			//输出10个随机数,随机数范围[30,70].
+//			for(var i = 0; i < 10;i++){
+//				var num = Math.random();
+//				console.log(Math.floor(Math.random()*(41+30)));
+//			}
+			//随机10个[30,70]的随机数,输出随机数里的最大值
+//			var n = 0;
+//			for(var i = 0; i < 10;i++){
+//				var num = Math.floor(Math.random()*(70 - 30 + 1) + 30);
+//				n = n > num ? n : num;
+//				console.log(num)
+//			}
+//			console.log("最大值是" + n);		
+			
+			
+			//随机10个[30,70]的随机数,输出随机数里的最小值
+//			var n = 71;
+//			for(var i = 0; i < 10;i++){
+//				var num = Math.floor(Math.random()*(70 - 30 + 1) + 30);
+//				n = n < num ? n : num;
+//				document.write(num+"<br>")
+//			}
+//			document.write("最小值是" + n);
+			
+			/*
+			 总结:
+			 1.求最大值,参与值要保证比随机的最小值还要小
+			 2.求最小值,参与值要保证比随机的最大值还要大
+			 */
+			/*
+			 break:跳出本层循环
+			 continue:跳过本次循环,继续进行下一次循环.
+			 */
+//			for (var i = 0; i <= 20; i++){
+//				if(i == 13){
+//					continue;
+//				}
+//				document.write(i)
+//			}
+
+
+
+
+			//循环嵌套(for)
+//			for(var i = 0; i < 5; i++){
+//				console.log("第"+(i+1)+"圈")
+//				//喊口号
+//				for (var j = 0; j < 5;j++){
+//					console.log("121~~")
+//				}
+//			}
+			//外层的循环控制趟数,内层的控制每一趟的次数
+			//外层走完一趟,内层要走完全部的次数
+			
+			//打印1-5
+			
+//			for(var i = 1; i <= 5; i++){
+//				document.write(i)
+//			}
+//			
+			//打印5遍1-5
+//			for(var i = 1; i <= 5; i++){
+//				for(var j = 1; j <= 5; j++){
+//				document.write(j)
+//			}
+//				document.write("<br />")
+//			}
+			
+			/*输出
+			 1
+			 1 2
+			 1 2 3
+			 1 2 3 4
+			 1 2 3 4 5
+			 */
+			
+//			for(i = 1;i < 6;i++){
+//				for(var j = 1; j < i + 1; j++){
+//				document.write(j)
+//			}
+//				document.write("<br />")
+//			}
+			/*
+			 输出
+			 12345
+			 1234
+			 123
+			 12
+			 1
+			 */
+//			for(i = 1;i < 6;i++){
+//				for(var j = 1; j <= 6 - i; j++){
+//					document.write(j)
+//				}
+//				document.write("<br/>")
+//			}
+			/*
+			 九九乘法表 
+			 */
+			for (x = 1;x <= 9;x++){
+				for(var y = 1; y < x + 1;y++){
+					document.write(y+"*"+(x)+"="+(y*x)+"&nbsp;&nbsp;")
+				}
+				document.write("<br />")
+			}
+			
+			
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

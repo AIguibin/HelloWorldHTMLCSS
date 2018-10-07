@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>js时钟</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#wrap {
+				width: 300px;
+				height: 300px;
+				border-radius: 150px;
+				background: fuchsia;
+				margin: 100px auto;
+				position: relative;
+			}
+			
+			#clock {
+				width: 250px;
+				height: 250px;
+				border-radius: 50%;
+				background: white;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+			}
+			
+			#Number {
+				width: 100%;
+				height: 100%;
+				position: relative;
+			}
+			
+			#Number div {
+				/*background: darkgrey;*/
+				width: 240px;
+				height: 30px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				line-height: 30px;
+			}
+			#hour {
+				width: 5px;
+				height: 80px;
+				background: black;
+			}
+			
+			#minute {
+				width: 3px;
+				height: 90px;
+				background: blueviolet;
+			}
+			
+			#second {
+				width: 1px;
+				height: 100px;
+				background: gold;
+			}
+			
+			.num {
+				position: absolute;
+				bottom: 124px;
+				left: 124px;
+				margin: auto;
+				/*修改旋转点*/
+				transform-origin: 50% bottom;
+			}
+			#Number div span{
+				display: inline-block;
+		</style>
+	</head>
+
+	<body>
+		<!--表框-->
+		<div id="wrap">
+			<!--表盘-->
+			<div id="clock">
+				<!--时间刻度-->
+				<div id="Number">
+
+					<div><span>1</span></div>
+					<div><span>2</span></div>
+					<div><span>3</span></div>
+					<div><span>4</span></div>
+					<div><span>5</span></div>
+					<div><span>6</span></div>
+					<div><span>7</span></div>
+					<div><span>8</span></div>
+					<div><span>9</span></div>
+					<div><span>10</span></div>
+					<div><span>11</span></div>
+					<div><span>12</span></div>
+
+				</div>
+				<!--时针-->
+				<div id="hour" class="num"></div>
+				<!--分针-->
+				<div id="minute" class="num"></div>
+				<!--秒针-->
+				<div id="second" class="num"></div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			//时针
+			var hour = document.getElementById("hour");
+			//分针
+			var minute = document.getElementById("minute");
+			//秒针
+			var second = document.getElementById("second");
+			//刻度条数组
+			var number = document.getElementById("Number");
+			var divs = number.getElementsByTagName("div");
+			//数字数组
+			var spans = number.getElementsByTagName("span");
+			//通过旋转,修正每个刻度条的位置
+			for (var i = 0; i < divs.length; i++){
+				divs[i].style.transform = "rotateZ(" + ((i * 30) + 120)+ "deg)" ;
+				spans[i].style.transform = "rotateZ(" + (i * -30 - 120)+ "deg)" ;
+			}
+			function clockNumber(){
+				//获取当前时间并通过当前时间获取时,分,秒.
+				var now = new Date();
+				var h = now.getHours();
+				var m = now.getMinutes();
+				var s = now.getSeconds();
+				//时针的角度由当前的小时和分钟共同决定.
+				var hdeg = m / 60 * 30;
+				hour.style.transform = "rotateZ(" + (h * 30 + hdeg ) + "deg)";
+				//分针的角度由当前的分钟和秒数决定
+				var mdeg = s / 60 * 6
+				minute.style.transform = "rotateZ(" + (m * 6 + mdeg) + "deg)";
+				//秒针的角度由当前的秒数决定
+				second.style.transform = "rotateZ(" + s * 6 + "deg)";
+				
+			}
+			setInterval("clockNumber()",1000);
+		</script>
+	</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
+
+

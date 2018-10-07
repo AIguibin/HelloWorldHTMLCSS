@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>查找元素</title>
+		<style type="text/css">
+			div{
+				border: 2px solid firebrick;
+				padding: 10px;
+				background-color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			<div id="d1">d1</div>
+			<div id="d2">d2</div>
+			<div id="d3">d3
+				<div id="d31">d31</div>
+				<div id="d32">d32</div>
+				<div id="d33">d33</div>
+			</div>
+		</div>
+		<div id="div2"></div>
+		<div id="div3"></div>
+		<script src="js/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//通过元素之间的关系来获取对应的元素
+			//找到元素的父元素
+			$("#div1").parent().css("background","yellow");
+			//找到祖先元素
+			$("#d31").parents().css("background","skyblue");
+			//指定找到某个祖先元素,不到含指定的那个祖先元素
+			$("#d31").parentsUntil("#div1").css("background","#007AFF");
+			//找到子元素
+			$("body").children().css("background","orange");
+			//找到后代元素
+			$("body").find("*").css("background","darkcyan");
+			//向前找到相邻兄弟元素
+			$("#d3").prev().css("background","#0000FF");
+			//向前找到所有的兄弟元素
+			$("#d3").prevAll().css("background","tomato");
+			//向前查找所有兄弟元素知道某个元素停止
+			$("#d3").prevUntil("#d1").css("background","burlywood")
+			
+			//向后找到相邻兄弟元素
+			$("#d1").next().css("background","#568723");
+			//向后找到所有的兄弟元素
+			$("#d1").nextAll().css("background","darkkhaki");
+			//向后查找所有兄弟元素知道某个元素停止
+			$("#d1").nextUntil("#d3").css("background","#337AB7");
+			
+			//查找所有的兄弟元素
+			$("#d32").siblings().css("background","royalblue");
+			
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

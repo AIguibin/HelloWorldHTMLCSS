@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Car</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body{
+				width: 100%;
+				height: 100%;	
+			}
+			#wrap{
+				width: 100%;
+				height: 100%;
+				background: rgb(198,222,229);
+				position: relative;
+			}
+			#mountain1{
+				width: 800px;
+				height: 800px;
+				background: rgb(212,214,210);
+				transform: rotateZ(45deg);
+				position: absolute;
+				border-radius: 50px;
+				left: 60%;
+				bottom: -400px;
+			}
+			#hill1{
+				width: 100%;
+				height: 200px;
+				background: rgb(158,221,70);
+				position: absolute;
+				bottom: 0;
+				border-top-left-radius:100% 150px ;
+				border-top-right-radius: 100% 150px;
+			}
+			#hill2{
+				width: 50%;
+				height: 150px;
+				background: rgb(129,199,32);
+				position: absolute;
+				bottom: 0;
+				border-radius: 0 100% 0 0/0 100% 0 0 ;
+			}
+			#hill3{
+				width: 70%;
+				height: 150px;
+				background: rgb(125,188,41);
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				border-top-left-radius: 100% 100%; 
+				box-shadow: 0 0 20px 5px greenyellow inset;
+			}
+			#mountain2{
+				width: 600px;
+				height: 600px;
+				background: rgb(195,146,126);
+				transform: rotateZ(45deg);
+				position: absolute;
+				border-radius: 50px;
+				left: 10%;
+				bottom: -300px;
+			}
+			#glass{
+				width: 100%;
+				height: 10px;
+				background: -webkit-linear-gradient(left top,transparent 25%,rgb(0,156,15) 25% );
+				position: absolute;
+				bottom: 100px;
+				background-size: 10px 10px;
+				border-bottom: 10px solid rgb(211,190,180);
+			}
+			#road{
+				width: 100%;
+				height: 80px;
+				position: absolute;
+				bottom: 0px;
+				background: rgb(103,103,103);
+				border-top:10px solid rgb(171,141,128) ;
+				border-bottom:10px solid rgb(171,141,128) ;
+			}
+			#line{
+				width: 100%;
+				height: 10px;
+				position: absolute;
+				bottom: 35px;
+				background: -webkit-repeating-linear-gradient(left,#fff 0%,#fff 10%,transparent 10%, transparent 20%);
+			}
+			#car{
+				width: 100%;
+				height: 50px;
+				background-image: url(1.png);
+				background-size: 150px;
+				background-repeat: no-repeat;
+				position: absolute;
+				bottom: 40px;
+				animation: run 5s infinite linear;
+			}
+			#car img{
+				width: 30px;
+				height: 30px;
+				animation: roll 5s infinite linear;
+			}
+			#car img:nth-child(1){
+				position: absolute;
+				left: 12px;
+				top: 30px;
+			}
+			#car img:nth-child(2){
+				position: absolute;
+				left: 105px;
+				top: 30px;
+			}
+			@keyframes roll{
+				from{
+					transform: rotateZ(0deg);
+				}
+				to{
+					transform: rotateZ(360deg);
+				}
+			}
+			@keyframes run{
+				from{
+					transform: translate(0 ,0);
+				}
+				20%{
+					transform: translate(20%,100%);
+				}
+				40%{
+					transform: translate(40%,0);
+				}
+				60%{
+					transform: translate(60%,100%);
+				}
+				80%{
+					transform: translate(80%,0);
+				}
+				to{
+					transform: translate(100%,100%);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<!--第一座山-->
+			<div id="mountain1">
+				
+			</div>
+			<div id="hill1">
+					
+			</div>
+			<div id="hill2">
+				
+			</div>	
+			<div id="hill3">
+				
+			</div>
+			<div id="mountain2">
+				
+			</div>
+			<!--绿化带-->
+			<div id="glass">
+				
+			</div>
+			<!--路-->
+			<div id="road">
+				<!--车-->
+				
+				
+				<!--行车线-->
+				<div id="line">
+					
+				</div>
+				<div id="car">
+					
+					<img src="2.png"/>
+				<img src="2.png"/>
+				</div>
+			</div>
+			
+		</div>
+	</body>
+</html>

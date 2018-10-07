@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js事件</title>
+		<style type="text/css">
+		 	#box{
+				width: 200px;
+				height: 200px;
+				background: blue;
+			}
+			#div2{
+				width: 300px;
+				height: 300px;
+				background: #A9A9A9;
+				
+			}
+			#car{
+				width: 200px;
+				height: 100px;
+				border-radius: 50px;
+				background: silver;
+				position: absolute;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" id="event" value="单击事件" />
+		<input type="button" id="doubleClick" value="双击事件" />
+		<div id="box">
+			
+		</div>
+		<input type="button" id="down" value="鼠标按钮按下" />
+		<input type="button" id="rDown" value="鼠标右键点击" />
+		<div id="div2"></div>
+		<!--<div id="car"></div>-->
+		<input type="text"placeholder="请输入文字" />
+		
+		<form action="" method="get">
+			<input type="text" placeholder="请输入用户名" id="change" />
+			<input type="submit" value="注册"/>
+			<input type="reset" value="重置" />
+		</form>
+		<script type="text/javascript">
+			/*
+			 * js是一个以事件为驱动的脚本语言,在开发过程中想要实现页面内容与用户的交互,需要借助各种事件来完成.
+			 */
+			
+			//如何获取用户与界面交互产生的事件
+//			var btn =document.getElementById("event");
+			//系统会为每一个事件自动创建一个对象event,事件对象里存储了所有用户交互的信息,我们可以在用户进行交互之后通过event对象获取到对象里的某些数据,进而进行随后的反应操作.
+//			btn.onclick = function(e){
+//				//兼容浏览器事件的方法
+//				var even = event || e;
+//				console.log(even)
+//			}
+			//火狐浏览器不支持event对象,如果想用火狐,需要在对应的点击事件的函数的参数部分人为的添加一个参数,这个参数就是对应的事件对象.
+			
+			/*
+			 * 事件的分类
+			 *  1.鼠标事件
+			 *  2.键盘事件
+			 *  3.表单事件
+			 *  4.触屏事件
+			 */
+			
+			
+			//鼠标事件2->鼠标双击事件
+//			var doubleClick = document.getElementById("doubleClick");
+//			doubleClick.ondblclick = function(e){
+//				var even = event || e;
+//				console.log(even)
+//			}
+			//鼠标事件3->鼠标移动到某个标签上
+			var div1 = document.getElementById("box");
+			//第一种:兼容性高(建议使用)
+			//onmouseenter和onmouseleave不存在事件冒泡
+			div1.onmouseenter = function(){
+				div1.style.backgroundColor = "red";
+				
+			}
+			div1.onmouseleave =function(){
+				div1.style.backgroundColor = "blue"
+			}
+			//第二种:兼容性较低
+//			div1.onmouseover =function(){
+//				div1.style.backgroundColor = "red"
+//			}
+//			div1.onmouseout =function(){
+//				div1.style.backgroundColor = "blue"
+//			}
+			//鼠标按钮按下事件4->onmousedown
+			var btn2 = document.getElementById("down");
+			btn2.onmousedown = function(e){
+				var even = e || event
+				if(even.button == 0){
+					alert("鼠标左键")
+				}else if(even.button == 1){
+					alert("鼠标滚轮")
+				}else{
+					alert("鼠标右键")
+				}
+			}
+			//鼠标事件5-> 鼠标右键
+			var rDown = document.getElementById("rDown");
+			rDown.oncontextmenu = function(){
+				console.log("右键点击")
+			}
+			//鼠标事件6-> 鼠标滚轮事件
+			var div2 =document.getElementById("div2");
+			div2.onmousewheel = function(){
+				console.log(event)
+			}
+			//鼠标事件7->鼠标移动事件
+			div2.onmousemove = function(){
+				console.log("移动事件")
+			}
+			
+			//键盘事件
+			//onkeydown
+//			var car = document.getElementById("car");
+//			window.onkeydown = function(e){
+//				var even = e || event;
+//				console.log(even)
+				//分别获取元素距离上部与左边的距离
+//				var left = car.offsetLeft
+//				var top = car.offsetTop
+//				switch (even.keyCode){
+//					case 37:{
+//						car.style.left = left - 10 +"px";
+//						break;
+//					}
+//					case 38:{
+//						car.style.top = top - 10 +"px";
+//						break;
+//					}
+//					case 39:{
+//						car.style.left = left + 10 +"px";
+//						break;
+//					}
+//					case 40:{
+//						car.style.top = top + 10 +"px";
+//						break;
+//					}
+//					default:
+//						break;
+//				}
+//			}
+			//键盘事件2->键盘按键弹起时执行事件
+//			window.onkeyup = function(){
+//				car.style.background = randomColor();
+//			}
+			
+			
+			function randomNumber(x,y){
+				return Math.floor(Math.random()*(y - x + 1) + x)
+			}
+			function randomColor(){
+				var red = randomNumber(0,255);
+				var green = randomNumber(0,255);
+				var blue = randomNumber(0,255);
+				return "rgb(" + red + "," + green + "," + blue + ")" 
+			}
+			//键盘事件3->键盘一直按下的时候执行
+			window.onkeypress = function(){
+				console.log("当前有按键一直按下")
+			}
+			
+			
+			//表单事件:仅仅适用于表单操作以及表单类型的空间
+			/*
+			 * onfocus:当某个表单控件处于被选中状态时执行(获得焦点)
+			 * onblur:当某个表单控件处于取消被选中状态时执行(失去焦点)
+			 */
+			var t =document.querySelector("[type=text");
+			var timer;
+			t.onfocus = function(){
+				clearInterval(timer);
+				var tHeight = this.offsetHeight;
+				timer = setInterval(function(){
+					tHeight +=10;
+					t.style.height = tHeight + "px";
+					if(tHeight > 350){
+						clearInterval(timer);
+					}
+				},50)
+			}
+			t.onblur = function(){
+				clearInterval(timer);
+				var tHeight = this.offsetHeight;
+				timer = setInterval(function(){
+					tHeight -= 10;
+					t.style.height = tHeight + "px";
+					if(tHeight <= 20){
+						clearInterval(timer);
+					}
+				},50)
+			}
+			//读写性  控制某个对象或者某个属性的操作状态.
+			//读写:即可获取对应的值,也可以修改对应的值.
+			//只读:只可获取对应的值,不可以修改对应的值.
+			
+			//准备提交表单事件(点击submit按钮时执行)
+			var s = document.querySelector("form");
+			//onsubmit事件是给form表单关联的.
+			s.onsubmit = function(){
+				alert("即将提交数据")
+			}
+			//表单被重置事件(点击reset按钮执行)
+			s.onreset = function(){
+				alert("即将重置")
+			}
+			
+			//当指定的输入框中的内容发生变化时执行事件
+			//onchange事件是给指定的输入框关联的
+			var changeT = document.getElementById("change");
+			changeT.onchange = function(){
+				console.log("数据被修改")
+			}
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

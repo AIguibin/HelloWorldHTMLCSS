@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>鼠标移入移除</title>
+		<style type="text/css">
+			#div1{
+				width: 200px;
+				height: 200px;
+				background: red;
+			}
+			/*#div1:hover{
+				background: brown;
+			}*/
+			#div2{
+				width: 100px;
+				height: 100px;
+				background: hotpink;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<div id="div2"></div>
+		<script type="text/javascript">
+			 //鼠标移入事件 
+//			 div1.onmouseover = function(){
+//			 	div2.style.backgroundColor = "blue"
+//			 }
+			 //鼠标移入事件02
+			 div1.onmouseenter = function(){
+			 	div2.style.backgroundColor = "blue"
+			 }
+			
+			//鼠标移出事件1
+//			div1.onmouseout = function(){
+//				div2.style.backgroundColor = "hotpink"
+//			}
+			//鼠标移出事件2
+			div1.onmouseleave = function(){
+				div2.style.backgroundColor = "hotpink"
+			}
+			
+			//onmouseenter跟onmouseleave  兼容性更好
+			function sum(a,b,c){
+				console.log(arguments)
+			}
+			sum(10,20,10)
+			//如果在函数调用时少些某些参数,参数值为undefined,如果多写,多余的会被系统忽略.
+			//arguments,函数调用时,传入的所有实参,会被存放在arguments数组里,当我们不确定函数的参数应该有几个时,可以通过arguments数组获取所有的实参.
+			//name 会返回函数名对应的字符串
+			//length  返回对应函数的形参个数
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

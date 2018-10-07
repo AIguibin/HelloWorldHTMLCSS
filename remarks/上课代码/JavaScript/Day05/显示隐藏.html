@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 200px;
+				height: 200px;
+				background: gold;
+				opacity: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" id="btn" value="隐藏" />
+		<div id="div1"></div>
+		<script type="text/javascript">
+			btn.onmouseenter = function(){
+				btn.value = "显示"
+				div1.style.opacity = 1
+			}
+			btn.onmouseleave = function(){
+				btn.value = "隐藏"
+				div1.style.opacity = 0
+			}
+		</script>
+	</body>
+</html>

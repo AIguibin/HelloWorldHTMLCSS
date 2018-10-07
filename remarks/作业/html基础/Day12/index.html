@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.one{
+				width: 200px;
+				height: 200px;
+				font-size: 50px;
+				font-weight: 200px;
+				line-height: 200px;
+				text-align: center;
+				opacity: 0.7;
+				margin:100px 0 0 100px;
+			}
+			#box{
+				width: 500px;
+				height: 500px;
+				transform-style: preserve-3d;
+				position: relative;
+				margin:100px auto;
+				transform: rotateX(-45deg) rotateY(45deg);
+				
+			}
+			#d1{
+				background: red;
+				position: absolute;
+				top: 0;
+				left: 0;
+				transform: rotateX(90deg) translateZ(-100px) translateY(200px);	
+			}
+			#d2{
+				
+				background: blue;
+				position: absolute;
+				top: 0;
+				left: 0;
+				transform:translateZ(100px) ;
+			}
+			#d3{
+				background: pink;
+				position: absolute;
+				top: 0;
+				left: 0;
+				transform: rotateY(90deg) translateX(-200px) translateZ(100px);
+			}
+			#d4{
+				background: brown;
+				position: absolute;
+				top: 0;
+				left: 0;
+				transform: rotateY(-90deg) translateX(200px) translateZ(100px) ;	
+			}
+			#d5{
+				background: gray;
+				position: absolute;
+				top: 0;
+				left: 0;
+				transform: translateZ(300px);
+			}
+			#d6{
+				background: greenyellow;
+				position: absolute;
+				top: 0;
+				left: 0;
+				transform: rotateX(90deg) translateY(200px) translateZ(100px);
+			}
+			.two{
+				width: 400px;
+				height: 400px;
+				font-size: 50px;
+				opacity: 0.3;
+				line-height: 400px;
+				position: absolute;
+				text-align: center;
+				top: 0;
+				left: 0;
+				color: #FFFFFF;
+			}
+			#div1{
+				background: #111;
+				
+			}
+			#div2{
+				background: deepskyblue;
+				transform:rotateX(90deg) translateY(200px) translateZ(-200px);
+			}
+			#div3{
+				background: darkblue;
+				transform: rotateY(-90deg) translateZ(-200px) translateX(200px);
+			}
+			#div4{
+				background: deeppink;
+				transform: rotateX(90deg) translateZ(200px) translateY(200px); 
+			}
+			#div5{
+				background: brown;
+				transform: rotateY(90deg) translateZ(-200px) translateX(-200px);
+			}
+			#div6{
+				background: chartreuse;
+				transform: translateZ(400px);
+			}
+			#box:hover #div1{
+				transform: translateZ(-200px);
+			}
+			#box:hover #div2{
+				transform:rotateX(90deg) translateY(200px) translateZ(-400px);
+			}
+			#box:hover #div3{
+				transform:rotateY(-90deg) translateZ(-400px) translateX(200px);
+			}
+			#box:hover #div4{
+				transform: rotateX(90deg) translateZ(400px) translateY(200px);
+			}
+			#box:hover #div5{
+				transform: rotateY(90deg) translateZ(-400px) translateX(-200px);
+			}
+			#box:hover #div6{
+				transform:  translateZ(600px);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<div id="d1" class="one">壹</div>
+			<div id="d2" class="one">貳</div>
+			<div id="d3" class="one">叁</div>
+			<div id="d4" class="one">肆</div>
+			<div id="d5" class="one">伍</div>
+			<div id="d6" class="one">陸</div>
+			<div id="div1" class="two">一</div>
+			<div id="div2" class="two">二</div>
+			<div id="div3" class="two">三</div>
+			<div id="div4" class="two">四</div>
+			<div id="div5" class="two">五</div>
+			<div id="div6" class="two">六</div>
+		</div>
+	</body>
+
+</html>

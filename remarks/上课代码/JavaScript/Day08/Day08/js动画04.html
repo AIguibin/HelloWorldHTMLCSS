@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>轮播图</title>
+        <style type="text/css">
+        	   * {
+        	       margin: 0;
+        	       padding: 0;
+        	   }
+        	   #wrap {
+        	       width: 400px;
+        	       height: 500px;
+        	       border: 5px solid red;
+        	       margin: 50px auto;
+        	       position: relative;
+        	       overflow: hidden;
+        	   }
+        	   #content {
+        	       /*width: 10000px;*/
+        	       height: 500px;
+        	       position: absolute;
+        	       top: 0;
+        	       left: 0;
+        	   
+        	   }
+        	   #content>img {
+        	       width: 400px;
+        	       height: 500px;
+        	       float: left;
+        	   }
+        	   ul {
+        	       list-style: none;
+        	       position: absolute;
+        	       bottom: 0;
+        	       margin: 0 auto;
+        	       left: 20%;
+        	   }
+        	   li {
+        	       width: 20px;
+        	       height: 20px;
+        	       border-radius: 10px;
+        	       background: white;
+        	       text-align: center;
+        	       line-height: 20px;
+        	       float: left;
+        	       margin: 0 10px;
+        	   }
+        	   .lis {
+        	       background: red;
+        	   }
+        	   #left, #right {
+        	       width: 20px;
+        	       height: 30px;
+        	       color: white;
+        	       background: gray;
+        	       position: absolute;
+        	       top:45%;
+        	       line-height: 30px;
+        	       text-align: center;
+        	   }
+        	   #right {
+        	       right: 0;
+        	   }
+        </style>
+    </head>
+
+    <body>
+        <div id="wrap">
+            <!--轮播图的内容-->
+            <div id="content">
+                <img src="img/1.png" alt="" />
+                <img src="img/2.jpeg" alt="" />
+                <img src="img/3.jpeg" alt="" />
+                <img src="img/4.png" alt="" />
+                <img src="img/5.jpeg" alt="" />
+                <img src="img/6.png" alt="" />
+                <img src="img/1.png" alt="" />
+            </div>
+            <!--图片的小点-->
+            <ul>
+                <li class="lis">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+            </ul>
+            <!--左右的按钮-->
+            <div id="left"><</div>
+            <div id="right">></div>
+        </div>
+        <script src="js/tween.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+        	   //获取content元素
+        	   var contentDiv = document.getElementById("content");
+        	   //获取图片数组
+        	   var imgs = document.getElementsByTagName("img");
+        	   //获取小点数组
+        	   var lis = document.getElementsByTagName("li");
+        	   //获取左按钮
+        	   var leftBtn = document.getElementById("left");
+        	   //获取右按钮
+        	   var rightBtn = document.getElementById("right");
+        	   contentDiv.style.width = imgs[0].offsetWidth * imgs.length + 'px';
+            //记录当前是第几张图片
+            var index = 0;
+            //左按钮的点击事件
+            leftBtn.onclick = function(){
+                if (index == 0) {
+                	   index = 6;
+                	   contentDiv.style.left = -imgs[0].offsetWidth * index + "px";
+                }
+                index--;
+                //换图片
+                scrollImg();
+                //换小点
+                changePoint();
+            }
+            //右边按钮点击事件
+            rightBtn.onclick = function(){
+                if (index == 6) {
+                	   index = 0;
+                	   contentDiv.style.left = -imgs[0].offsetWidth * index + "px";
+                }
+                index++;
+                //换图片
+                scrollImg();
+                //换小点
+                changePoint();
+            }
+            //存储定时器
+            var timer;
+            //更换图片的函数
+            function scrollImg(){
+                var t = 0;
+                //offsetLeft 获取对应标签距离父级左边的距离.
+                var b = contentDiv.offsetLeft;
+                var c = -imgs[0].offsetWidth * index - b;
+                var d = 20;
+                function move(){
+                    t++;
+                    contentDiv.style.left = Tween.Linear(t, b, c, d) + "px";
+                    if (t == d) {
+                    	   clearInterval(timer);
+                    }
+                }
+                //每次添加新的定时器之前清除老的计时器.保证在同一时刻只有一个定时器.
+                clearInterval(timer);
+                timer = setInterval(move, 30);
+            }
+            
+            //更换小点的函数
+            function changePoint(){
+                for (var i = 0; i < lis.length; i++) {
+                	   if (index == i) {
+                	   	   lis[i].style.backgroundColor = "red";
+                	   }else {
+                	       lis[i].style.backgroundColor = "white";
+                	   }
+                }
+                if(index == 6) {
+                    lis[0].style.backgroundColor = "red";
+                }
+            }
+            
+            //鼠标移入操作
+            for (var i = 0; i < lis.length; i++) {
+            	       lis[i].onmouseenter = function(){
+            	           for (var i = 0; i < lis.length; i++) {
+            	           	   if (this == lis[i]) {
+            	           	   	   index = i;
+            	           	   }
+            	           }
+            	           scrollImg();
+            	           changePoint();
+            	       }
+            }
+            //自动更换图片与小点的函数
+            function autoScroll(){
+                if (index == 6) {
+                       index = 0;
+                       contentDiv.style.left = -imgs[0].offsetWidth * index + "px";
+                }
+                index++;
+                //换图片
+                scrollImg();
+                //换小点
+                changePoint();
+            }
+            var timer2 = setInterval("autoScroll()", 1000);
+            var wrap = document.getElementById("wrap");
+            //鼠标移入,清除定时器
+            wrap.onmouseenter = function(){
+                clearInterval(timer2);
+            }
+            //鼠标移出,重启定时器
+            wrap.onmouseleave = function(){
+                timer2 = setInterval("autoScroll()", 1000);
+            }
+        </script>
+    </body>
+
+</html>

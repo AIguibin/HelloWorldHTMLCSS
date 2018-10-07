@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JQ大图滚动</title>
+		<style type="text/css">
+			/**{
+				width: 0;
+				height: 0;
+			}*/
+			#wrap{
+				width: 300px;
+				height: 500px;
+				border: 1px solid goldenrod;
+				position: relative;
+				overflow: hidden;
+				margin: 0 auto;
+			}
+			#contentDiv{
+				width: 3000px;
+				height: 500px;
+				position: absolute;
+			}
+			#contentDiv img{
+				float: left;
+				width: 300px;
+				height: 500px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" id="" value="第一张" />
+		<input type="button" id="" value="第二张" />
+		<input type="button" id="" value="第三张" />
+		
+		<div id="wrap">
+			<div id="contentDiv">
+				<img src="img/a1.jpg"/>
+				<img src="img/2.jpg"/>
+				<img src="img/3.jpg"/>
+			</div>
+		</div>
+		
+		<script src="js/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("input").click(function(){
+				$("#contentDiv").animate({
+					left:-$("#wrap").width()* $(this).index()
+				},100)
+			})
+		</script>
+	</body>
+</html>

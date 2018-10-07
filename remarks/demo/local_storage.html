@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+            var obj = {
+                "name": "张三",
+                "sex" : "男",
+                "age" : 18
+            };
+            if(window.localStorage){
+                //支持
+                window.localStorage.setItem('data',JSON.stringify(obj));
+            }else{
+                //不支持
+                alert("不支持")
+            }
+            document.write(window.localStorage.getItem('data'));
+
+
+		</script>
+	</body>
+</html>

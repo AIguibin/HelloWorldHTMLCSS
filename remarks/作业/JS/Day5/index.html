@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		
+		<style type="text/css">
+			div {
+				border: 1px solid red;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-color: #fff;
+			}
+			#one {
+				width: 500px;
+				height: 500px;
+			}
+			#two {
+				width: 400px;
+				height: 400px;
+			}
+			#three {
+				width: 300px;
+				height: 300px;
+			}
+			#four {
+				width: 200px;
+				height: 200px;
+			}
+		</style>
+		
+	</head>
+
+	<body>
+		<input type="text" id="url" placeholder="请输入小网站地址"/>
+		<input type="button" id="btn" value="判断"/>
+		
+		<div id="one">
+			<div id="two">
+				<div id="three">
+					<div id="four"></div>
+				</div>
+			</div>
+		</div>
+		<input type="button" id="outToIn" value="从外到里"/>
+		<input type="button" id="InToOut" value="从里到外"/><br />
+		
+		<img src="img/1.gif" id="light"/>
+		
+		<p id="ppp"></p>
+		<input type="button" value="随机一注" id="a"/>
+		
+		<script type="text/javascript">
+			
+			
+			/*
+			1. 输入网址, 判断是不是” http://”, 如果不是, 自动添加上”http://”
+			*/
+			//funn
+			//funa
+			//funcl
+			
+			var btn = document.getElementById("btn");
+			btn.onclick = function () {
+				var urlInput = document.getElementById("url");
+				if (urlInput.value.substr(0, 7) != "http://") {
+					var str = "http://" + urlInput.value;
+					urlInput.value = str;
+				}
+			}
+			
+			
+			/*
+			2. 随机切换颜色
+			*/
+			function randomColor () {
+				var red = Math.floor(Math.random() * 256);
+				var green = Math.floor(Math.random() * 256);
+				var blue = Math.floor(Math.random() * 256);
+				return "rgb(" + red + "," + green + "," + blue + ")";
+			}
+			
+			var outToIn = document.getElementById("outToIn");
+			outToIn.onclick = function () {
+				
+				
+				//通过标签名获取元素
+				var divs = document.getElementsByTagName("div");
+				console.log(divs.length);
+				
+				for (var i = divs.length - 1; i > 0; i--) {
+					divs[i].style.backgroundColor = divs[i - 1].style.backgroundColor;
+					console.log(i, i-1);
+				}
+				
+				divs[0].style.backgroundColor = randomColor();
+			}
+			
+			var inToOut = document.getElementById("InToOut");
+			inToOut.onclick = function () {
+				
+				//通过标签名获取元素
+				var divs = document.getElementsByTagName("div");
+				console.log(divs);				
+				
+				for (var i = 0; i < divs.length - 1; i++) {
+					divs[i].style.backgroundColor = divs[i + 1].style.backgroundColor;
+				}
+				
+				divs[divs.length - 1].style.backgroundColor = randomColor();
+			}
+			
+			/*
+			3. 制作双色球机选效果(见效果图)
+			*/
+			
+			function randomNumber (x) {
+				return Math.floor(Math.random() * x + 1);
+			}
+			
+			var a = document.getElementById("a");
+			a.onclick = function () {
+				//随机产生的号
+				var arr = [];
+				//红球
+				while (arr.length != 6){
+					//随机产生数组
+					var num = randomNumber(33);
+					//假设数组中没有这个数
+					var flag = false;
+					//遍历数组, 判断数组是否有该数字
+					for (var i = 0; i < arr.length; i++) {
+						if (num == arr[i]) {
+							flag = true;
+							break;
+						}
+					}
+					//如果没有, 就添加到数组中
+					if (flag == false) {
+						arr.push(num);
+					}
+				}
+				
+				arr.push(randomNumber(16));
+				
+				//如果为一位数, 前面补0
+				for (var i = 0; i < arr.length; i++) {
+					if (arr[i] < 10) {
+						arr[i] = "0" + arr[i];
+					}
+				}
+				
+				var ppp = document.getElementById("ppp");
+				ppp.innerHTML = (ppp.innerHTML + arr + "<br>");
+
+			}
+			
+			
+			/*
+			4. 实现关灯开灯效果(见效果图)
+			*/
+			var light = document.getElementById("light");			
+			light.onclick = function () {
+				var str = light.src.split("/");
+				console.log(str);
+				if (str[str.length - 1] == "1.gif") {
+					light.src = "img/2.gif";
+				} else {
+					light.src = "img/1.gif";
+				}
+			}
+			
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>三角形</title>
+	</head>
+	<body>
+		请输入第一条边的边长:<input type="text" id="edge1" value="" />
+		请输入第二条边的边长:<input type="text" id="edge2" value="" />
+		请输入第三条边的边长:<input type="text" id="edge3" value="" />
+		<input type="button" id="btn1" value="判断" onclick="btn()" />
+		<script type="text/javascript">
+//			var num;
+			function btn(){
+				var a = document.getElementById("edge1").value-0;
+				var b = document.getElementById("edge2").value-0;
+				var c = document.getElementById("edge3").value-0;
+				if (a + b > c && b + c >a && a + c >b ){
+					alert("是三角形")
+					
+					}
+				else{
+						alert("不是三角形")
+				}
+			}
+		</script>
+	</body>
+</html>

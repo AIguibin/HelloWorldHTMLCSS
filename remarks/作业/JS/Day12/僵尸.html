@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>僵尸</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		////普通僵尸对象
+			function OrdinaryZombie(HP,reduceHP,attack,move,bloodLoss){
+				this.HP = HP;
+				this.reduceHP = reduceHP;
+			}
+			OrdinaryZombie.prototype.attack = function(){
+					alert("攻击")
+				}; 
+			OrdinaryZombie.prototype.move = function(){
+					alert("上下左右")
+				};
+			OrdinaryZombie.prototype.bloodLoss = function(){
+					alert("我在流血啊!!!")
+				};
+//			var zombie = new OrdinaryZombie(100,10);
+//			zombie.attack();
+//			zombie.move();
+//			zombie.bloodLoss();
+//			console.log(zombie);
+			
+			
+			
+			//路障僵尸对象
+			function ConeheadZombie(HP,reduceHP,prop,weakness,attack,move,fallProp,bloodLoss){
+				this.HP = HP;
+				this.reduceHP = reduceHP;
+				this.prop = prop;
+				this.weakness = weakness
+			}
+			ConeheadZombie.prototype.attack = function(){
+					alert("攻击")
+				}; 
+			ConeheadZombie.prototype.move = function(){
+					alert("上下左右")
+				};
+			ConeheadZombie.prototype.fallProp = function(){
+					alert("快点捡道具啊")
+				};ConeheadZombie.prototype.bloodLoss = function(){
+					alert("我在流血啊!!!")
+				};
+//			var coneheadZombie = new ConeheadZombie(250,10,"金币","痛死我了");
+//			coneheadZombie.attack();
+//			coneheadZombie.move();
+//			coneheadZombie.fallProp();
+//			coneheadZombie.bloodLoss();
+//			console.log(ConeheadZombie.prototype);
+			
+		</script>
+	</body>
+</html>

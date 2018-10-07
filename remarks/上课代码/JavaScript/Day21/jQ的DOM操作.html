@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQ的DOM操作</title>
+	</head>
+	<body>
+		<input type="button" id="btn" value="按钮" />
+		<strong>苹果</strong>
+		<strong>橘子</strong>
+		<strong>香蕉</strong>
+		<script src="js/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//1.创建元素并添加元素
+			var p = '<p>Hello,World!</p>';
+			//$(A).append(B),在A元素的内部的尾部添加B
+			$("body").append(p);
+			
+			var a = '<a href="https://www.sogou.com">搜狗</a>';
+			//$(A).appendTo(B),把A元素添加到B元素内部的尾部
+			$(a).appendTo("body");
+			
+			var p1 = "<p>你好,世界</p>";
+			//$(A).prepend(B),在A元素的内部的尾部添加B
+			$("body").prepend(p1);
+			
+			//$(A).appendTo(B),把A元素添加到B元素内部的前面
+			var a1 = '<a href="https://www.baidu.com">百度</a>';
+			$(a1).prependTo("body");
+			
+			var p2 = "<p>世界和平</p>";
+			//$(A).after(B),在A元素外部的后面添加B元素
+			$("body").after(p2);
+			
+			var a2 = '<a href="http://www.sina.com.cn">新浪</a>';
+			//$(A).insertAfter(B),把A元素添加到B元素外部的后面
+			$(a2).insertAfter("body");
+			 
+			var p3 = "<p>国泰民安</p>";
+			//$(A).before(B),在A元素外部的前面添加B元素
+			$("body"	).before(p3);
+			
+			var a3 = '<a href="http://www.sohu.com">搜狐</a>';
+			//$(A).insertBefore,把A元素添加到B元素外部的前面
+			$(a3).insertBefore("body");
+			
+			
+			
+			//删除元素
+			//remove()
+//			$("p:eq(0)").remove();
+			//detach()
+//			$("a:eq(0)").detach();
+			//empty():清空元素内的所有内容
+//			$("body").empty();
+			//remove和detach的区别
+			//remove:会移除元素和元素关联的事件,
+			//detach:只会移除元素
+//			$("#btn").click(function(){
+//				alert("按钮被点击了");
+//			})
+//			var e = 	$("#btn").empty();
+//			$("body").append(e);
+			
+			//复制元素
+			//clone(是否复制事件)
+			var e = $("#btn").clone(false);
+			$("body").append(e);
+			
+			
+			//替换元素
+			//$(A).replacewith(B)用B元素替换A元素
+			$("#btn").replaceWith("<p>呵呵</p>");
+			//$(A).replaceAll(B)用A元素替换B元素
+			$("<p>呵呵呵呵</p>").replaceAll("#btn");
+			
+			
+			//包裹元素
+			//$(A).wrap(B) 用B元素包裹每一个A元素
+			$("strong").wrap("<em></em>");
+			//$(A).wrapInner(B) 用B元素报过每一个A元素里的内容
+			$("strong").wrapInner("<em></em>")
+			
+			
+			//遍历节点
+			$("strong").each(function(i,e){
+				//i 下标
+				//e 元素
+				var r = Math.floor(Math.random()* 256);
+				var g = Math.floor(Math.random()* 256);
+				var b = Math.floor(Math.random()* 256);
+//				e.style.color = "rgb(" + r + "," + g + "," + b + ")";
+//				$(e).css("color", "rgb(" + r + "," + g + "," + b + ")");
+				$(this).css("color", "rgb(" + r + "," + g + "," + b + ")");
+			});
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

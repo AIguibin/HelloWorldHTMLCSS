@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>锅打灰太狼</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#gameFace {
+				width: 300px;
+				margin: 100px auto;
+				position: relative;
+			}
+			/*设置分数样式*/
+			
+			#score {
+				position: absolute;
+				top: 15px;
+				left: 57px;
+				font-size: 20px;
+				color: white;
+			}
+			/*设置进度条样式*/
+			
+			#progress {
+				position: absolute;
+				height: 16px;
+				top: 66px;
+				left: 63px;
+			}
+			/*为灰太狼与小灰灰对应的图片预留的class*/
+			
+			.wolf {
+				position: absolute;
+				width: 80px;
+			}
+			/*设置开始游戏样式*/
+			
+			#gameFace .begin,
+			#gameFace .over {
+				width: 320px;
+				position: absolute;
+				left: 0;
+				top: 200px;
+				text-align: center;
+			}
+			/*隐藏掉游戏结束提示*/
+			
+			#gameFace .over {
+				display: none;
+			}
+			/*设置开始游戏和结束游戏里的a链接和span样式*/
+			
+			#gameFace .begin a,
+			#gameFace .over span,
+			#gameFace .over a {
+				display: block;
+				font-size: 35px;
+				color: red;
+				text-decoration: none;
+				font-weight: bold;
+				margin: 20px auto;
+				/*text-shadow文本阴影效果 设置方式与设置box-shadow一样*/
+				text-shadow: 1px 1px 5px greenyellow;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--游戏区域-->
+		<div id="gameFace">
+			<!--游戏的背景图片-->
+			<img src="img/game_bg.jpg" />
+			<!--显示分数-->
+			<div id="score">
+				0
+			</div>
+			<!--时间进度条-->
+			<img src="img/progress.png" id="progress" />
+			<!--开始游戏-->
+			<div class="begin">
+				<a href="###" id="start">开始</a>
+				<a href="###">游戏说明</a>
+			</div>
+			<!--游戏结束-->
+			<div class="over">
+				<span>GAME OVER</span>
+				<a href="###" id="again">再来一局</a>
+			</div>
+		</div>
+		<!--                 JS                -->
+		<script src="js/tween.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//存储出现的灰太狼或小灰灰的位置
+			var points = [
+				[30, 182],
+				[110, 137],
+				[30, 245],
+				[195, 166],
+				[114, 216],
+				[210, 236],
+				[41, 318],
+				[130, 298],
+				[219, 319]
+			];
+
+			//当前踹新的灰太狼或者小灰灰的图片的位置
+			var index = [];
+			//获取游戏界面
+			var gameFace = document.getElementById("gameFace");
+			//获取分数标签
+			var score = document.getElementById("score");
+			//获取进度条图片
+			var progress = document.getElementById("progress");
+			//获取开始游戏标签
+			var begin = document.getElementsByClassName("begin")[0];
+			//获取结束游戏标签
+			var over = document.getElementsByClassName("over")[0];
+			//获取开始按钮
+			var start = document.getElementById("start");
+			//获取结束按钮
+			var again = document.getElementById("again");
+
+			//开始按钮的点击事件
+			start.onclick = function() {
+					//隐藏掉开始游戏标签
+					begin.style.display = "none";
+					//开始游戏
+					startGame();
+					//开始计时
+					changeTime();
+				}
+				//再来一局按钮的点击事件
+			again.onclick = function() {
+					//隐藏掉游戏结束标签
+					over.style.display = "none";
+					//分数清零
+					score.innerHTML = 0
+					//开始游戏
+					startGame();
+					//开始计时
+					changeTime();
+			}
+				//计时器函数
+			function changeTime() {
+				//改变进度条图片的宽度
+				var t = 0;
+				var b = 180;
+				var end = 0
+				var c = end - b;
+				var d = 500;
+				var timeTotle = setInterval(function() {
+					t++;
+					progress.style.width = Tween.Linear(t, b, c, d) + "px";
+					if(t == d) {
+						clearInterval(timeTotle);
+						//当时间结束时让游戏结束标签显示
+						over.style.display = "block";
+						//停止游戏的继续进行
+						clearInterval(timer1);
+					}
+				}, 20);
+
+			}
+			//开始游戏函数
+			var timer1;
+			function startGame() {
+					timer1 = setInterval(function(){
+						//创建一个img标签并赋值随机的位置
+						var img = createWolf();
+						//创建一个img标签并赋值随机的位置
+						var img =createWolf();
+						//根据概率选取图片名
+						var name = Math.random()* 100 > 20 ? "h" : "x";
+						//通过计时器完成更换图片的操作
+						//声明一个存储当图片是编号的变量
+						var beginIndex = 0;
+						//声明一个记录是否应该反向的变量
+						var orReverse = false;
+						var timer2 = setInterval(function(){
+							img.src = "img/" + name + beginIndex + ".png";
+							//换图片
+							//如果到达第五张开始反向换图片
+							if(beginIndex == 5){
+								orReverse = true;
+							}
+							if(orReverse == false){
+								//++
+								beginIndex++;
+							}else{
+								//--
+								beginIndex--;
+							}
+							//当beginIndex < 0时,一次的图片轮换已经完成,此时清除定时器,删除图片
+							if(beginIndex < 0){
+								clearInterval(timer2);
+								gameFace.removeChild(img);
+							} 
+						},100)
+						//为灰太狼或者小灰灰的图片添加点击事件
+						//声明一个变量保证点击多次也只记录一次的分数
+						var orClick = false;
+						img.onclick = function(){
+							//判断被打的是灰太狼还是小灰灰
+							if(orClick == false){
+								orClick = true;
+								if(name == 'x'){
+									//减分
+									score.innerHTML -= 10;
+								}else{
+									//加分
+									score.innerHTML = score.innerHTML - 0 + 10;
+								}
+								//更换成被打的图片
+								clearInterval(timer2);
+								var hitIndex = 6;
+								var timer3 = setInterval(function(){
+									img.src = "img/" + name + hitIndex + ".png";
+									hitIndex++;
+									if(hitIndex > 9){
+										clearInterval(timer3);
+										gameFace.removeChild(img);
+									}
+								},100)
+							}
+						}
+					},1000)
+			}
+			//创建灰太狼或者小灰灰的函数
+			function createWolf(){
+				//创建一个img标签
+				var img = document.createElement("img");
+				//产生一个随机数[0,8]
+				var random = randomNumber(0,8);
+				//获取points数组里的对应元素
+				var point = points[random];
+				//给图片赋对应的left和top值
+				//给图片赋class
+				img.className = "wolf";
+				img.style.left = point[0] + "px";
+				img.style.top = point[1] + "px";
+				//添加图片
+				gameFace.appendChild(img);
+				//返回创建好的图片
+				return img;
+			}
+			//随机数函数
+			function randomNumber(x, y) {
+				return Math.floor(Math.random() * (y - x + 1) + x);
+			}
+		</script>
+	</body>
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

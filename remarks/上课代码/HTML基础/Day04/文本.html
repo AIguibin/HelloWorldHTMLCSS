@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文本</title>
+	<style type="text/css">
+		p{
+			width: 200px;
+			height: 200px;
+			/*background: red;*/
+			/*1.文字颜色
+				默认文字颜色是黑色
+
+			*/
+			color: blue;
+
+			/*颜色
+				1.用颜色对应的英文单词
+				2.rgb(red green blue) 三原色 所有的颜色都是由这三种颜色调和而成
+				三种颜色的值得范围0--255;三种颜色值之间用,隔开
+				3.十六进制颜色
+				写法   #后面跟留个0到9或者A-F任意一个值.
+
+			*/
+			background: rgb(255,100,155);
+			/*rgba 
+			red green blue alpha
+			alpha不透明度  取值范围0--1;0元素完全透明,1元素完全不透明*/
+			/*background: rgba(200,100,50,0.7);*/
+			/*文字的排版方向
+			ltr 左至右
+			rtl 右至左
+			不影响文字的阅读顺序
+			但是会影响标点符号*/
+			/*direction: rtl;*/
+			/*字母间距  默认值normal 相当于0
+			可以给负值*/
+			/*letter-spacing: 2px;*/
+			/*单词间距  都用于英文 
+			可以给负值*/
+			/*word-spacing: 10px;*/
+			/*对齐方式
+			text-align:
+			left 左对齐
+			right 右对齐
+			center 居中
+			justify 分布对齐  不推荐使用 部分浏览器不支持该属性
+			该属性只对行元素或者行级块元素有作用,对块级元素无用
+			单纯的文字--匿名的行元素
+			*/
+
+			/*文字的修饰
+			text-decoration
+			underline  下划线
+			overline  上划线
+			line-through 删除线
+			none  没有
+			*/
+			/*text-decoration: line-through;*/
+			/*首行缩进
+			1.数值形式
+			2.em单位类型  一个em单位表示当前元素的font-size值*/
+			/*text-indent:3em; */
+			/*文字转化  一般用在英文文本*/
+			/*text-transform: capitalize;*/
+			/*空白区域处理
+			white-space
+			normal 
+			nowrap  强制不换行
+			pre  保留原有格式 包括所有空格*/
+			/*white-space: nowrap;*/
+			/*行高
+			line-height
+			normal  默认的行高*/
+			
+			/*文本溢出时(处理方式)
+			text-overflow
+			clip  裁减掉
+			ellipsis   用省略号代替
+			string  用给定的字符设置 (有些浏览器不支持)
+			*/
+			/*文本溢出换省略号效果*/
+			white-space: nowrap;
+			/*文本如果溢出怎么处理*/
+			text-overflow:ellipsis;
+			/*如何处理溢出的部分*/
+			overflow: hidden;
+			
+
+
+
+		}
+
+	</style>
+</head>
+<body>
+	<p>
+		第一个文本第一个文本第一个文本,第一个文本第一个文本第,一个文本,第一个文本第一个文,本第一,个文本第一个文本第,一个文本第一个文本第一个文本第一个文本,第一个文本第一个文本第,一个文本,第一个文本第一个文,本第一,个文本第一个文本第,一个文本第一个文本第一个文本第一个文本,第一个文本第一个文本第,一个文本,第一个文本第一个文,本第一,个文本第一个文本第,一个文本第一个文本第一个文本第一个文本,第一个文本第一个文本第,一个文本,第一个文本第一个文,本第一,个文本第一个文本第,一个文本第一个文本第一个文本第一个文本,第一个文本第一个文本第,一个文本,第一个文本第一个文,本第一,个文本第一个文本第,一个文本第一个文本第一个文本第一个文本,第一个文本第一个文本第,一个文本,第一个文本第一个文,本第一,个文本第一个文本第,一个文本,第一个文本第一个文本第一个文本,第一个文本第一个文本第,一个文本,第一个文本第一个文,本第一,个文本第一个文本第,一个文本第一个文本第一个文本第一个文本,第一个文本第一个文本第,一个文本,第一个文本第一个文,本第一,个文本第一个文本第,一个文本第一个文本第一个文本第一个文本,第一个文本第一个文本第,一个文本,第一个文本第一个文,本第一,个文本第一个文本第,一个文本第一个文本第一个文本第一个文本,第一个文本第一个文本第,一个文本,第一个文本第一个文,本第一,个文本第一个文本第,一个文本第一个文本第一个文本第一个文本,第一个文本第一个文本第,一个文本,第一个文本第一个文,本第一,个文本第一个文本第,一个文本第一个文本第一个文本第一个文本,第一个文本第一个文本第,一个文本,第一个文本第一个文,本第一,个文本第一个文本第,一个文本
+		
+	</p>
+	<p>
+		 first text  first text first text first text first text first text first text first text first text first text first text first text first text first text
+	</p>
+</body>
+</html>

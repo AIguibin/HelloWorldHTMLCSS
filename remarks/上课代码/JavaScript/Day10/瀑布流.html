@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>瀑布流</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#content{
+				width: 1000px;
+				border: 5px solid darkblue;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			ul{
+				list-style: none;
+				float: left;
+				width: 190px;
+				margin: 5px;	
+			}
+			li{
+				font-size: 50px;
+				color: white;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="content">
+			<ul></ul>
+			<ul></ul>
+			<ul></ul>
+			<ul></ul>
+			<ul></ul>
+		</div>
+		<script type="text/javascript">
+			//随机数函数
+			function random(x,y){
+				return Math.floor(Math.random()*(y - x) + x);
+			}
+			//随机颜色函数
+			function randomColor(){
+				var red = random(0,255);
+				var green = random(0,255);
+				var blue = random(0,255);
+				return "rgb(" + red + "," + green + "," + blue + ")";
+			}
+			//获取ul
+			var uls = document.querySelectorAll("ul");
+			//循环创建li
+			for (var i = 0; i < 100; i++){
+				//创建li
+				var li = document.createElement("li");
+				li.style.backgroundColor = randomColor();
+				li.style.height = random(100,500) + "px";
+				li.style.lineHeight = li.style.height;
+				li.innerHTML = i + 1;
+				
+				//判断哪个ul高度最低(找最小值对应的下标)
+				var index = 0; //存储最低ul的下标
+				for (var j = 0; j < uls.length; j++){
+					if(uls[j].offsetHeight < uls[index].offsetHeight){
+						index = j;
+					}
+				}
+				//添加li
+				uls[index].appendChild(li);
+			}
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

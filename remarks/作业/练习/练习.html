@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			canvas {
+				box-shadow: 4px 4px 4px gray;
+			}
+			#canvas2 {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas1" width="500" height="500"></canvas>
+		<canvas id="canvas2" width="500" height="500"></canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas1 = document.getElementById("canvas1");
+		var canvas2 = document.getElementById("canvas2");
+		var ctx1 = canvas1.getContext("2d");
+		var ctx2 = canvas2.getContext("2d");
+		//创建图片对象
+		var img1 = new Image();
+		var img2 = new Image();
+		img1.src = "img/enemy1_fly_1.png";
+		img2.src = "img/enemy2_fly_1.png";
+		
+		var pointX1 = 100, pointY1 = 100, pointX2 = 110, pointY2 = 110;
+		window.onload = function() {
+			ctx1.drawImage(img1, pointX1,pointY1);
+			ctx1.drawImage(img2, pointX2,pointY2);
+			if(adjustCollision()) {
+				alert("飞机相撞");
+			}
+		}
+		
+		//定义函数完成像素检测
+		function adjustCollision() {
+			ctx2.drawImage(img1,pointX1,pointY1);
+			ctx2.globalCompositeOperation = "source-in";
+			ctx2.drawImage(img2,pointX2,pointY2);
+			var imagePoints1 = ctx2.getImageData(0,0,500,500);
+			ctx2.drawImage(img1,pointX1,pointY1);
+			var imagePoint2 = ctx2.getImageData(0,0,500,500);
+			var data1 = imagePoints1.data;
+			var data2 = imagePoint2.data;
+			var result = false;
+			for(var i = 0; i < data1.length; i+=4) {
+				if(data1[i+3] != 0 && data2[i+3] != 0) {
+					result = true;
+					break;
+				}
+			}
+			
+			return result;
+		}
+		
+	</script>
+</html>

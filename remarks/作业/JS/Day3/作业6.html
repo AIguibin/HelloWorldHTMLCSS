@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>作业六</title>
+	</head>
+
+	<body>
+		数字1:<input type="text" id="num1" value="" />
+		<br /><br /> 数字2:
+		<input type="text" id="num2" value="" />
+		<br /><br />
+		<input type="button" id="btn1" value="点击" onclick="btn()" />
+		<script type="text/javascript">
+			function btn() {
+				var x = document.getElementById("num1").value - 0;
+				var y = document.getElementById("num2").value - 0;
+				if(x >= y) {
+					m = x;
+					n = y;
+					while(n != 0) {
+						tem = m % n;
+						m = n;
+						n = tem;
+					}
+				} else {
+					m = y;
+					n = x;
+					while(n != 0) {
+						tem = m % n;
+						m = n;
+						n = tem;
+					}
+				}
+				alert("最大公约数是：" + m + "\t" + "最小公倍数是：" + x * y / m);
+			}
+		</script>
+	</body>
+
+</html>

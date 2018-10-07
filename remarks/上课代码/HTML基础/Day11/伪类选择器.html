@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>伪类选择器</title>
+		<style type="text/css">
+		#div1{
+			background: blue;
+		}
+			#div1:target{
+				background: red;
+			}
+			input:disabled{
+				background: yellow;
+			}
+			#div2~p{
+				background: green;
+			}
+		</style>
+	</head>
+	<body>
+		<!--伪类选择器
+			link 没有点击过的
+			hover 鼠标移动到元素上的状态
+			visited 链接已经被点击过
+			active  鼠标按下时
+		-->
+		<!--CSS3增加了两个伪类选择器
+			1.target   只有跳转到该目标上,样式才会生效(一般用于a链接,target是添加给跳转到的元素)
+			2.disabled  对属性为disabled的input标签生效
+		-->
+		<div id="div1" name="d1">我是靶子</div>
+		<div>
+			<a href="#div1">点击跳转到div1</a>
+			<br /><br /> <br />
+			<form action="">
+				<input type="text" disabled="disabled" />
+				<input type="text" />
+			</form>
+			
+			
+		<!--兄弟选择器
+			相邻兄弟选择器
+			e+f{
+				
+			}
+			
+			css3新增的兄弟选择器
+			e~f{
+							
+			}
+			找到元素e后面与之同级的f元素
+		-->
+		
+			<div id="div2">
+				这是div2
+			</div>
+			<p>这是段落一</p>
+			<h1>这是标题1</h1>
+			<p>这是段落2</p>
+		</div>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

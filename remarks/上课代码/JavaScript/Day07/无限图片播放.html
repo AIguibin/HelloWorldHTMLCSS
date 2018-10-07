@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>图片无限播放</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#screen{
+				width: 600px;
+				height: 300px;
+				margin: 100px auto;
+				border: 2px solid darkgreen;
+				overflow: hidden;
+				position: relative;
+			}
+			#screen #content{
+				height: 300px;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			#content>img{
+				width: 200px;
+				height: 300px;
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<!--展示用户可视的区域-->
+		<div id="screen">
+			<!--内容-->
+			<div id="content">
+				<img src="img/1.jpg"/>
+				<img src="img/2.jpg"/>
+				<img src="img/3.jpg"/>
+				<img src="img/4.jpg"/>
+				<img src="img/5.jpg"/>
+				<img src="img/6.jpeg"/>
+			</div>
+		</div>	
+		
+		
+		<script type="text/javascript">
+			//1.当最后一张图片滑离边界的时候后面还有图片(第一张,第二张,第三张).
+			//2.当第一遍内容走完时,迅速改变content的X轴的位置.
+			
+			
+			//声明一个变量,记录X轴的坐标	
+			var x = 0;
+			//获取到要移动的元素
+			var contentDiv = document.getElementById("content");
+			//复制当前元素里的内容拼接到当前内容后面
+			contentDiv.innerHTML += contentDiv.innerHTML;
+			//获取到所有的图片
+			var imgs = contentDiv.getElementsByTagName("img");
+			contentDiv.style.width = imgs[0].offsetWidth * imgs.length + "px";
+			//图片运动的函数
+			function scroll(){
+			 	x--;
+			 	contentDiv.style.left = x + "px";
+			 	//如果达到了第一遍图片的最后迅速调整x的值为0.
+			 	if (x == -((imgs[0].offsetWidth * imgs.length) / 2) ){
+			 		x = 0;
+			 	}
+			}
+			setInterval("scroll()",10)
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

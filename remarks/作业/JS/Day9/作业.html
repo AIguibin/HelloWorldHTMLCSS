@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>留言板</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#messageBoard {
+				width: 400px;
+				background: darkgray;
+				padding: 20px 20px 10px;
+				margin: 200px auto;
+				transition: all 1s;
+			}
+			
+			#qq {
+				height: 25px;
+				width: 300px;
+			}
+			
+			#div2 {
+				margin: 20px 0;
+			}
+			
+			#message {
+				vertical-align: top;
+			}
+			
+			#btn {
+				width: 70px;
+				margin-left: 35px;
+				line-height: 25px;
+			}
+			
+			h3 {
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="messageBoard">
+			<div id="">
+				QQ:<input type="text" id="qq" value="" /></div>
+			<div id="div2">
+				留言:<textarea id="message" rows="5" cols="47"></textarea></div>
+			<input type="submit" id="btn" value="提交" />
+			<h3>显示留言:</h3>
+		</div>
+		<script type="text/javascript">
+			//获取整个留言板
+			var board = document.getElementById("messageBoard");
+			//获取提交按钮
+			var submit1 = document.getElementById("btn");
+			//获取QQ内容
+				var QQ = document.getElementById("qq");
+			//获取留言内容
+				var message = document.getElementById("message");
+			//定义提交按钮的函数
+			submit1.onclick = function() {
+				
+				
+				//创建楼层
+				var content = document.createElement("div");
+				
+				//将楼层赋给留言板的最后面
+				board.appendChild(content);
+				
+				//创建放QQ名字的元素
+				var p1 = document.createElement("p");
+				//设置属性
+				p1.innerHTML = QQ.value;
+				p1.style.height = 25 + "px";
+				p1.style.backgroundColor = "goldenrod";
+				
+				//放入楼层中
+				content.appendChild(p1);
+				
+				//创建放留言的元素
+				var p2 = document.createElement("p");
+				//p2的属性
+				p2.innerHTML = message.value;
+				p2.style.position = "relative"
+				p2.style.height = 20 + "px"
+				//将p2放入楼层中
+				content.appendChild(p2);
+				
+				//创建删除键
+				var a = document.createElement("span");
+				//删除键的属性
+				a.innerHTML = "删除"
+				a.style.position = "absolute"
+				a.style.right = 10+"px"
+				//将删除键放入p2中
+				content.lastChild.appendChild(a);
+				
+				
+				//点击提交后将上面input中的value值清除
+				QQ.value = null;
+				message.value = null;
+				
+				//点击删除键清除楼层
+				a.onclick = function() {
+					board.removeChild(content);
+				}
+
+			}
+		</script>
+	</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

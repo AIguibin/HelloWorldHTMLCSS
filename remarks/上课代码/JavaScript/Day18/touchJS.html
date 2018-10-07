@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+
+		<title>touchJS</title>
+		<style type="text/css">
+			#div1{
+				width: 200px;
+				height: 200px;
+				background: fuchsia;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<img src="../../HTML基础/Day01/image/image1/2.jpg" id="rotateImg"/>
+		<script src="js/touch-0.2.14.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/*
+			 * touchJS的基本概念
+			 * 1:是什么:
+			 * TouchJS是移动设备上的手势和事件库,由百度云clounda团队维护,也是百度内部使用开发工具.
+			 * TouchJS的源码已经托管到github
+			 * TouchJS只能在wenkit内核下的浏览器使用
+			 * 2.如何使用touchJS
+			 * 	1.下载touchJS源码并引入工程里
+			 * 	2.绑定事件:touch.on(element,type,callback);
+			 * 
+			 * element:要绑定事件的元素
+			 * type:绑定的事件类型,可以接受多种类型,多个类型之间用空格隔开,支持原生事件的透传.(pinch,rotate,swipe,drag,hold,tap,doubletap)
+			 * callback:事件处理的函数.
+			 */
+//			touch.on("#div1","touchStart",touchStartFun);
+//			function touchStartFun(){
+//				alert("被点击了")
+//			}
+			
+			//example 选转
+			//touchJS的api规定,进行单指旋转时,必须在touchstart事件里调用事件的starRotate函数.
+			touch.on("#rotateImg","touchstart",function(e){
+				var even = e || event;
+				even.startRotate();
+				//为了保证在我们进行旋转操作时,不受js其他事件的影响.
+				even.preventDefault();
+			})
+			//记录每次旋转开始之前的角度
+			var angle = 0
+			//绑定旋转事件
+			touch.on("#rotateImg","rotate",function(e){
+				var even = e || event;
+//				div1.innerHTML += even.rotation + "度" + "<br>"
+				var totalDeg = angle + even.rotation;
+				if(even.fingerStatus = "end"){
+					angle = angle + even.rotation;
+				}
+				this.style.webkitTransform = "rotate(" + totalDeg + "deg)"; 
+			})
+			
+			//example  轻扫
+			touch.on("#div1","swipeleft swiperight swipeup swipedown",function(e){
+				var even = e || event;
+				//even.type:判断是哪个方向
+				switch (even.type){
+					case "swipeleft":{
+						this.innerHTML = "左轻扫"
+						break;
+					}
+					case "swiperight":{
+						this.innerHTML = "右轻扫"
+						break;
+					}
+					case "swipeup":{
+						this.innerHTML = "上轻扫"
+						break;
+					}
+					case "swipedown":{
+						this.innerHTML = "下轻扫"
+						break;
+					}
+					default:
+						break;
+				}
+			})
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

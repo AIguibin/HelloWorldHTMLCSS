@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>css选择器</title>
+		<style type="text/css">
+			/*1.元素选择器
+				会选择html文档中所有对应的元素
+			但是不灵活,无法给相同类型的元素设置不同的属性值
+			2.群组选择器
+			
+			*/
+			/*div{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+			p{
+				width: 100px;
+				height: 200px;
+				background-color: pink;
+			}*/
+			/*群组选择器
+			会获取到每个逗号之间的所有对应的元素*/
+			/*h1,h2,h3{
+				color: white;
+				background-color: red;
+			}*/
+			/*id选择器
+			获取到对应的id值的元素
+			前提:需要给对应的元素设置id值;
+			注意点:id值不能重复;*/
+			/*div{
+				width: 100px;
+				height: 100px;
+			}
+			#div1{
+				
+				background-color: red;
+			}
+			#div2{
+				
+				background-color: blue;
+			}
+			#div3{
+				background-color: green;
+			}*/
+			/*div{
+				background-color: red;
+			}
+			p{
+				background-color: blue;
+			}
+			span{
+				background-color: green;
+			}
+*/			/*
+				class选择器
+				获取到相应的class值得元素
+				前提:需要给对应的元素设置class值
+				注意点:class值能重复
+				如果一个元素需要多个class,则class名之间用空格隔开
+			*/
+			/*.fontcolor{
+				color: white;
+			}*/
+
+
+			/*
+			继承选择器
+			语法:
+			e f{
+	
+			}
+			找到e对应的元素里面所有的f对应的元素(e,f可以是元素名,也可以是id名,也可以是class名)
+			*/
+
+/*			div p{
+				background-color: green;
+			}
+*/
+ 			/*
+			子选择器
+			语法
+			e>f{
+	
+			}
+			找到e对应的元素里面所有的f对应的子元素(e,f可以是元素名,也可以是id名,也可以是class名)
+			*/
+			/*div>ul>li>p>div{
+				background-color: red;
+			}*/
+
+			/*
+			相邻兄弟选择器
+			写法:
+			e+f{
+	
+			}
+			特点:相邻兄弟选择器所找到的一定是同级元素(e,f一定是同级元素)
+			找到与e对应的元素同级的下一个f对应的元素
+			(e,f可以是元素名,也可以是id名,也可以是class名)
+			*/
+			div+p{
+				color: blue;
+			}
+
+
+		</style>
+	</head>
+	<body>
+		<!-- 选择器:选择html文档中的某个元素或者某些元素 -->
+		<!-- 选择器的语法结构:
+			选择器名{
+				属性名:属性值;
+				属性名:属性值;
+				...
+				}
+			选择器是css代码,必须写在style标签里
+		-->
+		<!-- 元素选择器例子 -->
+		<!-- <div>这是div1</div>
+		<div>这是div2</div>
+		<p>这是一个P</p> -->
+		<!-- 群组选择器例子 -->
+		<!-- <h1>这是h1</h1>
+		<h2>这是h2</h2>
+		<h3>这是h3</h3> -->
+		<!-- id选择器例子
+		id名可以由数字,字母,下划线组成,但是数字不能开头使用.
+		-->
+		<!-- <div id="div1">div1</div>
+		<div id="div2">div2</div> -->
+		<!-- 给元素添加id的快捷方式  元素名#id名 -->
+		<!-- <div id="div3">div3</div> -->
+		<!-- class选择器例子 -->
+		<!-- <div>div1</div>
+		<div class="fontcolor">div2</div>
+		<p class="fontcolor">p</p>
+		<span>span1</span>
+		<span>span2</span> -->
+
+		<!-- 后代选择器例子 -->
+
+		<!-- <div>
+			<p>这是p</p>
+			<p>这是span</p>
+		</div>
+		<p>这是p2</p> -->
+
+		<!-- 子选择器例子 -->
+		<!-- <div>
+			<p>p1</p>
+			<p>p2</p>
+			<ul>
+				<li>
+					<p>p3
+					  <p>p4</p>
+					</p>
+				</li>
+			</ul>	
+		</div> -->
+
+
+		<!-- 相邻兄弟选择器例子 -->
+		<div>div1</div>	
+		<p>p1</p>
+		<p>p2</p>
+		<div>div2</div>
+
+
+
+
+
+
+
+	</body>
+</html>

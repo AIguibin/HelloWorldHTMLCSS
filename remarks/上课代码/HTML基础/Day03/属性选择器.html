@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>属性选择器</title>
+	<style>
+
+	/*1.属性选择器a
+	写法:
+	e[attr]{
+		
+ 		}
+ 		给带有attr属性的e标签设置css样式*/
+		/*
+		div[id]{
+			color: blue;
+		}*/
+ 		 
+ 		 /*
+		属性选择器b
+		写法
+		e[attr="value"]{
+	
+		}
+		给带有attr属性并且值为value的e元素设置css样式
+ 		 */
+
+ 		/* div[id="div1"]{
+ 		 	color: red;
+ 		 }*/
+	
+		/*
+		属性选择器c
+		写法
+		e[attr~="value"]{
+	
+		}
+		会选择所有的属性名为attr且值里有value单词的e标签
+		*/
+
+		/*div[class~=text]{
+			color: blue;
+		}*/
+
+		/*属性选择器d
+		e[attr*="value"]{
+	
+		}
+		会给所有的属性名为attr且值里有value连贯字符的e标签
+		*/
+
+		div[class*=text]{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<!-- 属性选择器a例子 -->
+	<!-- <div>div1</div>
+	<div id="div2" >div2</div>
+	<div class="div3">div3</div>
+	<div id="div4">div4</div> -->
+
+	<!-- 属性选择器b例子 -->
+	<!-- <div id="div1">111</div>
+	<div id="div2">221</div> -->
+
+	<!-- 属性选择器c例子 -->
+	<!-- <div class="text">div1</div>
+	<div class="text_one">div2</div>
+	<div class="one_text">div3</div>
+	<div class="one text">div4</div>
+	<div class="text one">div5</div>
+
+ -->
+
+ 	<!-- 属性选择器d例子 -->
+	<div class="text">div1</div>
+	<div class="text_one">div2</div>
+	<div class="one_text">div3</div>
+	<div class="one text">div4</div>
+	<div class="text one">div5</div>
+
+
+
+
+
+</body>
+</html>

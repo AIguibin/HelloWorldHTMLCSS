@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>太极</title>
+		<style type="text/css">
+			#myCanvas {
+				box-shadow: 4px 4px 4px #22f;
+				background: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+	</body>
+	<script type="text/javascript">
+		var myCanvas = document.getElementById("myCanvas");
+		var ctx = myCanvas.getContext("2d");
+		ctx.translate(250, 250);
+		var starAngle = 0;
+
+		function rotate() {
+			ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+			//绘制圆
+			ctx.save();
+			ctx.rotate(starAngle);
+			ctx.beginPath();
+			ctx.arc(0, 0, 200, -Math.PI / 2, Math.PI / 2, false);
+			ctx.closePath();
+			ctx.fillStyle = "#000000";
+			ctx.fill();
+			ctx.beginPath();
+			ctx.arc(0, 0, 200, Math.PI / 2, -Math.PI / 2, false);
+			ctx.closePath();
+			ctx.fillStyle = "#FFFFFF";
+			ctx.fill();
+			//绘制中间的线
+			ctx.moveTo(0, -200);
+			ctx.quadraticCurveTo(150, -100, 0, 0);
+			ctx.fillStyle = "#000000";
+			ctx.fill();
+			ctx.moveTo(0, 0);
+			ctx.quadraticCurveTo(-150, 100, 0, 200);
+			ctx.fillStyle = "white";
+			ctx.fill();
+			//绘制中间的小圆
+			ctx.beginPath();
+			ctx.arc(0, -100, 25, 0, Math.PI * 2, false);
+			ctx.closePath();
+			ctx.fillStyle = "#000000";
+			ctx.fill();
+			ctx.beginPath();
+			ctx.arc(0, 100, 25, 0, Math.PI * 2, false);
+			ctx.closePath();
+			ctx.fillStyle = "#FFFFFF";
+			ctx.fill();
+			starAngle += Math.PI / 180;
+			ctx.restore();
+		}
+		setInterval("rotate()", 10)
+	</script>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>收件箱</title>
+		<style type="text/css">
+
+		</style>
+	</head>
+
+	<body>
+		<table border="1px" cellspacing="0" cellpadding="10px">
+			<tr>
+				<th><input type="checkbox" />全选</th>
+				<th>发件人</th>
+				<th>邮件名</th>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>吴闯</td>
+				<td>邮件12</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>徐飞</td>
+				<td>邮件2</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>路飞</td>
+				<td>邮件4</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>鸣人</td>
+				<td>邮件6</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>小樱</td>
+				<td>邮件8</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>佐助</td>
+				<td>邮件41</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" />全选</td>
+				<td colspan="2">
+					<input type="button" value="全选" />
+					<input type="button" value="取消全选" />
+					<input type="button" value="反选" />
+					<input type="button" value="删除所有邮件" />
+				</td>
+			</tr>
+		</table>
+		<script type="text/javascript">
+			//获取到所有的多选框
+			var checkeds = document.querySelectorAll("[type = checkbox]");
+			//是否选择的函数
+			function selectChecked(x) {
+				for(var i = 0; i < checkeds.length; i++) {
+					checkeds[i].checked = x;
+				}
+			}
+			
+			//第一个全选框
+			checkeds[0].onclick = function() {
+					selectChecked(this.checked);
+				}
+				//最后一个全选框
+			checkeds[checkeds.length - 1].onclick = function() {
+				selectChecked(this.checked);
+			}
+			//获取所有的按钮
+			var btns = document.querySelectorAll("[type = button]")
+				//第一个全选按钮
+			btns[0].onclick = function() {
+					selectChecked(true);
+				}
+				//全部不选按钮
+			btns[1].onclick = function() {
+					selectChecked(false);
+				}
+				//反选
+			btns[2].onclick = function() {
+					for(var i = 1; i < checkeds.length - 1; i++) {
+						checkeds[i].checked = !checkeds[i].checked;
+					}
+				}
+				//删除所选邮件
+			btns[3].onclick = function() {
+				//因为有删除功能,每次删除之前重新获取所有的多选框
+				checkeds = document.querySelectorAll("[type=checkbox]")
+				for(var i = 1; i < checkeds.length; i++) {
+					if(checkeds[i].checked) {
+						//找到table
+						var father = checkeds[i].parentElement.parentElement.parentElement;
+						//找到对应的tr
+						var son = checkeds[i].parentElement.parentElement;
+						//用table删除tr
+						father.removeChild(son);
+					}
+
+				}
+			}
+		</script>
+
+	</body>
+
+</html>

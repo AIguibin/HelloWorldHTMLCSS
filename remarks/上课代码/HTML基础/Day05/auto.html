@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>auto</title>
+	<style type="text/css">
+	#div1{
+		width: auto;
+		height: 200px;
+		background: green;
+		margin-right: 100px;
+		margin-left: 100px; 
+	}
+	</style>
+</head>
+<body>
+	<!-- 
+	auto值可以帮我们灵活的进行元素的布局
+	在盒模型中只有width,margin可以使用auto作为其的值
+	1.水平方向上,如果width,margin-left,margin-right三个值中的某个值为auto,其余的值必须为定值,auto=父级元素-剩余两个值
+	2.当三个值都为定值时,系统会强制修改margin-right的值
+	3.当margin-left和margin-right的值都为auto时,width必须给定值
+	 -->
+	 <!-- 例子一 -->
+	 <div id="div1"></div>
+</body>
+</html>

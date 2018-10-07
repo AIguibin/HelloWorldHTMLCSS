@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>作业二</title>
+	</head>
+	<body>
+		<p>请选择汽车	</p>
+		<input type="text" name="" id="carW" placeholder="请输入宽度" value="" />
+		<input type="text" name="" id="carH" placeholder="请输入高度" value="" />
+		<p>请选择赛道</p>
+		<input type="text" name="" id="trackW" placeholder="请输入宽度" value="" />
+		<input type="text" name="" id="trackH" placeholder="请输入高度" value="" />
+		<input type="button" id="drift" value="开始漂移" />
+		<p>控制汽车</p>
+		<input type="button" id="carT" value="上" />
+		<input type="button" id="carB" value="下" />
+		<input type="button" id="carL" value="左" />
+		<input type="button" id="carR" value="右" />
+		<p>控制赛道</p>
+		<input type="button" id="trackT" value="上" />
+		<input type="button" id="trackB" value="下" />
+		<input type="button" id="trackL" value="左" />
+		<input type="button" id="trackR" value="右" />
+		
+		
+		<script type="text/javascript">
+			var newWindow;
+			drift.onclick = function(){
+				newWindow = window.open("","","width=" + trackW.value + ",height=" + trackH.value);
+				div = newWindow.document.createElement("div");
+				div.style.width = carW.value + "px";
+				div.style.height = carH.value + "px";
+				div.style.backgroundColor = "#006400";
+				div.style.position = "absolute";
+				div.style.top = 0;
+				div.style.left = 0;
+				newWindow.document.body.appendChild(div);
+			}
+			//控制汽车
+			carT.onclick = function(){
+				div.style.top = parseInt(div.style.top) - 10 + "px";
+			}
+			carB.onclick = function(){
+				div.style.top = parseInt(div.style.top) + 10 + "px";
+			}
+			carL.onclick = function(){
+				div.style.left = parseInt(div.style.left) - 10 + "px";
+			}
+			carR.onclick = function(){
+				div.style.left = parseInt(div.style.left) + 10 + "px";
+			}
+			//控制赛道
+			trackT.onclick = function(){
+				newWindow.moveBy(0,-10)
+			}
+			trackB.onclick = function(){
+				newWindow.moveBy(0,10)
+			}
+			trackL.onclick = function(){
+				newWindow.moveBy(-10,0)
+			}
+			trackR.onclick = function(){
+				newWindow.moveBy(10,0)
+			}
+		</script>
+	</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

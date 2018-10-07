@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>作业4</title>
+	</head>
+	<body>
+		请输入重量(kg):<input type="text" id="wht" value="" />
+		<input type="button" id="btn1" value="计算" onclick="btn()" />
+		<script type="text/javascript">
+			function btn(){
+				var a = document.getElementById("wht").value-0;
+				if (a < 50){
+					alert("应付" + a * 0.15 + "元")
+				}else{
+					alert("应付" + ((50 									* 0.15) + ((a - 50) * 0.1)) + "元")
+				}
+			}
+		</script>
+	</body>
+</html>

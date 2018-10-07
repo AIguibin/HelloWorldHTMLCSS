@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JQ方法的扩充</title>
+	</head>
+	<body>
+		<p>这是一个p元素</p>
+		<script src="js/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//$.exrend()	;
+			$.extend({
+				eat:function(a){
+					console.log("吃" + a);
+				}
+			});
+			//调用
+			$.eat("馒头")
+			
+			//传入一个天气情况,打印xx年xx月xx日天气如何
+			//toLocaleDateString() 打印年月日
+			//toLocaleTimeString() 打印时分秒
+			//toLocaleString()  打印年月日时分秒
+			$.extend({
+				weather:function(s){
+					var time = new Date();
+					console.log(time.toLocaleString() + s)
+				}
+			})
+			$.weather("晴")
+			//$.fn.函数名 = function(){}
+			$.fn.changeColor = function(){
+				$(this).css("background","red")
+			}
+			$("p").changeColor()
+		</script>
+	</body>
+</html>

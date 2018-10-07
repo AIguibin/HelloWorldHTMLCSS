@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>定位</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			/*#static{
+				width: 200px;
+				height: 200px;
+				background: red;
+				position: static;
+				left: 100px;
+			}*/
+			/*#relative{
+				width: 200px;
+				height: 200px;
+				background: #9a9a9a;
+				position: relative;
+				left: 100px;
+			}*/
+			/*#d1{
+				width: 200px;
+				height: 200px;
+				background: green;
+				position: relative;
+				margin-left: 200px;
+			}
+			#d2{
+				width: 100px;
+				height: 100px;
+				background: blue;
+				position: relative;
+			}
+		*/
+			/*#absolute{
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				left:500px;
+				background: red;
+			}
+			#d3{
+				width: 200px;
+				height: 200px;
+				background: blue;
+			}*/
+			body{
+				width: 800px;
+				/*position: relative;*/
+			}
+			#one{
+				width: 400px;
+				height: 400px;
+				background: red;
+				/*position: relative;*/
+			}
+			#two{
+				width: 300px;
+				height: 300px;
+				background: blue;
+				position: relative;
+			}
+			#three{
+				width: 200px;
+				height: 200px;
+				background: #999999;
+				position: relative;
+			}
+
+			#go{
+				width: 100px;
+				height: 100px;
+				background: #cccccc;
+				position: fixed;
+				right: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 定位:
+		position:
+		对元素进行精准的位置调整.
+		定位有四种方式:
+		1.静态定位(static):默认的值,按照文档流结合元素自身的属性正常排布
+		2.相对定位(relative):
+		3.绝对定位(absolute):
+		4.固定定位(fixed):
+		要实现对应的定位效果,还需要配合着left,right,bottom,top四个属性才可以实现元素的定位.
+		-->
+		<!-- 静态定位例子
+		我们以后不会设置一个元素的定位方式为static -->
+		<!-- <div id="static"></div> -->
+		<!-- 相对定位
+		1.相对定位的元素不会脱离文档流,会保留之前所在的位置
+		2.相对定位的元素所移动位置的参考是其之前所在的位置 -->
+		<!-- <div id="relative">13365165</div>
+		<div id="d1"></div> -->
+		<!-- <div id="d1">
+		<div id="d2"></div>
+		</div> -->
+		<!-- 绝对定位
+		1.绝对定位的元素会脱离文档流,不会保留之前的位置.
+		如果多个元素都绝对定位,则看书写顺序,谁写的晚,显现是谁
+		2.绝对定位的元素所移动的参考位置是离其最近的设置了非static定位属性的父级元素,如果所有的父级都没有设置非static定位属性,则该元素相对于整个文档(document)定位. -->
+		<!-- <div id="absolute"></div>
+		<div id="d3"></div> -->
+		<div id="one">
+			<div id="two">
+				<div id="three">
+					<div id="go"></div>
+				</div>
+			</div>
+		</div>
+		<!-- 固定定位
+		1.fixed定位的元素脱离文档流,不会保留之前自己的位置
+		2.fixed定位的元素的参考位置是相对于整个文档定位的
+		 -->
+	</body>
+</html>

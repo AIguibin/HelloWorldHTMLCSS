@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+
+		<title>swiperJS</title>
+		<link rel="stylesheet" type="text/css" href="css/swiper-3.3.1.min.css" />
+		<style type="text/css">
+			.swiper-container {
+				width: 600px;
+				height: 300px;
+			}
+			
+			.swiper-slide {
+				font-size: 50px;
+				line-height: 300px;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">1</div>
+				<div class="swiper-slide">2</div>
+				<div class="swiper-slide">3</div>
+			</div>
+			<!--分页器-->
+			<div class="swiper-pagination"></div>
+			<!--前进后退按钮-->
+			<div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+			<!--滚动条-->
+			<div class="swiper-scrollbar"></div>
+		</div>
+
+		<script src="js/swiper-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/*
+			 * 1.swiperJS常用于移动端网站的内容触摸滑动
+			 * swiperJS是用纯JS打造的滑动特效,面向手机,平板等移动端.
+			 * swiperJS开源,稳定,免费
+			 * 
+			 * 2.使用场景
+			 *    1.在移动端做程序架构
+			 * 	  2.做轮播图,非常简单
+			 *    
+			 */
+
+			//1.创建一个swiperJS对象
+			//参数一:我们写的最外层的容器元素
+			//参数二:对象,轮播图的各种属性
+			var maySwiper = new Swiper(".swiper-container", {
+				//控制轮播图的滚动方向
+				direction: "horizontal",
+				//loop 控制是否循环播放 true循环 false不循环
+				loop: true,
+				//是否需要分页器
+				pagination: ".swiper-pagination",
+				//是否需要前进后退
+				nextButton: ".swiper-button-next",
+				prevButton: ".swiper-button-prev",
+				//是否开启自动播放
+				autoplay: 1000,
+				//滚动条
+				scrollbar: ".swiper-scrollbar",
+				//切换控制效果
+				//effect (cube,fade,overflow,flip)
+				effect: "flip"
+
+					onSlideChangeEnd: function(swiper) {
+					switch() {
+						case 0:
+							{
+
+								break;
+							}
+						case 1:
+							{
+
+								break;
+							}
+						case 2:
+							{
+
+								break;
+							}
+						case 3:
+							{
+
+								break;
+							}
+						default:
+							break;
+					}
+					alert(swiper.activeIndex);
+				}
+			});
+		</script>
+	</body>
+
+</html>

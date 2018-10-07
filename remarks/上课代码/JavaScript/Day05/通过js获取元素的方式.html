@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>通过js获取元素的方式</title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				border: 1px solid red;
+				text-align: center;
+				line-height: 200px;
+				font-size: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">5</div>
+		<div class="box">6</div>
+		<div class="box">7
+			<div id="">
+				
+			</div>
+		</div>
+		<div>8</div>
+		<script type="text/javascript">
+			/*
+			 * 通过js获取元素的方式
+			 * 1.getElementById()通过id获取元素,id是唯一的.
+			 * 2.getElementsByClassName(name)获取class为那么的所有元素,返回值为一个数组.
+			 * 3.querySelector()通过标识符(选择器)获取对象(单个对象)
+			 * 4.querySelectorAll() 获取某标识符下的所有对象,返回值是一个数组
+			 */
+//			var boxes = document.querySelectorAll(".box")
+//			console.log(boxes)
+			/*
+			 *getElementsByTagName(tagName) 获取到标签名为tagName的所有对象,返回值为一个数组
+			 */
+//			var boxes = document.getElementsByTagName("div")
+//			console.log(boxes)
+			
+			function grtElement(name){
+				if(name.substr(0,1) == "#"){
+					return document.querySelector(name)
+				}else{
+					return document.querySelectorAll(name)
+				}
+			}
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

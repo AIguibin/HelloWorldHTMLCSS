@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>内部引入css</title>
+</head>
+<body>
+	<!-- css内部引入方式;
+	缺点:1.违背了W3C的结构,样式,行为,相分离的理念;
+	2.不利于代码的阅读
+	优点:  具有针对性
+	这种方式我们一般不用. -->
+	<div style="background-color:beige;width:200px;height:200px;">
+		这是一个无意义标签span
+	</div>
+	<span style="background-color:gray;width:200px;height:200px;">这是一个无意义标签span</span>
+</body>
+</html>

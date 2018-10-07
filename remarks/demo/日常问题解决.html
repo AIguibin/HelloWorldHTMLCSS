@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<p>存cookie时先使用escape()函数将中文转换成Unicode,取的时候使用unescape()函数先将cookie转化;</p>
+<h3>meta标签:</h3>
+<textarea style="width: 400px;height: 150px">
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">//设定编码格式
+<meta name="viewport"content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>//适配移动端
+<meta http-equiv="x-ua-compatible" content="IE=Edge" >//设定ie下运行使用最新版内核
+</textarea>
+<p>
+	jQuery.getScript()//用于动态加载js文件
+</p>
+<br>
+input[checbox]:checked获取被点击的元素
+</body>
+<script type="text/javascript">
+	//存cookie
+	function addCoolie(key,value) {
+		// body...
+		document.cookie = key +"="+ escape(value);
+	}
+	//取cookie
+	function getCookie() {
+		// body...
+		var cook = [];//key
+        var cook_2 = [];//value
+        for (var i = 0; i < document.cookie.split(";").length; i++) {
+            cook.push(unescape(document.cookie.split(";")[i].split('=')[1]));
+            cook_2.push(unescape(document.cookie.split(";")[i].split('=')[0]));
+        }
+        return cook,cook_2;
+	}
+
+</script>
+</html>

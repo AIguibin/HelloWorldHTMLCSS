@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>房产证</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#myCanvas {
+				box-shadow: 4px 4px 4px chartreuse;
+				position: absolute;
+				top: 40px;
+				left: 0;
+			}
+			img{
+				position: absolute;
+				top: 40px;
+				left: 0;
+				width: 500px;
+				height: 500px;
+				
+			}
+		</style>
+	</head>
+
+	<body>
+		<img src="img/fcz.jpg"/>
+		<input type="text" id="title" placeholder="请输入名字" />
+		<input type="button" id="btn" value="打印" />
+		<br />
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+	</body>
+	<script src="js/jquery3.1.0.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var myCanvas = document.getElementById("myCanvas");
+		var ctx = myCanvas.getContext("2d");
+		var title = document.getElementById("title");
+		$("#btn").click(function() {
+			//获取文本框里的字
+			var titleName = title.value;
+			ctx.clearRect(0, 0, 500, 500);
+			
+			ctx.font = "16px STKaiTi";
+			ctx.fillStyle = "grey";
+			//获取当前时间
+			var now = new Date();
+			//获取年份
+			var nowYear = now.getFullYear();
+			//获取月份
+			var nowMonth = now.getMonth() + 1;
+			//获取当天日期
+			var today = now.getDate();
+			//当前年月日字符串
+			var nowTime = nowYear + "年" + nowMonth + "月" + today + "日";
+			if (titleName == "") {
+				alert("请输入姓名");
+				return
+			}
+				ctx.fillText(titleName, 160, 150, 80);
+				ctx.fillText(nowTime,160,260,100);
+				title.value = "";
+				
+		})
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

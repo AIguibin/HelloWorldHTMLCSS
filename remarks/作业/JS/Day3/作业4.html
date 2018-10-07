@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>水仙花数</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var i = 0;
+			for(var x = 0; x < 10; x++){
+				for(var y = 0; y < 10; y++){
+					for(var z = 0; z < 10; z++){
+						if((x * x * x) + (y * y * y) + (z * z * z) == (x * 100) + (y * 10) + z && (x * 100) + (y * 10) + z >= 100){
+							i++
+							document.write((x*100)+(y*10)+z+"<br />")
+						}
+						
+						
+					}
+				}
+				
+			}document.write("水仙花数有"+i+"个")
+		</script>
+	</body>
+</html>

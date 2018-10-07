@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+		<title>摇一摇</title>
+		
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 必须结合硬件的特性
+			 * ondevicemotion :得到重力加速度.
+			 */
+			var startPoint = {x:0,y:0,z:0};
+			var endPoint = {x:0,y:0,z:0};
+			//设置一个临界值,当某一方向上的加速度大于临界值时我们才认为用户在摇动手机,
+			var max = 10;
+			window.ondevicemotion = function(e){
+				var even = e || event;
+				var acceleration = even.accelerationIncludingGravity;
+				startPoint.x = acceleration.x;
+				startPoint.y = acceleration.y;
+				startPoint.z = acceleration.z;
+				//先判断
+				if(Math.abs(endPoint.x - startPoint.x) > max ||
+				   Math.abs(endPoint.y - startPoint.y) > max ||
+				   Math.abs(endPoint.z - startPoint.z) > max){
+					alert("别摇了,晃得我头晕!!")
+				}
+				//再重置开始点的加速度
+				endPoint.x = startPoint.x;
+				endPoint.y = startPoint.y;
+				endPoint.z = startPoint.z;
+			}
+			</script>
+	</body>
+</html>

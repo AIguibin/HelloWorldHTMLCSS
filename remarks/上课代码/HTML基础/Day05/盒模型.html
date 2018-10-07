@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>盒模型</title>
+	<style type="text/css">
+		/*div{
+			height: 200px;
+			width: 200px;
+			background: red;
+			padding: 10px;
+		}
+		p{
+			background: beige;
+		}*/
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		/*#div3{
+			height: 200px;
+			width: 200px;
+			background: beige;
+			
+			设置一个元素的边框需要三个值 
+			1.边框宽度
+			2.边框类型
+			3.边框颜色
+			默认黑色
+			border: 3px dashed red;
+			outline:5px solid blue;
+
+		}*/
+		/*#div4{
+			height: 200px;
+			width: 200px;
+			background: beige;
+			margin
+			当元素需要与别的元素有距离时可以考虑margin.margin的区域是透明的,背景色不会渲染该区域
+			margin: 50px 0;
+		}*/
+		/*#b1{
+			height: 300px;
+			width: 300px;
+			background: red;
+			margin: 100px	200px;
+			overflow: hidden;
+		}
+		#b2{
+			height: 100px;
+			width: 100px;
+			background: green;
+			margin: 100px 100px;
+		}*/
+	</style>
+</head>
+<body>
+	<!-- html文档是由一个个的html元素组成
+	盒模型:把每一个html元素看做成一个盒子 
+	1.盒模型的结构
+	2.盒模型如何影响元素与元素之间的位置关系-->
+
+
+
+
+	<!-- 盒模型的结构
+	1.content(内容):用来展示文字和图片
+	2.padding(内边距):内容与边框的距离
+	3.border(边框):元素的边框
+	4.margin(外边距):元素与元素之间的距离(父子元素,兄弟元素) -->
+
+	<!-- 盒模型的两种方式
+	1.普通盒模型
+	2.怪异盒模型 -->
+
+	<!-- 普通盒模型 
+	盒子的宽度=width+padding-left+padding-right+border-left+border-right+margin-left+margin-right
+	盒子的高度=height+padding-top+padding-bottom+border-top+border-bottom+margin-top+margin-bottom -->
+
+	<!-- content(内容),我们平时给元素添加的内容(文字,图片,某些元素)都会显示在content所在的区域内 -->
+
+
+	<!-- <div id="div1">
+		这是一个div
+	</div> -->
+	
+	
+	<!-- padding(内边距):
+	背景色会渲染padding区域 
+	简写 4个值:上右下左
+	3个值: 上 左右 下 -->
+	<!-- <div id="div2">
+		<p>这是div2这是div2这是div2这是div2这是div2这是div2这是div2这是div2这是div2这是div2这是div2这是div2这是div2这是div2这是div2这是div2这是div2这是div2这是div2这是div2这是div2这是div2这是div2这是div2这是div2这是div2这是div2</p>
+		
+	</div> -->
+
+
+	<!-- border 边框 -->
+<!-- 	<div id="div3">
+		
+	</div> -->
+	<!-- margin(外边距)
+	 -->
+	 <!-- ****块级元素的宽如果没有设置,默认宽是其父级的宽**** -->
+	 <!-- <div id="div4">
+
+	 </div> -->
+	 <!-- 1.相邻兄弟元素在垂直方向上的margin值会出现融合的情况
+	 2.当父级子级元素都设置了margin时,子级的margin值会传递到父级. -->
+
+
+   		 <!-- margin融合例子 
+   		 融合会取两个元素里较大的值作为融合后的值.-->
+
+		<div id="b1"><div id="b2"></div></div>
+		
+		<!-- margin传递的解决办法
+		1.给父级加一个边框
+		2.给父级使用overflow:hidden属性
+		3.display:inline-block解决 -->
+
+
+
+
+
+
+</body>
+</html>

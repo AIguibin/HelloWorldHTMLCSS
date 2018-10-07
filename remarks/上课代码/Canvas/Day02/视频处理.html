@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#myCanvas{
+				box-shadow: 4px 4px 4px grey;
+			}
+			#video{
+				width: 0;
+				height: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+		<video src="oxford-10秒.mp4" id="video"></video>
+	</body>
+	<script type="text/javascript">
+		var myCanvas = document.getElementById("myCanvas");
+		var ctx = myCanvas.getContext("2d");
+		 
+		var video = document.getElementById("video");
+		video.oncanplay = function(){
+			video.play();//播放视频
+			function startDraw(){
+				ctx.drawImage(video,0,0,500,500);
+				window.requestAnimationFrame(startDraw);
+			}
+			startDraw();
+		}
+		//requestAnimationFrame():任务的执行根据浏览器自身的频率进行,它和setInterval()的区别是
+		//requestAnimationFrame()可以过滤隐藏的标签元素,同时可以监听当前的页面是否切换,如果切换,会自动暂停对硬任务的执行,但是setInterval()不可以.
+		//requestAnimationFrame()的执行根据浏览器自身绘制频率执行,但是setInterval()是人为规定时间,因此可能会出现丢帧现象.
+		
+		
+	</script>
+</html>

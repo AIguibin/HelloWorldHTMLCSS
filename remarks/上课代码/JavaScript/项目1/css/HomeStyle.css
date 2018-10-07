@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.navbar {
+  background: #101010;
+}
+.navbar .navbar-nav li {
+  line-height: 40px;
+  padding-bottom: 20px;
+}
+.navbar .navbar-nav li a {
+  margin-top: 20px;
+  padding-top: 5px;
+  padding-bottom: 25px;
+  height: 10px;
+  font-size: 16px;
+  color: darkgray;
+}
+.navbar .navbar-nav li a:hover {
+  color: white;
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
+}
+#content {
+  margin: -20px auto;
+  width: 1005px;
+  height: 550px;
+}
+#content .box {
+  width: 1005px;
+  height: 174px;
+  position: relative;
+  border-bottom: 1px solid grey;
+}
+#content .img {
+  width: 600px;
+ height: 100%;
+  display: inline-block;
+  position: absolute;
+}
+#content .img img {
+  width: 100%;
+  height: 100%;
+}
+#content .word {
+  width: 400px;
+	height: 100%;
+  display: inline-block;
+  position: absolute;
+  background: white;
+ }
+#content #box1 .img {
+  top: 0;
+  left: 0;
+}
+#content #box1 .word {
+  top: 0;
+  right: 0;
+}
+#content #box2 .img {
+  top: 0;
+  right: 0;
+}
+#content #box2 .word {
+  top: 0;
+  left: 0;
+  
+}
+#content #box3 .img {
+  top: 0;
+  left: 0;
+}
+#content #box3 .word {
+  top: 0;
+  right: 0;
+}
+#footer {
+  text-align: center;
+  margin-top: 80px;
+  
+}
+#footer #footerimg {
+  margin-bottom: 10px;
+}
+#footer #footerpics img {
+  margin: 0 5px 10px;
+}
+#footer p {
+  color: gray;
+}
+@media only screen and (max-width: 610px) {
+#content {
+  width: 100%;
+  position: relative;
+}
+#content .box {
+width: 100%;
+height: 348px;
+}
+#content .img {
+  width: 100%;
+  height: 174px;
+  display: block;
+  
+}
+#content .img img {
+  width: 100%;
+  height: 100%;
+}
+#content .word {
+  width: 100%;
+  height: 174px;
+  display: block;
+}
+#content #box1 .img {
+  top: 0;
+  left: 0;
+}
+#content #box1 .word {
+  top: 174px;
+  left: 0;
+}
+#content #box2 .img {
+  top: 0;
+ left: 0;
+}
+#content #box2 .word {
+  top: 174px;
+  left: 0;
+}
+#content #box3 .img {
+  top: 0;
+  left: 0;
+}
+#content #box3 .word {
+  top: 174px;
+  left: 0;
+}
+#footer{
+	margin-top: 550px;
+}
+}
+
+/*# sourceMappingURL=HomeStyle.css.map */

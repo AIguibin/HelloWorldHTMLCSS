@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 200px;
+				height: 200px;
+				background: teal;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script src="js/touch-0.2.14.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var div1 = document.getElementById("div");
+			touch.on("#div1","touchstart",function(e){
+				var even = e || (event);
+				even.preventDegault();
+			})
+			var pinchSccale = 1;
+			var currentScale;
+			touch.on("#div1","pinch",function(e){
+				var even = e || event;
+				even.scale - 1;
+				currentScale = even.scale - 1;
+				currentScale = pinchSccale + currentScale;
+				currentScale = currentScale > 5 ? 5 : currentScale;
+				currentScale = currentScale < 0.1 ? 0.1 : currentScale;
+				this.style.webkitTransform = "scale(" + currentScale + ")";
+			})
+			touch.on	("#div1","pinchend",function(){
+				pinchSccale = currentScale;
+			})
+		</script>
+	</body>
+</html>

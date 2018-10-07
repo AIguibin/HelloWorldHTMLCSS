@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Home</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/HomeStyle.css" />
+	</head>
+
+	<body>
+		<!--导航栏-->
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+					<a class="navbar-brand" href="#"><img src="img/img1/shininglogo.png" /></a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="Home.html">Home</a>
+						</li>
+						<li>
+							<a href="About.html">About</a>
+						</li>
+						<li>
+							<a href="Rendering.html">Rendering</a>
+						</li>
+						<li>
+							<a href="Animation.html">3D Animation</a>
+						</li>
+						<li>
+							<a href="Bin.html">Bin</a>
+						</li>
+						<li>
+							<a href="Contact.html">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--内容-->
+		<div id="content">
+			<div class="box" id="box1">
+				<div class="img">
+					<img src="img/img1/home_pic_one.png" />
+				</div>
+				<div class="word">
+					<h3>RENDERINGS</h3>
+					<p>Masterplan、Public Building、commercial Building、Residential Building、Landscape Design</p>
+				</div>
+			</div>
+			<div class="box" id="box2">
+				<div class="img">
+					<img src="img/img1/home_pic_two.jpg" />
+				</div>
+				<div class="word">
+					<h3>RENDERINGS</h3>
+					<p>Masterplan、Public Building、commercial Building、Residential Building、Landscape Design</p>
+				</div>
+			</div>
+			<div class="box" id="box3">
+				<div class="img">
+					<img src="img/img1/homes_pic_three.jpg" />
+				</div>
+				<div class="word">
+					<h3>RENDERINGS</h3>
+					<p>Masterplan、Public Building、commercial Building、Residential Building、Landscape Design</p>
+				</div>
+			</div>
+		</div>
+
+		<!--底部-->
+		<div id="footer">
+			<div id="footerimg">
+				<img src="img/img1/footer0.jpg" />
+			</div>
+			<div id="footerpics">
+				<img src="img/img1/footer1.jpg" />
+				<img src="img/img1/footer2.jpg" />
+				<img src="img/img1/footer3.jpg" />
+				<img src="img/img1/footer4.jpg" />
+			</div>
+			<p>Copyright © 1998-2015 shining Group</p>
+		</div>
+		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(".box").eq(0).on("mouseenter", function() {
+				$(this).css("background", "yellow");
+				$("img")[1].src = "img/img1/home_pic_one_h.png";
+				$(".box").eq(0).on("mouseleave", function() {
+					$(this).css("background", "white");
+					$("img")[1].src = "img/img1/home_pic_one.png";
+				})
+			})
+			$(".box").eq(1).on("mouseenter", function() {
+				$(this).css("background", "yellow");
+				$("img")[2].src = "img/img1/home_pic_two_h.png";
+				$(".box").eq(1).on("mouseleave", function() {
+					$(this).css("background", "white");
+					$("img")[2].src = "img/img1/home_pic_two.jpg";
+
+				})
+			})
+			$(".box").eq(2).on("mouseenter", function() {
+					$(this).css("background", "yellow");
+					$("img")[3].src = "img/img1/homes_pic_three_h.jpg";
+					$(".box").eq(2).on("mouseleave", function() {
+						$(this).css("background", "white");
+						$("img")[3].src = "img/img1/homes_pic_three.jpg";
+
+					})
+				})
+				//获取底部所有图片
+			var footerimgs = document.querySelectorAll("#footer img");
+			//给所有的图片加鼠标移入事件
+			for(i = 0; i < footerimgs.length; i++) {
+				footerimgs[i].onmouseenter = (function(index) {
+					return function() {
+						this.src = "img/img1/footer" + index + "_h.jpg"
+					}
+				})(i)
+				footerimgs[i].onmouseleave = (function(index) {
+					return function() {
+						this.src = "img/img1/footer" + index + ".jpg"
+					}
+				})(i)
+			}
+		</script>
+	</body>
+
+</html>

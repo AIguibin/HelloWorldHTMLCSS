@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>作业一</title>
+		<style type="text/css">
+			#div1{
+				width: 200px;
+				height: 200px;
+				background: blueviolet;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<input type="text" name="" id="input1" />
+		<input type="button" id="btn1" value="旋转" />
+		<script type="text/javascript">
+			var btn = document.getElementById("btn1");
+			var div = document.getElementById("div1");
+				btn.onclick = function(){
+					var d = document.getElementById("input1").value;
+					div1.style = "transform:rotateZ("+d+"deg)"
+				}
+			
+		</script>
+	</body>
+</html>

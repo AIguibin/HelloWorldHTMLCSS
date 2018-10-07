@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery4</title>
+		<style type="text/css">
+			.d{
+				/*width: 100px;*/
+				height: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<img id="img1"/>
+		<img class="d" src="bg.jpg"></img>
+		<img class="d"src="bg.jpg"></img>
+		<img class="dd" />
+		<img class="dd" />
+		<!--img+()-->
+		<script src="js/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/*
+			 * 对元素属性的操作
+			 * 1.添加
+			 * 2.修改
+			 * 3.删除
+			 * 4.查询
+			 */
+			/*
+			 * 语法
+			 * attr(属性名,属性值,函数)
+			 */
+			//给元素添加一个属性
+			$("#img1").attr("src","bg.jpg")
+			//给一个元素添加多个属性,就传入一个对象
+			$("#img1").attr({
+				src:"bg.jpg",
+				width:"200"
+			})
+			//获取属性值
+			console.log($("#img1").attr("src"));
+			//删除一个属性值
+			$("#img1").removeAttr("width");
+			
+			//可以为属性附一个函数,该函数的返回值就是需要设置的属性的值
+			//i:第几个元素,下标从0开始
+			//v:原来的属性值
+			$(".d").attr("width",function(i,v){
+				return(i + 1) *	100
+			});
+			//想把图片的宽设置为之前的两倍.
+			$(".d").attr("width",function(i,v){
+				return v * 2;
+			});
+			
+			//this
+			$(".d").attr("width",function(){
+				//在该函数里,this代指调用attr函数的对象
+				return this.width *	2
+			});
+			
+			//prop()
+			//添加
+			$(".dd").prop("src","3.jpg");
+			$(".dd").prop({
+				src:"3.jpg",
+				alt:"图片"
+			})
+			//attr()和prop()的区别
+			//prop()用于操作元素的固有属性
+			//attr()用于操作函数的
+			console.log($"#image").attr("aa");
+			console.log($"#image").prop("aa");
+			//当属性的值为布尔值.用prop();
+			
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

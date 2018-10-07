@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>localStorage</title>
+	</head>
+	<body>
+		<p></p>
+		<script type="text/javascript">
+			/*
+			 * localStorage,本地存储,html5的新技术
+			 * 1.没有时间限制
+			 * 2.提供了相关的操作函数(增删改查).
+			 * 
+			 */
+			console.log(localStorage);
+			//localStorage的length属性:存储数据的条数
+			//添加
+			localStorage.name = "轩轩轩";
+			
+			console.log(localStorage.name);
+			localStorage["age"] = 20;
+			console.log(localStorage["age"])
+			localStorage.setItem("sex","man");
+			console.log(localStorage.getItem("sex"))
+			
+			
+			
+			//删除
+			//删除某一个
+//			localStorage.removeItem("age");
+			//删除全部
+//			localStorage.clear();
+			
+			
+			//遍历所有的localStorage属性
+			for(var i = 0; i < localStorage.length; i++){
+				var k = localStorage.key(i);
+				console.log(k,localStorage.getItem(k));
+			}
+			
+			if(localStorage.num){
+				localStorage.num++;
+			}else{
+				localStorage.num = 1;
+			}
+			var p = document.querySelector("p");
+			p.innerHTML = "当前是第" + localStorage.num + "次登陆";
+			
+		</script>
+	</body>
+</html>

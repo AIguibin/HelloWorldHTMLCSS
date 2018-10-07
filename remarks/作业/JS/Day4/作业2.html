@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>双色球</title>
+	</head>
+
+	<body>
+		<!--		<div id="d1"></div>-->
+		<input type="button" id="btn1" value="随机一注" onclick="btn()" />
+
+		<script type="text/javascript">
+			//			var div1 = document.getElementById("d1")
+			//
+			//			function rondom1() {
+			//				for(var i = 0; i < 6; i++) {
+			//					var num = Math.floor(Math.random() * 34 + 1)
+			//					if(num < 10) {
+			//						num = "0" + num
+			//					}
+			//					console.log(num)
+			//					return num
+			//				}
+			//			}
+			//			function rondom2(){
+			//				var lastNum = Math.floor(Math.random() * 19 + 1)
+			//				if(lastNum < 10) {
+			//					lastNum = "0" + lastNum
+			//				}
+			//				return lastNum
+			//			}
+			//			function btn() {
+			//				d1.innerHTML = rondom1()+ "," + rondom2()
+			//			}
+			function btn() {
+				for(var i = 0; i < 6; i++) {
+					var num = Math.floor(Math.random() * 34 + 1)
+					if(num < 10) {
+						num = "0" + num
+					}
+					document.write(num + ",")
+
+				}
+				var lastNum = Math.floor(Math.random() * 19 + 1)
+				if(lastNum < 10) {
+					lastNum = "0" + lastNum
+				}
+				document.write(lastNum)
+			}
+		</script>
+	</body>
+
+</html>

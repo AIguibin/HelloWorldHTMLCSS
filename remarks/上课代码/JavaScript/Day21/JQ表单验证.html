@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<form action="###" method="get">
+			<input type="text" placeholder="请输入用户名" id="username" name="username" required/>
+			<input type="text" placeholder="请输入密码" id="password" name="password" required/>
+			<input type="text" placeholder="请再次输入密码" id="next" name="next" required/>
+			<input type="submit" value="登陆" />
+		</form>
+		<script src="js/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//表单验证
+			$("form").validate({
+				//规则
+				ruler: {
+					//填写每个输入框规则时,对象的属性名就是id名
+					//用户名的规则
+					username: {
+						email: true
+					},
+					//密码的规则
+					password: {
+						minlength: 6,
+						maxlength: 10
+					},
+					//再次输入密码的规则
+					next: {
+						equalTo: "#password"
+					}
+				}
+			});
+			//提示的信息
+			$.extend($.validator.messages, {
+				//如果不匹配需要弹出的提示文字
+				required: "必选字段",
+				remote: "请修正该字段",
+				email: "请输入正确格式的电子邮件",
+				url: "请输入合法的网址",
+				date: "请输入合法的日期",
+				dateISO: "请输入合法的日期 (ISO).",
+				number: "请输入合法的数字",
+				digits: "只能输入整数",
+				creditcard: "请输入合法的信用卡号",
+				equalTo: "请再次输入相同的值",
+				accept: "请输入拥有合法后缀名的字符串",
+				maxlength: $.validator.format("请输入一个长度最多是 {0} 的字符串"),
+				minlength: $.validator.format("请输入一个长度最少是 {0} 的字符串"),
+				rangelength: $.validator.format("请输入一个长度介于 {0} 和 {1} 之间的字符串"),
+				range: $.validator.format("请输入一个介于 {0} 和 {1} 之间的值"),
+				max: $.validator.format("请输入一个最大为 {0} 的值"),
+				min: $.validator.format("请输入一个最小为 {0} 的值")
+			});
+		</script>
+	</body>
+
+</html>

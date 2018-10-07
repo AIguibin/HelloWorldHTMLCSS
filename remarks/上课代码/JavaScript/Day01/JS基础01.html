@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JS基础01</title>
+		<style type="text/css">
+			#div1 {
+			    width: 200px;
+			    height: 200px;
+			    background: cyan;
+			}
+		</style>
+	</head>
+	<body>
+	    <div id="div1">
+	        
+	    </div>
+	    <!--????js到底是如何影响元素的-->
+	    <input type="text" id="input1">
+	    <input type="button" id="btn1" value="旋转">
+	    <!--HTML5的组成部分
+	        1.结构(HTML)
+	        2.样式(CSS)
+	        3.行为(JavaScript)
+	        
+	   JavaScript ,一种脚本语言,也属于编程语言,负责网页的相关的行为和动作.
+	   
+	   什么是编程语言?
+	   标准:是否具有"图灵完备".
+	   图灵完备:可以执行的任何计算
+	   
+	   什么是脚本语言?
+	   传统的编程语言(c语言).:
+	   编写->编译->链接->可执行的文件.
+	   JavaScrit 脚本语言省去了传统编程语言繁琐的过程,使用JavaScrit写出的代码,就是最终要执行的文件.
+	   
+	   JavaScrit和Java没有关系!
+	   
+	   JavaScrit的组成部分.
+	       1.ECMAScript :基本的语法结构,基本的对象.
+	       2.DOM: document object model,文档对象模型,描述处理文档内容的方法.
+	       3.BOM: browers object model,浏览器对象模型,描述与浏览器进行交互的方法.
+	       
+	   JavaScrit语言的特点:
+	     1.解释性执行,脚本语言.
+	     2.面向对象,一切事物皆对象.
+	     3.弱类型,没有严格的数据类型
+	     4.事件驱动,由事件触发执行.
+	     5.跨平台.
+	       
+	       
+	     基本语法:
+	     1.如何导入js
+	       a.外部导入js,新建一个js文件,使用<script src="*.js"></script>方式导入外部js文件.
+	       b.内部js.把所有与js有关的代码用<script></script>包裹,嵌入到html文档里面.
+	       
+	    2.js的输出方式
+	       1.alert(), 显示带有指定内容和一个ok按钮的警告框.
+	       2.console.log(), 在控制台输出内容,多用于代码测试.
+	       3.document.write(),向html文档中写内容.
+	       4.innerHTML, 向元素内容里写入内容.(必须事先找到对应的元素.)
+	       5.修改元素的属性值.
+	       6.修改元素的样式.
+	    
+	    
+	    3.常量 在程序运行期间,不可改变的量.
+	    a.数字常量:1,10,0.5,-8,1e4
+	    b.字符串常量:"刚哥真帅", '恩,是的,很帅!'.双引号里面不可以再嵌套双引号.单引号里也不能再嵌套单引号.双引号里可以嵌套单引号,单引号里面可以嵌套双引号.
+	    
+	    4.变量  在程序运行期间,值可以改变的量.
+	    变量是一种储存数据的容器.
+	    变量需要定义:
+	    var 变量名 = 初值
+	    
+	    变量名的命名规则
+	    a.由数字(0-9),字母(a-z, A-Z),下划线(_),美元符号($),组成,数字不能开头.
+	    b.不同于系统的关键字重名(看颜色)
+	    c.见名知意
+	    d.驼峰命名法,帕斯卡命名法,匈牙利命名法.
+	    
+	    5.原始数据类型
+	       a.number 数字类型
+	       b.string 字符串类型
+	       c.boolean 布尔类型
+	       d.null 空值类型
+	       e.undefined 未定义类型
+	       f.object 对象类型
+	       注意:js里数据类型由赋的值决定.
+	       转义字符:
+	       \" 代表 "
+	       \' 代表 '
+	       \\ 代表 \
+	       \n 代表 换行
+	       \t 缩进一次tab键的距离
+	       
+	   6.运算符
+	       a.算数运算符(+, -, *, /, %, --, ++) 运算符两端加空格.
+	       b.赋值运算符(=, +=, -=, *=, /=, %=).
+	       c.关系运算符(>, <, >=, <=, ==, ===, !=, !===)
+	       d.逻辑运算符(&&, ||, !)
+	    -->
+	    
+	    <!--内部引入js-->
+	    <!--<script type="text/javascript">
+	    	 alert(123);
+	    </script>-->
+	    
+	    <!--外部引入js-->
+	    <!--<script src="first.js" type="text/javascript" charset="utf-8"></script>-->
+	    
+	    <!--js的输出方式-->
+	    <!--<script type="text/javascript">
+//	    	console.log(100);
+//	    	document.write("这是拼接的字符串");
+        //通过js找到某个元素.
+//      document.getElementById("div1").innerHTML = "这是div1";
+//document.getElementById("input1").value = "123";
+//对于没有中划线的css属性一般直接使用style.属性名即可;对于含有中划线的css属性，将每个中划线去掉并将每个中划线后的第一个字符换成大写即可。
+document.getElementById("input1").style.backgroundColor="red";
+	    </script>-->
+	    
+	    <!--常量和变量-->
+	    <!--<script type="text/javascript">
+	    //声明一个变量
+	    	var name = '张三';
+	    	//使用一个变量
+	    	console.log(name);
+	    	name = '李四';
+	    	console.log(name);
+	    	//交换两个变量里的值
+	    	//先把任意一个变量里的值赋给一个临时变量,再进行交换.
+//	    	var a = 5;
+//	    	var b = 10;
+//	    	var c = 0;
+        //如果要连续定义多个变量,用逗号隔开,只需在最开头写var即可.
+        var a = 5, b = 10,  c = 0;
+	    	c = a;
+	    a = b;
+	    b = c;
+	    console.log(a,b);
+	    //驼峰法 推荐
+	    var appleCount = 10;
+	    //帕斯卡
+	    var AppleCount = 20;
+	    //匈牙利
+	    var iAppleCount = 30;
+	    </script>-->
+	    
+	    <!--原始数据类型-->
+	    <!--<script type="text/javascript">
+	    	//数字类型
+	    	var num1 = 25;
+	    	var num2 = 3.61;
+	    	var num3 = 2e4;
+	    	
+	    	//字符串类型
+	    	var str1 = '你好';
+	    	var str2 = "你好";
+	    	var str3 = "今天'周'一";
+	    	var str4 = '今天"周"一';
+	    	var str5 = "今天\"周\"一";
+	    	
+	    	//布尔数据类型
+	    	var isNum = true;
+	    	var isNumber = false;
+	    	
+        //未定义类型
+        var a;
+        
+        //空值类型
+        var b = 10;
+        b = null;
+        
+        //获取变量的类型, typeof
+//      alert(typeof num1);
+//  console.log(typeof str1);
+    //注意:如果使用typeof测试null类型,显示object.
+    
+    //弱类型
+    var t = 10;
+    console.log(typeof t);
+    t = "123";
+    console.log(typeof t);
+    
+    //类型转换(显式转换)
+    var n1 = Number("12a3");
+    console.log(n1);
+    //当字符串内部有非数字的字符时,无法转换成Number类型,会出现NaN(not a number).
+    
+    var n2 = String(123);
+    console.log(typeof n2);
+    
+    //非0即为真.
+    var n3 = Boolean(25);
+    console.log(n3);
+	    </script>-->
+	    
+	    
+	    <!--运算符-->
+	    <script type="text/javascript">
+	    	//1.算数运算符
+//	    	var a = 3, b = 0;
+//	    	console.log(a + b);
+//	    	console.log(a - b);
+//	    	console.log(a * b);
+//	    	console.log(a / b);
+//	    	console.log(a % b);
+	    	//当除数为0时,执行除法得到的结果为无限大.执行取余得到的结果为NaN.
+	    	//++ 自加运算
+	    	var a = 5;
+	    	a++; //等价于a = a + 1;
+	    	console.log(a);
+	    	++a; //等价于a = a + 1;
+	    	console.log(a);
+	    	
+	    	var b = 10, f;
+//	    	f = b++; 
+	    	//等价于 f = b; b = b + 1;
+	    	f = ++b;
+	    	//等价于 b = b + 1; f = b;
+	    	console.log(f);
+	    	console.log(b);
+	    	//++(--)在前,先+1(-1),再运算; ++(--)在后,先运算,再+1(-1).
+	    	
+	    	var x = 3, y = 5, z = 7;
+	    	x = y++;  //x:5, y:6
+	    	y = ++z;  //y:8, z:8
+	    	z = ++x + y; //x:6, y:8, z:14
+	    	console.log(x, y, z);
+	    	
+	    	var aa = 5;
+	    	console.log(++aa);
+	    	
+	    	//隐式转换
+	    	//a.当"+"运算符两端,一个是数字,一个是字符串时,做的是字符串拼接
+	    	var k = 10 + "";
+	    	console.log(k);
+	    	//b. 当"-,*,/,%"运算时,两端一个是数字,一个是字符串,做的算数运算.
+	    	var k1 = 12 - '3';
+	    	console.log(k1);
+	    	
+	    	
+	    	//关系运算符
+	    	var n = 10, m = '10', result;
+//	    	console.log(n > m);
+//	    	console.log(n < m);
+//	    	console.log(n >= m);
+//	    	console.log(n <= m);
+	    	console.log(n == m);
+	    	console.log(n != m);
+	    	console.log(n === m);
+	    	console.log(n !== m);
+	    	
+	    	//注意:===或者!==在做比较时,先比较两侧的数据类型是否一致,不一致,返回false(true),如果一致再比较内容;   ==或者!=在做比较时,当类型不一致时,先把两侧的数据类型化为一致,再比较.
+	    	
+	    	//3.赋值运算符
+	    	var p;
+	    	p = 10;
+	    	p += 10; //等价于 p = p + 10;
+	    	p -= 10;
+	    	p *= 10;
+	    	p /= 10;
+	    	p %= 10;
+	    	console.log(p);
+	    	
+	    	//4.逻辑运算符
+	    	//逻辑与 && 运算符两端同时成立(为真),整个运算结果才为真,否则,运算结果为假.
+	    	var i = 3, j = 5, k = 7, res;
+	    	
+//	    	res = i < j && j > k;
+//	    	console.log(res);
+	    	
+	    	//2.逻辑或 ||  逻辑或 || 运算符两端同时不成立(为假),整个运算结果才为假,否则,运算结果为真.
+//	    	  res = i < j || j > k;
+//              console.log(res);
+                
+      //逻辑非 ! 逻辑否定,黑白颠倒.
+//    res = !(i > j);
+//    console.log(res);
+
+
+    //逻辑与和逻辑或的短路现象.
+//	    	res = i < j || ++k;
+//	    	console.log(k);
+//	    	
+//	  
+//	    </script>
+	    <!--Js设置元素样式的本质是在往标签内写-->
+	    <script type="text/javascript">
+	    	  var btn = document.getElementById("btn1");
+	    	  var div1 = document.getElementById("div1");
+	    	  btn.onclick = function() {
+	    	      var d = document.getElementById("input1").value;
+	    	  div1.style = "transform:rotate(" + d + "deg)";  
+	    	  }
+	    </script>
+	</body>
+</html>

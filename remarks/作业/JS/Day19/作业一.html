@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>提取字符串中的图片链接</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var content = "adwadsafsadfhttp://h.hiphotos.baidu.com/image/h%3D360/sign=2c82459da31ea8d395227202a70b30cf/43a7d933c895d143b233160576f082025aaf074a.jpg acwwresrehttp://c.hiphotos.baidu.com/image/pic/item/7af40ad162d9f2d38d7056c8acec8a136327ccb0.pngacgwaocwa";
+			var arr = content.split("http");
+				var re = /http?:[/]{2}[0-9a-zA-Z\%=/.]+[.](jpg|png)/g
+			console.log(content.match(re));
+			
+		</script>
+	</body>
+</html>

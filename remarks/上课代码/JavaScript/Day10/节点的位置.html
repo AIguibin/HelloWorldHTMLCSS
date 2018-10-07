@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>节点的位置和尺寸</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#big{
+				height: 600px;
+				background: gold;
+				border: 5px solid darkgreen;
+				padding: 10px;
+				position: relative;
+			}
+			#small{
+				width: 300px;
+				height: 400px;
+				background: gray;
+				margin: 30px;
+				padding: 10px;
+				border: 0 solid red;
+				border-width:1px 2px 3px 4px ;
+				overflow: scroll;
+			}
+			#a{
+				width: 100px;
+				height: 600px;
+				background: aqua;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="big">
+			<div id="small">
+				<div id="a">
+					
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			//DOM里的位置和尺寸
+			//内尺寸(不包含滚动条,但是PC端有可能因为浏览器版本问题导致系统将导航条的宽度计算在内尺寸里.)
+			//clienHeight = content.height + padding.top + padding.bottom
+			var small = document.getElementById("small");
+			console.log(small.clientHeight);
+			//clienWidth = content.width + padding.left + padding.right
+			console.log(small.clientWidth);
+			//clienTop = border.top
+			//clienLeft = border.left
+			console.log(small.clientTop)
+			console.log(small.clientLeft)
+			//外尺寸
+			//offsetHeight = Content.height + padding.top + padding.bottom + border.top + border.bottom
+			console.log(small.offsetHeight)
+			//offsetWidth = content.width + padding.left + padding.right +border.left + border.right
+			console.log(small.offsetWidth)
+			//offsetParent,里继续暗元素最近的已经定位的父级元素
+			//offsetTop该元素的上边框的边缘到offsetParent元素的上边框的内边缘的距离
+			console.log(small.offsetTop)
+			//offsetTop该元素的左边框的边缘到offsetParent元素的左边框的内边缘的距离
+			
+			
+			
+			
+			//滚动尺寸
+			//scrollHeight:滚动区域的高度,如果元素无法滚动,且其内部无超出该元素高度的元素,则scrollHeight与clientHeight相等.
+			console.log(small.scrollHeight);
+			//scrollWidth:滚动区域的宽度,如果元素无法滚动,且其内部无超出该元素宽度的元素,则scrollHeight与clientHeight相等.
+			console.log(small.scrollWidth);
+			//某一时刻垂直方向的滚动距离
+			console.log(small.scrollTop);
+			//某一时刻水平方向的滚动距离
+			console.log(small.scrollLeft);
+			//small.scrollTop = 100;
+			//当元素被滚动式会触发的时机
+			//设置滚动时机时,首先去看有没有元素设置了overflow:scroll,如果有就给他设置滚动时机如果没有设置,就给超出内容元素的包裹元素设置滚动时机,但是我们可以既给body设置超出内容的宽和高,也可以给body直接设置滚动时机.
+			small.onscroll = function(){
+				console.log(small.scrollTop);
+			}
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

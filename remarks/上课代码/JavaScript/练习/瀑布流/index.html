@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>演示：鼠标悬浮图片背景变黑白的Masonry瀑布流插件</title>
+        <link rel="stylesheet" href="dist/stylesheets/chromagallery.min.css">
+        <style type="text/css">
+            body,html
+            {
+                height: 100%;
+            }
+            .content
+            {
+                width: 100%;
+                height: 100%;
+                margin: 10px auto;
+            }
+            @media screen and (min-width: 980px){
+                .content {
+                    width: 70%;
+                }
+            }		
+            .mygallery
+            {
+                margin: 25px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <article class="sucaihuo-container">
+           
+            <div class="content">
+                <div class="chroma-gallery mygallery">
+                    <img src="images/thumbs/1.jpg" alt="Pic 1" data-largesrc="images/1.jpg">
+                    <img src="images/thumbs/2.jpg" alt="Pic 2" data-largesrc="images/2.jpg">
+                    <img src="images/thumbs/3.jpg" alt="Pic 3" data-largesrc="images/3.jpg">
+                    <img src="images/thumbs/4.jpg" alt="Pic 4" data-largesrc="images/4.jpg">
+                    <img src="images/thumbs/5.jpg" alt="Pic 5" data-largesrc="images/5.jpg">
+                    <img src="images/thumbs/6.jpg" alt="Pic 6" data-largesrc="images/6.jpg">
+                    <img src="images/thumbs/7.jpg" alt="Pic 7" data-largesrc="images/7.jpg">
+                    <img src="images/thumbs/8.jpg" alt="Pic 8" data-largesrc="images/8.jpg">
+                    <img src="images/thumbs/9.jpg" alt="Pic 9" data-largesrc="images/9.jpg">
+                    <img src="images/thumbs/10.jpg" alt="Pic 10" data-largesrc="images/10.jpg">
+                </div>
+            </div>
+        </article>
+
+	
+		
+		<!--<article class="sucaihuo-container">
+		<div class="content">
+                <div class="chroma-gallery mygallery">
+                    <img src="img/img3/1-150Z1101PH18.jpg" alt="Pic 1" data-largesrc="img/img3/1-150Z1101T5U8.jpg">
+                    <img src="img/img3/1-150Z1102423343.jpg" alt="Pic 2" data-largesrc="img/img3/1-150Z1102440O6.jpg">
+                    <img src="img/img3/1-150Z11026024A.jpg" alt="Pic 3" data-largesrc="img/img3/1-150Z1102621105.jpg">
+                    <img src="img/img3/1-150Z1102T4604.jpg" alt="Pic 4" data-largesrc="img/img3/1-150Z1102Z4209.jpg">
+                    <img src="img/img3/1-150Z110325E34.jpg" alt="Pic 5" data-largesrc="img/img3/1-150Z1103315305.jpg">
+                    <img src="img/img3/1-150Z110334W94.jpg" alt="Pic 6" data-largesrc="img/img3/1-150Z110342W02.jpg">
+                    <img src="img/img3/1-150Z1103519419.jpg" alt="Pic 7" data-largesrc="img/img3/1-150Z1103546234.jpg">
+                    <img src="img/img3/1-150Z1103639156.jpg" alt="Pic 8" data-largesrc="img/img3/1-150Z1103G2403.jpg">
+                    <img src="img/img3/1-150Z1103U3K8.jpg" alt="Pic 9" data-largesrc="img/img3/1-150Z1103942428.jpg">
+                    <img src="img/img3/1-150Z110405VP.jpg" alt="Pic 10" data-largesrc="img/img3/1-150Z110411A47.jpg">
+                </div>
+            </div>
+		 </article>-->
+        <script src="js/jquery-2.2.4.min.js"></script>
+        <script src="dist/scripts/chromagallery.pkgd.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $(".mygallery").chromaGallery
+                        ({
+                            color: '#000',
+                            gridMargin: 15,
+                            maxColumns: 5,
+                            dof: true,
+                            screenOpacity: 0.8
+                        });
+            });
+
+        </script>
+    </body>
+</html>

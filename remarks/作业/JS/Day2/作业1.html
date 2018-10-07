@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>判断奇偶数</title>
+	</head>
+	<body>
+		请输入数字:<input type="text" id="n1" value="" />
+		<input type="button" id="b1" value="点击" onclick="btn()" />
+		<script type="text/javascript">
+			function btn(){
+				var num = document.getElementById("n1").value-0;
+//				if(num % 2 == 0){
+//					alert(num + "是偶数")
+//				}else{
+//					alert(num + "是奇数")
+//				}
+				num % 2 == 0 ? alert(num + "是偶数"):alert(num + "是奇数")
+			}
+		</script>
+	</body>
+</html>

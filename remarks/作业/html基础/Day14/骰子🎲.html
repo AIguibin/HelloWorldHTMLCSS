@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>🎲骰子</title>
+		<style type="text/css">
+				* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box {
+				width: 100px;
+				height: 100px;
+				margin: 100px auto;
+				position: relative;
+				text-align: center;
+				line-height: 100px;
+				font-size: 40px;
+				transform: rotateX(70deg) rotateY(30deg);
+				transform-style: preserve-3d;
+				animation: animation 5s infinite linear alternate-reverse;
+			}
+			
+			ul li {
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				list-style: none;
+				background: darkcyan;
+				opacity: 0.7;
+				display: flex;
+			}
+			
+			ul li:nth-child(1) {
+				transform: translateZ(50px);
+				justify-content: space-around;
+				align-items: center;
+			}
+			
+			#d1 {
+				width: 50px;
+				height: 50px;
+				background: red;
+				border-radius: 25px;
+			}
+			
+			ul li:nth-child(2) {
+				transform: rotateX(-90deg) translateZ(50px);
+				justify-content: space-around;
+				align-items: center;
+			}
+			
+			.div1 {
+				width: 20px;
+				height: 20px;
+				background: black;
+				border-radius: 10px;
+			}
+			
+			ul li:nth-child(3) {
+				transform: rotateY(90deg) translateZ(50px);
+				justify-content: space-around;
+			}
+			
+			#d2 {
+				align-self: center;
+			}
+			
+			#d3 {
+				align-self: flex-end;
+			}
+			
+			ul li:nth-child(4) {
+				transform: rotateY(-90deg) translateZ(50px);
+				justify-content: space-around;
+			}
+			
+			#d4 {
+				display: flex;
+				justify-content: space-around;
+				flex-direction: column;
+			}
+			
+			#d5 {
+				display: flex;
+				justify-content: space-around;
+				flex-direction: column;
+			}
+			
+			ul li:nth-child(5) {
+				transform: rotateX(90deg) translateZ(50px);
+				justify-content: space-around;
+			}
+			
+			#d6 {
+				display: flex;
+				justify-content: space-around;
+				flex-direction: column;
+			}
+			
+			#d7 {
+				display: flex;
+				justify-content: space-around;
+				flex-direction: column;
+			}
+			
+			#d8 {
+				align-self: center;
+			}
+			
+			ul li:nth-child(6) {
+				transform: rotateX(180deg) translateZ(50px);
+				flex-direction:column ;
+				justify-content: space-around;
+			}
+			#d9{
+				display: flex;
+				justify-content: space-around;
+				
+			}
+			#d0{
+				display: flex;
+				justify-content: space-around;
+			}
+			@keyframes animation {
+				from {
+					transform: rotateX(-45deg) rotateY(45deg);
+				}
+				25% {
+					transform: rotateX(-150deg) rotateY(150deg);
+				}
+				50% {
+					transform: rotateX(-250deg) rotateY(250deg);
+				}
+				75% {
+					transform: rotateX(-350deg) rotateY(350deg);
+				}
+				to {
+					transform: rotateX(-45deg) rotateY(45deg);
+				}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<ul>
+				<li>
+					<div id="d1">
+
+					</div>
+				</li>
+				<li>
+					<div class="div1"></div>
+					<div class="div1"></div>
+				</li>
+				<li>
+					<div class="div1"></div>
+					<div id="d2" class="div1"></div>
+					<div id="d3" class="div1"></div>
+				</li>
+				<li>
+					<div id="d4">
+						<div class="div1"></div>
+						<div class="div1"></div>
+					</div>
+					<div id="d5">
+						<div class="div1"></div>
+						<div class="div1"></div>
+					</div>
+				</li>
+				<li>
+					<div id="d6">
+						<div class="div1"></div>
+						<div class="div1"></div>
+					</div>
+					<div id="d8" class="div1"></div>
+					<div id="d7">
+						<div class="div1"></div>
+						<div class="div1"></div>
+					</div>
+
+				</li>
+				<li>
+					<div id="d9">
+						<div class="div1"></div>
+						<div class="div1"></div>
+						<div class="div1"></div>
+					</div>
+					<div id="d0">
+						<div class="div1"></div>
+						<div class="div1"></div>
+						<div class="div1"></div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</body>
+
+</html>

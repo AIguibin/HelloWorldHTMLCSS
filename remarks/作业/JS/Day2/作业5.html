@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>函数</title>
+	</head>
+	<body>
+		输入X的值:<input type="text" id="num1" value="" />
+		<input type="button" id="btn1" value="输出" onclick="btn()" />
+		<script type="text/javascript">
+			function btn(){
+				var a = document.getElementById("num1").value-0;
+				if (a < 1){
+					alert(a)
+				}else if(a < 10){
+					alert(2*a - 1)
+				}else{
+					alert(3*a-11)
+				}
+			}
+		</script>
+	</body>
+</html>

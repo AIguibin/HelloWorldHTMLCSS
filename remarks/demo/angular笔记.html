@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>angular日记</title>
+</head>
+<body>
+<h2>angular日记</h3>
+<h3>select的渲染</h3>
+<pre>
+	
+----------HTML----------
+<select ng-model="selectedSite" ng-options="x.name 
+
+ for x in sites">
+</select>
+
+
+----------JS----------
+            var jsonData = JSON.parse(data.jsonData);
+            $scope.sites = [];
+
+            for(var i=0; i < jsonData.length; i++){
+            	var site={id: jsonData[i][0], name :jsonData[i][1]};
+            	$scope.sites.push(site);
+            }
+
+----------取值----------
+$scope.selectedSite.id 
+
+
+</pre>
+</body>
+</html>

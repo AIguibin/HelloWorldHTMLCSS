@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>display</title>
+	<style type="text/css">
+	/*display:改变元素的状态
+	block:会把一个元素变成一个块元素
+	inline会把一个元素变成一个行元素
+	inline-block:会把一个元素变成行级块元素
+
+	*/
+		#div1{
+			width: 200px;
+			height: 300px;
+			background-color: red;
+			display: inline-block;
+
+		}
+		#div2{
+			width: 200px;
+			height: 300px;
+			background-color: green;
+			display: inline-block;
+		}
+		#span1{
+			width: 200px;
+			height: 300px;
+			display: inline-block;
+			background-color: blue;
+		}
+		#span2{
+			display: inline-block;
+
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+	块元素:
+	1.默认独占一行,高度是由内容撑起来的
+	2.可以设置宽高,即使设置了宽高也独占一行
+	3.支持设置上下的margin和padding值
+	4.块元素里面可以嵌套块元素和行元素(但有特殊情况)	 -->
+	<!-- 行元素
+	1.默认宽高由内容撑出
+	2.不支持设置宽高
+	3.不支持设置上下的margin和padding值
+	4.行元素不可以嵌套块元素,但可以嵌套其他行元素 -->
+	<!-- 行级块元素:
+	1.默认宽高由内容撑出
+	2.支持宽高设置
+	3.
+	4.思考题?:能不能嵌套
+	 -->
+	<div id="div1">asdads</div>
+	<div id="div2">qeqweqw</div>
+	<span id="span1">dasd</span>
+	<span id="span2">1235132</span>
+</body>
+</html>

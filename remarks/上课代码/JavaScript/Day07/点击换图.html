@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>点击</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#button{
+				
+				height: 20px;
+			}
+			#screen{
+				width: 320px;
+				height: 480px;
+				/*margin: 100px auto;*/
+				border: 2px solid darkgreen;
+				overflow: hidden;
+				position: relative;
+			}
+			
+			#screen #content{
+				height: 480px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				transition: all 0.5s linear; 
+			}
+			#content>img{
+				width: 320px;
+				height: 480px;
+				float: left;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<!--按钮-->
+			<div id="button">
+				<input type="button" value="1" onclick="slide(0)"/>
+				<input type="button" value="2" onclick="slide(1)"/>
+				<input type="button" value="3" onclick="slide(2)"/>
+				<input type="button" value="4" onclick="slide(3)"/>
+				<input type="button" value="5" onclick="slide(4)"/>
+				<input type="button" value="6" onclick="slide(5)"/>
+			</div>
+		<!--展示用户可视的区域-->
+		<div id="screen">
+			
+			<!--内容-->
+			<div id="content">
+				<img src="img/1.jpg"/>
+				<img src="img/2.jpg"/>
+				<img src="img/3.jpg"/>
+				<img src="img/4.jpg"/>
+				<img src="img/5.jpg"/>
+				<img src="img/6.jpeg"/>
+			</div>
+		</div>
+		
+		
+		<script type="text/javascript">
+				var x = 0;
+				var contentDiv = document.getElementById("content");
+				var imgs = contentDiv.getElementsByTagName("img");
+				contentDiv.style.width = imgs[0].offsetWidth * imgs.length + "px";
+//				function slide(x){
+//					contentDiv.style.left = -(x * imgs[0].offsetWidth) + "px";
+//				}
+				
+				slide(x)(function(index){
+				return function(){
+					contentDiv.style.left = ( index * -200)  + "px";		
+				}
+			})(i)
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

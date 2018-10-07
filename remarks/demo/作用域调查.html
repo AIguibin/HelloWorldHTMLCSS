@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">
+			点击
+		</button>
+		
+		<script type="text/javascript">
+			var btn = document.getElementById('btn');
+			var a = 0;
+			var b = 0;
+			
+			
+			
+			btn.onclick = function (){
+				console.log(a,b);
+				btn_click()
+			}
+			
+			function btn_click(){
+				cross();
+			}
+			
+			function cross(){
+				if(a < 10){
+					a = a + 1;
+					console.log(a,b)
+				    cross();
+				}else if(a > 10){
+					return a;
+				}
+			}
+		</script>
+	</body>
+</html>

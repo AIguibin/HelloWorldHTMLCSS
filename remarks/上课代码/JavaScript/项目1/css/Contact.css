@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+.navbar {
+  background: #101010;
+}
+.navbar .navbar-nav li {
+  line-height: 40px;
+  padding-bottom: 20px;
+}
+.navbar .navbar-nav li a {
+  margin-top: 20px;
+  padding-top: 5px;
+  padding-bottom: 25px;
+  height: 10px;
+  font-size: 16px;
+  color: darkgray;
+}
+.navbar .navbar-nav li a:hover {
+  color: white;
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
+}
+#content {
+  width: 100%;
+  background: #E7E7E7;
+  margin-top: -25px;
+  position: relative;
+}
+#content #img {
+  width: 100%;
+}
+#content #img img {
+  width: 100%;
+}
+#content #img img:nth-child(2) {
+  position: absolute;
+  top: 30%;
+}
+#content #email {
+  width: 300px;
+  height: 100px;
+  position: absolute;
+  top: 30%;
+  left: 40%;
+}
+#content #email img {
+  margin-right: 10px;
+  vertical-align: bottom;
+}
+#content #email p {
+  font-size: 18px;
+  font-weight: 300;
+}
+#content #email p span {
+  color: gray;
+}
+#content #email p:nth-child(1) {
+  text-indent: 2.5em;
+}
+#content #phone {
+  width: 100%;
+  margin-top: -100px;
+  margin-bottom: 200px;
+}
+#content #phone ul {
+  width: 90%;
+  margin: 0 auto;
+}
+#content #phone ul li {
+  float: left;
+  margin: 0 5%;
+}
+#content #phone ul li img {
+  vertical-align: text-bottom;
+  margin-right: 10px;
+}
+#content #phone ul li p {
+  display: inline-block;
+}
+#footer {
+  text-align: center;
+  margin-top: 10%;
+}
+#footer #footerimg {
+  margin-bottom: 10px;
+}
+#footer #footerpics img {
+  margin: 0 5px 10px;
+}
+#footer p {
+  color: gray;
+}
+/*# sourceMappingURL=Contact.css.map */

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表格</title>
+</head>
+<body>
+	<!-- table  表格标签 双标签  表示表格的范围 -->
+	<!-- table 一般由三部分组成 
+	1.thead
+	2.tbody
+	3.tfoot
+	当我们不写tbody标签时,系统会自动为我们添加一个tbody.
+	如果不写thead或者tfoot,系统不会自动添加,
+	tbody标签是必须的,thead和foot在我们需要时再写即可. -->
+	<table border="1">
+		<!-- tr标签  表示一行 双标签-->
+		<!-- td标签  表示一个单元格 双标签-->
+		<!-- (tr>td{这是第$个单元格}*5)*3 -->
+		<tr>
+			<td>这是第1个单元格</td>
+			<td>这是第2个单元格</td>
+			<td>这是第3个单元格</td>
+			<td>这是第4个单元格</td>
+			<td>这是第5个单元格</td>
+		</tr>
+		<tr>
+			<td>这是第1个单元格</td>
+			<td>这是第2个单元格</td>
+			<td>这是第3个单元格</td>
+			<td>这是第4个单元格</td>
+			<td>这是第5个单元格</td>
+		</tr>
+		<tr>
+			<td>这是第1个单元格</td>
+			<td>这是第2个单元格</td>
+			<td>这是第3个单元格</td>
+			<td>这是第4个单元格</td>
+			<td>这是第5个单元格</td>
+		</tr>
+	</table>
+
+		<hr>
+		<!-- cellspacing 设置单元格之间的距离 -->
+	<table border="1" cellspacing="0" cellpadding="3">
+		<tr>
+			<td>李雷</td>
+			<td>韩梅</td>
+			<td>李中华</td>
+		</tr>
+		<tr>
+			<td align="center">30</td>
+			<td align="center">50</td>
+			<td align="center">55</td>
+		</tr>
+	</table>
+		<hr>
+	<table border="1">
+		<!-- 在thead和tfoot里的单元格用th;
+		tbody里的单元格用td. -->
+		<thead>
+			<tr>
+				<!-- th与td的区别就是文字会加粗并且居中 -->
+				<th>周一</th>
+				<th>周二</th>
+				<th>周三</th>
+				<th>周四</th>
+				<th>周五</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>周一</td>
+				<td>周二</td>
+				<td>周三</td>
+				<td>周四</td>
+				<td>周五</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+				<td>5</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>7</td>
+				<td>8</td>
+				<td>9</td>
+				<td>10</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<th>合计1</th>
+				<th>合计2</th>
+				<th>合计3</th>
+				<th>合计4</th>
+				<th>合计5</th>
+			</tr>
+		</tfoot>
+	</table>
+
+
+	
+</body>
+</html>

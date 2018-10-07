@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>区域设置</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <style type="text/css">
+        ul {
+            overflow: hidden;
+        }
+
+        ul li {
+            list-style: none;
+        }
+        .list-group-item {
+            width: 100%;
+        }
+
+        .list-group-item ul li {
+            width: 50%;
+            float: left;
+        }
+        .bt{
+            height: 35px;
+            border-top: 1px solid #ddd;
+            line-height:35px;
+            text-indent: 5em;
+        }
+    </style>
+</head>
+<body>
+
+<ul class="list-group text-center">
+
+    <li class="list-group-item">
+        <ul>
+            <li>区域名称</li>
+            <li>操作</li>
+        </ul>
+    </li>
+
+    <li class="addRegion list-group-item">
+        <ul>
+            <li>
+                <span>区/县名称</span>
+            </li>
+            <li>
+                <button class="btn btn-xs" type="button" onclick="addRegion()">新建区/县</button>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script>
+    //打开新建区/县
+    function addRegion() {
+        $(".addRegion").before(`
+        <li class="writeRegion list-group-item" >
+            <ul>
+            <form action="" class="form-inline">
+                <li>
+                    <input type="text" placeholder="请输入区/县名" class="form-control input-sm region">
+                </li>
+                <li>
+                   <button class="btn btn-xs" type="button" onclick="saveRegion('.region')">保存</button>
+                    <button class="btn btn-xs" type="button" onclick="cancelRegion()">取消</button>
+                </li>
+            </form>
+            </ul>
+        </li>
+        `);
+        $(".addRegion").hide();
+    }
+    //保存区县
+    function saveRegion(ele) {
+        var region = $(ele).val();
+//        $.post("url","data:"+region);
+        if ($.trim(region) === "") {
+            console.log($(ele));
+            alert("请输入区/县名称");
+        } else {
+            $(ele).parents(".writeRegion").before(`
+            <li class="list-group-item">
+                    <ul>
+                        <li>
+                            <span class="glyphicon glyphicon-plus" onclick="unfold(this)"></span>
+                            <span>` + region + `</span>
+                        </li>
+                        <li>
+                            <button class="btn btn-xs" type="button">删除</button>
+                        </li>
+                    </ul>
+                     <ul class="hidden bt addSchool">
+                        <form action="" class="form-inline">
+                            <li>
+                                学校名称
+                            </li>
+                            <li>
+                               <button class="btn btn-xs" type="button" onclick="addSchool()">新建学校</button>
+                            </li>
+                        </form>
+                    </ul>
+                 </li>
+
+`);
+            $(".writeRegion").remove();
+            $(".addRegion").show();
+        }
+    }
+    //取消
+    function cancelRegion() {
+        $(".addRegion").show();
+        $(".writeRegion").remove();
+    }
+    //点击区域加号打开下一级
+//    var flag = 1;
+    function unfold(ele) {
+        $(ele).parents("ul").nextAll(".bt").addClass("hidden");
+//        if (flag){
+            $(".bt").addClass("hidden");
+            $(ele).parents("ul").nextAll(".bt").removeClass("hidden");
+//            flag = 0;
+//        }else {
+//            flag = 1;
+//        }
+
+    }
+
+    //点击学校加号打开下一级
+    function schoolUnfold(ele) {
+        $(ele).parents("ul").nextAll(".bt").addClass("hidden");
+        $(ele).parents(".bt").addClass("hidden");
+        $(ele).parents("ul").nextAll(".bt").removeClass("hidden");
+    }
+    
+    //点击新建学校
+    function addSchool() {
+        $(".addSchool").before(`
+        <li class="writeSchool list-group-item" >
+            <ul>
+            <form action="" class="form-inline">
+                <li>
+                    <input type="text" placeholder="请输入学校名" class="form-control input-sm school">
+                </li>
+                <li>
+                   <button class="btn btn-xs" type="button" onclick="saveSchool('.school')">保存</button>
+                    <button class="btn btn-xs" type="button" onclick="cancelSchool()">取消</button>
+                </li>
+            </form>
+            </ul>
+        </li>
+        `);
+        $(".addSchool").hide();
+    }
+
+    //保存学校
+    function saveSchool(ele) {
+        var school = $(ele).val();
+//        $.post("url","data:"+school);
+        if ($.trim(school) === "") {
+            alert("请输入学校名称");
+        } else {
+            $(ele).parents(".writeSchool").before(`
+
+                    <ul class="bt">
+                        <li>
+                        <ul>
+                        <li>
+                                <span class="glyphicon glyphicon-plus" onclick="schoolUnfold(this)"></span>
+                                <span>` + school + `</span>
+                            </li>
+                            <li>
+                                <button class="btn btn-xs" type="button">删除</button>
+                            </li>
+</ul>
+</li>
+<li>
+<ul class="hidden bt addBuild">
+                        <form action="" class="form-inline">
+                            <li>
+                               楼栋号
+                            </li>
+                            <li>
+                               <button class="btn btn-xs" type="button" onclick="">新建楼栋</button>
+                            </li>
+                        </form>
+                    </ul>
+</li>
+
+                    </ul>
+
+
+`);
+            $(".writeSchool").remove();
+            $(".addSchool").show();
+        }
+    }
+    //取消
+    function cancelSchool() {
+        $(".addSchool").show();
+        $(".writeSchool").remove();
+    }
+</script>
+</body>
+</html>

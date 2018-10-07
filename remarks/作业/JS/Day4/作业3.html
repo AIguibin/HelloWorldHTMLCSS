@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>作业三</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			div {
+				padding: 50px;
+			}
+			
+			#d1 {
+				/*margin: 200px 200px 0;*/
+				width: 400px;
+				height: 400px;
+				border: 2px solid darkblue;
+			}
+			
+			#d2 {
+				width: 300px;
+				height: 300px;
+				border: 2px solid darkcyan;
+			}
+			
+			#d3 {
+				width: 200px;
+				height: 200px;
+				border: 2px solid darkgoldenrod;
+			}
+			
+			#d4 {
+				width: 100px;
+				height: 100px;
+				border: 2px solid red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="d1" class="box">
+			<div id="d2" class="box">
+				<div id="d3" class="box">
+					<div id="d4" class="box">
+
+					</div>
+				</div>
+			</div>
+		</div>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="button" id="" value="向里变色" onclick="btnIn()" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="button" id="" value="向外变色" onclick="btnOut()" />
+		<script type="text/javascript">
+			function color(x, y) {
+				return Math.floor(Math.random() * (y - x + 1) + x);
+			}
+
+			function randomColor() {
+				var red = color(0, 255);
+				var green = color(0, 255);
+				var blue = color(0, 255);
+				var randomColorStr = "rgb(" + red + "," + green + "," + blue + ")";
+				return randomColorStr
+			}
+			var divsColor = document.getElementsByClassName("box");
+			function btnIn() {
+				
+					divsColor.style.backgroundColor = randomColor()
+				
+			}
+		</script>
+	</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

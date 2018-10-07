@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>过渡动画</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				width: 500px;
+				height: 500px;
+				
+				margin: 200px auto;
+				
+			}
+			ul li{
+				list-style: none;
+				width: 200px;
+				height: 200px;
+				float: left;
+				position: relative;	
+				overflow: hidden;
+				border: 1px solid rgb(191,192,191);
+			}
+			.box{
+				width: 400px;
+				height: 200px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				transition: all 0.5s ease-in;
+			}
+			.img{
+				width: 200px;
+				height: 200px;
+				text-align: center;
+				padding-top:30px ;
+				float: left;
+			}
+			.text{
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				top: 0;
+				left: 200px;
+				background: black;
+				color: white;
+				text-indent: 2em;
+			}
+			li:hover .box{
+				left: -200px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<div class="box">
+					<div class="img">
+						<img src="img/j1.png"/>
+					</div>
+					<div class="text">
+						哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="box">
+					<div class="img">
+						<img src="img/j4.png"/>
+					</div>
+					<div class="text">
+						哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="box">
+					<div class="img">
+						<img src="img/j2.png"/>
+					</div>
+					<div class="text">
+						哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="box">
+					<div class="img">
+						<img src="img/j3.png"/>
+					</div>
+					<div class="text">
+						哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+					</div>
+				</div>
+			</li>
+		</ul>
+	</body>
+</html>

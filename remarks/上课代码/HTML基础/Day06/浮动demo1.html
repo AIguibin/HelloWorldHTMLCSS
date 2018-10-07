@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>浮动demo1</title>
+	<style type="text/css">
+	/*如果不设置某个元素的字体大小或者字体颜色,则该元素的这两个属性值会从其父级获取*/
+		body{
+			font-size: 50px;
+			color: beige;
+			text-align: center;
+			line-height: 100px;
+		}
+		.d1{
+			width: 20%;
+			height: 100px;
+			float: left;
+			background: green;
+			/*如果设置文字垂直居中,设置line-height的值为元素的高度即可*/
+		}	
+		#d6{
+			width: 60%;
+			height: 100px;
+			float: left;
+			background: yellow;
+		}
+		#d7{
+			width: 40%;
+			height: 150px;
+			float: right;
+			background: red;
+			line-height: 150px;
+		}
+		.d8{
+			width: 30%;
+			height: 100px;
+			float: left;
+			background: pink;
+		}
+		#d9{
+			background: black;
+		}
+		#d10{
+			line-height: 150px;
+			width: 40%;
+			height: 150px;
+			float: right;
+			background: pink;
+		}
+		#d11{
+			width: 60%;
+			height: 100px;
+			float: left;
+			background: green;
+		}
+		#d12{
+			clear: both;
+			width: 100%;
+			height: 100px;
+			background: blue;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="d1">1</div>
+	<div class="d1">2</div>
+	<div class="d1">3</div>
+	<div class="d1">4</div>
+	<div class="d1">5</div>
+	<div id="d6">6</div>
+	<div id="d7">7</div>
+	<div class="d8">8</div>
+	<div class="d8" id="d9">9</div>
+	<div id="d10">10</div>
+	<div id="d11">11</div>
+	<div id="d12">12</div>
+</body>
+</html>

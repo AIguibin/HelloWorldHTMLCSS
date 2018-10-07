@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>图片播放</title>
+		<style type="text/css">
+			#box{
+				width: 600px;
+				height: 300px;
+				overflow: hidden;
+				position: relative;
+			}
+			#content{
+				height: 300px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				
+			}
+			#content>img{
+				width: 200px;
+				height: 300px;
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="content">
+				<img src="img/1.jpg" alt="" />
+				<img src="img/2.jpg" alt="" />
+				<img src="img/3.jpg" alt="" />
+				<img src="img/4.jpg" alt="" />
+				<img src="img/5.jpg" alt="" />
+				<img src="img/6.jpeg" alt="" />
+			</div>
+		</div>
+		<script src="js/tween.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var x = 0;
+			var contentDiv = document.getElementById("content");
+			var imgs = document.getElementsByTagName("img");
+			contentDiv.innerHTML += contentDiv.innerHTML;
+			contentDiv.style.width = imgs[0].offsetWidth * imgs.length + "px";
+			var t = 0;//开始步数
+			function move(){
+				
+				if(x == 6){
+					x=0;
+					contentDiv.style.left = "0px"
+				}
+				var b = -200 * x;
+				var c = -200	;
+				var d = 50;
+				t++;
+				contentDiv.style.left = Tween.Linear(t,b,c,d) + "px";
+				if (t == d){
+					//步数从新开始
+					t = 0;
+					x++;
+				}
+			}
+			setInterval("move()",20)
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>js面向对象</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			var car = {
+					brand: "BMW",
+					price: 1000000,
+					color: "white",
+					color: "black",
+					color: "red"
+				}
+				//如果多个键值对的键相同,识别相同的最后一个
+				//			alert(car.color);
+				//			alert(car.brand);
+				//			alert(car["brand"])
+				//属性的修改
+			car.price = 2000;
+			//添加属性
+			car.model = "X5";
+			console.log(car)
+
+			var dog = {};
+			dog.name = "哈士奇";
+			dog.color = "白加黑";
+			dog.IQ = 0;
+			console.log(dog);
+
+			//打印出一个对象的所有的属性值.(通用的代码).
+			//获取一个对象所有的属性名.
+			//1.Object.keys(对象名);
+						    var keys =Object.keys(dog);
+						    console.log(keys);
+
+			//2.Object.getOwnPropertyNames(对象名);
+//							var keys = Object.getOwnPropertyNames(dog)
+//							console.log(keys);
+//						    for(i = 0; i < keys.length; i++){
+//						    	
+//						    		var k = keys[i];
+//						    		var v = dog[k];
+//						    		console.log(v);
+//						    	
+//						    		console.log(dog[keys[i]])
+//					    }
+			
+			
+			
+			/*
+			 快速枚举:枚举到的是对象的键.
+			 语法:
+			 for(变量 in 对象){
+			 	
+			 }
+			 */
+			
+			
+			for(var k in dog) {
+				console.log(dog[k])
+			}
+			//定义三个女孩,分别有姓名,年龄,身高  分别输出年龄最小者与身高最高者的个人信息
+			/*function Girl(name, age, height) {
+				this.name = name;
+				this.age = age;
+				this.tall = tall;
+			}
+			var girl1 = new Girl("小红", 18, 165);
+			var girl2 = new Girl("小绿", 20, 164);
+			var girl3 = new Girl("小紫", 19, 170);
+			var ages1 = Object.keys(girl1);
+			var ages2 = Object.keys(girl2);
+			var ages3 = Object.keys(girl3);
+
+			function compare() {
+				var a1 = girl1[ages1[1]];
+				var a2 = girl2[ages1[1]];
+				var a3 = girl3[ages1[1]];
+				if(a1 > a2) {
+					if(a2 > a3) {
+						console.log(girl3);
+					} else {
+						console.log(girl2);
+					}
+				} else if(a1 > a3) {
+					console.log(girl3);
+				} else {
+					console.log(girl1);
+				}
+				var minAge =
+					var h1 = girl1[ages1[2]];
+				var h2 = girl2[ages1[2]];
+				var h3 = girl3[ages1[2]];
+				if(h1 > h2) {
+					if(h1 > h3) {
+						console.log(girl1);
+					} else {
+						console.log(girl3);
+					}
+				} else if(h2 > h3) {
+					console.log(girl2);
+				} else {
+					console.log(girl1);
+				}
+			}
+			compare()*/
+			
+			
+			
+			function Girlfrends(name, age, tall){
+                     this.name = name;
+                     this.age = age;
+                     this.tall= tall;
+                 }
+                 var g1 = new Girlfrends("西施", 1, 180);
+                 var g2 = new Girlfrends("小乔", 25, 190);
+                 var g3 = new Girlfrends("大乔", 19, 165);
+			var arr = [g1, g2, g3];
+			var minAge = 1000;
+			var maxTall = 0;
+
+			function compareWithGirl(array) {
+				for(var i = 0; i < array.length - 1; i++) {
+					minAge = array[i].age < minAge ? array[i] : minAge;
+					maxTall = array[i].tall > maxTall ? array[i].tall : maxTall;
+				}
+				for(var i = 0; i < array.length; i++) {
+					if(array[i].age == minAge) {
+						console.log(array[i].name);
+					}
+					if(array[i].tall == maxTall) {
+						console.log(array[i].name);
+					}
+
+				}
+			}
+			compareWithGirl(arr);
+		</script>
+	</body>
+
+</html>

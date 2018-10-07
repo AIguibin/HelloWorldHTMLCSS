@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>函数</title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				border: 1px solid firebrick;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="d1"></div>
+		<div class="d1"></div>
+		<div class="d1"></div>
+		<div class="d1"></div>
+		<script type="text/javascript">
+			/*
+			 函数(function)
+			具有特定功能的代码块
+			特点:
+			1.把代码封装起来,方便以后使用.
+			2.函数定义时,函数内的代码块不会执行,只有调用该函数时,函数内的代码块才会执行.
+			 3.使用函数封装起来的代码具有复用性.
+						 */
+			/*
+			 * 函数包含两部分:
+			 * 1.函数的定义(函数的声明).
+			 * 2.函数的调用.	
+			 */
+			/*
+			 *函数的语法
+			 * function 函数名(参数一,参数二,...){
+			 * 		语句
+			 * 		return 返回值
+			 * }
+			 */
+			/*
+			 * 函数的基本分类,根据有无参数,有无返回值,可以将函数分为四大类
+			 * 1.无参数,无返回值
+			 * 2.无参数有返回值
+			 * 3.有参数无返回值
+			 * 4.有参数有返回值
+			 */
+			
+			//无参数无返回值
+			//调用函数
+//			buyBeer()
+//			function buyBeer(){
+//				console.log("没钱,买不了")
+//			}
+			//无参数有返回值
+//			var res = buyTea();
+//			document.write(res)
+//			function buyTea(){
+//				
+//				return 10;
+//			}
+			//有参数无返回值
+//				function buyApple(money,address){
+//				console.log(money + "块钱被人抢走了")
+//			}
+//				buyApple(20)
+			//有参数有返回值
+//			function buyBanana(money,count){
+//				console.log("买了" + count + "斤🍌,还剩" + (money - count * 2) + "块钱");
+//				return money - count * 2
+//			}
+//			var a = buyBanana(20,5);
+//			document.write(a)
+			
+			/*
+			 * 形参:形式参数,在函数定义时的参数,没有确定的值
+			 * 实参:实际参数,函数调用时的参数,有确定的值,在函数调用时,实参的值会传递给形参.
+			 */
+			//写一个产生[x,y]的随机数的函数
+//			function random(x,y){
+//				console.log(Math.floor(Math.random()*(y - x + 1) + x));
+//				return Math.floor(Math.random()*(y - x + 1) + x);
+//			}
+//			for(i = 0; i < 10; i++){
+//				document.write(random(0,50) + "<br />")
+//				}
+//			var divs = document.getElementsByClassName("d1");
+//			function color(x,y){
+//				console.log(Math.floor(Math.random()*(y - x + 1) + x));
+//				return Math.floor(Math.random()*(y - x + 1) + x);
+//			}
+//			for(i = 0; i < divs.length; i++ ){
+//				var red = color(0,255);
+//			var green = color(0,255);
+//			var blue = color(0,255);
+//				divs[i].style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
+//			}
+			//有无参数,取决于调用该函数时是否需要从外界提供数值来保证函数内代码块的执行
+			//有没有返回值取决于是否需要在外部使用函数内计算的结果.
+			function middleNumber(x,y,z){
+				var mid = x > y ? (y > z ? y :(x > z ? z : x)) : (x > z ? x : (y > z ? z : y ))
+				return mid
+			}
+			document.write(middleNumber(60,50,55));
+			//写一个求随机颜色的函数
+//			function randomColor(){
+//				var red = color(0,255);
+//				var green = color(0,255);
+//				var blue = color(0,255);
+//				var randomColorStr = "rgb(" + red + "," + green + "," + blue + ")";
+//				return randomColorStr
+//			}
+//			divs[1].style.backgroundColor=randomColor()
+			//求两个数的最大值
+			 function twoMax(n1,n2){
+			 	var max = n1 > n2 ? n1 : n2;
+			 	return max
+			 }
+			//求三个数的最大值
+			function threeMax(n1,n2,n3){
+				return twoMax(twoMax(n1,n2),n3);
+			}
+			
+			//求四个数的最大值
+			function fourMax(n1,n2,n3,n4){
+				return twoMax(twoMax(n1,n2),twoMax(n3,n4));
+			}
+			function fourMax(n1,n2,n3,n4){
+				return twoMax(threeMax(n1,n2,n3),n4);
+			}
+			/*
+			 * 函数内return的作用
+			 * 1.将函数的计算结果返回给外界.
+			 * 2.return后面的语句不会被执行.
+			 */
+			
+			/*
+			 * Js变量的作用域
+			 * 1.js里没有块级作用域
+			 * 2.js里有的是函数作用域
+			 */
+			
+			/*
+			 * 全局变量:定义在函数外部的变量
+			 * 局部变量:定义在函数内部的变量
+			 */
+			/*
+			 * 1.在函数的内部,既可以访问全局变量,也可以访问局部变量
+			 * 2.在函数的外部,只可以访问全局变量
+			 * 3.当局部变量与全局变量重名时,以局部变量为准.
+			 */
+			
+			/*
+			 * js里变量生命周期:变量在内存中存放的时间长短.
+			 * 全局变量:直到页面关闭之前都存在
+			 * 局部变量:在函数运行完之前群在,执行完之后被删除.
+			 */
+			
+			
+			/*
+			 * 匿名函数:
+			 */
+			(function(name){
+				console.log("这是一个匿名函数" + name);
+			})(123456789)
+			
+			/*
+			 * 函数表达式
+			 */
+			var a = function(name){
+				console.log(name);
+			}
+			a("齐天大圣")
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+</html>

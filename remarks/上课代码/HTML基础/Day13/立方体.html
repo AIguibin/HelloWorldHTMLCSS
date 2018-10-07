@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>旋转立方体</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box{
+				width: 600px;
+				height: 600px;
+				/*background: blue;*/
+				margin: 150px auto;
+				position: relative;
+				transform-style: preserve-3d;
+				transform: rotateX(-45deg) rotateY(45deg);
+				/*opacity: 0.3;*/
+				animation:animation 5s infinite linear alternate-reverse;
+				
+			}
+			ul li{
+				width: 300px;
+				height: 300px;
+				list-style: none;
+				font-size: 50px;
+				text-align: center;
+				line-height: 300px;
+				position: absolute;
+				top: 150px;
+				left: 150px;
+				color: gold;
+				opacity: 0.6;
+				
+			}
+			ul li:nth-child(1){
+				transform: translateZ(150px);
+				background: cyan;
+			}
+			ul li:nth-child(2){
+				transform: rotateX(90deg) translateZ(150px);
+				background: red;
+			}
+			ul li:nth-child(3){
+				transform: rotateY(90deg) translateZ(150px);
+				background: green;
+			}
+			ul li:nth-child(4){
+				transform:rotateY(-90deg) translateZ(150px);
+				background: green;
+			}
+			ul li:nth-child(5){
+				transform: rotateX(-90deg) translateZ(150px);
+				background: red;
+			}
+			ul li:nth-child(6){
+				transform: rotateY(180deg) translateZ(150px) ;
+				background: cyan;
+			}
+			
+			ol li{
+				width: 600px;
+				height: 600px;
+				list-style: none;
+				font-size: 100px;
+				text-align: center;
+				line-height: 600px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				color: white;
+				opacity: 0.7;
+			}
+			ol li:nth-child(1){
+				transform: translateZ(300px);
+				background: cyan;
+			}
+			ol li:nth-child(2){
+				transform: rotateX(90deg) translateZ(300px);
+				background: red;
+			}
+			ol li:nth-child(3){
+				transform: rotateY(90deg) translateZ(300px);
+				background: green;
+			}
+			ol li:nth-child(4){
+				transform:rotateY(-90deg) translateZ(300px);
+				background: green;
+			}
+			ol li:nth-child(5){
+				transform: rotateX(-90deg) translateZ(300px);
+				background: red;
+			}
+			ol li:nth-child(6){
+				transform: rotateY(180deg) translateZ(300px) ;
+				background: cyan;
+			}
+			ol li span{
+				display: inline-block;
+				width: 198px;
+				height: 198px;
+				border: 1px solid black;
+				float: left;
+			}
+			@keyframes animation{
+				from{transform: rotateX(-45deg) rotateY(45deg);}
+				25%{transform: rotateX(-150deg) rotateY(150deg);}
+				50%{transform: rotateX(-250deg) rotateY(250deg);}
+				75%{transform: rotateX(-350deg) rotateY(350deg);}
+				to{transform: rotateX(-45deg) rotateY(45deg);}
+			}
+			#box:hover ol li:nth-child(1){
+				transition: all 3s ease;
+				transform:translateZ(500px)
+			}
+			#box:hover ol li:nth-child(2){
+				transition: all 3s ease;
+				transform: rotateX(90deg) translateZ(500px);	
+			}
+			#box:hover ol li:nth-child(3){
+				transition: all 3s ease;
+				transform: rotateY(90deg) translateZ(500px)
+			}
+			#box:hover ol li:nth-child(4){
+				transition: all 3s ease;
+				transform:rotateY(-90deg) translateZ(500px)
+			}
+			#box:hover ol li:nth-child(5){
+				transition: all 3s ease;
+				transform: rotateX(-90deg) translateZ(500px)
+			}
+			#box:hover ol li:nth-child(6){
+				transition: all 3s ease;
+				transform: rotateY(180deg) translateZ(500px)
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+			</ul>
+			<ol>
+				<li>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				</li>
+				<li>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				</li>
+				<li>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				</li>
+				<li>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				</li>
+				<li>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				</li>
+				<li>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				</li>
+			</ol>
+		</div>
+	</body>
+</html>

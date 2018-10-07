@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+
+	<body>
+		<table width="99%" border="0" cellpadding="0" cellspacing="0" class="firtable">
+			<tr>
+				<th width="100%" style="color: white;">
+					<s:text name="询单明细"></s:text>
+				</th>
+			</tr>
+			<tr>
+				<td align="center">
+					<textarea name="inquiryContact1" id="inquiryContact1" rows="15" cols="60" readonly="readonly">世界和平</textarea>
+					<div id="inquiryInfoDIV" style="display:none">
+						<s:property value="inquiryContact" escape="false" />
+					</div>
+					<script>
+						dojo.byId("inquiryContact1").innerText = dojo.byId("inquiryInfoDIV").innerText;
+					</script>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<input type="button" id="button" name="button" value="复制" onclick="copyContact()" />
+				</td>
+			</tr>
+		</table>
+
+		<script type="text/javascript">
+			var i = 0;
+
+			function copyContact() {
+				var contat = document.getElementById("inquiryContact1").value;
+				window.clipboardData.setData('text', contat);
+				if(window.clipboardData.getData('text') == '') {
+					if(i == 1) {
+						alert("复制失败，请手动Ctrl+C快捷键复制！");
+					} else {
+						alert("复制失败，请重新复制！");
+						i = 1;
+					}
+				} else {
+					alert("内容已经复制到剪贴板！");
+				}
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>伪类选择器</title>
+	<!-- 伪类选择器跟类选择器的区别
+	1.类选择器在使用之前,要提前给元素定义一个class属性并赋值,而伪类选择器直接使用即可,系统几乎已经给所有的元素默认添加过对应的伪类属性了. -->
+	<!-- e:link
+	匹配到定义的了超链接但没有点击过的元素 -->
+
+	<!-- e:visited
+	匹配定义了超链接且已经点击过的元素 -->
+	<!-- e:hover
+	鼠标停留在e元素上时 -->
+	<!-- e:active
+	鼠标在e元素上按下时
+	 -->
+	<style type="text/css">
+		a:link{
+			color: red;
+		}
+		a:visited{
+			color: black;
+		}
+		a:hover{
+			color: pink;
+		}
+		a:active{
+			background-color: black;}
+		div:hover{
+			background-color: red;
+			width: 100px;
+			height: 100px;
+		}
+		/*
+			爱恨原则
+			LoVe HAte
+		W3C规定了伪类选择器的顺序
+		1.link和visited必须放在hover之前
+		2.active必须放在hover之后
+		*/
+		
+	</style>
+</head>
+<body>
+	<a href="http://www.baidu.com/">百度</a>
+	<div>123</div>
+</body>
+</html>

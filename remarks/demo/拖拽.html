@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>DataTransfer.setData()/.getData()/.clearData()</title>
+    <style>
+        div {
+            margin: 0em;
+            padding: 2em;
+        }
+        #source {
+            color: blue;
+            border: 1px solid black;
+        }
+        #target {
+            border: 1px solid black;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <section>
+        <h1>
+            <code>DataTransfer.setData()</code> <br>
+            <code>DataTransfer.getData()</code> <br>
+            <code>DataTransfer.clearData()</code>
+        </h1>
+        <div style="max-width: 50%">
+            <p style="100px" id="source" ondragstart="dragstart_handler(event);" draggable="true">
+                Select this element, drag it to the Drop Zone and then release the selection to move the element.
+            </p>
+        </div>
+        <div id="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">
+            Drop Zone
+        </div>
+    </section>
+    <!-- js -->
+    <script>
+        function dragstart_handler(e) {
+            console.log("dragStart");
+            // Change the source element's background color to signify drag has started
+            e.currentTarget.style.border = "dashed";
+            // Set the drag's format and data. Use the event target's id for the data 
+            e.dataTransfer.setData("text/plain", ev.target.id);
+        }
+
+        function dragover_handler(e) {
+            console.log("dragOver");
+            // prevent Default event
+            e.preventDefault();
+        }
+
+        function drop_handler(e) {
+            console.log("Drop");
+            e.preventDefault();
+            // Get the data, which is the id of the drop target
+            var data = ev.originalEvent.dataTransfer.getData("text");
+            // appendChild
+            e.target.appendChild(document.getElementById(data));
+            // Clear the drag data cache (for all formats/types)
+            e.dataTransfer.clearData();
+        }
+    </script>
+</body>
+</html>

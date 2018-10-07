@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#myCanvas{
+				box-shadow: 4px 4px 4px greenyellow;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+	</body>
+	<script type="text/javascript">
+		var myCanvas = document.getElementById("myCanvas");
+		var ctx = myCanvas.getContext("2d");
+		
+		//创建图片对象 (img对象)
+		var img = new Image();
+		img.src = "img/1.png";
+		img.onload = function(){
+			/*
+			 drawImage():将图片绘制到对应的Canvas标签上面,该方法的参数分为三种
+			 第一种:含有三个参数,参数一代表绘制的参考图片,参数二,三代表图片绘制的初始位置.
+			 第二种:含有五个参数,参数一代表绘制的参考图片,参数二,三代表图片绘制的初始位置,参数四,五代表图片的宽高.
+			 第三种:含有九个参数,参数一代表绘制的参考图片,参数二,三,四,五代表从参考图片中截取的图片的范围,参数六,七,八,九代表将截取的图片绘制在Canvas中的时候对应的绘制范围
+			 */
+			ctx.drawImage(img,0,0);
+//			ctx.drawImage(img,0,0,500,300);
+//			ctx.drawImage(img,900,100,900,800,0,0,500,500);
+			
+			//获取Canvas标签上指定区域的像素点
+			/*
+			 getImageData():获取指定区域的图片的像素点,返回值是一个ImageData类型的对象
+			putImageData():将修改后的像素点插入到canvas中对应的位置.共有七个参数,参数一对应的是修改后的像素点,参数二对应的是插入的初始位置坐标,参数四五六七对应的需要插入的像素的范围 
+			 */
+			var imagePoints = ctx.getImageData(0,0,500,500);
+			var datas = imagePoints.data;
+//			for (var i = 0; i < datas.length; i+=4) {
+//				var sum = (datas[i] + datas[i+1] + datas[i+2]) / 3;
+//				datas[i] = sum;
+//				datas[i+1] = sum;
+//				datas[i+2] = sum;
+//			}
+//			ctx.putImageData(imagePoints,0,0)
+//			ctx.putImageData(imagePoints,0,0,100,100,150,150)
+//			var URL = myCanvas.toDataURL();
+//			location.href = URL;
+//		}
+		for (var i = 0; i < datas.length; i+=4) {
+				var sum = 255 - ((datas[i] + datas[i+1] + datas[i+2]) / 3);
+				datas[i] = sum;
+				datas[i+1] = sum;
+				datas[i+2] = sum;
+				
+		}
+			ctx.putImageData(imagePoints,0,0,0,300,500,300)
+			/*
+			 toDataURL():将canvas标签上的图像转换成可用的链接 
+			 */
+//			var URL = myCanvas.toDataURL();
+//			location.href = URL;
+	}
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

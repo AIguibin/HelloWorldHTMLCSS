@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Animation</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/Animation.css"/>
+		
+	</head>
+	<body>
+		<!--导航栏-->
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+					<a class="navbar-brand" href="#"><img src="img/img1/shininglogo.png" /></a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="Home.html">Home</a>
+						</li>
+						<li>
+							<a href="About.html">About</a>
+						</li>
+						<li>
+							<a href="Rendering.html">Rendering</a>
+						</li>
+						<li>
+							<a href="Animation.html">3D Animation</a>
+						</li>
+						<li>
+							<a href="Bin.html">Bin</a>
+						</li>
+						<li>
+							<a href="Contact.html">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--内容-->
+		<div id="content">
+			<div id="video">
+				<img src="img/img4/2-150Z2105915292.jpg"/>
+				<img src="img/img4/play.png"/>
+			</div>
+			<div id="center"></div>
+			<div id="videos">
+				<div class="item">
+					<ul>
+					<li><img src="img/img4/1-1510121R410H3.jpg"/></li>
+					<li></li>
+					<span>
+						Commercial Real Estate-2014-10
+					</span>
+				</ul>
+				</div>
+				<div class="item itemMiddle">
+					<ul>
+					<li><img src="img/img4/1-1510121SHX34.jpg"/></li>
+					<li></li>
+					<span>
+						Commercial Real Estate-2014-10
+					</span>
+				</ul>
+				</div>
+				<div class="item">
+					<ul>
+					<li><img src="img/img4/1-1510121T91XV.jpg"/></li>
+					<li></li>
+					<span>
+						Commercial Real Estate-2014-10
+					</span>
+				</ul>
+				</div>
+				<div class="item">
+					<ul>
+					<li><img src="img/img4/1-1510121TP0U1.jpg"/></li>
+					<li></li>
+					<span>
+						Commercial Real Estate-2014-10
+					</span>
+				</ul>
+				</div>
+				<div class="item itemMiddle">
+					<ul>
+					<li><img src="img/img4/1-1510121TTOc.jpg"/></li>
+					<li></li>
+					<span>
+						Commercial Real Estate-2014-10
+					</span>
+				</ul>
+				</div>
+				<div class="item">
+					<ul>
+					<li><img src="img/img4/1-1510121U004292.jpg"/></li>
+					<li></li>
+					<span>
+						Commercial Real Estate-2014-10
+					</span>
+				</ul>
+				</div>
+				<div class="item">
+					<ul>
+					<li><img src="img/img4/1-1510121U04XL.jpg"/></li>
+					<li></li>
+					<span>
+						Commercial Real Estate-2014-10
+					</span>
+				</ul>
+				</div>
+				<div class="item itemMiddle">
+					<ul>
+					<li><img src="img/img4/1-1510121U305330.jpg"/></li>
+					<li></li>
+					<span>
+						Commercial Real Estate-2014-10
+					</span>
+				</ul>
+				</div>
+				<div class="item">
+					<ul>
+					<li><img src="img/img4/1-1510121U33Ic.jpg"/></li>
+					<li></li>
+					<span>
+						Commercial Real Estate-2014-10
+					</span>
+				</ul>
+				</div>
+			</div>
+		</div>
+		
+		
+		<!--底部-->
+		<div id="footer">
+			<div id="footerimg">
+				<img src="img/img1/footer0.jpg" />
+			</div>
+			<div id="footerpics">
+				<img src="img/img1/footer1.jpg" />
+				<img src="img/img1/footer2.jpg" />
+				<img src="img/img1/footer3.jpg" />
+				<img src="img/img1/footer4.jpg" />
+			</div>
+			<p>Copyright © 1998-2015 shining Group</p>
+		</div>
+		
+		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		//获取底部所有图片
+			var footerimgs = document.querySelectorAll("#footer img");
+			//给所有的图片加鼠标移入事件
+			for(i = 0; i < footerimgs.length; i++) {
+				footerimgs[i].onmouseenter = (function(index) {
+					return function() {
+						this.src = "img/img1/footer" + index + "_h.jpg"
+					}
+				})(i)
+				footerimgs[i].onmouseleave = (function(index) {
+					return function() {
+						this.src = "img/img1/footer" + index + ".jpg"
+					}
+				})(i)
+			}	
+		</script>
+	</body>
+</html>

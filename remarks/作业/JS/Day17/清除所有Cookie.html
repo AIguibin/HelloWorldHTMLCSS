@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>清除Cookie</title>
+	</head>
+	<body>
+		<input type="button" id="query" value="查询" />
+		<input type="button" id="add" value="添加" />
+		<input type="button" id="delete" value="删除" onclick="deleteAllCookie()"/>
+		
+		
+		
+		<script src="cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var query = document.getElementById("query");
+			query.onclick = function(){
+				console.log(document.cookie);
+			}
+			var add = document.getElementById("add")
+			add.onclick = function(){
+				addCookie("name","xuanxuan",60*60);
+				addCookie("age","20",3600);
+				addCookie("sex","man",3600);
+				addCookie("music","love",3600);
+				addCookie("vidio","Lion King",3600);
+			}
+			function deleteAllCookie(){
+				var arr = document.cookie.split(";");
+				for(var i = 0; i < arr.length; i++){
+					var arr2 = arr[i].split("=");
+					document.cookie = arr2[0] + "=;max-age = -1"
+				}
+			}
+		</script>
+	</body>
+</html>

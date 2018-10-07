@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>清除浮动01</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#div1{
+			width: 300px;
+			height: 400px;
+			background: blue;
+			float: left;
+		}
+		#div2{
+			width: 300px;
+			height: 400px;
+			background: red;
+			float: right;
+		}
+		#div3{
+			width: 100%;
+			height: 400px;
+			background: beige;
+			clear: both;
+		}
+	</style>
+</head>
+<body>
+	<!-- 元素浮动之后会影响其后面的元素 
+		为了清除某个元素浮动给它后面的元素造成的影响,我们需要使用clear属性
+		clear属性
+		1.left  清除设置了clear属性元素之前的元素左浮动的影响
+		2.right  清除设置了clear属性元素之前的元素右浮动的影响
+		3.both 清除设置了clear属性元素之前的元素左浮动或者右浮动的影响-->
+		<!-- 1.清除浮动只是清除浮动造成的影响  不是清除浮动效果 
+			 2.clear属性应该添加给被浮动影响的元素-->
+	<div id="div1"></div>
+	<div id="div2"></div>
+	<div id="div3"></div>
+</body>
+</html>

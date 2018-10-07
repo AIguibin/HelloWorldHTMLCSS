@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>静态网页</title>
+	<style type="text/css">
+	body{
+		background: rgb(239,239,239);
+	}
+	*{
+		margin:0;
+		padding: 0;
+	}
+	/*设置网页头部颜色*/
+	#header{
+		text-align:center;
+		background:black;
+		padding-top: 10px;
+
+	}
+	/*设置logo的大小*/
+	#header img{
+		width: 144px;
+	}
+	#nav{
+		margin-top: 10px;
+	}
+	#nav a{
+		color: white;
+		text-decoration: none;
+		margin: 0 50px;
+
+	}
+	/*内容*/
+	#content{
+		width: 800px;
+		margin: 50px auto 0;
+	}
+	/*设置内容的大图片位置的尺寸*/
+	#content img{
+		/*单独设置图片的宽或者高,另一个值会按比例缩放*/
+		width: 800px;
+	}
+	#content p{
+		border-top: 1px solid gray;
+		border-bottom: 1px solid gray;
+		text-indent: 2em;
+		margin-top: 10px;
+		line-height: 22px;
+		padding: 10px 0;
+		font-family: "STkaiti";
+		color: rgb(102,102,102);
+	}
+	#huawei{
+		margin-top: 10px;
+		text-align: center;
+	}
+	/*华为图标设置*/
+	#huawei img{
+		width: 40px;
+		margin: 0 10px;
+	}
+	/*信息模块*/
+	#info {
+		text-align: center;
+	}
+	/*设置图片*/
+	#info img{
+		width: 250px;
+	}
+	/*设置链接文字*/
+	#info a{
+		display:inline-block;
+		text-decoration: none;
+		width: 250px;
+		margin-top: 10px;
+		border: 2px solid black;
+	}
+	#info span{
+		display:inline-block;
+		margin: 10px 0;
+	}
+	#footer{
+		background: rgb(127,127,127);
+		margin-top: 30px;
+	}
+	#share{
+		width: 49%;
+		display: inline-block;
+		text-align: right;
+		/*padding: 20px;*/
+		
+		vertical-align: top;
+	}
+	#share img{
+		height: 30px;
+	}
+	#add{
+		display: inline-block;
+		width: 49%;
+		padding-left: 10px;
+		border-left: 1px solid;
+	}
+	#add img{
+		height: 50px;
+	}
+	#add p{
+
+/*		white-space: pre;*/
+	}
+	</style>
+</head>
+<body>
+	
+	<div id="box">
+		<!-- 网页头部 -->
+		<div id="header">
+			<img src="images/logo.png" alt="logo">
+			<!-- 导航按钮 -->
+			<div id="nav">
+				<a href="###">HOME</a>
+				<a href="###">WORK</a>
+				<a href="###">CONTACT</a>
+				<a href="###">JOIN US</a>
+			</div>
+		</div>
+		<!-- 网页内容 -->
+		<div id="content">
+			<!-- 大图片 -->
+			<img src="images/main_img.png" alt="">
+			<!-- 文字介绍 -->
+			<p>
+				Infini Studio (映纷创意)是一家创意机构，专注于动画影像的创意与设计。我们使用设计、绘画、动画、特效及多种创新形式(Motion Graphics)，以动态视觉语言对品牌与内容进行创意呈现。并由动画导演、设计师、插画师、三维艺术家共同协作完成。服务的领域包括广告、影视、交互H5、新媒体等。
+			</p>
+			<!-- 图标 -->
+			<div id="huawei">
+				<img src="images/huawei.jpg" alt="华为">
+				<img src="images/huawei.jpg" alt="华为">
+				<img src="images/huawei.jpg" alt="华为">
+				<img src="images/huawei.jpg" alt="华为">
+				<img src="images/huawei.jpg" alt="华为">
+				<img src="images/huawei.jpg" alt="华为">
+				<img src="images/huawei.jpg" alt="华为">
+				<img src="images/huawei.jpg" alt="华为">
+				<img src="images/huawei.jpg" alt="华为">
+				<img src="images/huawei.jpg" alt="华为">
+				<img src="images/huawei.jpg" alt="华为">
+				<img src="images/huawei.jpg" alt="华为">
+				<img src="images/huawei.jpg" alt="华为">
+				<img src="images/huawei.jpg" alt="华为">
+			</div>
+			<div id="info">
+				<a href="###"><img src="images/content_img.jpg" alt="信息"><span>标题</span></a>
+				<a href="###"><img src="images/content_img.jpg" alt="信息"><span>标题</span></a>
+				<a href="###"><img src="images/content_img.jpg" alt="信息"><span>标题</span></a>
+				<a href="###"><img src="images/content_img.jpg" alt="信息"><span>标题</span></a>
+				<a href="###"><img src="images/content_img.jpg" alt="信息"><span>标题</span></a>
+				<a href="###"><img src="images/content_img.jpg" alt="信息"><span>标题</span></a>
+				<a href="###"><img src="images/content_img.jpg" alt="信息"><span>标题</span></a>
+				<a href="###"><img src="images/content_img.jpg" alt="信息"><span>标题</span></a>
+				<a href="###"><img src="images/content_img.jpg" alt="信息"><span>标题</span></a>
+
+			</div>
+		</div>
+		<!-- 网页尾部 -->
+		<div id="footer">
+			<div id="share"><img src="images/fanxiang.png" alt=""></div>
+			<div id="add"><img src="images/logo.png" alt="">
+				<p>
+					Infini Studio | 映纷创意<br>
+					北京市朝阳北路107号院<br>
+					Email : infinistudio@foxmail.com <br>
+					QQ : 7585917 	<br>
+					weibo : @InfiniStudio <br>
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>刮刮乐</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			img {
+				width: 600px;
+				height: 300px;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			
+			#myCanvas {
+				position: absolute;
+				top: 0;
+				left: 0;
+				box-shadow: 4px 4px 4px goldenrod;
+				transition: all 1s;
+			}
+		</style>
+	</head>
+
+	<body>
+		<img src="img/weizhuang.jpg" />
+		<canvas id="myCanvas" width="600" height="300"></canvas>
+		<script src="js/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var myCanvas = document.getElementById("myCanvas");
+			var ctx = myCanvas.getContext("2d");
+			$(window).on("load", function() {
+				ctx.fillStyle = "grey"
+				ctx.fillRect(0, 0, 600, 300)
+				ctx.globalCompositeOperation = "destination-out";
+				$("#myCanvas").on("mousedown", function() {
+					$(document).on("mousemove", function(e) {
+						var centerX = e.pageX - $("#myCanvas").offset().left;
+						var centerY = e.pageY - $("#myCanvas").offset().top;
+						ctx.beginPath();
+						ctx.arc(centerX, centerY, 20, 0, Math.PI * 2, false);
+						ctx.fillStyle = "#000000";
+						ctx.fill();
+
+						//判断当前刮开区域是否达到一半
+						adjustPefix();
+					});
+				});
+				//定义函数判断获取canvas标签上对应图形的像素点
+				function adjustPefix() {
+					var imagePoints = ctx.getImageData(0, 0, 500, 500);
+					var count = 0; //记录当前透明的像素点个数
+					var datas = imagePoints.data;
+					for(var i = 0; i < datas.length; i+=4) {
+						if(datas[i + 3] == 0) {
+							count++;
+						}
+					}
+					if(2 * count >= datas.length / 4) {
+						//将canvas标签上面的图形转换成透明
+						myCanvas.style.opacity = 0;
+					}
+				}
+				$(document).on("mouseup", function() {
+					$(document).off("mousemove");
+				});
+			});
+		</script>
+
+	</body>
+
+</html>

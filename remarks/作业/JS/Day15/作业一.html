@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>作业一</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#small {
+				width: 300px;
+				height: 300px;
+				position: relative;
+				border: 5px solid saddlebrown;
+			}
+			
+			#small img {
+				width: 100%;
+				height: 100%;
+			}
+			
+			#slider {
+				width: 100px;
+				height: 100px;
+				background: gray;
+				opacity: 0.3;
+				position: absolute;
+				top: 0;
+				visibility: hidden;
+			}
+			
+			#big {
+				width: 300px;
+				height: 300px;
+				position: absolute;
+				top: 0;
+				left: 350px;
+				border: 3px solid skyblue;
+				overflow: scroll;
+				visibility: hidden;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--原图-->
+		<div id="small">
+			<img src="img/small.png" />
+			<!--放大镜-->
+			<div id="slider"></div>
+		</div>
+		<div id="big">
+			<img src="img/big.png" />
+		</div>
+		<script type="text/javascript">
+			var small = document.getElementById("small");
+			var slider = document.getElementById("slider");
+			var big = document.getElementById("big");
+			var maxImg = document.getElementsByTagName("img")[1];
+				//让slider跟随鼠标移动
+				small.onmousemove = function(e) {
+					var even = e || event;
+					var x = even.clientX - small.offsetLeft - slider.offsetWidth / 2;
+					var y = even.clientY - small.offsetTop - slider.offsetHeight / 2;
+					//水平方向的最大值
+					var maxX = small.clientWidth - slider.clientWidth;
+					//竖直方向的最大值
+					var maxY = small.clientHeight - slider.clientHeight;
+					//超出左侧时拉回
+					if(x < 0) {
+						x = 0;
+					}
+					//超出右侧时拉回
+					if(x > maxX) {
+						x = maxX
+					}
+					//超出顶部时拉回
+					if(y < 0) {
+						y = 0;
+					}
+					//超出底部时拉回
+					if(y > maxY) {
+						y = maxY
+					}
+					slider.style.top = y + "px";
+					slider.style.left = x + "px";
+					big.scrollLeft = x / maxX * (maxImg.offsetWidth - big.clientWidth);
+					big.scrollTop = y / maxY * (maxImg.offsetHeight - big.clientHeight);
+					small.onmousedown = function() {
+						slider.style.visibility = "visible";
+						big.style.visibility = "visible";
+					}
+					small.onmouseup = function(){
+						slider.style.visibility = "hidden";
+						big.style.visibility = "hidden";
+					}
+				}
+		</script>
+	</body>
+
+</html>

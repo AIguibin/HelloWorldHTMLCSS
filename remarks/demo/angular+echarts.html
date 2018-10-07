@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link href="css/index.css" rel="stylesheet" />
+		<style type="text/css">
+			html,body{
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+	</head>
+
+	<body ng-app="myApp">
+		<div ng-controller="myCtrl" style="width:90%;height:100%;margin:0 auto;">
+			<h1 class="title">光圣科技尾牙晚会获奖统计</h1>
+			<div style="height:80%;background:rgba(255,255,255,0.6);border-radius:10px;">
+				<div bar-charts style="width:70%;height:100%;float:left;"></div>
+				<div pie-charts style="width:30%;height:100%;float:left;"></div>
+			</div>
+		</div>
+		<button id="btn" style="position: absolute;left: 0;top: 0;">click</button>
+		<script src="js/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/angular.min.js"></script>
+		<script src="js/echarts.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			var app = angular.module("myApp", []);
+			app.controller("myCtrl", function($scope) {
+
+			})
+			app.directive('barCharts', function() {
+				return {
+					restrict: "ECMA",
+					template: '<div></div>',
+					scope: true,
+					link: function(scope, element) {
+						var chart = element.find('div')[0];
+						var parent = element['context'];
+						chart.style.width = parent.clientWidth + 'px';
+						chart.style.height = parent.clientHeight + 'px';
+
+						var myChart = echarts.init(chart);
+						var option = {
+							tooltip: {
+								trigger: 'axis'
+							},
+							title: {
+								text: "各部门中奖比例"
+							},
+							toolbox: {
+								show: true,
+								feature: {
+									mark: {
+										show: true
+									},
+									dataView: {
+										show: true,
+										readOnly: false
+									},
+									magicType: {
+										show: true,
+										type: ['line', 'bar']
+									},
+									restore: {
+										show: true
+									},
+									saveAsImage: {
+										show: true
+									}
+								}
+							},
+							xAxis: {
+								data: []
+							},
+							yAxis: {
+								value: {
+									show: true
+								},
+								splitArea: {
+									show: true
+								}
+							},
+							series: [{
+								name: '比例',
+								type: 'bar',
+								data: [],
+								itemStyle: {
+									normal: {
+										label: {
+											show: true, //是否展示  
+											textStyle: {
+												fontWeight: 'bolder',
+												fontSize: '12',
+												fontFamily: '微软雅黑',
+											}
+										},
+										color: function(params) {
+											var colorList = ["rgb(250,230,14)", "#11232B", "#10CE10", "#FE8463", "#9Bff63", "#11232B", "rgb(250,230,14)", "#10CE10", "#FE8463", "#9Bff63", "#11232B", "rgb(250,230,14)", "#10CE10", "#FE8463", "#9Bff63", "#11232B", "rgb(250,230,14)"];
+											return colorList[params.dataIndex];
+										}
+									}
+								},
+							}]
+						};
+						var flag = true;
+						var timer = null;
+						$("#btn").on("click", function() {
+							if(flag) {
+								flag = !flag;
+								timer = setInterval(function() {
+									$.ajax({
+										type: "get",
+										url: "json.json",
+										async: true,
+										success: function(data) {
+											var newxAxis = [];
+											var newyAxis = [];
+											for(var i = 0; i < data.length; i++) {
+												newxAxis.push(data[i].name);
+												newyAxis.push(parseFloat(data[i].value));
+											};
+											myChart.setOption({
+												xAxis: {
+													data: newxAxis
+												},
+												series: {
+													name: "比例",
+													data: newyAxis
+												}
+											})
+										},
+										error: function() {
+											alert("数据加载失败")
+										}
+									});
+
+								}, 300);
+							} else {
+								flag = !flag;
+								clearInterval(timer);
+							}
+						})
+						myChart.setOption(option);
+					}
+				}
+			})
+			app.directive('pieCharts', function() {
+				return {
+					template: '<div>饼图</div>',
+					link: function(scope, element) {
+						var chart = element.find('div')[0];
+						var parent = element['context'];
+						chart.style.width = parent.clientWidth + 'px';
+						chart.style.height = parent.clientHeight + 'px';
+						var myChart = echarts.init(chart);
+						var flag = true;
+						var timer = null;
+						$("#btn").on("click", function() {
+							if(flag) {
+								flag = !flag;
+								timer = setInterval(function() {
+									$.ajax({
+										type: "get",
+										url: "json.json",
+										async: true,
+										success: function(data) {
+											var array = [];
+											for(i = 0; i < data.length; i++) {
+												var map = {};
+												map.name = data[i].name;
+												map.value = data[i].value;
+												array[i] = map;
+											}
+											myChart.setOption({
+												title: {
+													text: "各部门中奖比例"
+												},
+												toolbox: {
+													show: true,
+													feature: {
+														mark: {
+															show: true
+														},
+														dataView: {
+															show: true,
+															readOnly: false
+														}
+													}
+												},
+												series: [{
+													type: 'pie',
+													radius: "50%",
+													data: array,
+													itemStyle: {
+														normal: {
+															label: {
+																show: true,
+																formatter: '{b}:{d}%'
+															},
+															labelLine: {
+																show: true
+															},
+															color: function(params) {
+																var colorList = ["rgb(250,230,14)", "#11232B", "#10CE10", "#FE8463", "#9Bff63", "#11232B", "rgb(250,230,14)", "#10CE10", "#FE8463", "#9Bff63", "#11232B", "rgb(250,230,14)", "#10CE10", "#FE8463", "#9Bff63", "#11232B", "rgb(250,230,14)"];
+																return colorList[params.dataIndex];
+															}
+														}
+													}
+												}]
+											})
+										},
+										error: function() {
+											alert("数据加载失败")
+										}
+									});
+								}, 300);
+							} else {
+								flag = !flag;
+								clearInterval(timer);
+							}
+						})
+					}
+
+				}
+			});
+		</script>
+	</body>
+
+</html>

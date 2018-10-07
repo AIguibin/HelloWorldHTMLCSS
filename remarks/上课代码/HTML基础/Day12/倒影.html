@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>倒影</title>
+		<style type="text/css">
+			p{width: 300px;
+			height: 200px;
+			text-align: center;
+			font-size: 30px;
+			background: beige;
+			-webkit-box-reflect: below 20px;
+			background: -webkit-linear-gradient( top,red,yellow);
+			}
+			img{
+				-webkit-box-reflect: below 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--倒影
+			*关于倒影的渐变,只能设置不透明颜色与透明颜色之间的渐变
+			* 1.兼容性不太好,webkit内核支持
+			* 2.倒影只是一个映像,不占空间
+			
+			语法规则
+			box-reflect:倒影的位置与实物的距离(px单位) 渐变/蒙版
+			位置:
+			below 下面
+			above  上面
+			left		左边
+			right	右边
+		-->
+		<p>这是一个段落</p>
+		<img src="houRes/cardKingClub.png"/>
+	</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery动画</title>
+			<style type="text/css">
+				#a,#b,#c{
+					width: 200px;
+					height: 200px;
+					float: left;
+				}
+				#a{
+					background: aquamarine;
+				}
+				#b{
+					background: tan;
+				}
+				#c{
+					background: chocolate;
+				}
+				#aa{
+					clear: left;
+					background: darkblue;
+					color: white;
+				}
+			</style>
+	</head>
+	<body>
+		<div id="a"></div>
+		<div id="b"></div>
+		<div id="c"></div>
+		
+		<div id="aa">我的愿望是世界和平</div>
+		<input type="button" id="show" value="显示" />
+		<input type="button" id="hide" value="隐藏" />
+		<input type="button" id="special" value="显示/隐藏" />
+		<input type="button" id="fadeIn" value="淡入" />
+		<input type="button" id="fadeOut" value="淡出" />
+		<input type="button" id="fadeTo" value="淡入/淡出" />
+		
+		<input type="button" id="sliderIn" value="滑出" />
+		<input type="button" id="sliderOut" value="滑入" />
+		<input type="button" id="sliderInOut" value="特殊滑动" />
+		
+		<input type="button" value="自定义动画一" id="custom1"/>
+		<input type="button" value="自定义动画二" id="custom2"/>
+		<input type="button" value="自定义动画三" id="custom3"/>
+		
+		<input type="button" id="stop" value="停止动画" />
+		<script src="js/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//显示隐藏动画 修改的是display + width + height
+			$("#hide").click(function(){
+				//隐藏动画 hide(动画时长/过程,函数)
+				$("#a").hide();
+				//$("#b").hide(1000)
+				//slow,normal,fast
+				$("#b").hide("normal");
+				$("#c").hide(1000,function(){
+					//该函数当动画完成时触发
+					alert("动画完成")
+				})
+			})
+			//显示 show()
+			$("#show").click(function(){
+				//隐藏动画 show(动画时长/过程,函数)
+				$("#a").show();
+				//$("#b").show(1000)
+				//过程 : slow,normal,fast
+				$("#b").show("normal");
+				$("#c").show(1000,function(){
+					//该函数当动画完成时触发
+					alert("已显示完成");
+				})
+			})
+			//特殊的(如果隐藏就显示,如果显示就隐藏)
+			$("#special").click(function(){
+				$("#a").toggle(1000);
+				$("#b").toggle("normal");
+				$("#c").toggle(1000,function(){
+					alert("完成");
+				})
+			})
+			
+			
+			//淡入淡出动画 display + opacity
+			//淡入 fadeIn()
+			$("#fadeIn").click(function(){
+				$("#a").fadeIn(1000);
+				$("#b").fadeIn("normal");
+				$("#c").fadeIn(1000,function(){
+					alert("淡入完成");
+				})
+			})
+			//淡出 fadeOut()
+			$("#fadeOut").click(function(){
+				$("#a").fadeOut(1000);
+				$("#b").fadeOut("normal");
+				$("#c").fadeOut(1000,function(){
+					alert("淡出完成");
+				})
+			})
+			
+			//淡入的特殊情况(变化到指定的透明度) fadeTo(动画时长/过程,指定的透明度,函数)
+			$("#fadeTo").click(function(){
+				$("#a").fadeTo("fast",0.3)
+				$("#b").fadeTo("normal",0.5)
+				$("#c").fadeTo(1000,0.7)
+			});
+			
+			//滑动出现隐藏动画 display + height
+			//上滑
+			$("#sliderIn").click(function(){
+				$("#a").slideUp(1000);
+				$("#b").slideUp("normal");
+				$("#c").slideUp(1000,function(){
+					alert("滑出完成")
+				});
+			})
+			//下滑
+			$("#sliderOut").click(function(){
+				$("#a").slideDown(1000);
+				$("#b").slideDown("normal");
+				$("#c").slideDown(1000,function(){
+					alert("滑入完成")
+				});
+			})
+			//特殊滑动
+			$("#sliderInOut").click(function(){
+				$("#a").slideToggle(1000);
+				$("#b").slideToggle("normal");
+				$("#c").slideToggle(1000,function(){
+					alert("滑动完成")
+				})
+			})
+			
+			
+			//自定义动画:同时修改元素的多个属性
+			$("#custom1").click(function(){
+				$("#aa").animate({
+					width:"500",
+					height:"500",
+					fontSize:"100"
+				},1000);
+			});
+			//注意:动画的要修改的属性名应写驼峰法,比如font-size,不要写"-",应写成fontSize
+			//自定义动画二:可以在当前属性值的基础上进行加减
+			$("#custom2").click(function(){
+				$("#aa").animate({
+					width:"+=100",
+					height:"+=100"
+					
+				},1000)
+			})
+			//自定义动画三:队列动画
+			$("#custom3").click(function(){
+				$("#aa").animate({
+					width:"300"
+				},1000);
+				$("#aa").animate({
+					height:"500"
+				},2000);
+				$("#aa").animate({
+					width:"100"
+				},3000);
+				$("#aa").animate({
+					height:"400",
+					bgcolor:"red"
+				},1000);
+			})
+			
+			//停止动画
+			//stop(stopAll,goToEnd);
+			//stopAll:是否停止队列中的动画,默认是false
+			//goToEnd:是否直接完成动画,默认是false
+			
+			$("#stop").click(function(){
+				$("#aa").stop(false,true);
+			});
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

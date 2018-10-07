@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字体</title>
+	<style type="text/css">
+		p{
+			width: 200px;
+			height: 200px;
+			background: rgb(255,100,155);
+			color: blue;
+			/*文字大小*/
+			font-size: 20px;
+			/*字体类型
+			1.可以把字体类型里的书写的若干个值看做一个"回退"系统来理解,如果写了多个值,系统会从第一个一个一个来判定当前的浏览器是否支持该种字体,如果不支持,尝试下一个,但最后一个值必须写css通用的字体类族名,css一共有5个通用的类族:
+			"serif","sans-serif","cursive","fantasy","monospace"
+			*/
+			font-family: ;
+			/*小写字母以大写字母的形式+小写字母的高度进行展示*/
+			font-variant: small-caps;
+			/*字体样式
+			normal 正常
+			oblique 强制斜体
+			italic  文字自身的,如果设置的文字或者字体集内没有斜体,无效果
+			*/
+			font-style: inherit;
+			/*字体加粗
+			1.对应的单词  normal lighter bold bolder
+			2.具体的数值  100--900*/
+			font-weight: 700;
+
+
+		}
+	</style>
+</head>
+<body>
+	<p>
+		本,第一个文本第一个文本第,一个文本,第一个文本第一个文,本第一,个文本第一个文本第,一个文本第一个文本第一个文本第一个文本,第一个文本第
+		
+	</p>
+	<p>
+		 first text  first text first text first text first text first text first text first text first text first text first text first text first text first text
+	</p>
+</body>
+</html>

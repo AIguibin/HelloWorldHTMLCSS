@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>flappyBird</title>
+		<link rel="stylesheet" type="text/css" href="css/bird.css"/>
+	</head>
+	<body>
+	    <!--最外层游戏区域-->
+	    <div id="game">
+	        <!--head-->
+	        <div id="head">
+	            <img src="img/bird.png"/>
+	        </div>
+	        <!--开始菜单-->
+	        <div id="menu">
+	            <img src="img/start.jpg" id="start"/>
+	        </div>
+	        <!--结束菜单-->
+	        <div id="end">
+	            <img src="img/message.jpg"/>
+	            <span id="currentScore">0</span>
+	            <span id="bestScore">0</span>
+	        </div>
+	        <!--管道-->
+	        <ul id="pipes"></ul>
+	        <!--小鸟-->
+	        <img src="img/bird.png" id="bird"/>
+	        <!--分数-->
+	        <div id="score">
+	            <img src="img/0.jpg" alt="score" class="topscore"/>
+	         <!--声音-->
+	         <audio src="music/bullet.mp3" id="bullet"></audio>
+	         <audio src="music/game_music.mp3" id="gameMusic"></audio>
+	         <audio src="music/game_over.mp3" id="gameOverMusic"></audio>
+	        </div>
+	    </div>
+	    
+	    
+	    
+	    <script src="js/bird.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

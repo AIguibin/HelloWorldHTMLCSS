@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>背景蒙板</title>
+		<style type="text/css">
+			#div1{
+				width: 500px;
+				height: 500px;
+				background-image: url(img/lanou.jpg);
+				/*设置蒙版*/
+				-webkit-mask-image: url(img/haha.png);
+				/*设置蒙版的位置*/
+				-webkit-mask-position: -100px 100px;
+			}
+			/*常用的浏览器内核
+			 *-webkit-:Safari和chrome的内核
+			 * -moz-:火狐的内核
+			 * -ms-:IE的内核
+			 * -o-:欧朋的内核*/
+		</style>
+	</head>
+	<body>
+		<!--背景蒙板
+			1.只有chrome浏览器支持
+			2.蒙版图片必须是png图片,jpg的不行
+			3.设置成蒙版的图片系统会把原来不透明的部分处理成透明的部分
+		-->
+		<div id="div1">
+			
+		</div>
+	</body>
+</html>

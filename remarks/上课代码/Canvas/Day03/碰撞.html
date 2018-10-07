@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>碰撞检测</title>
+		<style type="text/css">
+			#myCanvas {
+				box-shadow: 4px 4px 4px hotpink;
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+	</body>
+	<script src="js/jquery3.1.0.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var myCanvas = document.getElementById("myCanvas");
+		var ctx = myCanvas.getContext("2d");
+
+		//定义构造方法完成矩形对象的创建
+		function Rect(x, y, w, h, color) {
+			this.x = x;
+			this.y = y;
+			this.w = w;
+			this.h = h;
+			this.color = color;
+		}
+		//为每一个举行对象添加一个功能用来绘制矩形对象
+		Rect.prototype.draw = function() {
+				ctx.fillStyle = this.color;
+				ctx.fillRect(this.x, this.y, this.w, this.h);
+			}
+			//定义数组存储两个矩形对象
+		var rects = [];
+		var rect1 = new Rect(20, 20, 100, 100, "red");
+		rect1.draw("red");
+		var rect2 = new Rect(200, 200, 100, 100, "pink");
+		rect2.draw("pink");
+		rects.push(rect1);
+		rects.push(rect2);
+
+		//为canvas标签关联对应的事件
+		$("#myCanvas").on("mousedown", function(e) {
+			var pointX = e.pageX - $(myCanvas).offset().left;
+			var pointY = e.pageY - $(myCanvas).offset().top;
+			var currentIndex = -1; //存储当前鼠标点击的矩形对象在数组中的下标
+			for(var i = 0; i < rects.length; i++) {
+				var disX = pointX - rects[i].x;
+				var disY = pointY - rects[i].y;
+				if(disX >= 0 && disX <= rects[i].w && disY >= 0 && disY <= rects[i].h) {
+					currentIndex = i;
+					break;
+				}
+			}
+			if(currentIndex != -1) {
+				$(document).on("mousemove", function(e) {
+					pointX = e.pageX - $(myCanvas).offset().left;
+					pointY = e.pageY - $(myCanvas).offset().top;
+					rects[currentIndex].x = pointX - disX;
+					rects[currentIndex].y = pointY - disY;
+					ctx.clearRect(0, 0, 500, 500); //清除当前界面的所有矩形
+					for(var i = 0; i < rects.length; i++) {
+						rects[i].draw();
+					}
+					//判断矩形是否相撞
+					if(adjustCollision()){
+						$(document).off("mousemove")
+					}
+				});
+			};
+		});
+		$(document).on("mouseup", function() {
+			$(document).off("mousemove");
+		})
+		
+		//定义方法检测两个矩形对象是否发生碰撞
+		function adjustCollision(){
+			var centerX1 = rects[0].x + rects[0].w / 2;
+			var centerY1 = rects[0].y + rects[0].h / 2;
+			var centerX2 = rects[1].x + rects[0].w / 2;
+			var centerY2 = rects[1].y + rects[0].h / 2;
+			var disX = Math.abs(centerX1 - centerX2);
+			var disY = Math.abs(centerY1 - centerY2);
+			if(disX <= (rects[0].w + rects[1].w)/2 && disY <= (rects[0].h + rects[1].h)/2){
+				return true;
+			}
+		}
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+</html>

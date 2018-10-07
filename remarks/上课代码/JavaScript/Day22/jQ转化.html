@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#p1{
+				width: 200px;
+				height: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="p1">
+			
+		</div>
+		<div id="p2">
+			
+		</div>
+		<script src="jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/*
+			 * jq对象有别于普通的dom对象,jq的方法只能供jq对象使用,同理dom方法只能由dom对象调用,如果想互用各自的方法只能建对象类型转化成对应的方法的类型
+			 * 通过$()获取的是JQ对象,JQ对象有一个特性,其有下标的概念,我们可以利用这个特性,将JQ对象转换成普通dom对象.
+			 */
+			
+			//JQ对象转换成普通dom对象
+			$("#p1").get(0).style.background = "red";
+			$("#p1")[0].style.background = "red";
+			
+			//普通dom对象转换成JQ对象
+			
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

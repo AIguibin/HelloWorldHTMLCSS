@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单</title>
+</head>
+<body>
+	<!-- 表单 form标签 双标签 表示表单的范围 
+		表示表单的范围,其内部可以添加对应的控件-->
+		<!-- 
+			表单里一般写两个属性:
+			1.action:服务器地址
+			2:method:与服务器打交道的方式;
+				a.get  不太安全,参数名与参数值可以被看到
+				b.post  相对较为安全,参数名与参数值是不可见的
+			如果不写出method的方式,默认的方式是get
+		 -->
+	<form action="" method="get">
+		<!-- 文本框 text -->
+		<!-- type 表示控件的类型 -->
+		<!-- name 将来要传到服务器的参数名 -->
+		用户名: <input type="text" name="Username">
+		<!-- 密码输入框 password -->
+		密码: <input type="password" name="password">	
+		<br>		
+		<!-- 提交按钮 submit 
+		如果想修改按钮上的文字,使用value属性-->
+		<input type="submit" value="登陆">
+		<!-- 重置按钮 reset 
+				会把同一表单内的所有信息还原
+				慎用-->
+		<input type="reset" value="重写">
+		<hr>
+		<!-- 单选框 radio	 
+			name : 在单选框中既可以作为分组的标志,又是参数名
+			value  作为上传到服务器的参数值 -->
+		男: <input type="radio" name="sex" value="1" checked>
+		女: <input type="radio" name="sex" value="2">
+		<hr>
+		 <!-- 多选框 checkbox -->
+		  <!-- 默认选项 checked -->
+		兴趣爱好: <br>
+		运动: <input type="checkbox" name="hobby" value="1" checked>
+		看书: <input type="checkbox" name="hobby" value="2">
+		音乐: <input type="checkbox" name="hobby" value="3">
+		电影: <input type="checkbox" name="hobby" value="4">	
+			<hr>
+		<!-- 文件选择器 file -->
+		<input type="file" name="choosefile">
+		<hr>
+		<!-- 文本域 textarea标签 双标签 
+			name  参数名	
+			id 唯一标示
+			cols,rows  文本域的大小-->
+		<textarea name="content" id="t1" cols="100" rows="30">自我评价:</textarea>
+		<hr>
+		<!-- 下拉框  select标签 双标签 -->
+		<select name="fruit" id="">
+			<!-- option  双标签 下拉项 -->
+			<option value="apple">苹果</option>
+			<option value="banana">香蕉</option>
+			<option value="3">西瓜</option>
+			<option value="4">水蜜桃</option>
+			<option value="5">甜瓜</option>
+		</select>
+		
+
+
+	</form>
+	<hr>
+		<!-- div 双标签 无意义标签 
+		用来对整个网页的结构进行划分 -->
+		<div><p>这是一行测试文字</p></div>
+		<!-- span  无意义标签 双标签
+		用来对网页的结构进行划分 -->
+		<span>
+			
+		</span>
+
+		<!-- 注意!!!!!!!!!
+		块标签可以嵌套行标签与其他标签
+		但是行标签只能嵌套其他标签
+
+		 -->
+</body>
+</html>

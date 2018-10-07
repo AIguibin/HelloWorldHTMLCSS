@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>弹性碰撞</title>
+		<style type="text/css">
+			#myCanvas {
+				background: url(img/1.jpg);
+				box-shadow: 4px 4px 4px antiquewhite;
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+	</body>
+	<script src="js/jquery3.1.0.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/ball.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var count = 100; //记录当前canvas标签中小球的个数
+		var balls = []; //存储所有创建的小球
+		//产生小球
+		for(var i = 0; i < count; i++) {
+			var ball = new Ball();
+			balls.push(ball);
+		}
+		//定义函数完成小球的移动
+		function startAnimation() {
+			ctx.clearRect(0, 0, myCanvas.width, myCanvas.height)
+			for(var i = 0; i < balls.length; i++) {
+				balls[i].move();
+				balls[i].draw();
+			}
+			adjustPBCollision();
+			adjustBBCollision()
+			window.requestAnimationFrame(startAnimation);
+		};
+		startAnimation();
+
+		//定义函数完成小球的碰壁检测
+		function adjustPBCollision() {
+			for(var i = 0; i < balls.length; i++) {
+				if(balls[i].centerX <= balls[i].radius || balls[i].centerX >= myCanvas.width - balls[i].radius) {
+					//说明和左右两个边界中的某一个边界碰撞
+					balls[i].speedX *= (-1);
+				}
+				if(balls[i].centerY <= balls[i].radius || balls[i].centerY >= myCanvas.height - balls[i].radius) {
+					//说明小球和上下两个边界中的某一个边界碰撞
+					balls[i].speedY *= (-1);
+				}
+			}
+		}
+		
+		//定义方法完成两个小球的碰撞检测
+		function adjustBBCollision(){
+			for (var i = 0; i < balls.length; i++) {
+				
+				for (var j = 0; j < balls.length; j++) {
+					if(i != j){
+						var disX = balls[i].centerX - balls[j].centerX;
+						var disY = balls[i].centerY - balls[j].centerY;
+						//计算小球移动一次之后的位置
+						var disX2 = (balls[i].centerX - balls[j].speedX) - (balls[j].centerX + balls[j].speedX);
+						var disY2 = (balls[i].centerY - balls[j].speedY) - (balls[j].centerY + balls[j].speedY);
+						if(Math.sqrt(disX * disX + disY * disY) <= (balls[i].radius + balls[j].radius) && Math.sqrt(disX2 * disX2 + disY2 * disY2) <= (balls[i].radius + balls[j].radius)){
+							//说明小球相撞
+							balls[i].speedX *= -1;
+							balls[i].speedY *= -1;
+							balls[j].speedX *= -1;
+							balls[j].speedY *= -1;
+						}
+					}
+				}
+			}
+		}
+	</script>
+
+</html>

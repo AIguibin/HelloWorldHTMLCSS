@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>background</title>
+		<style type="text/css">
+			#div1{
+				width: 500px;
+				height: 500px;
+				background:url(houRes/bg-tl.png) no-repeat left top,
+				url(houRes/bg-tr.png) no-repeat right top,
+				url(houRes/bg-bl.png)no-repeat left bottom,
+				url(houRes/bg-br.png)no-repeat right bottom,
+				url(houRes/bg-repeat.png);
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<!--background支持多个值一般应用在背景图片的拼凑上
+			1.如果写多组值可以理解成谁先写谁在上面;
+			2.每组值用逗号隔开,最后一组加分号.
+		-->
+		<div id="div1">
+			
+		</div>
+	</body>
+</html>

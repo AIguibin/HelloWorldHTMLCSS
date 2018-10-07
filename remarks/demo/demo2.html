@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title> 
+		<style>
+			.div1{
+				width: 300px;
+				height: 300px;
+				border: 1px solid;
+				margin: 200px;
+			}
+			.div2{
+				width: 300px;
+				height: auto;
+			}
+			.div3{
+				width: 290px;
+				min-height: 100px;
+				border: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<button>点击添加世界和平</button>
+	</body>
+	<script src="js/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+    var result = true;
+    $("button").click(function () {
+        if(result){
+            $("button").css("background","blue");
+            result = false;
+        }else{
+            $("button").css("background","red");
+            result = true;
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>事件源</title>
+		<style type="text/css">
+			#div1{
+				width: 300px;
+				height: 300px;
+				background: saddlebrown;
+			}
+			#div2{
+				width: 200px;
+				height: 200px;
+				background: teal;
+			}
+			#div3{
+				width: 100px;
+				height: 100px;
+				background: olive;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			<div id="div2">
+				<div id="div3"></div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			
+		
+		/*
+		 * 事件源
+		 * 点击的最开始的元素,不管点击事件添加给谁,鼠标点击的那个元素,只要该元素被点击,那个元素就是事件源.
+		 * 1.在标准浏览器下(不包括谷歌),查看事件源对象使用even.target.
+		 * 2.在IE或者谷歌下,查看事件源对象使用even.srcElement.
+		 
+		 */
+		var div1 = document.getElementById("div1");
+		div1.onclick = function(e){
+			var even = e || event;
+			console.log(even.srcElement)
+		}
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

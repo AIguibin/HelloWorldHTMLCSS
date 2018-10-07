@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+
+		<title>元素拖拽</title>
+		<style type="text/css">
+			#div1 {
+				width: 200px;
+				height: 200px;
+				background: teal;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="div1"></div>
+		<script type="text/javascript">
+			var div1 = document.getElementById("div1");
+			//声明两个对象分别存储之前与之后的两个点的坐标
+			var startPoint = {
+				x: 0,
+				y: 0
+			};
+			var endPoint = {
+				x: 0,
+				y: 0
+			};
+			div1.addEventListener("touchstart", function(e) {
+				var even = e || event;
+				//记录开始点的坐标
+				var obj = even.touches[0];
+				startPoint.x = obj.pageX;
+				startPoint.y = obj.pageY;
+			}, false)
+			div1.addEventListener("touchmove", function(e) {
+				var even = e || event;
+				//记录开始点的坐标
+				var obj = even.touches[0];
+				endPoint.x = obj.pageX;
+				endPoint.y = obj.pageY;
+
+				//计算增量
+				var x = endPoint.x - startPoint.x;
+				var y = endPoint.y - startPoint.y;
+
+				//给元素赋值
+				div1.style.left = div1.offsetLeft + x + "px";
+				div1.style.top = div1.offsetTop + y + "px";
+				//重置起点
+				startPoint.x = endPoint.x;
+				startPoint.y = endPoint.y;
+				//去掉浏览器自己的滚动
+				even.preventDefault();
+			}, false);
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,34 @@
+#out {
+  width: 500px;
+  height: 500px;
+  background: yellow;
+}
+#out #first {
+  width: 250px;
+  height: 250px;
+  background: red;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  transition: all 1s;
+}
+#out #first:hover {
+  -webkit-transform: translate(250px, 0);
+  -moz-transform: translate(250px, 0);
+  -ms-transform: translate(250px, 0);
+}
+#out #last {
+  width: 250px;
+  height: 250px;
+  background: blue;
+  -webkit-transition: all 2s;
+  -moz-transition: all 2s;
+  -ms-transition: all 2s;
+  transition: all 2s;
+}
+#out #last:hover {
+  -webkit-transform: translate(0, 250px);
+  -moz-transform: translate(0, 250px);
+  -ms-transform: translate(0, 250px);
+}
+/*# sourceMappingURL=style.css.map */

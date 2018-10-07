@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<div class="span9">
+    <button class='lis1t' onclick="tabClick(event)">nihao</button> 
+
+    <div id="example"></div>
+</div>
+<script>
+	function tabClick(event) {
+        var className = event.target.className;
+        var index = $('.'+className).index();
+        console.log(index)
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+		/*当屏幕宽度大于500时*/
+			@media only screen and (min-width: 500px) {
+				body{
+				background: red;
+			}
+			}
+			
+			/*当屏幕宽度在500--1000px时*/
+			@media only screen and (min-width:500px ) and (max-width:1000px) {
+				body{
+					background: blue;
+				}
+			}
+			/*当屏幕小于500时*/
+			@media only screen and (max-width:500px ) {
+				body{
+				background: yellow;
+			}
+			}
+			
+			/*
+			 only screen:电脑 pad 手机  print(打印机) speech:读音设备(阅读器)
+			 all(所有设备)
+			 */
+		</style>
+	</head>
+	<body>
+		<!--媒介查询
+			监听给定的设备的宽或者高,并设定临界值,可以处理达到临界值之后页面的布局或者元素的属性
+			语法结构:
+			@media 监听的设备类型 and(设备的临界条件){
+				
+			}
+			媒介查询属于css语法,需要写在style标签里
+		-->
+	</body>
+</html>

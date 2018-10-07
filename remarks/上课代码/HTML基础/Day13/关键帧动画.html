@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>关键帧动画</title>
+		<style type="text/css">
+			body{
+				position: relative;
+			}
+			#div1{
+				width: 200px;
+			height: 200px;
+			background: red;
+			position: fixed;
+			top: 0;
+			left: 0;
+			/*设置关键帧动画*/
+			animation-name: firstAnimation;
+			animation-duration: 4s;
+			animation-iteration-count:2;
+			animation-delay: 0;
+			/*animation-direction:reverse;*/
+			/*animation-play-state: paused;*/
+			animation-fill-mode: both;
+			
+			}
+			@keyframes firstAnimation{
+				from{background: red;
+				}
+				25%{background: gray;
+				left:500px;
+				top:0;
+				}
+				50%{background: darkorchid;
+				top:500px;
+				left: 500px;
+				}
+				75%{background: darkslategrey;
+				top:500px;
+				left: 0;
+				
+				}
+				to{background: yellow;
+				top: 0;
+				left: 0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!--在规定的动画时间内,一次动画可以做多种变化
+			animetion
+			语法格式:
+			1.animation nema:动画的名字,配合@keyframes使用,动画名字是我们自己起的
+			2.animation-duration:动画的持续时间
+			3.animation-iteration-count:重复次数;默认一次  infinite  无限次
+			4.animation-delay:动画延迟时间
+			5.animation-direction:动画播放的方向;
+			   *normal 正向播放
+			   * reverse  反省播放
+			   * alternate 奇数次正向,偶数次反向
+			   * alternate-reverse 偶数次正向,奇数次反向
+			6.animation-play-state:动画的状态
+			  *paused  暂停
+			  * running  播放
+			7.animation-fill-mode:设置动画以外的状态
+			   *none 不设置,完成后回到原始状态
+			   * forwards 保存最后一帧
+			   * backwards 动画结束后快速回到原始状态
+			   * both  具备forwards和backwards的特点
+		-->
+		<!--
+			动画效果由@keyframes决定
+			1.@keyframes要写在css样式里面
+			2.@keyframes中的动画名要和animation-name的名字一样
+			
+			格式一:
+			@keyframes 动画名{
+				from{修改的属性值}
+				百分比{修改的属性值}
+						.
+						.
+						.
+				to{修改的属性值}
+			}
+		-->
+		<div id="div1">
+			
+		</div>
+	</body>
+</html>

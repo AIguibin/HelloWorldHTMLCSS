@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas id="myCanvas" width="320" height="568"></canvas>
+	</body>
+	<script src="js/jquery3.1.0.min.js" type="text/javascript" charset="utf-8"></script>
+	<script  type="text/javascript" src="js/loading.js"  charset="utf-8"></script>
+	<script type="text/javascript"  src="js/bullet.js"  charset="utf-8"></script>
+	<script type="text/javascript"  src="js/fly.js"  charset="utf-8"></script>
+	<script type="text/javascript"  src="js/enemy.js"  charset="utf-8"></script>
+	<script type="text/javascript">
+		//img是一个对象用来存储对应的图片链接
+		var imgs = {
+			bgc: "img/background.png",
+			fly: "img/herofly.png",
+			enemy1: "img/enemy1.png",
+			enemy2: "img/enemy2.png",
+			enemy3: "img/enemy3.png",
+			bullet1:"img/bullet1.png",
+			bullet2:"img/bullet2.png"
+		};
+		//定义一个变量存储加载完成额的所有图片
+		var loadImgs = {};
+		var currentCount = 0 ; //记录当前刷新的次数
+		loading(imgs, {
+			progress: function(pro) {
+				console.log(pro);
+			},
+			success: function(imgs) {
+				loadImgs = imgs;
+				//开始游戏内容的绘制
+				function startDrawing() {
+					ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+					drawBackground(); //绘制当前游戏背景
+					creatHero(); //绘制飞机对象
+					currentCount++;
+					fly.moveBullets();
+					justcollision();
+					if(currentCount%20 == 0){
+					fly.drawBullet(loadImgs["bullet1"]);
+					}
+					if( currentCount/50 == 1){
+						currentCount = 0 ;
+						createEnemy(); //绘制敌机
+					}					
+                    moveEnemy();   //移动敌机
+					window.requestAnimationFrame(startDrawing)
+				}
+				startDrawing();
+				//添加对应的事件实现飞机跟随手指移动
+				$(myCanvas).on("touchstart", function(e) {
+					//获取手指触摸的位置的坐标
+					var touch = e.originalEvent.targetTouches[0];
+					var pointX = touch.pageX - $(myCanvas).offset().left;
+		 			var pointY = touch.pageY - $(myCanvas).offset().top;
+					//获取触摸点和飞机左边左上角的间距
+					var disX = pointX - fly.x;
+					var disY = pointY - fly.y;
+					//判断手指是否触摸到飞机
+					if(disX >= 0 && disX <= fly.w && disY >= 0 && disY <= fly.h) {
+						$(document).on("touchmove", function(e) {
+							//获取手指触摸点的坐标
+							/*在移动端事件中pageX和pageY获取需要借助于对应的手指对象,
+							 * 获取手指对象的操作对应的是下面的操作
+							 */
+							//获取手指对象
+							touch = e.originalEvent.targetTouches[0];
+							pointX = touch.pageX - $(myCanvas).offset().left;
+							pointY = touch.pageY - $(myCanvas).offset().top;
+							fly.x = pointX - disX;
+							fly.y = pointY - disY;
+							if( fly.x <= 0){
+								fly.x  = 0
+							}else if(fly.x >= myCanvas.width - fly.w){
+								fly.x =  myCanvas.width - fly.w;
+							}else if (fly.y <= 0) {
+								fly.y = 0
+							}else if(fly.y >= myCanvas.height - fly.h){
+								fly.y = myCanvas.height - fly.h;
+							}
+						
+						});
+					}
+				})
+				$(document).on("touchend",function(){
+					$(document).off("touchmove");
+				})
+			}
+		});
+		//定义函数完成背景图片的绘制
+		var dy = 0;
+
+		function drawBackground() {
+			ctx.drawImage(loadImgs["bgc"], 0, dy);
+			ctx.drawImage(loadImgs["bgc"], 0, dy - myCanvas.height);
+			dy += 5;
+			if(dy > myCanvas.height) {
+				dy = 0;
+			}
+		}
+		//定义一个方法用来创建飞机对象
+		var fly = null; //定义一个全局变量存储对应的飞机对象
+		function creatHero() {
+			if(fly == null) {
+				fly = new Fly(loadImgs["fly"]);
+			}
+			fly.draw();
+		}
+		//定义函数完成敌机的产生以及移动
+		  var enemys = [];  //定义数组存储生成的敌机对象
+		  function createEnemy(){
+		  	var random = random1(0,100);
+		  	if( random >= 0 &&random<=6){
+		  		//生成大飞机
+		  		var enemy = new Enemy(loadImgs["enemy2"],2)
+		  	}else if(random >6 && random<=36){
+		  		//生成中等飞机
+		  		var enemy = new Enemy(loadImgs["enemy3"],3)
+		  	}else{
+		  		//生成小飞机
+		  		var enemy = new Enemy(loadImgs["enemy1"],1)
+		  	}
+		  	//存储敌机对象
+		  	enemys.push(enemy);
+		  	
+		  };
+		 // 定义函数完成敌机的移动操作
+		   function moveEnemy(){
+		   	for (var i = 0; i < enemys.length; i++) {
+		   		enemys[i].move();
+		   		if(enemys[i].y >= myCanvas.h ){
+		   			enemys[i].splice(i,1);
+		   			i--;
+		   		}else{
+		   		enemys[i].draw();
+		   		}
+		   	}
+		   }
+		   //定义一个方法完成敌机和子弹的碰撞
+		   function justcollision(){
+		   	for (var i = 0; i < fly.bullets.length; i++) {
+		   		for (var j = 0; j < enemys.length; j++) {
+		   			if ( (fly.bullets[i].x >= (enemys[j].x -fly.bullets[i].w )&& fly.bullets[i].x <= (enemys[j].x +enemys[j].w)) && (fly.bullets[i].y >=(enemys[j].y -fly.bullets[i].h) && fly.bullets[i].y <=(enemys[j].y +enemys[j].h )) && (fly.bullets[i].y >= enemys[j].y - 14)) {
+		   				fly.bullets.splice(i,1);
+		   				i--;
+		   				enemys[j].blood--;
+		   			    enemys[j].positionX += enemys[j].w;
+		   			    if (enemys[j].blood == 0) {
+		   			    	  enemys.splice(j,1);
+		   			    	  j--;
+		   			    }
+		   			    break;
+		   			}
+		   		}
+		   	}
+		   }
+	</script>
+
+</html>

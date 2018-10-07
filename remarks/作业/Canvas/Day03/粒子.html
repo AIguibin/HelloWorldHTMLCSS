@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>星空</title>
+		<style type="text/css">
+			#myCanvas {
+				background: url(img/3.jpg);
+				background-size: 1200px 850px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<canvas id="myCanvas" width="1200" height="800"></canvas>
+	</body>
+	<script src="js/jquery3.1.0.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var myCanvas = document.getElementById("myCanvas");
+		var ctx = myCanvas.getContext("2d");
+		//定义小球半径范围
+		var min = 1,
+			max = 3;
+		//定义构造方法创建小球对象
+		function Ball() {
+			//小球的位置坐标
+			this.centerX1 = random(max, myCanvas.width - max);
+			this.centerY1 = random(max, myCanvas.height - max);
+			//小球的半径
+			this.radius = random(min, max);
+			//小球的颜色
+			this.color = randomColor();
+			//小球随机速度,正负号代表运动方向
+			var speed1 = random(1, 2);
+			this.speedX = random(0, 1) == 0 ? -speed1 : speed1;
+			this.speedY = random(0, 1) == 0 ? -speed1 : speed1;
+		}
+		//为小球对象添加绘制的功能
+		Ball.prototype.draw = function() {
+			ctx.beginPath();
+			ctx.arc(this.centerX1, this.centerY1, this.radius, 0, Math.PI * 2, false);
+			ctx.closePath();
+			ctx.fillStyle = this.color;
+			ctx.fill();
+		}
+		Ball.prototype.move = function(){
+			this.centerX1 += this.speedX;
+			this.centerY1 += this.speedY;
+		}
+		//随机数函数
+		function random(x, y) {
+			return Math.floor(Math.random() * (y - x + 1) + x);
+		}
+		//随机颜色函数
+		function randomColor() {
+			var r = random(0, 255),
+				g = random(0, 255),
+				b = random(0, 255);
+			return "rgb(" + r + "," + g + "," + b + ")";
+		}
+		//记录小球的数量
+		var count = 500;
+		//存储创建的小球
+		var balls = [];
+		//产生小球
+		for (var i = 0; i < count; i++) {
+			var ball = new Ball();
+			balls.push(ball);
+		}
+		//定义函数完成小球的移动
+		setInterval(function startAnimation(){
+			ctx.clearRect(0,0,myCanvas.width,myCanvas.height);
+			for (var i = 0; i < balls.length; i++) {
+				balls[i].move();
+				balls[i].draw();
+			}
+			ligature();
+			collisionDetection()	;
+		},10) 
+		//定义函数完成小球的碰壁检测
+		function collisionDetection(){
+			for (var i = 0; i < balls.length; i++) {
+				if (balls[i].centerX1 <= balls[i].radius || balls[i].centerX1 >= myCanvas.width - balls[i].radius) {
+					//说明和左右两个边界中的某一个边界碰撞
+					balls[i].speedX *= -1;
+				}
+				if(balls[i].centerY1 <= balls[i].radius || balls[i].centerY1 >= myCanvas.height - balls[i].radius) {
+					//说明小球和上下两个边界中的某一个边界碰撞
+					balls[i].speedY *= (-1);
+				}
+			}
+		}
+		//定义连线函数
+		function ligature(){
+			for (var i = 0; i < balls.length; i++) {
+				for (var j = 0; j < balls.length; j++) {
+					if (i != j) {
+						var disX = Math.abs(balls[i].centerX1 - balls[j].centerX1);
+						var disY = Math.abs(balls[i].centerY1 - balls[j].centerY1);
+						if(disX <= 50 && disY <= 50){
+							ctx.beginPath();
+							ctx.moveTo(balls[i].centerX1,balls[i].centerY1);
+							ctx.lineTo(balls[j].centerX1,balls[j].centerY1);
+							ctx.strokeStyle = randomColor();
+						ctx.stroke();
+						}
+					}
+				}
+			}
+		}
+//		console.log($(myCanvas).offset().left)
+		//鼠标移动事件
+		$(document).on("mousemove",function(e){
+			var centerX2 = e.pageX - $(myCanvas).offset().left;
+			var centerY2 = e.pageY - $(myCanvas).offset().top;
+			for (var i = 0; i < balls.length; i++) {
+				var disX1 = Math.abs(balls[i].centerX1 - centerX2);
+				var disY1 = Math.abs(balls[i].centerY1 - centerY2);
+				
+				if (disX1 <= 100 && disY1 <= 100) {
+					ctx.beginPath();console.log(centerX2,centerY2)
+					ctx.moveTo(centerX2,centerY2);
+							ctx.lineTo(balls[i].centerX1,balls[i].centerY1);
+							ctx.strokeStyle = randomColor();
+						ctx.stroke();
+				}
+			}
+			
+		})
+		
+		
+		
+		
+		
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+	</script>
+
+</html>

@@ -1,0 +1,116 @@
+section {
+  width: 75%;
+  margin: 130px auto 0;
+  max-width: 1200px;
+}
+section #topImg img {
+  width: 100%;
+  vertical-align: top;
+}
+section #info {
+  margin-top: 50px;
+  padding: 2% 0;
+  font-size: 0.9rem;
+  text-indent: 2rem;
+  color: #666666;
+  font-family: STKaiti, 微软雅黑;
+  border-top: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+  line-height: 1.5rem;
+}
+section #fLink {
+  margin: 2% 0;
+  text-align: center;
+}
+section #fLink img {
+  width: 60px;
+  height: 40.91px;
+  margin: 0 10px;
+}
+section #content {
+  width: 100%;
+  overflow: hidden;
+}
+section #content .item {
+  float: left;
+  width: 31%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 3px 1px #e3e3e3;
+  position: relative;
+  text-align: center;
+  margin: 15px 0;
+}
+section #content .item a:nth-child(1) {
+  position: relative;
+  display: inline-block;
+}
+section #content .item a:nth-child(1) ul {
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.5s;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+section #content .item a:nth-child(1) li:nth-child(1) {
+  font-size: 2rem;
+}
+section #content .item a:nth-child(1) ul li {
+  color: white;
+}
+section #content .item a:nth-child(1) img {
+  width: 100%;
+}
+section #content .item a:nth-of-type(2) {
+  display: inline-block;
+  background: white;
+  padding: 5px 0;
+  width: 100%;
+}
+section #content .item a:nth-of-type(2) span {
+  color: grey;
+  line-height: ;
+}
+section #content .item:hover .u1 {
+  opacity: 0.7;
+}
+section #content .item:hover a > span {
+  color: black;
+}
+section #content .item:nth-child(3n+2) {
+  margin: 15px 3.5%;
+}
+@media only screen and (min-width: 640px) {
+  section {
+    min-width: 640px;
+  }
+}
+@media only screen and (max-width: 640px) {
+  section {
+    width: 95%;
+  }
+  section #topImg img {
+    width: 100%;
+  }
+  section #fLink img {
+    width: 5%;
+    height: 3%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  section #content .item {
+    width: 46.5%;
+  }
+  section #content .item:nth-child(n) {
+    margin: 5px;
+  }
+}
+/*# sourceMappingURL=section.css.map */

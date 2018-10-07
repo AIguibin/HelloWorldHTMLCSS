@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			div {
+				padding: 50px;
+			}
+			
+			#d1 {
+				/*margin: 200px 200px 0;*/
+				width: 400px;
+				height: 400px;
+				border: 2px solid darkblue;
+				border-radius:250px ;
+			}
+			
+			#d2 {
+				width: 300px;
+				height: 300px;
+				border: 2px solid darkcyan;
+				background: white;
+				border-radius:200px ;
+			}
+			
+			#d3 {
+				width: 200px;
+				height: 200px;
+				border: 2px solid darkgoldenrod;		
+				background: white;
+				border-radius:150px ;
+
+			}
+			
+			#d4 {
+				width: 100px;
+				height: 100px;
+				border: 2px solid red;
+				background: white;
+				border-radius:100px ;
+
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1" class="box">
+			<div id="d2" class="box">
+				<div id="d3" class="box">
+					<div id="d4" class="box">
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<input type="button" id="" value="向里变色" onclick="btnIn()" />
+		 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="button" id="" value="向外变色" onclick="btnOut()" />
+		<script type="text/javascript">
+			function color(x, y) {
+				return Math.floor(Math.random() * (y - x + 1) + x);
+			}
+
+			function randomColor() {
+				var red = color(0, 255);
+				var green = color(0, 255);
+				var blue = color(0, 255);
+				return "rgb(" + red + "," + green + "," + blue + ")";
+				
+			}
+//			console.log(randomColor())
+			function btnIn(){
+				//获取到所有的div
+				var boxes = document.getElementsByClassName("box");
+				//遍历
+				for (var i = boxes.length - 1; i > 0; i--){
+					boxes[i].style.backgroundColor = boxes[i - 1].style.backgroundColor
+				}
+				//给最外层符随机色
+				boxes[0].style.backgroundColor = randomColor();
+			}
+			function btnOut(){
+				//获取到所有的div
+				var boxes = document.getElementsByClassName("box");
+				//遍历
+				for (var i = 0; i < boxes.length-1; i++){
+					boxes[i].style.backgroundColor = boxes[i + 1].style.backgroundColor
+				}
+				//给最内层符随机色
+				boxes[3].style.backgroundColor = randomColor();
+			}
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

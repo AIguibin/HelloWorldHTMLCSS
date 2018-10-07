@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="img/1.jpg" alt="pics" id="girl"/>
+		<br />
+		<input type="button" id="" value="上一张" onclick="last()" />
+		<input type="button" id="" value="下一张" onclick= "next()" />
+		<input type="button" id="" value="开始" onclick="start()"/>
+		<input type="button" id="" value="结束" onclick="over()"/>
+		
+		<script type="text/javascript">
+				var girl = document.querySelector("#girl");
+				//点击上一张触发的函数
+				//计数器,记录当前是第几张图片
+				var i = 1;
+				function last(){
+					if (i == 1) {
+						i = 8;
+					} else{
+						i--;
+					}
+					girl.src = "img/" + i + ".jpg";
+				}
+				function next(){
+					if (i == 8) {
+						i = 1;
+					} else{
+						i++;
+					}
+					girl.src = "img/" + i + ".jpg";
+				}
+				/*
+				 * 定期执行某个函数(定时器) setInterval()
+				 * 1.codeString,需要执行的代码字符串
+				 * 2.time  时间间隔 单位:毫秒 1s = 1000ms
+				 * 
+				 * 清除一个计时器
+				 * clearInterval,
+				 */
+				var timer;
+//				var timeArr = [];
+				function start(){
+					clearInterval(timer)
+					timer = setInterval("next()",1000);
+//					timeArr.push(timer)
+					
+				}
+				
+				function over(){
+//					for (i = 0; i < timeArr.length; i++){
+//						clearInterval(timeArr[i]);
+//					}
+					clearInterval(timer)
+				}
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

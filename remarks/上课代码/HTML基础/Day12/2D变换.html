@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>2D变换</title>
+		<style type="text/css">
+			#div1{
+				width: 200px;
+				height: 200px;
+				background: blueviolet;
+				/*如果要做多个2D或者3D变换,要把多个值全部写在一个transform属性里,如果写多个,后面的会覆盖前面的*/
+				/*transform: translate(100px,200px);*/
+			}
+			#div2{
+				width: 300px;
+				height: 300px;
+				background: burlywood;
+				transform: scale(0.4,0.6);
+			}
+			#div3{
+				margin: 0 auto;
+				width: 100px;
+				height: 200px;
+				background: red;
+				/*transform: skew(30deg,60deg);*/
+				transform: skewX(30deg) skewY(60deg);
+			}
+			#div4{
+				width: 500px;
+				height:500px;
+				background: goldenrod;
+				
+				float: left;
+				background: url(houRes/bg-grid.jpg);	
+				position: relative;
+				/*如果想看元素展现的3D效果,需要激活当前界面的3D效果,而且要加到对应元素的父级里*/
+				transform-style: preserve-3d;
+			}
+			img{
+				width: 200px;
+				position: absolute;
+				top:0;
+				left: 0;	
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				/*transform: rotate(50deg,0);*/
+			}
+			img:nth-child(1){
+				opacity: 0.5;
+			}
+			img:nth-child(2){
+				transform: rotateY(50deg);
+			}
+		</style>
+	</head>
+	<body>
+		<!--2D变换效果
+			transform
+			类型:
+			1.平移
+			2.缩放
+			3.倾斜
+			4.旋转
+		-->
+		<!--平移 :translate
+			水平方向移动
+			translateX
+			竖直方向移动
+			translateY
+			合写
+			translate(x,y)
+			值可以是具体的px单位
+			也可以写百分比,百分比是依据对应元素的宽高来计算的
+		-->
+		
+		<div id="div1">
+			
+		</div>
+		
+		<!--缩放 :scale
+			scaleX  x轴方向缩放比例
+			scaleY  y轴方向缩放比例
+			合写
+			scale(x,y)
+			值我们一般给小数,表示缩放的倍数,如果值为负,先按照对应的轴翻转,再缩放
+		-->
+		<div id="div2"></div>
+		
+		<!--倾斜 skew
+			skewX
+			skewY
+			skew(x,y)
+			值是角度  单位是deg
+			
+			倾斜的坐标轴于我们认知的坐标轴相反
+			沿X轴给正值逆时针旋转
+		-->
+		<div id="div3">
+			
+		</div>
+		
+		<!--旋转 rotate
+			rotateX
+			rotateY
+			rotate()
+			值给相应的角度
+			如果给X轴正值从左看逆时针旋转 给负值顺时针旋转
+			如果给Y轴正值从上往下看逆时针旋转,给负值顺时针旋转
+		-->
+		<div id="div4">
+			<img src="houRes/cardKingClub.png"/>
+			<img src="houRes/cardKingClub.png"/>
+			
+		</div>
+		
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

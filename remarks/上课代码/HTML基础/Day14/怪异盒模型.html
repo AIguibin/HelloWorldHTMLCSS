@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>怪异盒模型</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				
+			}
+			/*#d1{
+				width: 200px;
+				height: 200px;
+				border: 50px solid gold;
+				margin: 50px;
+				padding: 50px;
+			}
+			#d2{
+				width: 200px;
+				height: 200px;
+				border: 50px solid gold;
+				margin: 50px;
+				padding: 50px;
+				/*设置盒子类型*/
+				box-sizing: border-box;
+			}*/
+			#box{
+				width: 100%;
+			}
+			#one{
+				width: 50%;
+				height: 100px;
+				background: blueviolet;
+				float: left;
+				border: 1px solid red;
+				box-sizing: border-box;
+			}
+			#two{
+				width: 50%;
+				height: 100px;
+				background: green;
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<!--盒模型是用来描述html中每一个元素的尺寸的,一个元素的盒模型由content,padding,margin,border四部分组成
+			content:内容部分,写在一个元素里面的任何内容都只会展示在content区域
+			padding:内边距  border:边框  margin:外边距
+			
+		-->
+		<!--一个元素的盒模型如果不进行设置默认是标准盒模型
+			在标准盒模型下:
+			宽=conten+左右padding+左右border+左右margin
+			高=conten+上下padding+上下border+上下margin
+			在标准盒模型下我们设置的width或者height仅仅指的是content的宽和高,如果我们还额外设置了padding,border和margin,一定要合起来计算.
+		-->
+		<div id="d1">
+			
+		</div>
+		<!--怪异盒模型
+			宽=width(padding+border+content)+margin
+			高=height(padding+border+content)+margin
+			
+			如果设置了元素的盒模型类型为怪异盒模型,此时一定要注意,我们在设置的width,height,会被之后设置的padding,border分享,会缩小content的空间
+		-->
+		<!--当我们使用百分比布局时,当若干个元素的width加在一起正好为100%时,此时如果使用标准盒模型,一旦为某个元素添加了padding或者border,都会造成元素宽度超出100%,导致元素换行,此时可以考虑使用怪异盒模型-->
+		<div id="d2">
+			
+		</div>
+		
+		
+		<div id="box">
+			<div id="one"></div>
+			<div id="two"></div>
+			
+		</div>
+	</body>
+</html>

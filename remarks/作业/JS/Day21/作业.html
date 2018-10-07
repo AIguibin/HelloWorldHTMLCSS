@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>轮播图</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#wrap {
+				width: 500px;
+				height: 300px;
+				position: relative;
+				overflow: hidden;
+				margin: 0 auto;
+			}
+			
+			#content {
+				width: 2000px;
+				height: 300px;
+				position: absolute;
+			}
+			
+			#content img {
+				float: left;
+				width: 500px;
+				height: 300px;
+			}
+			
+			ul {
+				position: absolute;
+				bottom: 20px;
+				left: 150px;
+				list-style: none;
+				width: 200px;
+			}
+			
+			ul li {
+				margin: 0 20px;
+				float: left;
+				width: 10px;
+				height: 10px;
+				border-radius: 10px;
+				background: white;
+				cursor: pointer;
+			}
+			
+			ul li:nth-child(1) {
+				background: red;
+			}
+			
+			#left,
+			#right {
+				background: gray;
+				width: 20px;
+				height: 30px;
+				font-size: 25px;
+				line-height: 30px;
+				position: absolute;
+			}
+			
+			#left {
+				top: 140px;
+				left: 0;
+			}
+			
+			#right {
+				top: 140px;
+				right: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap">
+			<div id="content">
+				<img src="img/1.jpg" />
+				<img src="img/2.jpg" />
+				<img src="img/3.jpg" />
+				<img src="img/4.jpg" />
+				<img src="img/1.jpg" />
+			</div>
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+			<div id="left">
+				< </div>
+					<div id="right">
+						>
+					</div>
+			</div>
+			<script src="js/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+			<script src="js/unslider.min.js" type="text/javascript" charset="utf-8"></script>
+			<script type="text/javascript">
+				//鼠标经过小点切换图片
+				$("li").mouseenter(function() {
+					$("#content").animate({
+						left: -$("#wrap").width() * $(this).index()
+					}, 100)
+				})
+				
+//				$("#right").click(function() {
+//					$("#content").animate({
+//						left: -$("#wrap").width() *
+//					}, 100)
+//				})
+			</script>
+	</body>
+
+</html>

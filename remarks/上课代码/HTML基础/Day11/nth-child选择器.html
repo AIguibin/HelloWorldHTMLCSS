@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>nth-child选择器</title>
+		<style type="text/css">
+			/*E:nth-child(number){
+			 	
+			  }
+			  找到E元素所在的父元素里所有子元素下的第几个元素*/
+			 
+			 /*E:nth-child(n){
+			  
+			   }
+			   n代指所有的元素,从第一个到最后一个*/
+			  /*E:nth-child(2n+1){
+			    	
+			    }
+			    选中E元素所在父级里所有的编号为基数的E元素*/
+			   /*li:nth-child(odd){
+			   	background: beige;
+			   }
+			   li:nth-child(even){
+			   	background: blue;
+			   }*/
+			 /*#u1 li:nth-child(-n+8){
+			   	background: indianred;
+			   }*/
+			  /*#u1 li:nth-child(n+8){
+			   	background: darkblue;
+			   }*/
+			   /*
+			    E:nth-of-type(number){
+			    	
+			    }
+			    获得E元素所在父元素里所有的剔除了除E元素之外的所有元素之后的第几个E元素
+			    E:nth-of-type(number){
+			    	
+			    }
+			    */
+			   li:nth-of-type(2){
+			   	background: teal;
+			   }
+			   /*
+			    :root  直接找到html标签
+			    E:empty  选择内容为空的E元素
+			    
+			    E:only-child  选择E元素所在的父元素里有且只有一个名字叫E的元素*/
+		</style>
+	</head>
+	<body>
+		<ul id="u1">
+			<li>这是第1个</li>
+			<li>这是第2个</li>
+			<li>这是第3个</li>
+			<li>这是第4个</li>
+			<li>这是第5个</li>
+			<li>这是第6个</li>
+			<li>这是第7个</li>
+			<li>这是第8个</li>
+			<li>这是第9个</li>
+			<li>这是第10个</li>
+			<li>这是第11个</li>
+			<li>这是第12个</li>
+			<li>这是第13个</li>
+			<li>这是第14个</li>
+			<li>这是第15个</li>
+			<li>这是第16个</li>
+			<li>这是第17个</li>
+			<li>这是第18个</li>
+			<li>这是第19个</li>
+			<li>这是第20个</li>
+		</ul>
+		<ul>
+			<li>这是第1+20个</li>
+			<li>这是第2+20个</li>
+			<li>这是第3+20个</li>
+			<li>这是第4+20个</li>
+			<li>这是第5+20个</li>
+			<li>这是第6+20个</li>
+			<li>这是第7+20个</li>
+			<li>这是第8+20个</li>
+			<li>这是第9+20个</li>
+			<li>这是第10+20个</li>
+		</ul>
+	</body>
+</html>

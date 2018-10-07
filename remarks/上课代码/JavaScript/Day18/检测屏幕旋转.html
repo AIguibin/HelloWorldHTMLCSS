@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+		<title>检测屏幕旋转</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 检测屏幕的旋转需要用到onorientationchange
+			 */
+			window.onorientationchange = function(){
+				switch (window.orientation){
+					case 0:{
+						alert("竖直方向")
+						break;
+					}
+					case 90:{
+						alert("左横屏")
+						break;
+					}
+					case -90:{
+						alert("右横屏")
+						break;
+					}
+					default:
+						break;
+				}
+			}
+		</script>
+	</body>
+</html>

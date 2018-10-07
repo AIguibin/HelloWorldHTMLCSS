@@ -1,0 +1,41 @@
+//声明一个变量
+@width:250px;
+@height:250px;
+@color1:yellow;
+@color2:red;
+@color3:blue;
+.transition(@time:5s){
+        -webkit-transition: all @time;
+        -moz-transition: all @time;
+        -ms-transition:  all @time;
+        transition: all @time;
+        }
+.transform(@x:0,@y:0){
+        -webkit-transform: translate(@x,@y) ;
+        -moz-transform: translate(@x,@y);
+        -ms-transform: translate(@x,@y);
+}
+#out{
+    width: 500px;
+    height: 500px;
+    background: @color1;
+    #first{
+        //当我们使用一个变量时,本质上是在使用其里面的值
+        width: @width;
+        height: @height;
+        background: @color2;
+        .transition(1s);
+    }
+    #first:hover{
+        .transform(250px,0);
+    }
+    #last{
+        width: @width;
+        height: @height;
+        background: @color3;
+        .transition(2s);
+    }
+    #last:hover{
+        .transform(0,250px)
+    }
+}

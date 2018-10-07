@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>模拟记住用户名和密码</title>
+	</head>
+
+	<body>
+		<input type="text" id="userName" placeholder="请输入用户名" /><br />
+		<input type="text" id="passWord" placeholder="请输入密码" /> 
+		是否记住密码<input type="checkbox" id="rember" /><br />
+		<input type="button" id="submit" value="登录" />
+		
+		
+		
+		<script src="cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/*
+			 * 记住用户名和密码的流程
+			 * 1.点击登录,判断用户是否勾选记住用户名和密码,如果勾选,将用户名和密码存入Cookie
+			 * 2.再次打开网页时,判断Cookie里是否有用户名和密码,如果有,取出并显示在对应的文本框中
+			 */
+			var userName = document.getElementById("userName");
+			var passWord = document.getElementById("passWord");
+			var rember = document.getElementById("rember");
+			var submitBtn = document.getElementById("submit");
+			
+			//判断是否已经存在用户名和密码的Cookie
+			if (hasKey("userName")){
+				userName.value = getValueByKey("userName");
+			}
+			if (hasKey("passWord")){
+				passWord.value = getValueByKey("passWord");
+				rember.checked = true;
+			}
+			
+			submitBtn.onclick = function(){
+				if(userName.value.length == 0){
+					alert("请输入用户名!");
+					return;
+				}
+				if(passWord.value.length == 0){
+					alert("请输入密码!");
+					return;
+				}
+				//判断是否应该记住用户信息
+				if(rember.checked){
+					//记住
+				 	addCookie("userName",userName.value,60*60*24);
+				 	addCookie("passWord",passWord.value,60*60*24);
+				 
+				}else{
+					//不记住
+					deleteCookie("userName");
+					deleteCookie("passWord");
+				}
+				
+			}
+			
+		</script>
+	</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>作业</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box{
+				width: 600px;
+				height: 400px;
+				border: 2px solid darkcyan;
+				overflow: hidden;
+				position: relative;
+			}
+			#left{
+				border-bottom: 20px solid rgba(1,1,1,0);
+				border-left: 20px solid rgba(1,1,1,0);
+				border-top: 20px solid rgba(1,1,1,0);
+				border-right: 20px solid green;
+				position: absolute;
+				top: 190px;
+				left: 0;
+				z-index: 1;
+			}
+			#right{
+				border-bottom: 20px solid rgba(1,1,1,0);
+				border-left: 20px solid green;
+				border-top: 20px solid rgba(1,1,1,0);
+				border-right: 20px solid rgba(1,1,1,0);
+				position: absolute;
+				top: 190px;
+				right: 0;
+				z-index: 1;
+			}
+			#content{
+				height: 400px;
+				position: absolute;
+				transition: all 0.5s linear;
+				
+			}
+			#content>img{
+				width: 600px;
+				height: 400px;
+				float: left;
+			}
+			#a{
+				height: 30px;
+				position: absolute;
+				top: 350px;
+				left: 150px;
+				display: flex;
+				margin: 0 auto;
+			}
+			#a>li{
+				list-style: none;
+				width: 30px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				border-radius: 15px;
+				color: white;
+				margin: 0 20px;
+				background: rgba(200,200,200,0.7);
+			}
+		</style>
+	</head>
+	<body>
+		<!--可视区域-->
+		<div id="box">
+			<div id="left" onclick="btnL()"></div>
+			<div id="right" onclick="btnR()"></div>
+			<!--内容-->
+			<div id="content">
+				<img src="img/1.jpg" alt="" />
+				<img src="img/2.jpg" alt="" />
+				<img src="img/3.jpg" alt="" />
+				<img src="img/4.png" alt="" />
+				<img src="img/5.jpg" alt="" />
+			</div>
+			<ul id="a">
+				<li onmouseenter="move(0)">1</li>
+				<li onmouseenter="move(1)">2</li>
+				<li onmouseenter="move(2)">3</li>
+				<li onmouseenter="move(3)">4</li>
+				<li onmouseenter="move(4)">5</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var contentDiv = document.getElementById("content");
+			var imgs = document.getElementsByTagName("img");
+			var n = 0;
+//			contentDiv.innerHTML += contentDiv.innerHTML;
+			contentDiv.style.width = imgs[0].offsetWidth * 5 + "px";
+			function move(x){
+				contentDiv.style.left = -(imgs[0].offsetWidth * x )+ "px";
+			}
+			function btnL(){
+				n--;
+				if(n < 0) {
+					n = imgs.length - 1;
+				}
+				contentDiv.style.left = -(imgs[0].offsetWidth * n )+ "px";
+			}
+			function btnR(){
+				n++
+				if(n > imgs.length - 1) {
+					n = 0;
+				}
+				contentDiv.style.left = -(imgs[0].offsetWidth * n )+ "px";
+			}
+			
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

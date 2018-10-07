@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js事件对象的属性</title>
+		<style type="text/css">
+			body{
+				position: relative;
+			}
+			#div1{
+				width: 200px;
+				height: 200px;
+				background: red;
+				position: absolute;
+			}
+			.div2{
+				width: 30px;
+				height: 30px;
+				background: blue;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<!--<div id="div1"></div>-->
+		<div class="div2"></div>
+		<div class="div2"></div>
+		<div class="div2"></div>
+		<div class="div2"></div>
+		<div class="div2"></div>
+		<div class="div2"></div>
+		<div class="div2"></div>
+		<div class="div2"></div>
+		<div class="div2"></div>
+		<div class="div2"></div>
+		<script type="text/javascript">
+			//clientX(clientY)鼠标点击的点距离窗口上部和左边的距离
+			//screenX(screenY)鼠标点击的点距离屏幕上部和左边的距离
+//			var div1 = document.getElementById("div1");
+//			div1.onclick = function(e){
+//				var even = e || event;
+//				console.log("screenX:" + even.screenX);
+//				console.log("screenY:" + even.screenY);
+//			}
+			
+			//实现一个div元素跟随鼠标的移动而移动
+//			div1.onmouseenter = function(e){
+//				var even = e || event;
+//				var x = even.clientX - div1.offsetLeft;
+//				var y = even.clientY - div1.offsetTop;
+//				document.onmousemove = function(){
+//					even = e || event;
+//					div1.style.left = event.clientX - x + "px"
+//					div1.style.top = event.clientY - y + "px"
+//				}
+//			}
+//			div1.onmouseleave = function(){
+//				document.onmousemove = null
+//			}
+			
+			//10个div小块跟随移动
+//			var divs = document.getElementsByClassName("div2");
+//          for (var i = 0; i < divs.length; i++) {
+//          	       divs[i].style.background = randomColor();
+//          }
+//          document.onmousemove = function(e){
+//              var even = e || event;
+//              for (var i = divs.length - 1; i > 0; i--) {
+//              	       divs[i].style.top = divs[i - 1].style.top;
+//              	       divs[i].style.left = divs[i - 1].style.left;
+//              }
+//              divs[0].style.left = even.clientX + "px";
+//              divs[0].style.top = even.clientY + "px";
+//          }
+//          
+//          function randomColor(){
+//              var red = randomNumber(0, 255);
+//              var green = randomNumber(0, 255);
+//              var blue = randomNumber(0, 255);
+//              return "rgb(" + red + "," + green + "," + blue + ")";
+//          }
+//          function randomNumber(x, y) {
+//              return Math.floor(Math.random() * (y - x + 1) + x);
+//          }
+			var divs = document.getElementsByClassName("div2")
+			for(var i = 0; i < divs.length; i++){
+				divs[i].style.backgroundColor = randomColor();
+			}
+			document.onmousemove = function(e){
+				var even = e || event;
+				for(var i = divs.length - 1; i > 0 ; i--){
+					divs[i].style.top = divs[i - 1].style.top;
+					divs[i].style.left = divs[i - 1].style.left;
+				}
+				divs[0].style.left = even.clientX + "px"
+				divs[0].style.top = even.clientY + "px"
+			}
+			function randomNumber(x,y){
+				return Math.floor(Math.random()*(y - x + 1) + x)
+			}
+			function randomColor(){
+				var red = randomNumber(0,255);
+				var green = randomNumber(0,255);
+				var blue = randomNumber(0,255);
+				return "rgb(" + red + "," + green + "," + blue + ")" 
+			}
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

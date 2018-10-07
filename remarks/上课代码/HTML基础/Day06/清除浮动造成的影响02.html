@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>清除浮动2</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			border: 10px solid;
+			overflow: hidden;
+
+		}
+		#div1{
+			height: 200px;
+			width: 200px;
+			background: red;
+			float: left;
+		}
+		#div2{
+			height: 200px;
+			width: 200px;
+			background: beige;
+			float: right;
+		}
+	</style>
+</head>
+<body>
+	<!-- 当父元素没有设置高度,则内容由其内容决定 
+	此时如果父元素里的元素再发生浮动,则父元素会出现"内容塌陷" -->
+	<!-- 解决办法:
+	1.给父级设置高度
+	2.在浮动元素的后面加一个无内容的div标签并设置清除浮动 
+	3.给父级添加overflow:hidden;属性强制父级检测其内部的内容高度;-->
+	<div id="box">
+		<div id="div1"></div>
+		<div id="div2"></div>
+		<!-- <div style="clear:both;"></div> -->
+	</div>
+</body>
+</html>

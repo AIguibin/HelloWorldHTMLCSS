@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		 	*{
+		 		margin: 0;
+		 		padding: 0;
+		 	}
+			#d1{
+				outline: 20px solid gold;
+				border: 40px solid brown;
+				width: 200px;
+				height: 200px;
+			}
+			#d2{
+				width: 100px;
+				height: 100px;
+				background: gray;
+				outline: 10px solid blue;
+				border: 10px solid red;
+				/*如果要给多个元素都设置轮廓,一定将轮廓要考虑到元素的尺寸里,不然会出现重叠*/
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			1.outline:不兼容IE低版本
+			2.outline的设置跟border的语法一样,最大区别是outline不占用元素的空间大小
+		-->
+		<div id="d1">
+			
+		</div>
+		<div id="d2">
+				
+			</div>
+	</body>
+</html>

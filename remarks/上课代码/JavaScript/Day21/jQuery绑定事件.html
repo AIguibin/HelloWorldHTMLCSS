@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery绑定事件</title>
+		<style type="text/css">
+			body{
+				height: 2000px;
+			}
+			#button{
+				width: 100px;
+				height: 30px;
+				background: goldenrod;
+				text-align: center;
+				line-height: 30px;
+				border-radius: 10px;
+				cursor: pointer;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div id="button">按钮</div>
+		
+		<input type="text" id="text" placeholder="请输入文字" />
+		<form action="">
+			<input type="text" />	
+			<input type="submit" />
+		</form>
+		<script src="js/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//加载事件
+//			window.onload = function(){
+//				alert("页面加载完成1");
+//			}
+			
+			//写法一
+//			$(document).ready(function(){
+//				alert("页面加载完毕2");
+//			})
+			//写法二
+//			$(function(){
+//				alert("页面加载完成3")
+//			})
+			
+			/*
+			 * window.onload和$(document).ready的区别
+			 * window.onload 不仅要等到网页上的元素加载完成,还要等待外部文件加载完成
+			 * $(document).ready 只需要等到网页的元素加载完成,就能执行
+			 */
+			
+			
+			
+			//鼠标事件
+			
+			//1.点击
+			$("#button").click(function(e){
+				var even = e || event;
+				console.log("点击");
+			});
+			//按下
+//			$("#button").mousedown(function(){
+//				console.log("按下");
+//			})
+			//松开
+//			$("#button").mouseup(function(){
+//				console.log("松开");
+//			})
+			//双击
+//			$("#button").dblclick(function(){
+//				console.log("双击");
+//			})
+			//鼠标移入
+//			$("#button").mouseenter(function(){
+//				console.log("鼠标移入1");
+//			})
+//			$("#button").mouseover(function(){
+//				console.log("鼠标移入2");
+//			})
+//			$("#button").mouseleave(function(){
+//				console.log("鼠标移出1");
+//			})
+//			$("#button").mouseout(function(){
+//				console.log("鼠标移出2");
+//			})
+			
+			
+			//键盘事件
+			//键盘按下
+//			$(document).keydown(function(){
+//				console.log("键盘按下");
+//			})
+			//键盘松开
+//			$(document).keyup(function(){
+//				console.log("键盘松开");
+//			})
+			//按键盘
+//			$(document).keypress(function(){
+//				console.log("按键盘");
+//			})			
+			
+			
+			
+			//表单事件
+			//获取焦点
+//			$("#text").focus(function(){
+//				console.log("获得焦点");
+//			})	
+			//失去焦点
+//			$("#text").blur(function(){
+//				console.log("失去焦点");
+//			})
+			//内容改变
+//			$("#text").change(function(){
+//				console.log("内容改变");
+//			})
+			//选中内容
+//			$("#text").select(function(){
+//				console.log("选中内容");
+//			})
+			//提交表单
+//			$("form"	).submit(function(){
+//				console.log("表单被提交")
+//			})
+			
+			
+			//滚动事件
+//			$(document).scroll(function(){
+//				console.log($(document).scrollTop());
+//			})
+			
+			
+			
+			//解除事件
+			//off(接触的事件类型)
+			$("#button").off("click");
+			
+			
+			//一次性事件
+			$("#button").one("click",function(){
+				console.log("一次性事件");
+			})
+		</script>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>
