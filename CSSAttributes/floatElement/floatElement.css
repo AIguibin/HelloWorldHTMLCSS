@@ -8,7 +8,7 @@ xmp{
     background-color: darkgray;
 }
 body{
-    border: 1px solid red;
+    /*border: 1px solid red;*/
     /*
     body默认的margin有8像素
     所以初始化是很有作用的
@@ -160,3 +160,31 @@ ol{
     height: 150px;
     background-color: green;
 }
+.father{
+    border: 3px solid #00ff00;
+    background-color: #9d9d9d;
+}
+.son-no{
+    color: #fff;
+    background-color: #3498DB;
+    width: 100px;
+    height: 100px;
+    border: 2px solid darkred;
+}
+.son-float{
+    float:left;
+    color: #fff;
+    background-color: #3498DB;
+    width: 100px;
+    height: 100px;
+    border: 2px solid darkred;
+}
+.weiYuanSu::before{
+    content: "我是伪元素必须的属性,但是可以为空,就不会显示了,内容之前";
+    background-color: #337ab7;
+}
+.weiYuanSu::after{
+    content: "我是伪元素必须的属性,但是可以为空,就不会显示了,内容之后";
+    background-color: #5cb85c;
+}
+

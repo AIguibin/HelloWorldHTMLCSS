@@ -262,6 +262,92 @@
         <li>所有浮动元素都能看到其他浮动元素，这也是因为float触发了bfc</li>
     </ol>
 </div>
+<div>
+    <h3>父级元素无法包裹浮动元素的问题,父级元素高度为零的问题</h3>
+    <div class="formatText">
+        <p>父元素father这个div是没有宽高的,就是自适应的容器,
+            他的宽高都是由里边的内容来填充的
+        </p>
+        <xmp>
+            .father{
+            border: 3px solid #00ff00;
+            background-color: #9d9d9d;
+            }
+            .son-no{
+            color: #fff;
+            background-color: #3498DB;
+            width: 100px;
+            height: 100px;
+            border: 2px solid darkred;
+            }
+        </xmp>
+    </div>
+    <div>
+        <div class="father">
+            <div class="son-no">1</div>
+            <div class="son-no">2</div>
+            <div class="son-no">3</div>
+        </div>
+    </div>
+    <br><br><br>
+    <h4>加了浮动以后的格式</h4>
+    <xmp>
+        .son-float{
+        float:left;
+        color: #fff;
+        background-color: #3498DB;
+        width: 100px;
+        height: 100px;
+        border: 2px solid darkred;
+        }
+    </xmp>
+    <div class="formatText">
+        <p>你会发现那个绿色父级的边框包裹不住其子集的,原因也是一样:块级元素是看不到所有产生浮动流的元素
+            这个father的div在审查页面可以看到其高度为零,归根到底就是浮动元素产生浮动流,
+        </p>
+        <p>
+            那么,我们要怎么解决这样的问题呢? 给其father加上宽高,但是就不是自适应的了,内容多的话就会跑出边框
+            那我们知道最根本的原因是产生了浮动流,我们能不能清除浮动流,就能从根本上解决浮动元素的浮动流,
+            清除浮动流的属性就是clear属性,值为left/right/both...一般都会使用both清除周边所有的浮动流
+        </p>
+    </div>
+    <br>
+    <div>
+        <div class="father">
+            <div class="son-float">1</div>
+            <div class="son-float">2</div>
+            <div class="son-float">3</div>
+        </div>
+    </div>
+</div>
+<br><br><br><br><br><br><br>
+<div>
+    <h3>解决浮动流的问题,我们不能从结构上去更改代码,我们要借助伪元素</h3>
+    <ol>
+        <li>
+            <h5>伪类:hover等</h5>
+        </li>
+        <li>
+            <h5>伪元素两个 ::before,::after</h5>
+        </li>
+    </ol>
+    <div class="formatText">
+        <p>伪元素的写法或用法:</p>
+        <xmp>
+            .weiYuanSu::before{
+            content: "我是伪元素必须的属性,但是可以为空,就不会显示了,内容之前";
+            background-color: #337ab7;
+            }
+            <p></p>
+            .weiYuanSu::after{
+            content: "我是伪元素必须的属性,但是可以为空,就不会显示了,内容之后";
+            background-color: #5cb85c;
+            }
+        </xmp>
+    </div>
+    <br>
+    <span class="weiYuanSu">我来验证伪元素</span>
+</div>
 <br><br><br><br><br><br><br><br><br>
 </body>
 </html>
