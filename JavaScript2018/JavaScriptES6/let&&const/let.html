@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head >
+    <meta charset="UTF-8" >
+    <title >let</title >
+    <script type="text/javascript">
+        <!--等待dom文档加载完成后再开始执行JS-->
+        window.onload=function () {
+            var a=12;
+            //定义一个fun的无参函数（方法）
+            function fun() {
+                console.log(a);//函数体
+            }
+            fun();//执行函数==>12
+            var b=10;
+            function fun2() {
+                console.log(b);
+                var b=5;
+            }
+            fun2();//===>undefined
+            // 造成这样的结果的原因是：因为函数体的变量优先级高于函数体外的函数，
+            // 而且这个写法等同于以下写法：
+            // function fun2() {
+            //     var b;
+            //     console.log(b);
+            //     b=5;
+            // }
+            // 也就是说:先定义没有赋值所以是undefined
+
+            // ES6中定义变量是： let,const;
+            // 他们的特性就是块级作用域
+            // 例如：
+            if (true) {
+                var  c="var";
+            }
+            console.log(c);//==>var
+            // 以上说明var定义的变量都是全局变量，虽然定义在函数体内，但是var定义的变量有变量提升特性，外边依然能访问
+            if (true) {
+                let d="let";
+            }
+            console.log(d);//==>undefined
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        };
+
+    </script >
+</head >
+<body >
+<div >
+    <pre >
+        作用域：1、全局
+                2、局部
+        ES6新增：3、块级
+    </pre >
+</div >
+</body >
+</html >
