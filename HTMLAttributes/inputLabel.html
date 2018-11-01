@@ -5,157 +5,194 @@
     <meta charset="UTF-8">
     <title>Input属性</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
             font-size: 16px;
         }
-        .warpper{
-            width: 300px;
+
+        .wrapper {
+            width: 600px;
             height: 200px;
             margin: 50px auto;
             text-align: center;
             /*background-color: black;*/
         }
-        pre{
-        padding-left: -50px;
+
+        .block {
+            margin-top: 15px;
+            margin-bottom: 5px;
+            border: 1px solid red;
         }
 
+        xmp {
+            padding-left: -50px;
+        }
     </style>
     <script type="text/javascript">
-    window.onload = function() {
-        document.getElementById("rtype").onchange = function() {
-            document.getElementById("rspan").innerHTML = this.value
+        window.onload = function () {
+            document.getElementById("rtype").onchange = function () {
+                document.getElementById("rspan").innerHTML = this.value
+            };
+
         }
-    }
     </script>
 </head>
 
 <body>
-    <div class="warpper">
-        <form action="">
-            <pre>
+<div class="wrapper">
+    <form action="">
+            <xmp>
             type属性是规定input框的类型
             name属性是表示提交的时候字段名,没有name的属性的时候,就不会被提交
             value属性是表示提交时候字段值
             "user":"AIguibin"
-            </pre>
-            <span>姓名:</span>
-            <input type="text" name="user" value="AIguibin">
-            <br><br>
-            <span>密码:</span>
-            <input type="password" name="word" value="123456">
-            <br><br>
-            <pre>
+            </xmp>
+        <span>姓名:</span>
+        <input type="text" name="user" value="AIguibin">
+        <br><br>
+        <span>密码:</span>
+        <input type="password" name="word" value="123456">
+        <br><br>
+        <xmp>
                 type="eamil"的时候表单会自动正则邮箱地址规则
-            </pre>
-            <span>电邮:</span>
-            <input type="email" name="" value="">
-            <br><br>
-            <pre>
+            </xmp>
+        <span>电邮:</span>
+        <input type="email" name="" value="">
+        <br><br>
+        <xmp>
                 type="url"的时候表单会自动正则网址HTTP://规则
-            </pre>
-            <span>网址:</span>
-            <input type="url" name="" value="">
-            <br><br>
-            <span>数值:</span>
-            <input type="number" name="" value="0" min="-6" max="9" step="2">
-            <br><br>
-            <pre>
+            </xmp>
+        <span>网址:</span>
+        <input type="url" name="" value="">
+        <br><br>
+        <span>数值:</span>
+        <input type="number" name="" value="0" min="-6" max="9" step="2">
+        <br><br>
+        <xmp>
                 <!-- <script type="text/javascript"> -->
                     window.onload=function(){
                         document.getElementById("rtype").onchange=function(){
                             document.getElementById("rspan").innerHTML=this.value
                         }
                     }
-                <!-- </script>  -->
-            </pre>
-            <span>滑块:</span>
-            <input id="rtype" type="range" name="" value="30" min="-100" max="100" step="2">
-            <span id="rspan">30</span>
-            <br><br>
-            <span>日期:</span>
-            <input type="data" name="" value="">
-            <br><br>
-            <span>时间:</span>
-            <input type="time" name="" value="">
-            <br><br>
-            <span>颜色:</span>
-            <input type="color" name="" value="">
-            <br><br>
-            <span>星期:</span>
-            <input type="week" name="" value="">
-            <br><br>
-            <input type="submit" value="提交">
-            <br><br><br><br>
-        </form>
-        <select>
+            <!-- </script>  -->
+            </xmp>
+        <span>滑块:</span>
+        <input id="rtype" type="range" name="" value="30" min="-100" max="100" step="2">
+        <span id="rspan">30</span>
+        <br><br>
+        <span>日期:</span>
+        <input type="data" name="" value="">
+        <br><br>
+        <span>时间:</span>
+        <input type="time" name="" value="">
+        <br><br>
+        <span>颜色:</span>
+        <input type="color" name="" value="">
+        <br><br>
+        <span>星期:</span>
+        <input type="week" name="" value="">
+        <br><br>
+        <input type="submit" value="提交">
+        <br><br><br><br>
+    </form>
+    <select>
+        <option>海淀区</option>
+        <option>朝阳区</option>
+        <option>丰台区</option>
+        <option>西城区</option>
+        <option>郑州</option>
+        <option>洛阳</option>
+        <option>信阳</option>
+        <option>南阳</option>
+        <option>济南</option>
+        <option>济宁</option>
+        <option>威海</option>
+        <option>石家庄</option>
+        <option>邢台</option>
+        <option>唐山</option>
+        <option>张家口</option>
+    </select>
+    <br><br><br>
+    <select>
+        <optgroup label="北京市">
             <option>海淀区</option>
             <option>朝阳区</option>
             <option>丰台区</option>
             <option>西城区</option>
+        </optgroup>
+        <optgroup label="河南省">
             <option>郑州</option>
             <option>洛阳</option>
             <option>信阳</option>
             <option>南阳</option>
-            <option>济南</option>
-            <option>济宁</option>
-            <option>威海</option>
+        </optgroup>
+        <optgroup label="山东省">
             <option>石家庄</option>
             <option>邢台</option>
             <option>唐山</option>
             <option>张家口</option>
-        </select>
-        <br><br><br>
-        <select>
-            <optgroup label="北京市">
-                <option>海淀区</option>
-                <option>朝阳区</option>
-                <option>丰台区</option>
-                <option>西城区</option>
-            </optgroup>
-            <optgroup label="河南省">
-                <option>郑州</option>
-                <option>洛阳</option>
-                <option>信阳</option>
-                <option>南阳</option>
-            </optgroup>
-            <optgroup label="山东省">
-                <option>石家庄</option>
-                <option>邢台</option>
-                <option>唐山</option>
-                <option>张家口</option>
-            </optgroup>
-        </select>
-        <br><br>
-        <hr>
-        <form>
-            <pre>
+        </optgroup>
+    </select>
+    <br><br>
+    <hr>
+    <form>
+            <xmp>
                 单行文本的候选列表
                 并且会根据输入自动匹配列表
                 如果没有value值,就会选中content中的值作为value
-            </pre>
-            <input type="text" name="" list="hehe">
-            <datalist id="hehe">
-                <option value="beijing">北京市</option>
-                <option value="nanjing">南京市</option>
-                <option value="dongjing">东京市</option>
-                <option>上海市</option>
-            </datalist>
-        </form>
-        <br><br>
-        <hr>
-        <form action="" id="glwbbd">
-            <pre>
+            </xmp>
+        <input type="text" name="" list="hehe">
+        <datalist id="hehe">
+            <option value="beijing">北京市</option>
+            <option value="nanjing">南京市</option>
+            <option value="dongjing">东京市</option>
+            <option>上海市</option>
+        </datalist>
+    </form>
+    <br><br>
+    <hr>
+    <form action="" id="glwbbd">
+            <xmp>
                  给input添加autofocus属性,会初始化鼠标的焦点在输入框中直接输出
                  如果input添加form属性就会归属form,即使你在form表单外边
-             </pre>
-            <input type="text" autofocus value="自动聚焦">
+             </xmp>
+        <input type="text" autofocus value="自动聚焦">
+    </form>
+    <input type="text" form="glwbbd" value="我是编外额人员,但是属于id=glwbbd的">
+    <br><br>
+    <hr>
+    <br>
+    <h1>文件上传</h1>
+    <input type="file"><span>单文件上传没有multiple属性</span>
+    <br>
+    <hr>
+    <br>
+    <input type="file" multiple><span>多文件上传加上multiple属性</span>
+    <br>
+    <hr>
+    <br>
+    <hr>
+    <br>
+    <p>表单默认值属性placeholder,以前都是value,输入时候还要删除原来的,例如上边的自动聚焦输入框</p>
+    <input type="text" placeholder="请输入内容" autofocus>
+    <div class="block">
+        <form action="">
+            <!--(span{姓名}+input[type="text"])*2-->
+            <span>姓名</span>
+            <input type="text" placeholder="请输入姓名" ><br>
+            <span>密码</span>
+            <input type="password" pattern="\d{6,8}" placeholder="请输6到8位数字" ><br>
+            <span>身份证</span><input type="text" pattern="\d{17}[\dXx]" placeholder="请输入身份证号"><br>
+            <span>不能为空</span><input type="text" required placeholder="验证表单不能为空required属性" ><br>
+            <input type="submit">
         </form>
-        <br><br>
-        <input type="text" form="glwbbd" value="我是编外额人员,但是属于id=glwbbd的">
-        <br><br><br><br><br><br><br><br>
     </div>
+
+    <br><br><br><br><br><br><br><br>
+</div>
+
 </body>
 
 </html>

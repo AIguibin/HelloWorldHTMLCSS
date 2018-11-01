@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>webStorage</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        .wrapper{
+
+        }
+        .block{
+            width: 800px;
+            height: 100%;
+            margin: 20px auto;/*左右居中*/
+            border:1px solid red;
+        }
+        xmp{
+            margin: 1em 0;
+            border: 2px solid greenyellow;
+            background-color: #00ff90;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="block">
+        <h1 class="title">Storage:::>session | local</h1>
+        <h2>button类型的input中的value属性就是button的名称</h2>
+        <input type="button" value="按钮名称" id="put">
+        <input type="button" value="获取缓存" id="get">
+        <input type="button" value="删除缓存" id="remove">
+        <input type="button" value="缓存长度" id="length">
+        <input type="button" value="清理数据" id="clear">
+        <xmp>
+            <input type="button" value="按钮名称" >
+            <input type="button" value="获取缓存" >
+            //存入缓存
+            document.getElementById("put").onclick=function () {
+                sessionStorage.setItem('name','我是sessionStorage');
+                localStorage.setItem('local','我是localStorage');
+            };
+            //获取缓存
+            document.getElementById("get").onclick=function () {
+                document.write(sessionStorage.getItem('name'));
+                document.write(localStorage.getItem('local'));
+            }
+            //删除缓存
+            document.getElementById("remove").onclick=function () {
+            localStorage.removeItem("local");
+            document.write('成功');
+            }
+            //数据长度
+            document.getElementById('length').onclick=function () {
+            document.write(localStorage.length);
+            }
+            //清理数据
+            document.getElementById('clear').onclick=function () {
+            localStorage.clear();
+            document.write('成功');
+            }
+        </xmp>
+        <xmp>
+            storage分类:sessionStorage与localStorage
+            共同点:
+            1--都有setItem,getItem存取与获取方法
+            2--都有remove,clear方法与length属性
+            不同点:
+            1--sessionStorage临时缓存,不能跨标签,浏览器关闭以后就清空了
+            2--localStorage永久缓存,能跨页面标签,浏览器关闭以后再次打开还能获取,除非手动清除缓存
+        </xmp>
+    </div>
+</div>
+<script>
+    //存入缓存
+    document.getElementById("put").onclick=function () {
+        sessionStorage.setItem('name','我是sessionStorage');
+        localStorage.setItem('local','我是localStorage');
+    };
+    //获取缓存
+    document.getElementById("get").onclick=function () {
+        document.write(sessionStorage.getItem('name'));
+        document.write(localStorage.getItem('local'));
+    };
+    //删除缓存
+    document.getElementById("remove").onclick=function () {
+        localStorage.removeItem("local");
+        document.write('成功');
+    };
+    //数据长度
+    document.getElementById('length').onclick=function () {
+        document.write(localStorage.length);
+    };
+    //清理数据
+    document.getElementById('clear').onclick=function () {
+        localStorage.clear();
+        document.write('成功');
+    }
+</script>
+</body>
+</html>
