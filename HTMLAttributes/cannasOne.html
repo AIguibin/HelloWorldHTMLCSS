@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvasOne</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        .wrapper{
+
+        }
+        .canvas{
+            margin: 20px auto;
+            display: block;
+            background-color: #0070ca;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <!--canvas标签相当于一个画板-->
+    <!--canvas画板的宽高不能用CSS样式去定义,只能通过本身的宽高属性去定义,
+    还有一个特点就是:虽然有宽高但是设置 margin: 0 auto;并不能让其左右居中
+    这说明它是行内会计元素,能设置宽高的是块级元素,不能设置居中的说明是行内元素
+    ,所以canvas是行内块级元素,所以必须设置display:block除此以外的属性都正常-->
+    <!--创建画板-->
+    <canvas class="canvas" id="canvas" width="900" height="600"></canvas>
+    <!--<canvas class="canvas" id="canvas" width="900" height="600"></canvas>-->
+    <xmp>
+
+    </xmp>
+</div>
+<script>
+    // 获取画板
+    let canvas = document.getElementById('canvas');
+    // 获取画布
+    let context=canvas.getContext('2d');
+    // 开始绘画
+    //设置填充颜色
+    context.fillStyle='yellow';
+    // 绘制实心矩形,context.fillRect(x,y,width,height);
+    //X,Y是坐标,图形位置,W,H是宽高,图形大小
+    context.fillRect(50,50,300,300);
+    //绘制空心矩形
+    //设置线条颜色
+    context.strokeStyle='red';
+    //设置线条粗细
+    context.lineWidth=5;
+    context.strokeRect(150,150,300,300);
+    //清理画布中的指定内容
+    context.clearRect(100,100,100,100);
+    /**
+     * canvas画板最后的格式其实是一张图片
+     * 鼠标右键可以看到图片另存为,点击就可以
+     * 得到我们缩绘制的图像
+     */
+</script>
+</body>
+</html>
