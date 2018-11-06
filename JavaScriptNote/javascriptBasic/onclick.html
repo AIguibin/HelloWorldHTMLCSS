@@ -10,11 +10,12 @@
     </style>
     <script>
         function buttonclick() {
-            console.log(hghghghghgh)
+            console.log("行内click事件onclick='buttonclick()'")
         }
         //或者是
         document.getElementById("onclick").onclick = function () {
-            console.log("我是通过")
+            console.log(`我是通过js获取元素的click事件
+            document.getElementById('onclick').onclick = function () {}`)
         }
     </script>
 </head>
