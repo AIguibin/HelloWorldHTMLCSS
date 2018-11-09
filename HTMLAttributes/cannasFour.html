@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvasTwo</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        .wrapper{
+
+        }
+        .canvas{
+            margin: 30px auto;
+            display: block;
+            background-color: #0070ca;
+            position: relative;
+        }
+        .content{
+            width: 80%;
+            margin: 20px auto;
+            border: 2px solid red;
+        }
+        input{
+            margin-left: 50px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="content">
+        <input class="color"  type="color" name="" value="block" id="color">
+        <span>颜色</span>
+        <input class="range" type="range" name="" min="1" max="20" value="2" id="range">
+        <span>粗细:</span><span id="num">2</span>
+        <input type="button" id="eaBtn" value="橡皮檫">
+    </div>
+    <!--canvas标签相当于一个画板-->
+    <!--canvas画板的宽高不能用CSS样式去定义,只能通过本身的宽高属性去定义,
+    还有一个特点就是:虽然有宽高但是设置 margin: 0 auto;并不能让其左右居中
+    这说明它是行内会计元素,能设置宽高的是块级元素,不能设置居中的说明是行内元素
+    ,所以canvas是行内块级元素,所以必须设置display:block除此以外的属性都正常-->
+    <!--创建画板-->
+    <canvas class="canvas" id="canvas" width="900" height="600"></canvas>
+    <!--<canvas class="canvas" id="canvas" width="900" height="600"></canvas>-->
+    <xmp>
+
+    </xmp>
+
+</div>
+<script>
+    //获取颜色属入框
+    let color = document.getElementById('color');
+    //获取线性粗细输入框
+    let range= document.getElementById('range');
+    //获取button按钮
+    let eaBtn= document.getElementById('eaBtn');
+    // 获取画板
+    let canvas = document.getElementById('canvas');
+    // 获取画布
+    let context=canvas.getContext('2d');
+    //设置颜色
+    context.strokeStyle='black';
+    //设置线性粗细
+    context.lineWidth = 3;
+    canvas.onmousedown = function (e) {
+        let ev = window.event || e;
+        let mousex=ev.layerX || ev.offsetX;
+        let mousey=ev.layerY || ev.offsetY;
+        //开启路径
+        context.beginPath();
+        //设置起点
+        context.moveTo(mousex,mousey);
+        //加入鼠标移动事件
+        canvas.onmousemove = function (e) {
+            let ev = window.event||e;
+            let newx=ev.layerX || ev.offsetX;
+            let newy=ev.layerY || ev.offsetY;
+            context.lineTo(newx,newy);
+            context.stroke();
+        }
+    };
+    //鼠标的抬起事件
+    canvas.onmouseup = function () {
+        //取消鼠标的移动事件
+        canvas.onmousemove = null;
+        //闭合路径
+        context.closePath();
+    };
+    color.onchange=function () {
+        //将用户选择的颜色设置成画笔的颜色
+        context.strokeStyle=this.value
+    };
+    range.onchange = function () {
+        //将用户选择的线性粗细设置成画笔的粗细
+        context.lineWidth = this.value;
+        document.getElementById('num').innerHTML=this.value
+    };
+    eaBtn.onclick=function () {
+        //橡皮檫的原理就是把画笔的颜色改为背景颜色
+        context.strokeStyle='#0070ca';
+    }
+</script>
+</body>
+</html>

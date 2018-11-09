@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvasThree</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        .wrapper {
+
+        }
+
+        .canvas {
+            margin: 30px auto;
+            display: block;
+            background-color: #0070ca;
+            position: relative;
+        }
+
+        .content {
+            width: 80%;
+            margin: 20px auto;
+            border: 2px solid red;
+        }
+
+        input {
+            margin-left: 20px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="content">
+        <input class="color" type="color" name="" value="block" id="color">
+        <span>颜色</span>
+        <input class="range" type="range" name="" min="1" max="100" value="2" id="range">
+        <span>粗细:</span><span id="num">2</span>
+        <input type="button" id="eaBtn" value="橡皮檫">
+    </div>
+    <div class="content">
+        <input type="button" id="hui-yhu" value="绘制圆弧">
+        <input type="button" id="hui-bany" value="绘制半圆">
+        <input type="button" id="hui-shan" value="绘制扇形">
+        <input type="button" id="hui-bing" value="绘制饼状">
+        <input type="button" id="hui-text" value="绘制文本">
+        <input type="button" id="verification" value="验证码">
+    </div>
+    <!--canvas标签相当于一个画板-->
+    <!--canvas画板的宽高不能用CSS样式去定义,只能通过本身的宽高属性去定义,
+    还有一个特点就是:虽然有宽高但是设置 margin: 0 auto;并不能让其左右居中
+    这说明它是行内会计元素,能设置宽高的是块级元素,不能设置居中的说明是行内元素
+    ,所以canvas是行内块级元素,所以必须设置display:block除此以外的属性都正常-->
+    <!--创建画板-->
+    <canvas class="canvas" id="canvas" width="900" height="600"></canvas>
+    <!--<canvas class="canvas" id="canvas" width="900" height="600"></canvas>-->
+    <xmp>
+        x 圆的中心的 x 坐标。
+        y 圆的中心的 y 坐标。
+        r 圆的半径。
+        sAngle 起始角，以弧度计。（弧的圆形的三点钟位置是 0 度）。
+        eAngle 结束角，以弧度计。
+        counterclockwise 可选。规定应该逆时针还是顺时针绘图。False = 顺时针，true = 逆时针。
+    </xmp>
+
+</div>
+<script>
+    // 真假flag
+    let flag = false;
+    //获取颜色属入框
+    let color = document.getElementById('color');
+    //获取线性粗细输入框
+    let range = document.getElementById('range');
+    //获取button按钮
+    let eaBtn = document.getElementById('eaBtn');
+    // 获取画板
+    let canvas = document.getElementById('canvas');
+    // 获取画布
+    let context = canvas.getContext('2d');
+    //设置颜色
+    context.strokeStyle = 'black';
+    //设置线性粗细
+    context.lineWidth = 1;
+    canvas.onmousedown = function (e) {
+        let ev = window.event || e;
+        let mousex = ev.layerX || ev.offsetX;
+        let mousey = ev.layerY || ev.offsetY;
+        //开启路径
+        context.beginPath();
+        //设置起点
+        context.moveTo(mousex, mousey);
+        //加入鼠标移动事件
+        canvas.onmousemove = function (e) {
+            let ev = window.event || e;
+            let newx = ev.layerX || ev.offsetX;
+            let newy = ev.layerY || ev.offsetY;
+            context.lineTo(newx, newy);
+            context.stroke();
+        }
+    };
+    //鼠标的抬起事件
+    canvas.onmouseup = function () {
+        //取消鼠标的移动事件
+        canvas.onmousemove = null;
+        //闭合路径
+        context.closePath();
+    };
+    color.onchange = function () {
+        //将用户选择的颜色设置成画笔的颜色
+        context.strokeStyle = this.value
+    };
+    range.onchange = function () {
+        //将用户选择的线性粗细设置成画笔的粗细
+        context.lineWidth = this.value;
+        document.getElementById('num').innerHTML = this.value
+    };
+    eaBtn.onclick = function () {
+        //橡皮檫的原理就是把画笔的颜色改为背景颜色
+        context.strokeStyle = '#0070ca';
+    };
+    /**
+     * 绘制圆弧
+     */
+    document.getElementById('hui-yhu').onclick = function huiYhu() {
+        if (flag) {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+        }
+        context.strokeStyle = 'red';
+        context.beginPath();
+        context.arc(100, 100, 150, 0, 90 * Math.PI / 180);
+        context.closePath();
+        context.stroke();
+        //填充弧形,就是把两个点闭合
+        context.fillStyle = 'green';
+        context.fill();
+        flag = true;
+    };
+    /**
+     * 绘制半圆
+     */
+    document.getElementById('hui-bany').onclick = function banYuan() {
+        if (flag) {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+        }
+        context.strokeStyle = 'red';
+        context.beginPath();
+        context.arc(300, 300, 100, 0, 180 * Math.PI / 180);
+        context.closePath();
+        context.stroke();
+        context.fillStyle = 'green';
+        context.fill();
+        flag = true;
+    };
+
+
+    /**
+     * 扇形
+     */
+    document.getElementById('hui-shan').onclick = function shanXing() {
+        if (flag) {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+        }
+        context.strokeStyle = 'yellow';
+        context.beginPath();
+        context.moveTo(200, 200);
+        context.arc(200, 200, 150, -45 * Math.PI / 180, 45 * Math.PI / 180, true);//逆时针方向
+        context.closePath();
+        context.stroke();
+
+        context.fillStyle = 'yellow';
+        context.fill();
+
+        context.arc(350, 200, 30, 0, 360 * Math.PI / 180);
+        context.fill();
+        context.arc(450, 200, 20, 0, 360 * Math.PI / 180);
+        context.fill();
+        context.arc(550, 200, 10, 0, 360 * Math.PI / 180);
+        context.fill();
+        flag = true;
+    };
+
+    /**
+     * 饼状图
+     */
+    document.getElementById('hui-bing').onclick = function bingZhuang() {
+        if (flag) {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+        }
+        context.lineWidth = 5;
+        context.strokeStyle = 'yellow';
+
+        context.beginPath();
+        context.moveTo(300, 200);
+        context.arc(300, 200, 150, 0, 60 * Math.PI / 180);
+        context.closePath();
+        context.fillStyle = 'pink';
+        context.fill();
+
+        context.beginPath();
+        context.moveTo(300, 200);
+        context.arc(300, 200, 150, 60 * Math.PI / 180, 90 * Math.PI / 180);
+        context.closePath();
+        context.fillStyle = '#f09';
+        context.fill();
+
+        context.beginPath();
+        context.moveTo(300, 200);
+        context.arc(300, 200, 150, 90 * Math.PI / 180, 150 * Math.PI / 180);
+        context.closePath();
+        context.fillStyle = '#90f';
+        context.fill();
+
+        context.beginPath();
+        context.moveTo(300, 200);
+        context.arc(300, 200, 150, 150 * Math.PI / 180, 190 * Math.PI / 180);
+        context.closePath();
+        context.fillStyle = 'green';
+        context.fill();
+
+        context.beginPath();
+        context.moveTo(300, 200);
+        context.arc(300, 200, 150, 190 * Math.PI / 180, 360 * Math.PI / 180);
+        context.closePath();
+        context.fillStyle = 'red';
+        context.fill();
+        flag = true;
+    };
+
+    /**
+     * 绘制文本
+     */
+    document.getElementById('hui-text').onclick = function drawText() {
+        if (flag) {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+        }
+        //设置文字大小和属性
+        context.font = '50px 宋体';
+        //绘制填充文本
+        context.fillText('哈哈,我是绘制文本', 100, 100);
+        //设置文字颜色
+        context.strokeStyle = 'red';
+        //文字,X坐标,Y坐标,最大宽度
+        //文字水平居中
+        context.textAlign = 'center';//left,center,right
+        //文字垂直居中
+        context.textBaseline = 'middle';//top,middle,bottom
+        //绘制描边文字
+        context.strokeText('我是空心文字', 200, 220, 500);
+        //获取文本宽度
+        let textWidth = context.measureText('我来看看自己有多宽');
+        context.strokeText(`"我来看看自己有多宽"的宽度是:${textWidth.width}`, 450, 300);
+        flag = true;
+    };
+    /**
+     * 验证码
+     */
+    document.getElementById('verification').onclick = function () {
+        if (flag) {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+        }
+        context.fillStyle = 'yellow';
+        context.font = '50px arial';
+        let words = "QWERTYUIOPASDFGHJKLZXCVBNM";
+        for (let i = 0; i < 4; i++) {
+            let index = Math.floor(Math.random() * (words.length - 1 + 1 - 0) + 0);
+            //随机位置,随机从x--y之间Math.random()*(y+1-x)+x
+            // let point = Math.floor(Math.random()*(y+1-x)+x);
+            //随机x坐标
+            let xzd = Math.floor(Math.random() * (i * 50 + 50 + 1 - i * 50) + i * 50);
+            //随机y坐标
+            let yzd = Math.floor(Math.random() * (300 + 1 - 250) + 250);
+            //随机字体颜色
+            let r = Math.floor(Math.random() * (255 + 1 - 0) + 0);
+            let g = Math.floor(Math.random() * (255 + 1 - 0) + 0);
+            let b = Math.floor(Math.random() * (255 + 1 - 0) + 0);
+            context.fillStyle = `rgb(${r},${g},${b})`;
+            //随机旋转
+            let num = Math.floor(Math.random() * (10 + 1 - (-10)) + (-10));
+            context.rotate(num*Math.PI/180);
+            context.fillText(words[index], xzd, yzd);
+        }
+        flag = true;
+    }
+</script>
+</body>
+</html>

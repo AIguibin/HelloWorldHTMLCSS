@@ -58,6 +58,26 @@
      * 鼠标右键可以看到图片另存为,点击就可以
      * 得到我们缩绘制的图像
      */
+    //============================================
+    //绘制线条,需要开启路径
+    //开启路径
+    context.beginPath();
+    //指定路径起点
+    context.moveTo(400,30);
+    //指定终点
+    context.lineTo(560,300);
+    context.lineTo(690,70);
+    context.lineTo(720,300);
+    context.lineTo(850,30);
+    //关闭路径,会将最后一个点和第一个点连接起来
+    context.closePath();
+    //设置路径颜色
+    context.strokeStyle = '#f40';
+    //设置线条粗细
+    context.lineWidth=5;
+    //绘制路径
+    context.stroke()
+
 </script>
 </body>
 </html>

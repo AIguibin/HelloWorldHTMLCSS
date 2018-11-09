@@ -77,7 +77,7 @@ $(document).ready(function () {
             activeMenu = $('#' + activeRow.data('id'));
 
             prevActiveRow.removeClass('active');
-            preActiveMenu.addClass('none')
+            preActiveMenu.addClass('none');
 
             activeRow.removeClass('active');
             activeMenu.addClass('none');
