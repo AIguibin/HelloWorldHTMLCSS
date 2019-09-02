@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			font-size: 16px;
+		}
+
+		.wrapper {
+			width: 600px;
+			height: 200px;
+			margin: 50px auto;
+			text-align: center;
+			/*background-color: black;*/
+		}
+		.block {
+			margin-top: 15px;
+			margin-bottom: 5px;
+			border: 1px solid red;
+		}
+		.jinDuW{
+			width: 600px;
+			height: 15px;
+			background-color:#5e5e5e;
+			position: relative;
+		}
+		.jinDuN{
+			width: 1px;
+			height: 15px;
+			background-color: #0000ff;
+		}
+	</style>
+</head>
+<body>
+<div class="wrapper">
+	<div class="block">
+		<audio src="http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E06DCBDC9AB7C49FD713D632D313AC4858BACB8DDD29067D3C601481D36E62053BF8DFEAF74C0A5CCFADD6471160CAF3E6A&fromtag=46"
+			   controls autoplay loop="3"></audio>
+		<p>controls为控制显示播放控件,autoplay为控制是否自动播放,二者不能同时存在</p>
+		<p>loop属性为无限播放,loop="3"表示重复播放3次</p>
+	</div>
+
+	<div class="block" style="">
+		<video id="video" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"
+			   controls autoplay loop  poster="../../../resource/image/timg.jpg"></video>
+		<p>poster="timg.jpg"表示视频封面</p>
+		<button id="play">播放</button>
+		<button id="pause">暂停</button>
+		<button id="quickLeft">快退</button>
+		<button id="quickRight">快进</button>
+		<button id="muted">静音</button>
+		<button id="bigVolume">提高音量</button>
+		<button id="smallVolume">减少音量</button>
+		<br>
+		<div class="jinDuW" id="jinDuW">
+			<div class="jinDuN" id="jinDuN"></div>
+		</div>
+		<br>
+	</div>
+</div>
+
+<script>
+    /**关于视频*/
+    let video= document.getElementById("video");//获取video对象
+    let jinDuW=document.getElementById("jinDuW");
+    let jinDuN=document.getElementById("jinDuN");
+    document.getElementById("play").onclick=function () {
+        video.play();//开始播放
+    };
+    document.getElementById("pause").onclick=function () {
+        video.pause();//暂停
+    };
+    document.getElementById("quickLeft").onclick=function () {
+        let videoTime=video.currentTime;//获取当前播放时间
+        video.currentTime=videoTime-5;//快退
+    };
+    document.getElementById("quickRight").onclick=function () {
+        let videoTime=video.currentTime;//获取当前播放时间
+        video.currentTime=videoTime+5;//快进
+    };
+    document.getElementById("muted").onclick=function () {
+        // if (video.muted==true){
+        //     video.muted=false;
+        // } else {
+        //     video.muted=true;
+        // }
+        video.muted=!video.muted;
+    };
+    document.getElementById("bigVolume").onclick=function () {
+        let curVolume=video.volume;//获取当前播放音量
+        let newVolume=curVolume+0.1;
+        video.volume=newVolume>=1?1:newVolume;
+    };
+    document.getElementById("smallVolume").onclick=function () {
+        let curVolume=video.volume;//获取当前播放音量
+        let newVolume=curVolume-0.1;
+        video.volume=newVolume<=0?0:newVolume;
+    };
+    /**进度条*/
+    video.onplay=function () {
+        setInterval(function () {
+            let curTime=video.currentTime;//当前播放时长
+            let allTime=video.duration;//总时长
+            let ls=curTime/allTime*600;//进度条位置
+            /**设置进度条位置*/
+            document.getElementById("jinDuN").style.width=`${ls}px`;
+        },1000)
+    };
+    /**进度条点击快进快退*/
+    jinDuW.onclick=function (event) {
+        let e=window.event || event;
+        //获得鼠标位置,事件源必须要定位 position: relative;
+        let mx =e.layerX || offsetX;
+        console.log(mx);//鼠标X轴距
+        //计算点击位置的时长
+        let nowTime=mx/600*video.duration;
+        //设置播放位置
+        video.currentTime=nowTime;
+        jinDuN.style.width=`${mx}px`;
+    };
+    /**进度条滑动快进快退*/
+</script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>DOM基础01</title>
+		<style type="text/css">
+			#div4{
+				width: 200px;
+				height: 200px;
+				background: chartreuse;
+			}
+		</style>
+	</head>
+
+	<body>
+		<p id="p1"></p>
+		<!--这是一段注释-->
+		<div class="box" id="div1">这是一个div</div>
+		<div class="box"></div>
+		<div id="div2">
+			这是一个div
+			<img src="img/4.jpg" />
+			<div id="div3" style="display: none;">这是一个隐藏的</div>
+			<!--这是一条注释-->
+		</div>
+		<!--分别打印内容对应元素节点里的内容-->
+		<ul id="u1">
+			苹果
+			<li>香蕉</li>
+			<li>橘子</li>
+			西瓜
+		</ul>
+		<input type="text" id="" value="" />
+		<div id="div4">
+			
+		</div>
+		<!--
+			JS的组成部分
+			1.JS基础语法
+			2.DOM
+			3.BOM
+			
+			
+			DOM	Document Object Model 文档对象模型,提供了访问html文档的方法,允许对html进行增删改查.
+			 
+			DOM树,当网页加载完成后,浏览器会创建一个树状的结构
+			DOM树状结构中,包含很多节点.
+			
+			节点的类型
+			1.元素类型 <div>, <p>
+			2.文本节点  "hello,world"
+			3.注释节点
+			4.文档类型  document
+			5.声明节点 <!DOCTYPE view>
+			
+			节点之间的关系
+			1.父节点
+			2.子节点
+			3.兄弟节点
+		-->
+		<script type="text/javascript">
+			//找找元素节点
+			//1.通过id查找对应的元素节点,返回的是一个节点
+			var p1 = document.getElementById("p1");
+			//2.通过类名查找元素节点,返回的是包含一个或者多个节点的数组.
+			var boxes = document.getElementsByClassName("box");
+			//通过标签名查找元素节点,返回的是包含一个或者多个节点的数组
+			var divs = document.getElementsByTagName("div");
+			//4.通过选择器查找元素节点,返回的是包含一个或者多个节点的数组
+			var divs1 = document.querySelectorAll(".box");
+			//5.通过选择器查找匹配到的第一个元素
+			var div2 = document.querySelector(".box")
+
+			//特殊节点
+			//1.document 文档节点
+			console.log(document)
+				//2.html节点
+			console.log(document.documentElement);
+			//3.body节点
+			console.log(document.body);
+			//4.head节点
+			console.log(document.head);
+			//5.声明节点
+			console.log(document.doctype)
+
+			//通过节点之间的关系获取节点
+			//1.childNodes 获取某个节点的子节点,返回的是一个数组
+			console.log(document.childNodes);
+			//获取到mate和title节点还会获取到空白文本.
+			console.log(document.head.childNodes);
+			//2.parentNode 获取某个节点的父节点,只有一个.
+			console.log(document.body.parentNode)
+				//3.firstChild 获取第一个子节点
+			console.log(document.firstChild);
+			//4.lastChild 获取最后一个子节点
+			console.log(document.lastChild);
+			//5.previousSibling 获取前一个兄弟节点
+			var d = document.getElementById("div1");
+			console.log(d.previousSibling);
+			//6.nextSibling  获取后一个兄弟节点
+			console.log(d.nextSibling);
+			//7.获取上一个兄弟标签元素
+			console.log(d.previousElementSibling);
+			//8.获取下一个兄弟标签元素
+			console.log(d.nextElementSibling);
+
+			//节点的属性
+			//1.nodeValue 节点的值
+			//元素节点
+			var div = document.getElementById("div1");
+			//文本节点
+			var textElement = div.firstChild;
+			//注释节点
+			var commentElement = div.previousSibling;
+
+			console.log(div.nodeValue);
+			console.log(textElement.nodeValue);
+			console.log(commentElement.nodeValue);
+			console.log(document.nodeValue);
+			console.log(document.doctype.nodeValue);
+			//注:文本节点和注释节点打印对应的内容,其他的打印null.
+
+			//2.nodeType节点的类型
+			console.log(div.nodeType);
+			console.log(textElement.nodeType);
+			console.log(commentElement.nodeType);
+			console.log(document.nodeType);
+			console.log(document.doctype.nodeType);
+			//"1"代表元素节点."3"代表文本节点."8"注释节点."9"文档节点."10"声明节点.
+
+			//3.nodeName  节点的名字
+			console.log(div.nodeName);
+			console.log(textElement.nodeName);
+			console.log(commentElement.nodeName);
+			console.log(document.nodeName);
+			console.log(document.doctype.nodeName);
+			/*如果是元素节点,节点的名字是标签名(全大写).
+			 文本节点:#text
+			 注释节点:comment
+			 文档节点:#document
+			 类型节点:view
+			 */
+
+			//4.获取元素节点的内容(开始标签与结束标签之间的内容)
+			//a.innerHtml,获取标签里的所有内容包含文本节点,元素节点,注释节点等.
+			var div3 = document.getElementById("div2");
+			console.log(div3.innerHTML);
+			//b.innerText  获取标签里的文本节点,忽略多余的空格,不会显示被隐藏了的元素的文本内容;
+			console.log(div3.innerText);
+			//c.textContent  获取标签里的文本节点,不会忽略多余的空格,不会显示被隐藏了的元素的文本内容;
+			console.log(div3.textContent);
+
+			var ul1 = document.getElementById("u1")
+			console.log(ul1.firstChild.nodeValue);
+			console.log(ul1.firstElementChild.innerHTML);
+			console.log(ul1.lastElementChild.innerHTML);
+			console.log(ul1.lastChild.nodeValue)
+
+			//hasChildNodes()  判断一个节点是否有子节点
+
+			if(ul1.hasChildNodes()) {
+				console.log("有子节点")
+			} else {
+				console.log("没有子节点")
+			}
+
+			//元素属性的操作
+				var input1 = document.querySelector("input");
+				//1.setAttribute() 设置某个元素节点的属性
+				input1.setAttribute("placeholder", "请输入密码");
+				//2.getAttribute()  获取某个元素节点的属性值
+				var str = input1.getAttribute("placeholder") + "hehehe";
+				input1.setAttribute("placeholder", str);
+				console.log(input1.getAttribute("placeholder"));
+				//3.removeAttribute()删除某个元素节点的属性
+				input1.removeAttribute("placeholder");
+			//元素节点的样式
+			var div4 = document.getElementById("div4");
+			  //1. style 获取内部的样式 所有的内部样式都会展示
+			  console.log(div4.style)
+			  //2.获取到所有的样式
+			    //a.仅支持IE浏览器
+			    console.log(div4.currentStyle);
+			    //b.支持IE以外的所有浏览器 getComputedStyle(元素,伪类).
+			    console.log(getComputedStyle(div4))
+			 //3.获取指定的某一个样式
+			 console.log(getComputedStyle(div4).width);
+			 console.log(getComputedStyle(div4)["width"]);
+			 
+		  	//创建节点
+		  	//1. createElement() 创建元素节点
+		  	var img = document.createElement("img");
+		  	img.src = "img/3.jpg";
+		  	img.style.width = 200 + "px";
+		  	//2. createComment() 创建一个注释节点
+		  	var zs = document.createComment("这是一个新加的注释");
+		  	//3.创建文本节点
+		  	var text1 = document.createTextNode("这是一个新加的文本");
+		  	
+		  	
+		  	
+		  	//将创建好的节点插入对应的位置
+		  	//1. appendChild() 将创建好的节点放到对应节点的最后面
+		  	document.body.appendChild(img);
+		  	document.body.appendChild(zs);
+		  	document.body.appendChild(text1)
+		  	//2.insertBefore(a1,a2 )在a2节点之前插入a1节点
+		  	var imgOne = document.createElement("img");
+		  	imgOne.src = "../../HTML基础/Day04/1.jpg";
+		  	document.body.insertBefore(imgOne,div4);
+		  	
+		  	//替换节点 replaceChild(a1,a2) 用a1替换a2
+		  	var span = document.createElement("span");
+		  	span.innerHTML = "你好";
+		  	document.body.replaceChild(span,div4);
+		  	
+		  	//删除节点
+		  	document.body.removeChild(imgOne);
+		</script>
+	</body>
+
+
+
+
+
+
+
+
+
+
+
+</html>

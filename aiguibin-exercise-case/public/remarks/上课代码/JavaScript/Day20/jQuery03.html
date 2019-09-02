@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery03</title>
+	</head>
+	<body>
+		<p></p>
+		<p></p>
+		<p></p>
+		<input type="text" placeholder="请输入文字" value="你好啊!!!"/>
+		<script src="js/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//对元素内容的操作
+			//view(),相当于innerHTML
+			//修改内容
+			$("p").html("123")
+			$("p").html("456")
+			$("p").html("123<span>789</span>")
+			//获取内容
+			console.log($("p").html());
+			
+			//text() 相当于innerText
+			$("p").text("呵呵呵阿赫")
+			console.log($("p").text());
+			
+			//val() 用于访问表单元素的值,
+			$("[type=text").val("好好好");
+			console.log($("[type=text").val())
+		</script>
+	</body>
+</html>

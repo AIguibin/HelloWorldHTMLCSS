@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arguments参数列表</title>
+</head>
+<body>
+<div>
+    <h1>参数列表</h1>
+    <p>通过arguments获取参数列表，为类数组,是个对象,但是有个length属性</p>
+    <xmp>
+        <script>
+            const m = max(2, 56, 7, 4, 3, 789, 0);
+            console.log(m);
+
+            function max() {
+                if (arguments.length <= 0) {
+                    return;
+                }
+                let maxNum = arguments[0];
+                for (let i = 0; i < arguments.length; i++) {
+                    if (arguments[i] > maxNum) {
+                        maxNum = arguments[i];
+                    }
+                }
+                return maxNum;
+            }
+        </script>
+    </xmp>
+</div>
+<script>
+    const m = max(2, 56, 7, 4, 3, 789, 0);
+    console.log(m);
+
+    function max() {
+        if (arguments.length <= 0) {
+            return;
+        }
+        let maxNum = arguments[0];
+        for (let i = 0; i < arguments.length; i++) {
+            if (arguments[i] > maxNum) {
+                maxNum = arguments[i];
+            }
+        }
+        return maxNum;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>栈内存与堆内存</title>
+</head>
+<body>
+<div>
+    <h1>栈内存与堆内存</h1>
+    <p>
+        直白点儿说：值类型就是现金，要用直接用；引用类型是存折，要用还得先去银行取现。
+        声明一个值类型变量，编译器会在栈上分配一个空间，这个空间对应着该值类型变量，空间里存储的就是该变量的值。
+        引用类型的实例分配在堆上，新建一个引用类型实例，得到的变量值对应的是该实例的内存分配地址，这就像您的银行账号一样。
+    </p>
+    <img src="../../../../resource/image/2019-06-05_160446.png" alt="console">
+</div>
+
+<script>
+    var a = 12, b, c = {name: '杰森斯坦森', age: 35}, d;
+    b=a;
+    b=18;
+    console.log('a的值:'+a+'\r\n'+'b的值:'+b);
+    console.log('==================================');
+    console.log('c的原始值\'+JSON.stringify(c),这样可以打印字符串拼接的对象');
+    console.log('c的原始值'+JSON.stringify(c));
+    d=c;
+    d.name='玩命快递';
+    d.age=1999;
+    console.log('c现在的值'+JSON.stringify(c));
+    console.log('解构展开对象{...object}');
+    console.log({...d});
+    console.log(`以上可以看出基本数据类型是存在栈中的，形式为变量名，变量值；
+    引用类型的变量名在栈中，变量值是堆空间的内存地址，真正的对象是在堆空间中
+    所以你把c赋值给d的时候是把内存地址给了d，所以你改变了d对象属性值的时候，c对象的属性值也变了
+    因为这两个引用变量c，d 指向的是同一块堆内存`)
+</script>
+</body>
+</html>
