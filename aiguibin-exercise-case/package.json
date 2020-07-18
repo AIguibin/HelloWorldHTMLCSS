@@ -22,7 +22,7 @@
   "dependencies": {
     "@types/node": "^12.0.4",
     "express": "^4.17.1",
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.19"
   },
   "devDependencies": {
     "css-loader": "^3.0.0",
